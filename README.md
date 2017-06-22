@@ -12,3 +12,15 @@ https://elementztechblog.wordpress.com/2014/07/24/installing-latex-and-beamer-in
 This looks useful:
 http://www.texstudio.org/
 
+## How to get started
+
+1. Make a copy of template.tex
+2. Place it in the main directory (for the love of Garek please don't change it)
+3. All the stuff you shouldn't change is in the header file in the include directory. Don't change it.
+4. At the top of the file, in \subtitle brackets, write the number and name of your presentation, i.e:
+
+```tex
+\subtitle{4 - Spline functions}
+```
+
+Have fun! 
