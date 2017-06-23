@@ -22,5 +22,10 @@ http://www.texstudio.org/
 ```tex
 \subtitle{4 - Spline functions}
 ```
+...and that's basically all
+
+## Images policy
+
+Place all the images you need to include in your presentation in the img/[number of presentation] directory - this way we can avoid the mess involved with mixing up images between our presentations.
 
 Have fun! 
