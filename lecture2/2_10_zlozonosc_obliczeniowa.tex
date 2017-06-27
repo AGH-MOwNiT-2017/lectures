@@ -1,0 +1,66 @@
+\section{Złożoność obliczeniowa {\it computational complexity}}
+%%%%%%%%%%%%%%%%
+\begin{frame}{Złożoność obliczeniowa}
+	Oprócz jakości algorytmu - ważny jego {\it koszt} - liczba działań arytmetycznych (logicznych) potrzebnych do rozwiązania zadania - algorytmy minimalizujące liczbę działań.
+\end{frame}
+%%%%%%%%%%%%%%%%
+\begin{frame}{Rezultaty}
+	\begin{enumerate}
+		\item Oszacowanie złożoności obliczeniowej ,,z dołu'': jeżeli zadanie ma $n$ danych istotnych, to minimalna liczba działań arytmetycznych potrzebnych do obliczenia wyniku:
+        \[
+        	z(\varphi, D) \ge \frac{n}{2}
+        \]
+        \item Dla wielu zadań można udowodnić, że minimalna liczba działań w algorytmie numerycznie poprawnym musi być istotnie większa od liczby danych.
+        \item Metody optymalne co do $z(\varphi, D)$ znane są dla niewielu, prostych zadań.
+	\end{enumerate}
+\end{frame}
+%%%%%%%%%%%%%%%%
+\begin{frame}{Złożoność obliczeniowa - przykład}
+	\begin{exampleblock}{Przykład}
+        \begin{itemize}
+            \item prosty
+            \item ilustruje konieczność myślenia {\it do końca} przy wyborze algorytmu
+        \end{itemize}
+        {\bf Zadanie:}
+        \[
+        	S = \sum_{i/1}^n (-1)^i \cdot i;
+        \]
+	\end{exampleblock}
+\end{frame}
+%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{Złożoność obliczeniowa - przykład}
+	\begin{exampleblock}{Przykład}
+    	{\bf A1:}
+    	\begin{lstlisting}[escapechar=|]
+s = 0
+do 1 i=1, n
+    s = s+(-1)**i*i
+continue \end{lstlisting}
+		\vspace{-15pt}
+    	{\bf A2:}
+    	\begin{lstlisting}[escapechar=|]
+s = 0
+do 1 i=1,n,2
+    s = s-1
+continue
+do 1 i=1,n,2
+	s = s+1
+continue \end{lstlisting}
+		\vspace{-15pt}
+	\end{exampleblock}
+\end{frame}
+%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{Złożoność obliczeniowa - przykład}
+	\begin{exampleblock}{Przykład}
+    	{\bf A3:}
+    	\begin{lstlisting}[escapechar=|]
+s = n/2
+if (mod(n,2).eq.1) s=-s \end{lstlisting}
+		\vspace{-15pt}
+        \begin{itemize}
+        	\item ilość operacji nie zależy od $n$
+            \item nie ma akumulacji błędów
+            \item nie grozi overflow
+        \end{itemize}
+	\end{exampleblock}
+\end{frame}
