@@ -1,6 +1,12 @@
 # lectures
 Brave quest of 16 students to make MOWNiT even better again!
 
+## Workflow
+
+Current division of chapters between teams is here:
+
+https://docs.google.com/spreadsheets/d/1gpITiKJO90yhQHCTuNMIKmU7El9n4iUcvN-XkUxMhiY/edit#gid=0
+
 ## Getting LaTeX and Beamer
 
 To get LaTeX and Beamer instructions presented here should get you covered:
