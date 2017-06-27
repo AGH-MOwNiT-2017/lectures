@@ -1,0 +1,187 @@
+\section{Stabilność numeryczna}
+%%%%%%%%%%%%%%%%
+\subsection{Przykłady}
+%%%%%%%%%%%%%%%%
+\begin{frame}{Stabilność numeryczna - przykłady}
+	\begin{exampleblock}{Przykład 1}
+    \setstretch{.5}
+    \fontsize{9}{9}
+      \begin{columns}[T]
+      	\column{.25\linewidth}
+        \vspace{.5cm}
+            \[
+                e^x = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + ...
+            \]\[
+                \beta = 10, t = 5, x = -5.5
+            \]
+		\column{.65\linewidth}
+          \begin{columns}
+              \column{.55\linewidth}
+                  \begin{align*}
+                      e^{-5.5}  	=& &   1&.0 \\
+                                   & &  -5&.5 \\
+                                   & & +15&.125 \\
+                                   & & -27&.730 \\
+                                   & & +38&.129 \\
+                                   & & -41&.942 \\
+                                   & & +38&.446 \\
+                                   & & -30&.208 \\
+                                   & & +20&.768 \\
+                                   & & -12&.692 \\
+                                   & &  +6&.9803 \\
+                                   & &  -3&.4902 \\
+                                   & &  +1&.5997 \\
+                                   & & .&..\\
+                                   \hline \\[-8pt]
+                                   & &   0&.0026363
+                  \\[-7pt]
+                  \text{\bf ALE  } e^{-5.5} =& & 0&.00408677 \hspace{3pt} !
+                  \end{align*}
+              \column{.38\linewidth}
+                  25 składników \\i brak zmian \\w sumie
+          \end{columns}
+      \end{columns}
+	\end{exampleblock}
+\end{frame}
+%%%%%%%%%%%%%%%%
+\begin{frame}{Stabilność numeryczna - przykłady}
+
+	\begin{exampleblock}{Przykład 1}
+        {\bf Przyczyna:} np. 38.129 $\Rightarrow$ błąd reprezentacji $\approx$ wynik! ({\it catastrophic cancellation})\\
+        Sposób obliczeń wzmacniający błędy reprezentacji!\\
+        A co dla $e^{-200}$?\\
+        Po zmianie algorytmu: ($\beta, t$ - j.w.)
+        \\[-6pt]
+        \[
+            e^{-5.5} = \frac{1}{e^{5.5}} = \frac{1}{1 + 5.5 + 15.125 + ...} = \underbrace{0.0040865}_\text{0.007\%!}
+        \]
+        \\[-8pt]
+        $e^x$ oblicza się:
+        \\[-18pt]
+        \begin{align*}
+                         x &= m + f, \text{m - całkowite, } 0 \le f < 1 \\
+                         e^x &= e^{m+f} = e^m \cdot e^f \\
+            \text{lub }  e^x &= e^{(1 + \frac{f}{m}) \cdot m} = \left[ e^{1 + \frac{f}{m}} \right]^m
+        \end{align*}
+    \end{exampleblock}
+\end{frame}
+%%%%%%%%%%%%%%%%
+\begin{frame}{Stabilność numeryczna - przykłady}
+	\begin{exampleblock}{Przykład 2}
+    \setstretch{.7}
+		\[
+        	E_n = \int_0^1 x^n \cdot e^{x-1} dx, \hspace{.5cm} n = 1, 2, ...
+        \]
+        całkowanie przez części:
+        \\[-15pt]
+		\begin{align*}
+			& \int_0^1 x^n \cdot e^{x-1} dx = 
+            \left. x^n \cdot e^{x-1}
+            \right|_0^1 - \int_0^1 n \cdot x^{n-1} \cdot e^{x-1} dx \\
+            & \Rightarrow
+            \left\{
+            	\begin{array}{ll}
+            		E_n = 1-n \cdot E_{n-1}, \hspace{.5cm} n = 2, 3, ... \\
+                    E_1 = \frac{1}{e}
+            	\end{array}
+            \right.
+		\end{align*}
+        \\[-5pt]
+        $\beta = 10, t = 6$
+        \\[-13pt]
+        \begin{align*}
+        	E_1 &\approx 0.367879, \varepsilon \approx 4.412 \cdot 10^{-7} \\
+            E_2 &\approx 0.264242 \\
+            ... \\
+            E_8 &\approx 0.118720 \\
+            E_9 &\approx -0.0684800 \hspace{.3cm} !! \hspace{.3cm} \text{Bo: } x^9 \cdot e^{x-1} \ge 0, x \in [0, 1]
+        \end{align*}
+	\end{exampleblock}
+\end{frame}
+%%%%%%%%%%%%%%%%
+\begin{frame}{Stabilność numeryczna - przykłady}
+	\begin{exampleblock}{Przykład 2}
+		Powód $\rightarrow \varepsilon(E_1):$
+        \begin{align*}
+        	\text{w } E_2 &\rightarrow \varepsilon \cdot 2 \\
+        	\text{w } E_3 &\rightarrow \varepsilon \cdot 2 \cdot 3 \\
+            ... \\
+            \text{w } E_9 &\rightarrow \varepsilon \cdot 2 \cdot 3 \cdot 4 \cdot ... \cdot 9 = \varepsilon \cdot 9! = \varepsilon \cdot 362880 \approx 0.1601
+        \end{align*}
+        i nawet: $-0.06848 + 0.1601 = 0.0916$ - poprawny!
+	\end{exampleblock}
+\end{frame}
+%%%%%%%%%%%%%%%%
+\begin{frame}{Stabilność numeryczna - przykłady}
+	\begin{exampleblock}{Przykład 2}
+    Jak wybrać dobry (stabilny) algorytm?
+    \\[-10pt]
+    \[
+    	E_{n-1} = \frac{1 - E_n}{n}, \hspace{.3cm} n = ..., 3, 2.
+    \]
+    \\[-8pt]
+    Na każdym etapie zmniejszamy błąd $n$ razy - {\bf algorytm stabilny}.
+    \\[-20pt]
+    \begin{align*}
+    	E_n = \int_0^1 x^n \cdot e^{x-1} dx \le \int_0^1 x^n dx =
+        \left.
+        	\frac{x^{n+1}}{n+1}
+        \right|_0^1 = \frac{1}{n+1} \\
+        \lim_{n \to \infty} E_n = 0 \\
+        E_{20} \approx 0.0 \hspace{.3cm} \text{- błąd } \hspace{.1cm} \frac{1}{20} \\
+        E_{19} \rightarrow \frac{1}{2} \cdot \frac{1}{21} \approx 0.0024 \\
+        \\[-22pt]
+        ... \\
+        E_{15} \approx 0.0590176 \rightarrow \text{wartość dokładna na 6 miejscach znaczących.}
+    \end{align*}
+    \end{exampleblock}
+\end{frame}
+%%%%%%%%%%%%%%%%
+\begin{frame}{Stabilność numeryczna - przykłady}
+	\begin{block}{Przykład 2 - definicja}
+		Metoda numerycznie jest {\bf stabilna}, jeżeli mały błąd na dowolnym etapie przenosi się dalej z {\it malejącą amplitudą}.
+        \[
+        	\varepsilon^{n+1} = g \cdot \varepsilon^n \hspace{.2cm} 
+            \Rightarrow \text{stabilna:}
+            \left| \varepsilon^{n+1} \right| \le \left| \varepsilon^n \right|, \hspace{.2cm} g \text{ - wsp. wzmocnienia}
+        \]
+	\end{block}
+\end{frame}
+%%%%%%%%%%%%%%%%
+\subsection{Definicja}
+%%%%%%%%%%%%%%%%
+\begin{frame}{Stabilność numeryczna - definicja}
+	\begin{block}{Definicja}
+    	{\bf Algorytm najwyższej jakości} - algorytm numerycznie poprawny.
+    \end{block}
+    \vspace{-20pt}
+    \begin{align*}
+    	\vec{w} = \varphi(\vec{d}) &\\
+        \hat{d}: ||\vec{d} - \hat{d}|| \le \varrho_d ||\vec{d} || &,&& 
+        	\hat{d} - \text{dane zaburzone na poz. repr.} \\
+        \hat{w} = \varphi(\hat{d}) &,&&
+        	\hat{d} - \text{dokł. rozw. dla danych zab.} \\
+		\tilde{w}: ||\hat{w} - \tilde{w} || \le \varrho_w ||\tilde{w}|| &,&&
+        	\tilde{w} - \text{wynik dla $\hat{d}$,} \\
+            &&&\text{zab. na poz. reprezentacji} \\
+        ||\vec{w} - \tilde{w} || \le ||\vec{w} - \hat{w}|| + ||\hat{w} - \tilde{w}|| &\le&&
+        	(1 + \varrho_w) \cdot \max_{\hat{d}} ||\varphi(\vec{d}) - \varphi(\hat{d})|| +\\
+            &&&+ \varrho_w ||\vec{w}|| \\
+        P(\vec{d}, \varphi) &=&& \varrho_w ||\vec{w}|| + \max_{\hat{d}} ||\varphi(d) - \varphi(\hat{d})||
+    \end{align*}
+\end{frame}
+%%%%%%%%%%%%%%%%
+\begin{frame}{Optymalny poziom błędu rozwiązania $\varphi(\vec{d})$ w arytmetyce $fl$}
+	\begin{block}{Definicja}
+		Algorytm A nazywamy {\bf numerycznie stabilnym} w klasie $\{\varphi, D\}$, jeżeli istnieje stała $K$ taka, że dla
+        \begin{itemize}
+        	\item $\forall \vec{d} \in D$,
+            \item dla każdej dostatecznie silnej arytmetyki
+        \end{itemize}
+        zachodzi:
+        \[
+        	||\varphi(\vec{d}) - fl(A(\vec{d}))|| \le \underbrace{K}_\text{małe} \cdot P(\vec{d}, \varphi)
+        \]
+        {\bf numerycznie poprawny} - stabilny (minimalny wymóg)
+	\end{block}
+\end{frame}
