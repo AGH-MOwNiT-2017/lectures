@@ -1,0 +1,25 @@
+\section{Dlaczego MC i całki?}
+%%%%%%%%%%%%%%%%
+\begin{frame}{Dlaczego MC i całki?}
+	\begin{enumerate}[a)]
+		\item
+        	$X$ - zmienna losowa ciągła, wartości z $(a, b)$ zgodnie z rozkładem $f(x)$ \\
+            $g$ - ustalona funkcja \\
+            $y = g(x)$ - zmienna losowa
+            
+            {\bf Wart. oczekiwana} $Y: E\{Y\} = E\{g(x)\} = \int_a^b g(x) f(x) dx$ \hfill $(*)$
+	\end{enumerate}
+\end{frame}
+%%%%%%%%%%%%%%%%
+\begin{frame}{Dlaczego MC i całki?}
+	\begin{enumerate}
+		\item[b)]
+			chcemy obliczyć całkę: $I = \int_a^b h(x) dx$ \\
+            niech $f: f(x) > 0$ dla $x \in (a, b), \int_a^b f(x) dx = 1$ \\
+            $f(x)$ - gęstość rozkładu pewnej zmiennej losowej przyjmującej wartości z $(a, b)$ \\
+            $I = \int_a^b \frac{h(x)}{f(x)} f(x) dx = \int_a^b g(x)f(x)dx$ \hfill $\leftarrow$ całka postaci $(*)$ \\
+            Obliczanie całki można zawsze przedstawić jako zagadnienie obliczania wartości oczekiwanej pewnej zmiennej losowej ciągłej.
+            \\[8pt]
+            (suma szeregu - zmienna losowa dyskretna)
+	\end{enumerate}
+\end{frame}
