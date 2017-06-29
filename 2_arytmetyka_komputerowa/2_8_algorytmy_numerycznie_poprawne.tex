@@ -1,0 +1,110 @@
+\section{Algorytmy numerycznie poprawne}
+%%%%%%%%%%%%%%%%
+\begin{frame}{Algorytmy numerycznie poprawne}
+	Ograniczenia:
+    \begin{itemize}
+    	\item dane - {\it zaburzone}
+    	\item wyniki - {\it zaburzone}
+    \end{itemize}
+    stąd: błędy reprezentacji
+\end{frame}
+%%%%%%%%%%%%%%%%
+\begin{frame}{Algorytmy numerycznie poprawne}
+	\begin{block}{Definicja}
+		{\bf Algorytmy numerycznie poprawne} - takie, które dają rozwiązania będące nieco zaburzonym dokładnym rozwiązaniem zadania o nieco {\it zaburzonych} danych. Są to algorytmy najwyższej jakości.
+        
+        {\bf Dane nieco zaburzone} - zaburzone na poziomie reprezentacji.
+	\end{block}
+\end{frame}
+%%%%%%%%%%%%%%%%
+\begin{frame}{Algorytmy numerycznie poprawne - definicje}
+	\begin{block}{Definicja}
+    	Algorytm A jest {\bf numerycznie poprawny} w klasie zadań $K_d$, $K_w$, jeżeli istnieją stałe $K_d, K_w$ takie, że:
+        \begin{itemize}
+        	\item $\forall d \in D$,
+            \item dla każdej dostatecznie silnej arytmetyki $\left( \beta^{1-t} \right)$
+        \end{itemize}
+        $\exists \tilde{d} \in D_0$ taki, że:
+        
+        {\centering
+        	$|| \vec{d} - \tilde{d} || \le \varrho_d \cdot K_d \cdot || \vec{d} ||$ \\ \vspace{.1cm}
+            $|| \varphi(\vec{d}) - fl(A(\vec{d})) || \le \varrho_w \cdot K_w \cdot || \varphi(\vec{d}) ||$ \\}
+
+        $\varphi(\vec{d})$ - dokładnie rozwiązanie zadania o zaburzonych danych $\tilde{d}$ \\
+        $K_w, K_d$ - wskaźniki kumulacji algorytmu A w klasie zadań $\left\{\varphi, D\right\}$
+        $K_w, K_d$:
+        \begin{itemize}
+        	\item dla dowolnych danych klasy $\left\{ \varphi, D \right\}$,
+            \item minimalne $\rightarrow$ jakość A.
+        \end{itemize}
+	\end{block}
+\end{frame}
+%%%%%%%%%%%%%%%%
+\begin{frame}{Algorytmy numerycznie poprawne - definicje}
+	\begin{block}{Definicja}
+		{\bf Użyteczne algorytmy} - gdy wskaźniki kumulacji rzędu liczby działań
+	\end{block}
+\end{frame}
+%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{Algorytmy numerycznie poprawne - przykład}
+	\begin{exampleblock}{Przykład 1}
+		Numeryczna poprawność algorytmu $\vec{a} \cdot \vec{b} = \sum_{i/1}^{n} a_i \cdot b_i$
+        
+\begin{lstlisting}[escapechar=|]
+  |$A(\vec{a}, \vec{b}):$|
+  s := 0;
+  for i:=1 to n do s := s + |$a_1 \cdot b_i$|;
+\end{lstlisting}
+	\end{exampleblock}
+\end{frame}
+%%%%%%%%%%%%%%%%
+\begin{frame}{Algorytmy numerycznie poprawne - przykład}
+	\begin{exampleblock}{Przykład 1}
+		{\bf Realizacja algorytmu}: $fl(A(\vec{a}, \vec{b}))$:
+        \begin{enumerate}
+        	\item dane - reprezentacje \\
+                \hspace{1cm} $a_i \to \hat{a_i} = rd(a_i) = a_i \cdot (1 + \alpha_i)$ \\
+                \hspace{1cm} $b_i \to \hat{b_i} = rd(b_i) = b_i \cdot (1 + \beta_i)$
+        	\item działania - przybliżone, $fl$ \\
+            	np. $i = 1, 2, 3:$ \\ 
+                \begin{addmargin}[1em]{0em}
+                $
+                    fl(A(\vec{a}, \vec{b})) = \{
+                        [
+                            \hat{a_1} \cdot \hat{b_1} \cdot (1 + \varepsilon_1) +
+                            \hat{a_2} \cdot \hat{b_2} \cdot (1 + \varepsilon_2) +
+                        ]
+                        \cdot (1 + \delta_2) + \hat{a_3} \cdot \hat{b_3} \cdot (1 + \varepsilon_3)
+                    \} \cdot (1 + \delta_3); 
+                $ \\
+                $\delta_1 = 0$ \\
+                
+                \end{addmargin}
+            	i ogólnie:
+                \begin{addmargin}[1em]{0em}
+                $
+                	fl(A(\vec{a}, \vec{b})) =
+                	\sum_{i/1}^{n} a_i \cdot (1+a_i) \cdot 
+                    b_i \cdot (1 + \beta_i) \cdot (1 + \varepsilon_i)
+                    \cdot \prod_{j/i}^{n} (1 + \delta_j)
+                $                
+                \end{addmargin}
+        \end{enumerate}
+	\end{exampleblock}
+\end{frame}
+%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{Algorytmy numerycznie poprawne - przykład}
+	\begin{exampleblock}{Przykład 1}
+    	{\bf Interpretacja (dowolność)}
+        \begin{itemize}
+        	\item dokładny wynik: $K_w = 0$
+            \item dla zaburzonych danych:
+            	\begin{addmargin}[1cm]{0cm}
+            		$|| \vec{a} - \tilde{a} || \le \beta^{1-t} \cdot || \vec{a} ||$ \hspace{.5cm} $(K_{d_1} = 1)$\\
+            		$|| \vec{b} - \tilde{b} || \le (n + 1) \cdot \beta^{1-t} \cdot || \vec{b} ||$ \hspace{.5cm} $(K_{d_2} = n+1)$
+            	\end{addmargin}
+        \end{itemize}
+        {\bf Uwaga:} pominięcie błędów reprezentacji danych $\equiv$ zmniejszenie $K_d$ o 1.
+	\end{exampleblock}
+\end{frame}
+%%%%%%%%%%%%%%%%

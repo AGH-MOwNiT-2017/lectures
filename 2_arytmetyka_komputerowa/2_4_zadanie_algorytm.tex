@@ -1,0 +1,51 @@
+\section{Zadanie, algorytm}
+\begin{frame}{Zadanie, algorytm}
+    \begin{block}{Definicja}
+        \begin{columns}
+            \column{.5\linewidth}
+                \hfill dla danych
+                \newline
+
+                \hfill znaleźć wynik
+            \column{.5\linewidth}
+                $\vec{d} = \left( d_1, d_2, ..., d_n \right) \in R_d$\newline
+                $\vec{w} = \left( w_1, w_2, ..., w_m \right) \in R_w$\newline
+                $\vec{w} = \varphi(\vec{d})$
+        \end{columns}
+        $R_d$, $R_w$ - skończenie wymiarowe, unormowane przestrzenie kartezjańskie\newline
+        $\varphi: D_0 \subset R_d \rightarrow R_w$ - odwzorowanie ciagłe
+    \end{block}
+    \begin{block}{Definicja}
+        {\bf Algorytm A w klasie zadań $\{\varphi, D\}$} jest to sposób wyznaczenia wyniku $\vec{w} = \varphi(\vec{d})$ dla $d \in D \subset D_0$, z dokładną realizacją działań, tj. w zwykłej arytmetyce
+    \end{block}
+\end{frame}
+%%%%%%%%%%%%%%%%
+\begin{frame}{Realizacja algorytmu w arytmetyce fl - $fl(A(\vec{d}))$}
+    zastąpienie:
+    \begin{itemize}
+        \item $d, x, ..$
+        \item arytmetyki
+    \end{itemize}
+    przez:
+    \begin{itemize}
+        \item $rd(d), rd(x), ..$
+        \item arytmetykę float
+    \end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%
+\begin{frame}{Założenia o reprezentacji danych i wyników}
+    \begin{block}{Założenia}
+    \[
+    || \vec{d} - rd(\vec{d}) ||
+    \le 
+    \varrho_d ||\vec{d} ||
+    \] \[
+    || \vec{w} - rd(\vec{w}) ||
+    \le 
+    \varrho_w ||\vec{w} ||
+    \] \[
+    \varrho_d, \varrho_w = \underbrace{k}_{\text{małe, } \approx 10} \cdot \beta^{1-t}
+    \]
+    \end{block}
+    - reprezentowane z małymi błędami.
+\end{frame}

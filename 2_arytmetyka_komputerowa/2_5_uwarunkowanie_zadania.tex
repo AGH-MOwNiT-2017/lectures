@@ -1,0 +1,62 @@
+\section{Uwarunkowanie zadania ({\it condition of a problem})}
+%%%%%%%%%%%%%%%%
+\begin{frame}{Uwarunkowanie zadania}
+
+	{\it Przyczyna:} zamiast 
+    	$d_i \rightarrow rd(d_i) = d_i \cdot (1 + \varepsilon)$,
+        $||\varepsilon|| \le \beta^{1-t}$
+        
+    \begin{block}{Definicja}
+    	{\bf Uwarunkowanie zadania} - czułość na zaburzenie danych,
+        
+        {\bf Wskaźniki uwarunkowania zadania} - wielkości charakteryzujące wpływ zaburzeń danych zadania na zaburzenie jego rozwiązania.
+    \end{block}
+    
+    \begin{block}{Definicja}
+    Zadanie nazywamy źle uwarunkowanym, jeżeli niewielkie względne zmiany danych zadania powodują duże względne zmiany jego rozwiązania.
+    \end{block}
+\end{frame}
+%%%%%%%%%%%%%%%%
+\begin{frame}{Uwarunkowanie zadania}
+	\begin{exampleblock}{Przykład}
+    \begin{columns}
+    	\column{.45\linewidth} 
+        	\centering
+            $\vec{x} \cdot \vec{y} = \sum_{i/1}^n x_i \cdot y_i \neq 0$
+        \column{.45\linewidth} 
+                $x_i \rightarrow x_i \cdot (1 + \alpha_i)$ \\
+                $y_i \rightarrow y_i \cdot (1 + \beta_i)$
+    \end{columns}
+    \begin{gather*}
+    	\underbrace{\left| \frac{
+        	\sum_{i/1}^n x_i \cdot (1 + \alpha_i) \cdot y_i \cdot (1 + \beta_i) - \sum_{i/1}^n x_i y_i
+        }{
+        	\sum_{i/1}^n x_i \cdot y_i
+        }\right|}_\text{błąd względny}
+        \approx \\ \approx
+        \left| \frac{
+        	\sum_{i/1}^n \cdot x_i \cdot y_i \cdot \left( \alpha_i + \beta_i \right)
+        }{
+        	\sum_{i/1}^n x_i \cdot y_i
+        }\right|
+        \le
+        \max \left| \alpha_i + \beta_i \right| \cdot \underbrace{\frac{
+        	\sum_{i/1}^n \left| x_i \cdot y_i \right|
+        }{
+        	\left| \sum_{i/1}^n x_i \cdot y_i \right|
+        }}_{cond(\vec{x} \cdot \vec{y})}
+    \end{gather*}
+    gdzie $cond(\vec{x} \cdot \vec{y})$ oznacza {\it wskaźnik uwarunkowania}, \\ 
+    gdy wszystkie $x_i, y_i$ tego samego znaku $\Rightarrow cond(\vec{x} \cdot \vec{y}) = 1$
+    \end{exampleblock}
+\end{frame}
+%%%%%%%%%%%%%%%%
+\begin{frame}{Uwarunkowanie zadania}
+
+	{\bf Poprawa:}
+    \begin{itemize}
+    	\item silniejsza arytmetyka,
+        \item użycie zadania równoważnego
+    \end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%
