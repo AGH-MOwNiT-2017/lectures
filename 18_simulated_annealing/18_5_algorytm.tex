@@ -1,0 +1,29 @@
+\section{Algorytm simulated annealing}
+
+<obrazek>
+
+Ti - temperature schedule: Ti > Ti+1, np. Ti+1 = 0.9 * Ti
+
+Sprawdzanie czy układ jest w równowadze
+
+A)
+Utrzymywać Ti przez 
+100*N prób
+10*N prób udanych (delta g <0)
+
+B)
+n - ustalona liczba prób (epoka)
+1. wykonać n prób (Ci -> Ci+1)
+2. zachować g(Cn)
+3. porównać gi(Cn) dla kilku ostatnich zestawów po n próbach -> brak istotej zmiany g(Cn) -> nowe T
+
+Start:
+stopienie ->określić typowe delta g, wybrać delta T >> delta g, (delta E)
+
+- Znakomita strona - interaktywna demonstracja działania SA, źródła w C, C++
+I DZIAŁA :O
+https://www.taygeta.com/annealing/simanneal.html
+
+Programy w C:
+Postscript:
+% martwe linki

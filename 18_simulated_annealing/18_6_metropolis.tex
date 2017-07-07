@@ -1,0 +1,71 @@
+\section{Schemat Metropolisa}
+Podstawa metody Monte Carlo symulacji molekularnej
+
+<obrazek>
+
+<równanie> (ale te po średniku to rozdzielić)
+
+$$
+Delta \vec{r} = \delta(\vec{i} \cdot a_x + \vec{j} \cdot a_y  + \vec{k} \cdot a_z)
+$$
+
+\begin{center}
+$\delta$ - wybrane z góry $\approx 10^{-11}$ m
+\end{center}
+
+$$
+a_i \in (-1, 1), Unif
+$$
+
+<obrazek>
+
+$a_i$, R - liczby pseudolosowe
+
+$\delta\phi$ - zmiana energii potencjalnej układy w wyniku przesunięcia molekuły m
+
+Charakterystyka schematu Metropolisa
+- $T \nearrow$ - łatwiej akceptowalne kroki z $H \nearrow (E) \rightarrow$ a to możliwość opuszczenia stanu metastabilnego (lokalnego minimum).
+- zmiany $H \searrow$ są akceptowalne zawsze
+
+Po wielu krokach system $\rightarrow$ stan równowagi termodynamicznej z parametrami oscylującymi wokół wartości średnich zgodnie z rozkładem Boltzmanna
+
+- schemat Metropolisa $\rightarrow$ łańcuch Markowa
+
+<obrazek>
+
+Zasada równowagi szczegółowej (detailed balance, microscopic reversibility)
+
+$$
+p_2 \cdot = p_1 \cdot e \cdot - \dfrac{E_2 - E_1}{kT}
+$$
+
+$$
+\frac{p1}{p2} = \dfrac{e^{-\frac{E_1}{kT}}}{e^{-\frac{E_2}{kT}} \rightarrow p_i ~ \underbrace{czynnik prawdopodobieństwa Boltzmanna}{e^{\frac{E_i}{kT}}}
+$$
+
+$$
+P(c_i) ~ e^{\frac{E_i}{kT}}
+$$
+
+$\rightarrow$ importance sampling: konfiguracje generowane nie losowo - ale z zadanym rozkładem (50-70 % akceptowanych)
+Notatka nt. niejednorodnych łańcuchów Markowa w SA, dużo bibliografii
+
+% whaaaat
+% http://www.pz.zgora.pl/discuss/al15_2/a6.htm
+
+Uwagi praktyczne:
+
+duże $\Delta\vec{r} : \rightarrow$
+- niski poziom akceptacji
+- szybsze próbkowanie przestrzeni konfiguracyjnej
+
+Dla potencjałów parowych, krótkozasięgowych:
+- przesuwamy tylko 1 cząstkę
+- dla określenia $\Delta\phi$ - tylko najbliżsi sąsiedzi
+
+W przypadku cieczy:
+- każda cząsteczka $\approx 10^3$ przemieszczeń
+- w modelu $\approx 10^3$ cząsteczek
+
+Force-biased displacement
+- wszystkie cząsteczki przesuwane równocześnie przeciwnie do gradietu potencjału
