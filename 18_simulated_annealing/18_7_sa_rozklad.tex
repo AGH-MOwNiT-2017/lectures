@@ -1,0 +1,74 @@
+\section{Simulated Annealing a rozkład kanoniczny}
+
+- własności makroskopowe z mikroskopowymi
+Q - stan mikroskopowy układu
+E(Q) - energia ukłądu w stanie Q
+P(Q) - rozkład prawdopodobieństwa 
+Rozkład mikrokanoniczny - układ izolowany
+
+$$
+P(Q) = A(Q) \cdot \delta(E - E(Q))
+A(Q) = \begin{cases}
+0 - \text{niemożliwe} \\
+A - \text{możliwe}
+\end{cases}
+$$
+
+Rokład kanoniczny - ukłąd w kontakcie cieplnym z otoczeniem
+<obrazek>
+
+$$
+P(Q) = Z^{-1} \cdot e^{-\frac{E(Q)}{kT}}
+$$
+
+$$
+\sum_Q P(Q) = Z^{-1} \cdot \sum_Q ^{-\frac{E(Q)}{kT}} = 1 \rightarrow Z = \underarrow{suma statystyczna - funkcja rozdziału $\rightarrow$ bardzo ważna!}{\sum_Q ^{-\frac{E(Q)}{kT}}}
+$$
+
+często: $\frac{1}{kT} = \beta$
+
+E = Var
+<E> = U $\rightarrow$ energia wewnętrzna: można ją zmierzyć
+
+$$
+<E> = \sum_Q E(Q) \cdot P(Q) = \dfrac{\sum_Q E(Q) \cdot e^{-\beta\cdot E(Q)}}{\sum_Q e^{-\beta\cdotE(Q)}} = - \frac{\partial}{\partial \beta} ln Z
+$$
+
+$$
+<E> = \frac{\partial}{\partial \beta} ln Z
+$$
+
+Ciepło właściwe przy stałej objętości:
+
+$$
+C_v = \frac{d<E(T)>}{dT}
+$$
+
+ale:
+
+$$
+c_v = \frac{k}{\beta^2}[\underbraces{średni kwadrat energii}{<E^2(T)>} - \underbraces{kwadrat średniej energii	}{<E(T)>^2}] 
+$$
+
+Wzrost wartości ciepła właściwego sygnalizuje zachodzenie przemiany fazowej.
+S - entropia układu:
+
+$$
+T \cdot dS = dQ - ciepło dostarczane układowi
+$$
+
+$$
+V = const
+$$
+
+$$
+T \cdot dS = dU = C_v \cdot dT \rightarrow \frac{ds}{dT} = \frac{C_v(T)}{T}
+$$
+
+$$
+S(T) = S(T_1) - \int_T^{T_1} \frac{C_v(T')}{T'}dT'
+$$
+
+$T_1$ - temperatura, dla której entropia jest znana (np. przez aproksymację dla b. wysokich temperatur)
+Poziom S $\rightarrow$ ilość minimów (stanów ustalonych)
+
