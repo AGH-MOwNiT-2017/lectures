@@ -1,0 +1,32 @@
+\subsection{Deflacja czynnikiem kwadratowym: $ x^2 +px + q $}
+
+\begin{frame}
+  $$ f(x) \equiv \sum_{i=0}^m a_i x^i \equiv (x^2 + px + q) \cdot \sum_{i=0}^{m-2} c_i x^i + Rx +S $$
+
+  Przez porównanie współczynników:
+
+  $$ \left \{ \begin{array}{l}
+  c_{m-2} = a_m \\
+  c_{m-3} = a_{m-1} - p \cdot c_{m-2} \\
+  c_i = a_{i+2} - p \cdot c_{i+1} - q \cdot c_i + 2, \qquad i = m - 4, m - 5, \dots , 0 \\ % +2 NIEMAL NA PEWNO POWINNO BYĆ W INDEKSIE DOLNYM
+  R = a_1 - p \cdot c_0 - q \cdot c_1 \\
+  S = a_0 - q \cdot c_0
+  \end{array} \right. $$
+
+  Można to zapisać wygodniej, przyjmując $ c_m = c_{m-1} = 0 $, $ c_1 = R $:
+
+  $$ \left \{ \begin{array}{l}
+  c_i = a_{i+2} - p \cdot c_{i+1} - q \cdot c_i + 2, \qquad i = m-2, m-3, \dots , 0, -1 \\
+  S = a_0 - q \cdot c_0
+  \end{array} \right. $$
+
+  \textbf{Zadanie:} Sprawdzić.
+\end{frame}
+
+\begin{frame}
+  Oczywiście: $ c_i = c_i(p,q), R = R(p,q), S = S(p,q) $
+
+  \vspace{5px}
+
+  Jeżeli $p,q$ takie, że $R(p,q) = 0$ i $S(p,q) = 0$ to \\ $x^2 + px + q$ -- czynnik kwadratowy $f(x)$, i z niego dwa pierwiastki $f(x)$ (ewentualnie zespolone).
+\end{frame}
