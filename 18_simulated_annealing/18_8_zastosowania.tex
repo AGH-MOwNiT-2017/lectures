@@ -1,31 +1,41 @@
 \section{Pierwsze zastosowania Simulated Annealing}
 
-Kirkpatrick
+%%%%%%%%%%%%%%%%
+	\begin{frame}{Pierwsze zastosowania Simulated Annealing}
+		\begin{itemize}		
+			\item \textbf{Kirkpatrick}\\				
+				TSP - 3000 random cities (dokładne rozwiązanie $\leq$ 318) miasta w klastrach:
+				\begin{itemize}
+					\item duże T - optymalna droga między klastrami
+					\item małe T - optymalna droga wewnątrz klastrów
+				\end{itemize}	
+				$\Rightarrow$ "divide and conquer" behaviour $\rightarrow$ podział zagadnienia na różne skale
+			\item \textbf{Kirkpatrick, Gelatt}\\				
+				Optymalizacja rozłożenia mikroukładów elektronicznych na 1 lub więcej chipach, łączenie chipów.
+		\end{itemize}
+	\end{frame}
+	
+	\begin{frame}{Pierwsze zastosowania Simulated Annealing}
+		\begin{itemize}
+			\item \textbf{Vecchi, Kirkpatrick}\\				
+				Optimal wiring (między VLSI)
+					\begin{itemize}
+						\item min length
+						\item min bends
+						\item no crowding
+					\end{itemize}
+					
+			\item \textbf{Kenneth Wilson, Dean Jacobs, Jan Prins - Cornell University}\\				
+				Algorytm Metropolisa do optymalizacji kodu komputerowego\\ ($\approx$ iteracyjne przestawianie komend)
+				% Dead links:
+				% Simulated annealing jako przykład metody wyszukiwania
+				% http://yoda.cis.temple.edu:8080/UGAIWWW/lectures95/search/more-search.html#4
+				% Zastosowania Simulated Annealing w biologii molekularnej
+					% http://ams.sunysb.edu/~deng/korobka/index.html
+		\end{itemize}	
+			
+	\end{frame}
 
-TSP - 3000 random cities (dokładne rozwiązanie $\leq$ 318) - miasta w klastrach:
-- duże T - optymalna droga między klastrami
-- małe T - optymalna droga wewnątrz klastrów
 
-$\rightarrow$ "divide and conquer" behaviour $\rightarrow$ podział zagadnienia na różne skale
 
-Kirkpatrick, Gelatt
 
-Optymalizacja rozłożenia mikroukładów elektronicznych na 1 lub więcej chipach, łączenie chipów.
-
-Vecchi, Kirkpatrick
-
-$\rightarrow$ optimal wiring (między VLSI)
-- min length
-- min bends
-- no crowding
-
-Kenneth Wilson, Dean Jacobs, Jan Prins - Cornell University
-
-Algorytm Metropolisa do optymalizacji kodu komputerowego ($\approx$ iteracyjne przestawianie komend)
-
-% Dead links:
-% Simulated annealing jako przykład metody wyszukiwania
-% http://yoda.cis.temple.edu:8080/UGAIWWW/lectures95/search/more-search.html#4
-
-% Zastosowania Simulated Annealing w biologii molekularnej
-% http://ams.sunysb.edu/~deng/korobka/index.html
