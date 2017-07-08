@@ -11,7 +11,8 @@
 						L_{min} = \sum_{i=1}^N \{ \underbrace{(|x_i - x_{i+1}| + |y_i - y_{i+1}|)}_\text{odległość w metryce Manhattan} + \underbrace{\lambda(\mu_i - \mu_{i-1})}_\text{funkcja kary (penalty)}\}
 					$$
 			\end{itemize}		
-			Demo optymalizacji problemu komiwojażera (autor: Maciej Borowiec): \url{komiwojazer/komiwojazer.html} 
+			%DEAD LINK
+			%Demo optymalizacji problemu komiwojażera (autor: Maciej Borowiec): \url{komiwojazer/komiwojazer.html} 
 		\end{exampleblock}
 		
 	\end{frame}
@@ -20,7 +21,7 @@
 	\begin{frame}{Optymalizacja kombinatoryczna}
 		\begin{exampleblock}{Zagadnienia NP-zupełne (nondeterministic polynomial)}
 			\begin{itemize}
-				\item rozwiązania o złożoności ~$e^N$
+				\item rozwiązania o złożoności $\sim e^N$
 				\item wiele stopni swobody
 				\item dyskretne (wykluczone poszukiwanie w kierunku)
 				\item funkcja celu (L) łączy przeciwstawne cele cząstkowe			
@@ -35,7 +36,7 @@
 		\begin{itemize}
 			\item skalar: wsystkie cele sprowadza do jednego
 			\item wiele lokalnych minimów - rzędu $e^N$
-			\item w praktyce - potrzebne dobre rozwiązanie - nie musi być ono globalne			
+			\item w praktyce - potrzebne dobre rozwiązanie - nie musi być to minimum globalne	
 		\end{itemize}
 
 	\end{frame}
@@ -56,18 +57,23 @@
 			\item $C_i$ - reprezentacja konfiguracji układu
 			\item $g(C_i)$
 			\item procedura generacji kolejnych konfiguracji
-			\begin{exampleblock}{Przykład: TSP \cite{lin}}
-							Heurystyka: \textit{iterative improvement} - akceptowalne zmiany zmniejszające funkcję celu
-							\begin{enumerate}
-								\item odwrócenie kolejności obiegu 5-ciu górnych
-								\item wstawienie 5-ciu górnych między 2 dolne
-							\end{enumerate}	
-							$\rightarrow$ pewne ugrzęźnięcie w lokalnym minimum			
-							\begin{figure}
-										\includegraphics[height=0.2\textheight]{img/18/tsp}
-							\end{figure}
-						\end{exampleblock}
 		\end{itemize}
 	\end{frame}	
+	
+%%%%%%%%%%%%%%%%	
+	
+	\begin{frame}{Przykład procedury generacji nowych konfiguracji}
+		\begin{exampleblock}{TSP \cite{lin}}
+			Heurystyka: \textit{iterative improvement} - akceptowalne zmiany zmniejszające funkcję celu
+			\begin{enumerate}
+				\item odwrócenie kolejności obiegu 5-ciu górnych
+				\item wstawienie 5-ciu górnych między 2 dolne
+			\end{enumerate}	
+			$\Rightarrow$ pewne ugrzęźnięcie w lokalnym minimum			
+			\begin{figure}
+			\includegraphics[height=0.4\textheight]{img/18/tsp}
+			\end{figure}
+		\end{exampleblock}
+	\end{frame}
 	
 
