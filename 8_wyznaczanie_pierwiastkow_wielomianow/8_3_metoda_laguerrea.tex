@@ -1,0 +1,65 @@
+\section{Metoda Laguerre'a znajdowania pierwiastków wielomianu}
+
+\begin{frame}
+  Metoda ogólna
+  \begin{itemize}
+    \item dla pierwiastków rzeczywistych i zespolonych,
+    \item dla pierwiastków pojedynczych i wielokrotnych,
+    \item \textit{most straightforward},
+    \item \textit{sure-fire}.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \textbf{Istota} wynika z poniższych związków między:
+  \begin{itemize}
+    \item wielomianem,
+    \item jego pierwiastkami,
+    \item jego pochodnymi:
+  \end{itemize}
+
+  $$ \begin{array}{ll}
+  (1) & P_n(x) = (x - x_1) \cdot (x - x_2) \cdot \ldots \cdot (x - x_n) \\
+  (2) & \ln|P_n(x)| = \ln|x - x_1| + \ln|x - x_2| + \ldots + \ln|x - x_n| \\
+  (3) & \frac{d \ln|P_n(x)|}{dx} = \frac{1}{x - x_1} + \frac{1}{x - x_2} + \ldots + \frac{1}{x - x_n} = \frac{P'_n(x)}{P_n(x)} \equiv G \\
+  (4) & -\frac{d^2 \ln|P_n(x)|}{dx^2} = \frac{1}{(x - x_1)^2} + \frac{1}{(x - x_2)^2} + \ldots + \frac{1}{(x - x_n)^2} = \\
+  & = \left[ \frac{P'_n(x)}{P_n(x)} \right] ^2 - \frac{P''_n(x)}{P_n(x)} \equiv H
+  \end{array} $$
+\end{frame}
+
+\begin{frame}
+  W oparciu o te związki -- drastyczne założenie:
+  \begin{tabular}{ll}
+    $x$ & odgadnięte (bieżące) położenie pierwiastka \\
+    $a = x - x_1$ & odległość od pierwiastka \\
+    $b = x - x_i, i = 2,3, \dots , n$ & odległość pozostałych pierwiastków
+  \end{tabular}
+
+  $$ \left. \begin{array}{rcl}
+    \text{wtedy z } (3) & : & \frac{1}{a} + \frac{m+1}{b} = G \\ % CZYMKOLWIEK NIE BYŁOBY M
+    (4) & : & \frac{1}{a^2} + \frac{m+1}{b^2} = H
+\end{array} \right\} $$
+
+$G$, $H$ -- wyznaczone dla aktualnego $x$ (z $P$, $P'$, $P''$!!!)
+\end{frame}
+
+\begin{frame}
+  rozwiązanie układu: $$a = \frac{n}{G \pm \sqrt{(n-1)(nH-G^2)}}$$
+
+  \textbf{Zadanie:} Sprawdzić
+
+  \begin{itemize}
+    \item bierzemy rozwiązanie dające mniejsze $a$,
+    \item $a$ może być zespolone $\Rightarrow$ metoda ,,sama z siebie'' zaczyna przeszukiwać $z$, % O JAKIE Z CHODZI???
+    \item rozpoczynamy od przybliżenia $x$, potem $(x-a),\dots $
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \begin{description}
+    \item[Zaleta:] dla $P(x)$ o współczynnikach rzeczywistych -- zbieżna niezależnoie od wyboru początkowego $x$.
+    \item[Wada:] potrzebne $P$, $P'$, $P''$ w każdym kroku.
+  \end{description}
+
+  Więcej o metodzie -- przykłady konkretnych rozwiązań \cite{Adams}
+\end{frame}

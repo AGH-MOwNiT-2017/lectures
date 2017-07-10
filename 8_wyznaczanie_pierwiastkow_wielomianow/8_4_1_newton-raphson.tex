@@ -1,0 +1,27 @@
+\subsection{Pierwiastki rzeczywiste -- metoda Newtona-Raphsona}
+
+\begin{frame}
+  \begin{itemize}
+    \item wielomian stopnia $N-1$,
+    \item współczynniki: $C(1), C(2), \dots, C(N)$; $C(N)$ -- przy $x^{N-1}$
+  \end{itemize}
+
+  $$\begin{array}{ll}
+  P = C(N) \cdot x + C(N-1) & \rightarrow P(x) \\
+  P_1 = C(N) & \rightarrow P'(x)
+  \end{array}$$
+\end{frame}
+
+\begin{frame}[fragile]
+  % TO NIE MA ŻADNEGO SENSU!!!
+  \begin{lstlisting}[frame=single]
+do 1 i = N-2,1,-1
+  P = C(i) + P%*$\cdot$*)x
+  P = P + P%*$_1\cdot$*)x
+1 continue
+  if (P%*$_1\cdot$*)eq.  0.0)%*$\Rightarrow$*)alarm
+X=X-P/P%*$_1$*)
+\end{lstlisting}
+
+  \textbf{Zadanie:} sprawdzić poprawność
+\end{frame}
