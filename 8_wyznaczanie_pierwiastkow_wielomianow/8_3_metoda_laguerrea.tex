@@ -1,13 +1,14 @@
 \section{Metoda Laguerre'a znajdowania pierwiastków wielomianu}
 
-\begin{frame}
-  Metoda ogólna
-  \begin{itemize}
-    \item dla pierwiastków rzeczywistych i zespolonych,
-    \item dla pierwiastków pojedynczych i wielokrotnych,
-    \item \textit{most straightforward},
-    \item \textit{sure-fire}.
-  \end{itemize}
+\begin{frame}{Met. Laguerre'a znajdowania pierwiastków wielomianu}
+  \begin{block}{Metoda ogólna}
+    \begin{itemize}
+      \item dla pierwiastków rzeczywistych i zespolonych,
+      \item dla pierwiastków pojedynczych i wielokrotnych,
+      \item \textit{most straightforward},
+      \item \textit{sure-fire}.
+    \end{itemize}
+  \end{block}
 \end{frame}
 
 \begin{frame}
@@ -18,33 +19,42 @@
     \item jego pochodnymi:
   \end{itemize}
 
-  $$ \begin{array}{ll}
-  (1) & P_n(x) = (x - x_1) \cdot (x - x_2) \cdot \ldots \cdot (x - x_n) \\
-  (2) & \ln|P_n(x)| = \ln|x - x_1| + \ln|x - x_2| + \ldots + \ln|x - x_n| \\
-  (3) & \frac{d \ln|P_n(x)|}{dx} = \frac{1}{x - x_1} + \frac{1}{x - x_2} + \ldots + \frac{1}{x - x_n} = \frac{P'_n(x)}{P_n(x)} \equiv G \\
-  (4) & -\frac{d^2 \ln|P_n(x)|}{dx^2} = \frac{1}{(x - x_1)^2} + \frac{1}{(x - x_2)^2} + \ldots + \frac{1}{(x - x_n)^2} = \\
-  & = \left[ \frac{P'_n(x)}{P_n(x)} \right] ^2 - \frac{P''_n(x)}{P_n(x)} \equiv H
-  \end{array} $$
+  \begin{block}{}
+    $$ \begin{array}{ll}
+    (1) & P_n(x) = (x - x_1) \cdot (x - x_2) \cdot \ldots \cdot (x - x_n) \\
+    (2) & \ln|P_n(x)| = \ln|x - x_1| + \ln|x - x_2| + \ldots + \ln|x - x_n| \\
+    (3) & \frac{d \ln|P_n(x)|}{dx} = \frac{1}{x - x_1} + \frac{1}{x - x_2} + \ldots + \frac{1}{x - x_n} = \frac{P'_n(x)}{P_n(x)} \equiv G \\
+    (4) & -\frac{d^2 \ln|P_n(x)|}{dx^2} = \frac{1}{(x - x_1)^2} + \frac{1}{(x - x_2)^2} + \ldots + \frac{1}{(x - x_n)^2} = \\
+    & = \left[ \frac{P'_n(x)}{P_n(x)} \right] ^2 - \frac{P''_n(x)}{P_n(x)} \equiv H
+    \end{array} $$
+  \end{block}
 \end{frame}
 
 \begin{frame}
   W oparciu o te związki -- drastyczne założenie:
-  \begin{tabular}{ll}
-    $x$ & odgadnięte (bieżące) położenie pierwiastka \\
-    $a = x - x_1$ & odległość od pierwiastka \\
-    $b = x - x_i, i = 2,3, \dots , n$ & odległość pozostałych pierwiastków
-  \end{tabular}
+  \begin{block}{Założenie}
+    \begin{tabular}{ll}
+      $x$ & odgadnięte (bieżące) położenie \\
+      & pierwiastka \\
+      $a = x - x_1$ & odległość od pierwiastka \\
+      $b = x - x_i, i = 2,3, \dots , n$ & odległość pozostałych pierwiastków
+    \end{tabular}
+  \end{block}
 
-  $$ \left. \begin{array}{rcl}
-    \text{wtedy z } (3) & : & \frac{1}{a} + \frac{m+1}{b} = G \\ % CZYMKOLWIEK NIE BYŁOBY M
-    (4) & : & \frac{1}{a^2} + \frac{m+1}{b^2} = H
-\end{array} \right\} $$
+  \begin{block}{Wniosek}
+    $$ \left. \begin{array}{rcl}
+      \text{wtedy z } (3) & : & \frac{1}{a} + \frac{m+1}{b} = G \\ % CZYMKOLWIEK NIE BYŁOBY M
+      (4) & : & \frac{1}{a^2} + \frac{m+1}{b^2} = H
+    \end{array} \right\} $$
+  \end{block}
 
 $G$, $H$ -- wyznaczone dla aktualnego $x$ (z $P$, $P'$, $P''$!!!)
 \end{frame}
 
 \begin{frame}
-  rozwiązanie układu: $$a = \frac{n}{G \pm \sqrt{(n-1)(nH-G^2)}}$$
+  \begin{block}{rozwiązanie układu}
+    $$a = \frac{n}{G \pm \sqrt{(n-1)(nH-G^2)}}$$
+  \end{block}
 
   \textbf{Zadanie:} Sprawdzić
 
@@ -56,10 +66,12 @@ $G$, $H$ -- wyznaczone dla aktualnego $x$ (z $P$, $P'$, $P''$!!!)
 \end{frame}
 
 \begin{frame}
-  \begin{description}
-    \item[Zaleta:] dla $P(x)$ o współczynnikach rzeczywistych -- zbieżna niezależnoie od wyboru początkowego $x$.
-    \item[Wada:] potrzebne $P$, $P'$, $P''$ w każdym kroku.
-  \end{description}
+  \begin{block}{}
+    \begin{description}
+      \item[Zaleta:] dla $P(x)$ o współczynnikach rzeczywistych -- zbieżna niezależnoie od wyboru początkowego $x$.
+      \item[Wada:] potrzebne $P$, $P'$, $P''$ w każdym kroku.
+    \end{description}
+  \end{block}
 
   Więcej o metodzie -- przykłady konkretnych rozwiązań \cite{Adams}
 \end{frame}

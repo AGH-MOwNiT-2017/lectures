@@ -1,12 +1,14 @@
 \subsection{Przydatność deflacji}
 
-\begin{frame}
+\begin{frame}{Przydatność deflacji}
   $P(x)$ -- wielomian,
 
   $r$ -- znaleziony pierwiastek $P(x)$.
 
   Realizujemy \textit{faktoryzację}:
-  $$ P(x) = (x - r) \cdot Q(x) $$
+  \begin{block}{}
+    $$ P(x) = (x - r) \cdot Q(x) $$
+  \end{block}
 
   \begin{itemize}
     \item zmniejszenie złożoności obliczeniowej ($Q$ -- niższego stopnia niż $P$)
@@ -19,19 +21,22 @@
 
   \textbf{Powód:} -- pierwiastki są wyznaczane ze skończoną dokładnością (kilka deflacji pociąga kumulację błędu).
 
-  \begin{itemize}
-    \item \textbf{Forward deflation} -- nowe współczynniki $Q(x)$ obliczane od najwyższych potęg $x$ \dots Stabilna, gdy zaczynamy od pierwiastków o \textbf{najmniejszej} wartości bezwzględnej,
-    \item \textbf{Backward deflation} -- współczynniki $Q(x)$ wyznaczane poczynając od wyrazu wolnego \dots Stabilna, gdy zaczynamy od pierwiastków o \textbf{największej} wartości bezwzględnej.
-  \end{itemize}
+  \begin{block}{}
+    \begin{itemize}
+      \item \textbf{Forward deflation} -- nowe współczynniki $Q(x)$ obliczane od najwyższych potęg $x$ \dots Stabilna, gdy zaczynamy od pierwiastków o \textbf{najmniejszej} wartości bezwzględnej,
+      \item \textbf{Backward deflation} -- współczynniki $Q(x)$ wyznaczane poczynając od wyrazu wolnego \dots Stabilna, gdy zaczynamy od pierwiastków o \textbf{największej} wartości bezwzględnej.
+    \end{itemize}
+  \end{block}
 
   \textbf{Zadanie:} Dlaczego?
 \end{frame}
 
 \begin{frame}
-  Podejście minimalizujące błędy:
-  \begin{itemize}
-    \item kolejne pierwiastki uzyskane w procesie deflacji są \textit{próbnymi (tentative)},
-    \item \textit{polishing (re-solving)} -- wygładzanie -- z użyciem pełnego $P(x)$ np. metodą Newtona-Raphsona,
-    \item niebezpieczeństwo -- zlanie się dwóch pierwiastków w jeden -- dodatkowa deflacja tylko jeden raz.
-  \end{itemize}
+  \begin{block}{Podejście minimalizujące błędy}
+    \begin{itemize}
+      \item kolejne pierwiastki uzyskane w procesie deflacji są \textit{próbnymi (tentative)},
+      \item \textit{polishing (re-solving)} -- wygładzanie -- z użyciem pełnego $P(x)$ np. metodą Newtona-Raphsona,
+      \item niebezpieczeństwo -- zlanie się dwóch pierwiastków w jeden -- dodatkowa deflacja tylko jeden raz.
+    \end{itemize}
+  \end{block}
 \end{frame}

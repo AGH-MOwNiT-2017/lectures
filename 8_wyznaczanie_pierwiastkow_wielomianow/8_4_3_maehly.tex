@@ -1,12 +1,12 @@
 \subsection{Metoda Maehly'ego -- technika wygładzania pierwiastków}
 
-\begin{frame}
-  Zapobiega zlewaniu się w jeden dwóch różnych pierwiastków (na~etapie wygładzania) $\leftarrow$ równocześnie -- unikamy deflacji.
+\begin{frame}{Met. Maehly'ego -- technika wygładzania pierwiastków}
+  Zapobiega zlewaniu się w jeden dwóch różnych pierwiastków (na~etapie wygładzania) $\leftarrow$ równocześnie unikamy deflacji.
 
-  Zredukowany wielomian:
-
-  $$P_j(x) \equiv \frac{P(x)}{(x - x_1)\ldots(x - x_j)}$$
-
+  \begin{block}{Zredukowany wielomian}
+    $$P_j(x) \equiv \frac{P(x)}{(x - x_1)\ldots(x - x_j)}$$
+  \end{block}
+  
   $$P'_j(x) = \frac{P'(x)}{(x - x_1)\ldots(x - x_j)} - \frac{P(x)}{(x - x_1)\ldots(x - x_j)} \sum_{i/1}^j \frac{1}{x - x_i}$$ % CZEMU "i/1"?? NIE MOŻNA "="??
 \end{frame}
 

@@ -1,34 +1,39 @@
 \section{Deflacja -- dzielenie syntetyczne}
 
-\begin{frame}
+\begin{frame}{Deflacja -- dzielenie syntetyczne}
   \textbf{Deflacja} -- bardzo użyteczny element wyznaczania pierwiastków wielomianów. % ELEMENT???
 
-  \textit{Nested form (Horner)}:
-
-  $$ f(x) = \sum_{i=0}^m a_i \cdot x^i = ( ( \dots (( a_m \cdot x + a_{m-1}) \cdot x + a_{m-2} ) \cdot \dots) \cdot x + a_1) \cdot x + a_0 $$
+  \begin{block}{Nested form (Horner)}
+    $$ f(x) = \sum_{i=0}^m a_i \cdot x^i = ( ( \dots (( a_m \cdot x + a_{m-1}) \cdot x + a_{m-2} ) \cdot \dots) \cdot x + a_1) \cdot x + a_0 $$
+  \end{block}
 \end{frame}
 
 \begin{frame}
   Rekurencyjny algorytm obliczania wartości wielomianu dla $x = \lambda$ ma postać:
 
-  $$ \left \{ \begin{array}{l}
-  b_{m-1} = a_m \\
-  b_i = a_{i+1} + \lambda \cdot b_{i+1}, \quad i = m - 2, m-3, \dots, 0 \\
-  f( \lambda ) = a_{0} + \lambda \cdot b_{0}
-  \end{array} \right. $$
+  \begin{block}{Algorytm}
+    $$ \left \{ \begin{array}{l}
+    b_{m-1} = a_m \\
+    b_i = a_{i+1} + \lambda \cdot b_{i+1}, \quad i = m - 2, m-3, \dots, 0 \\
+    f( \lambda ) = a_{0} + \lambda \cdot b_{0}
+    \end{array} \right. $$
+  \end{block}
 \end{frame}
 
 \begin{frame}
-  Twierdzenie:
 
-  $$ \frac{f(x) - f(\lambda)}{x - \lambda} = \sum_{i=0}^{m-1} b_i x^i $$
-
+  \begin{block}{Twierdzenie}
+    $$ \frac{f(x) - f(\lambda)}{x - \lambda} = \sum_{i=0}^{m-1} b_i x^i $$
+  \end{block}
+  
   Dowód:
 
   \begin{itemize}
     \item mnożenie przez $(x - \lambda)$
     \item $ b_{i-1} = a_i + \lambda \cdot b_i $
   \end{itemize}
+
+  \vspace{5px}
 
   \textbf{Zadanie:} Przeprowadzić dowód.
 \end{frame}
