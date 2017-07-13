@@ -56,7 +56,7 @@
 		\begin{block}{Zasada równowagi szczegółówej\\ 
 		(detailed balance, microscopic reversibility)}
 			$$
-			p_2 \cdot = p_1 \cdot e^{- \dfrac{E_2 - E_1}{kT}}
+			p_2 \cdot 1 = p_1 \cdot e^{- \dfrac{E_2 - E_1}{kT}}
 			$$
 		\end{block}
 	\end{frame}
@@ -64,11 +64,11 @@
 %%%%%%%%%%%%%%%%
 	\begin{frame}{Łańcuch Markowa}
 		$$
-		\frac{p1}{p2} = \dfrac{e^{-\frac{E_1}{kT}}}{e^{-\frac{E_2}{kT}}} \rightarrow p_i \sim \underbrace{e^{-\frac{E_i}{kT}}}_{\text{czynnik prawdop. Boltzmanna}}
+	 	\frac{p1}{p2} = \dfrac{e^{-\frac{E_1}{kT}}}{e^{-\frac{E_2}{kT}}} \rightarrow p_i \sim \underbrace{e^{-\frac{E_i}{kT}}}_{\text{czynnik prawdop. Boltzmanna}}
 		$$		
 		
 		$$
-		P(c_i) ~ e^{\frac{E_i}{kT}}
+		P(c_i) \sim e^{-\frac{E_i}{kT}}
 		$$
 		
 		$\Rightarrow$ importance sampling: konfiguracje generowane nie losowo - ale z zadanym rozkładem (50-70 \% akceptowanych)
