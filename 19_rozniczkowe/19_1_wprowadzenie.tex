@@ -1,21 +1,32 @@
 \section{Wprowadzenie}
+
+%%%%%%%%%%%%%%%% 
+	\begin{frame}{Wprowadzenie}
+		\begin{itemize}
+			\item Większość zagadnień nauki i techniki jest formułowanych w postaci równań (lub układów równań) różniczkowych z zadanymi warunkami granicznymi (początkowymi lub brzegowymi)
+					
+			\item W większości przypadków brak rozwiązań analitycznych $\rightarrow$ konieczność przybliżonego znajdowania rozwiązań.
+		\end{itemize}
+	\end{frame}
 	
-Większość zagadnień nauki i techniki jest formułowanych w postaci równań (lub układów równań) różniczkowych z zadanymi warunkami granicznymi (początkowymi lub brzegowymi)
+%%%%%%%%%%%%%%%%
+		
+	\begin{frame}{Metody algebraizacji równań różniczkowych}
 
-większość przypadków - brak rozwiązań analitycznych
-stąd - konieczność przybliżonego znajdowania rozwiązań
-
-Dalej - metody algebraizacji równań różniczkowych na przykłądzie problemu brzegowego dla równania różniczkowgo zwyczajnego:
-
-$$
-\begin{cases}
-	\varphi_{xx}(x) + \varphi(x) = \alpha \\
-	\varphi(0) = \varphi(\frac{\pi}{2}) = \alpha \\
-	x \in [0,\frac{\pi}{2}]
-\end{cases}
-$$
-
-Dokładnie jedno rozwiązanie:
-$$
-\varphi(x) = (1- \alpha) \cdot (sin(x) + cos(x) + \alpha)
-$$
+		\begin{exampleblock}{Przykład: problem brzegowy dla równania różniczkowgo zwyczajnego}
+			$$
+			\begin{cases}
+				\varphi_{xx}(x) + \varphi(x) = \alpha \\
+				\varphi(0) = \varphi(\frac{\pi}{2}) = \alpha \\
+				x \in [0,\frac{\pi}{2}]
+			\end{cases}
+			$$
+			
+			Dokładnie jedno rozwiązanie:
+			$$
+			\varphi(x) = (1- \alpha) \cdot (sin(x) + cos(x) + \alpha)
+			$$			
+		\end{exampleblock}
+	
+	\end{frame}
+%%%%%%%%%%%%%%%%	
