@@ -1,0 +1,288 @@
+\section{Konstrukcja interpolujących sześciennych funkcji sklejanych}
+	\begin{frame}{Konstrukcja interpolujących sześciennych funkcji sklejanych}
+		Podprzedział $[x_{i},x_{i+1}]$, oznaczmy:
+       	\begin{itemize}
+       	\item $h_{i}=x_{i+1}-x-{i}$
+        \item $w=\frac{x-x_{i}}{h_{i}}$
+        \item $\overline{w}=\frac{x_{i+1}-x}{h_{i}}=1-w$
+       	\end{itemize}
+        $\newline$
+        \[
+        	x \nearrow \ od \ x_{i} \ do \ x_{i+1}: \ \ \ w:\nearrow \ 0 \rightarrow 1, 
+            \ \overline{w}:\searrow \ 1 \rightarrow 0
+        \]
+       
+	\end{frame}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+    \begin{frame}
+    	 Niech dla $[x_{i},x_{i+1}]$ sześcienna funkcja skeljeana ma postać:
+        \[
+        	s(x)= \underbrace{w\cdot y_{i+1}+\overline{w} \cdot y_{i}}_{\text{$(*)$}}
+            + \underbrace{h^{2}_{i}[(w^{3}-w)\sigma_{i+1}+
+            (\overline{w}^{3}-\overline{w})\sigma_{i}]}_{\text{$(**)$}}
+        \]
+        gdzie:
+        $\newline(*)$ - człony standardowej interpolacji liniowej
+        $\newline(**)$ - korekta sześcienna - datkowe wygładzanie funkcji
+        $\newline \sigma_{i}, \sigma_{i+1}$ - pewne stałe, do wyznaczenia
+        $\newline$
+        \begin{itemize}
+        	\item Człony korekcyjne znikają na końcach przedziału $[x_{i},x_{i+1}]$
+            \item $s(x_{i})=y_{i}; \ \ s(x_{i+1})=y_{i+1} \newline$
+            	niezależnie od wyboru $\sigma_{i} \Rightarrow s(x)$ interpoluje dane:
+                $\{ x_{i},y_{i} \}$
+        \end{itemize}
+    \end{frame}
+    %%%%%%%%%%%%%%%%%%%%%%%
+    \begin{frame}
+		Różniczkujemy $s(x)$ korzystając z:
+        \[
+        	w'=\frac{dw}{dx}=\frac{1}{h_{i}}\ ;\ \overline{w}'=-\frac{1}{h_{i}}
+        \]
+        \begin{itemize}
+        	\item $s'(x)=\frac{y_{i+1}-y_{i}}{h_{i}}+h_{i}[(3w^{2}-1)\sigma_{i+1}-
+            			(3\overline{w}^{2}-1)\sigma_{i}],  \  \ \textbf{(*)}$
+            \item $s''(x)=6w\sigma_{i+1}+6\overline{w}\sigma_{i}  \ \ 
+            	\Rightarrow 
+            	\framebox{$\sigma_{i}=\frac{1}{6}s''(x_{i})$}$ sens stałych $\sigma_{i}$
+            \item $s'''(x)=\frac{6}{h_{i}}(\sigma_{i+1}-\sigma_{i})=
+            	const \newline$
+              	 - zgodnie z tym, że $s(x)$ jest lokalnie sześcienna 
+        \end{itemize}
+        \begin{block}{}
+        	$\sigma_{i} \ $- określa wartości $s''(x)$ w węzłach (punktach granicznych)
+            $\newline$
+            $\hspace*{0.5cm}$ - automatycznie zapewnia ciągłość 2-gich pochodnych
+        \end{block}
+    \end{frame}
+    %%%%%%%%%%%%%%%%%%%%%%%
+    \begin{frame}
+    	Wartości $\sigma_{i}$ - z warunku ciągłości $s'(x)$ w węzłach: 
+        $\Delta_{i}=\frac{y_{i+1}-y_{i}}{h_{i}} \newline \newline$
+        Z $\textbf{(*)}$: 
+        $
+        \begin{cases}
+            	s_{+}'(x_{i})  &=\ \Delta_{i}-h_{i}(\sigma_{i+1}+2\sigma_{i})
+            	\\
+                s_{-}'(x_{i+1}) &=\ \Delta_{i}+h_{i}(2\sigma_{i+1}+\sigma_{i}) 
+        \end{cases}
+        $
+        \begin{block}{}
+        	\centering Warunek ciągłości: $s_{-}'(x_{i}) = s_{+}'(x_{i})$
+        \end{block}
+        $s_{-}'(x_{i})$ wyznaczane z $\textbf{(*)}$ dla $[x_{i-1},x_{i}]$:
+        \[
+        	\framebox{$\Delta_{i-1}+h_{i-1}(2\sigma_{i}+\sigma_{i-1})=
+            \Delta_{i}-h_{i}(\sigma_{i+1}+2\sigma_{i})$}
+        \]
+        otrzymujemy układ (n-2) równań liniowych  (dla punktów pośrednich):
+        \[
+        	h_{i-1}\sigma_{i-1}+2(h_{i-1}+h_{i})\sigma_{i}+h_{i}\sigma_{i+1}=
+            \Delta_{i}-\Delta_{i-1}, \ \ i=2, 3, . . . , n-1
+        \]
+        ale ponieważ mamy n niewiadomych $\sigma_{i}$ konieczne jest $\longrightarrow$
+    \end{frame}
+    %%%%%%%%%%%%%%%%%%%%%%%
+    \begin{frame}{Określanie dwóch dodatkowych warunków}
+    	Istnieje wiele sposobów określania dodatkowych warunków.
+       \begin{enumerate}
+       \item  \[
+		\begin{rcases*}
+			C_{1}(x) - \textrm{f. sześcienna przez pierwsze 4 punkty}\\
+			C_{n}(x) - \textrm{f. sześcienna przez ostatnie 4 punkty}
+		\end{rcases*} \rightarrow
+		\]	
+       \end{enumerate}	
+       \[
+       		\framebox{$s'''(x_{1})=C^{'''}_{1}\ \ \ s'''(x_{n})=C^{'''}_{n}$}
+       \]
+        Stałe $C^{'''}_{1}$ i $C^{'''}_{n}$ mogą być określone bez znajomości 
+        $C^{'''}(x)$ i $C^{'''}(x)$:
+        \[
+        	\Delta_{i}\ =\ \frac{y_{i+1}-y_{i}}
+            {x_{i+1}-x_{i}}\ ;\ \textrm{przybliża 1-szą pochodną}
+        \]
+        \[
+        	\Delta_{i}^{(2)}=\frac{\Delta_{i+1}-\Delta_{i}}
+            {x_{i+2}-x_{i}}\ ;\ 2\Delta_{i}^{(2)}\approx f^{''}
+        \]
+        \[
+        	\Delta_{i}^{(3)}\ =\ \frac{\Delta_{i+1}^{(2)}-\Delta_{i}^{(2)}}
+            {x_{i+3}-x_{i}}\ ;\ 6\Delta_{i}^{(3)}\approx f^{'''}
+        \]
+    \end{frame}
+    %%%%%%%%%%%%%%%%%%%%%%
+    \begin{frame}
+    	i ogólnie dla:
+        \begin{flushright}
+        	$f[x_{0}]\equiv f(x_{0}) \linebreak \linebreak$
+            $f[x_{0},\ x_{1}]\equiv\frac{f[x_{1}]-f[x_{0}]}{x_{1}-
+            x_{0}}=\frac{f(x_{1})-f(x_{0})}{x_{1}-x_{0}} 
+            \linebreak \linebreak$
+            $f[x_{0},\ x_{1},\ x_{2}]\equiv\frac{f[x_{1},x_{2}]-f[x_{0},x_{1}]}
+            {x_{2}-x_{0}} \linebreak $
+            $\ldots \ldots \linebreak$
+            $f[x_{0},\ x_{1},\ .\ .\ .\ ,\ x_{k}]\equiv\frac{f[x_{1},\ldots,x_{k}]-f[x_{0},\ldots,x_{k-1}]}{x_{k}-x_{0}}$
+        \end{flushright}
+        mamy związek między ilorazami różnicowymi a pochodnymi:
+        \begin{exampleblock}{}
+        	$
+            	\centering f[x_{0}, ... \ , x_{n}]=\frac{f^{(n)}(\eta)}
+                {n!}, \ \ \ \eta \in [x_{0},... \ , x_{n}]
+                \ \ \ (\eta \textrm{- pewien punkt})
+            $
+        \end{exampleblock}
+        \begin{block}{Zadanie}
+        	Sprawdzić
+        \end{block}
+        
+    \end{frame}
+    %%%%%%%%%%%%%%
+    \begin{frame}
+    	zatem:
+        \begin{align*}
+        	s'''(x_{1})&=c_{1}'''(x_{1}) \Rightarrow
+            \frac{6}{h_{1}}(\sigma_{2}-\sigma_{1})=6\Delta_{1}^{(3)}
+            &|\cdot h_{1}^{2}
+            \\
+            s'''(x_{n})&=c_{n}'''(x_{1}) \Rightarrow
+            \frac{6}{h_{n-1}}(\sigma_{n}-\sigma_{n-1})=6\triangle_{n-3}^{(3)}
+            &|\cdot h_{n-1}^{2}
+        \end{align*}
+        po przekształceniu: (cel = symetria)
+        $\newline \newline
+        \begin{cases}
+        	-h_{1}\sigma_{1}+h_{1}\sigma_{2}=h_{1}^{2}\Delta_{1}^{(3)}
+            \\
+		h_{n-1}\sigma_{n-1}-h_{n-1}\sigma_{n}=-h_{n-1}^{2}\Delta_{n-3}^{(3)}
+        \end{cases}
+        $
+    \end{frame}
+    %%%%%%%%%%%%%%%%%%
+    \begin{frame}
+    	mamy:
+        \[
+        \begin{bmatrix}
+    -h_{1} & h_{1} & 0 & 0  & 0 \\
+    h_{1} & 2(h_{i}+h_{2}) & h_{2} & 0  & 0 \\
+    0 & h_{2} & 2(h_{2}+h_{3}) & h_{3} & 0 \\
+    \vdots & \vdots & \vdots & \vdots & \vdots \\
+    0 & 0 & h_{n-2} & 2(h_{n-2}+h_{n-1}) & h_{n-1} \\
+    0 & 0 & 0 & h_{n-1}  & -h_{n-1}
+		\end{bmatrix}
+        \begin{bmatrix}
+        	\sigma_{1} \\
+            \sigma_{2} \\
+            \sigma_{3} \\
+            \vdots \\
+            \sigma_{n-1} \\
+            \sigma_{n}
+        \end{bmatrix}
+       	=
+        \]
+        \[	=
+        	\begin{bmatrix}
+        		h_{1}^{2}\Delta^{(3)}_{i} \\
+                \Delta_{2} - \Delta_{1} \\
+                \Delta_{3} - \Delta_{2} \\
+                \vdots \\ 
+                \Delta_{n-1} - \Delta_{n-2} \\
+                \Delta_{n} - \Delta_{n-1}
+        	\end{bmatrix}
+        \]
+    \end{frame}
+    %%%%%%%%%%%%%%%%%%
+    \begin{frame}{Inne ważne możliwości określania warunków}
+    	\begin{enumerate}
+        \setcounter{enumi}{1}
+    		\item natural cubic spline: $s''(x_{1})=s''(x_{2})=0$ (free boundary)
+            \item complete spline: $s'(x_{1})=y'_{1}, \ \ s'(x_{n})=y'_{n}$
+            (clamped boundary)
+            \item $s''(x_{1})=y''_{1}; \ \ s^{n}(x_{n})=y''_{n}$
+            \item $s'''(x)$ ciągła od $x_{2}$ do $x_{n-1}$ (not-a-knot condition)
+            \item interpolowanie spline'ami funkcji periodycznych
+    	\end{enumerate}
+    \end{frame}
+    %%%%%%%%%%%%%%%%%%%%
+    \begin{frame}
+    	\begin{block}{Zadanie 1}
+        	Dla obliczeń - zwłaszcza wielokrotnego określania wartości s(x) 
+            korzystna jest postać:
+            \[
+            	s(x)=y_{i}+b_{i}\cdot(x-x_{i})+c_{i}
+                \cdot(x-x_{i})^{2}+d_{i}\cdot(x-x_{i})^{3}
+                \ \ dla \ x\in[x_{i},\ x_{i+1}]
+            \]
+            $b_{i}, c_{i}, d_{i}$ - określone dla każdego przedziału:
+            $b_{i}=\frac{y_{i+1}-y_{i}}{h_{i}}-h_{i}\cdot (\sigma_{i+1}
+            +2\sigma_{i})\newline$
+            $c_{i}=3\cdot \sigma_{i}\newline$
+            $d_{i}=\frac{\sigma_{i+1}-\sigma_{i}}{h_{i}}\newline$
+            Sprawdzić.
+        \end{block}
+        \begin{block}{Zadanie 2}
+    		Układ równań dla 
+            $s_{i}(x)=a_{i}+b_{i}(x-x_{i})+c_{i}(x-x_{i})^{2}+d_{i}
+            (x-x_{i})^{3}$
+            $\newline$
+            (obliczenie $\rightarrow$ Horner) $\rightarrow$ 
+            podejście "wprost"
+    	\end{block}
+    \end{frame}
+    %%%%%%%%%%%%%%%%%%%%
+    \begin{frame}{Błąd interpolacji funkcji sklejanych}
+    	gdy:
+        \begin{itemize}
+        \item $a=x_{1}, x_{2}, . . . , x_{n}=b$
+        \item $f\in C^{4}[a,\ b] , \ \ \ \ \max_{x\in[a,b]}|f^{(4)}
+        (x)|\leq M$
+        \item $s'(x_{1})=f'(x_{1}), \ \ \ s'(x_{n})=f'(x_{n})$
+        \end{itemize}
+        to:
+        \[
+        	\max_{x\in[a,b]}|f(x)-s(x)|\leq \frac{5}{384} \cdot
+            M \cdot \max_{1 \leq i \leq n-1}(x_{i+1}-x_{i})^{4}
+        \]
+    \end{frame}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
