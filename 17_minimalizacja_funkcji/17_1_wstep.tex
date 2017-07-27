@@ -29,17 +29,24 @@
 
   \subsection{Motywacja}
     \begin{frame}
-
-      \begin{exampleblock}{}
+      \begin{block}{}
         Szeroka klasa zagadnień - szukanie najmniejszej wartości
-        przyjmowanej przez funkcję jednej lub wielu zmennych.\\
-        Np:\\
+        przyjmowanej przez funkcję jednej lub wielu zmennych.
+      \end{block}
+
+      \begin{exampleblock}{Przykład}
         \begin{itemize}
           \item minimalizacja kosztów producji
           \item \ldots
           \item linia geodezyjna w ogólnej teorii względności
           \item przykład klasyczny:\\
-          \textbf{estymacja}
+          \textbf{estymacja} parametrów modelu teoretycznego
+          przez \textbf{minimalizację} różnicy między danymi
+          teoretycznymi a eksperymentalnymi:\\
+          $
+            min!F(x) = \sum_{k/1}^{k} \left[ \frac{Y_k - T_k(\vec x)}{\sigma_k}
+            \right] ^2 Y_k \text{-- zmierzone wartości}
+          $
 
         \end{itemize}
       \end{exampleblock}
