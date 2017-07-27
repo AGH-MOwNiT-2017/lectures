@@ -48,7 +48,7 @@
 %%%%%%%%%%%%%%%%
 \begin{frame}[fragile]{Algorytmy numerycznie poprawne - przykład}
 	\begin{exampleblock}{Przykład 1}
-		Numeryczna poprawność algorytmu $\vec{a} \cdot \vec{b} = \sum_{i/1}^{n} a_i \cdot b_i$
+		Numeryczna poprawność algorytmu $\vec{a} \cdot \vec{b} = \sum_{i=1}^{n} a_i \cdot b_i$
         
 \begin{lstlisting}[escapechar=|]
   |$A(\vec{a}, \vec{b}):$|
@@ -84,9 +84,9 @@
                 \begin{addmargin}[1em]{0em}
                 $
                 	fl(A(\vec{a}, \vec{b})) =
-                	\sum_{i/1}^{n} a_i \cdot (1+a_i) \cdot 
+                	\sum_{i=1}^{n} a_i \cdot (1+a_i) \cdot 
                     b_i \cdot (1 + \beta_i) \cdot (1 + \varepsilon_i)
-                    \cdot \prod_{j/i}^{n} (1 + \delta_j)
+                    \cdot \prod_{j=i}^{n} (1 + \delta_j)
                 $                
                 \end{addmargin}
         \end{enumerate}

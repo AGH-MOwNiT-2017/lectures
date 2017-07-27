@@ -22,28 +22,28 @@
     \begin{columns}
     	\column{.45\linewidth} 
         	\centering
-            $\vec{x} \cdot \vec{y} = \sum_{i/1}^n x_i \cdot y_i \neq 0$
+            $\vec{x} \cdot \vec{y} = \sum_{i=1}^n x_i \cdot y_i \neq 0$
         \column{.45\linewidth} 
                 $x_i \rightarrow x_i \cdot (1 + \alpha_i)$ \\
                 $y_i \rightarrow y_i \cdot (1 + \beta_i)$
     \end{columns}
     \begin{gather*}
     	\underbrace{\left| \frac{
-        	\sum_{i/1}^n x_i \cdot (1 + \alpha_i) \cdot y_i \cdot (1 + \beta_i) - \sum_{i/1}^n x_i y_i
+        	\sum_{i=1}^n x_i \cdot (1 + \alpha_i) \cdot y_i \cdot (1 + \beta_i) - \sum_{i=1}^n x_i y_i
         }{
-        	\sum_{i/1}^n x_i \cdot y_i
+        	\sum_{i=1}^n x_i \cdot y_i
         }\right|}_\text{błąd względny}
         \approx \\ \approx
         \left| \frac{
-        	\sum_{i/1}^n \cdot x_i \cdot y_i \cdot \left( \alpha_i + \beta_i \right)
+        	\sum_{i=1}^n \cdot x_i \cdot y_i \cdot \left( \alpha_i + \beta_i \right)
         }{
-        	\sum_{i/1}^n x_i \cdot y_i
+        	\sum_{i=1}^n x_i \cdot y_i
         }\right|
         \le
         \max \left| \alpha_i + \beta_i \right| \cdot \underbrace{\frac{
-        	\sum_{i/1}^n \left| x_i \cdot y_i \right|
+        	\sum_{i=1}^n \left| x_i \cdot y_i \right|
         }{
-        	\left| \sum_{i/1}^n x_i \cdot y_i \right|
+        	\left| \sum_{i=1}^n x_i \cdot y_i \right|
         }}_{cond(\vec{x} \cdot \vec{y})}
     \end{gather*}
     gdzie $cond(\vec{x} \cdot \vec{y})$ oznacza {\it wskaźnik uwarunkowania}, \\ 
