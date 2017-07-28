@@ -9,7 +9,6 @@
         Inżynierii Oprogramowania.
       \end{enumerate}
     \end{block}
-
   \end{frame}
 
   \begin{frame}{Wstęp}
@@ -26,7 +25,6 @@
         (autor:~John~Smith)
       \end{itemize}
     \end{block}
-
   \end{frame}
 
 \subsection{Motywacja}
@@ -42,7 +40,6 @@
         \item linia geodezyjna w ogólnej teorii względności
       \end{itemize}
     \end{exampleblock}
-
   \end{frame}
 
   \begin{frame}{Motywacja}
@@ -62,7 +59,6 @@
         $ K \geq n{,}\ \text{zwykle}\ K \gg n $
       \end{itemize}
     \end{exampleblock}
-
   \end{frame}
 
 \subsection{Terminologia}
@@ -81,7 +77,6 @@
         \textbf{function minimalization !!!}
       \end{itemize}
     \end{block}
-
   \end{frame}
 
 \subsection{Zdefiniowanie zagadnienia}
@@ -101,7 +96,6 @@
         aż do osiągnięcia minimum. ($ F(x) $ -- to procedura)
       \end{enumerate}
     \end{block}
-
   \end{frame}
 
   \begin{frame}{Zdefiniowanie zagadnienia}
@@ -113,9 +107,7 @@
         metoda)
         \item wymaga mało pamięci
       \end{itemize}
-
     \end{block}
-
   \end{frame}
 
 \subsection{Gdzie szukać minimum funcji? (global minimum)}
@@ -130,14 +122,12 @@
         \item na krawędzi obszaru (edge point)
       \end{enumerate}
     \end{block}
-
     Gdy nie znamy funkcji analitycznie -- musimy ograniczyć~
     się do minimum lokalnego $ x_0 $:
     \begin{displaymath}
       \forall x \in \text{otoczenia}\ x_0{,}\ F(x) > F(x_0)
       \to \text{\emph{unconstrained local minimization}}
     \end{displaymath}
-
   \end{frame}
 
 \subsection{Ksztalt funkcji $ F(x) $}
@@ -146,7 +136,6 @@
       $ F(x) $ -- ma sens fizyczny $ \Rightarrow $ w rozpatrywanym
       obszarze istnieją jej wszystkie pochodne.
     \end{block}
-
     Wokół $ x_1 - F(x) $ -- \textbf{w szereg Taylora (1-D):}
     \begin{displaymath}
       F(x) = F(x_1) + \left. \frac{\partial F}{\partial x} \right|_{x_1}(x - x_1) +
@@ -166,6 +155,13 @@
   \begin{frame}{Ksztalt funkcji $ F(x) $}
     dla n-D: $ x \to \vec{x} $
     \begin{displaymath}
-      F(\vec{x}) = \underbrace{F(\vec{x_1})}_{\text{stały}}
+      F(\vec{x}) = \underbrace{F(\vec{x_1})}_{\text{stały}} +
+      \vec{g}^T * (\vec{x} - \vec{x_1}) +
+      \frac{1}{2}(\vec{x} - \vec{x_1}^T) * G * (\vec{x} - \vec{x_1}) + \dots
     \end{displaymath}
+    % \begin{displaymath}
+    %   g_i = \left. \frac{\partial F}{\partial x} \right|_{\vec{x_1}} \text{-- gradient;}
+    %   G_{ij} = \left. \frac{\partial^2 F}{\partial x_i \partial y_j} \right|_{\vec{x_1}}
+    % \end{displaymath}
+
   \end{frame}
