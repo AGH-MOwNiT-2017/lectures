@@ -149,7 +149,16 @@
 
     Wokół $ x_1 - F(x) $ -- \textbf{w szereg Taylora (1-D):}
     \begin{displaymath}
-      F(x) = F(x_1) + \left. \frac{\partial F}{\partial x} \right|_{x_1}
+      F(x) = F(x_1) + \left. \frac{\partial F}{\partial x} \right|_{x_1}(x - x_1) +
+      \left. \frac{1}{2} \frac{\partial^2 F}{\partial x^2} \right|_{x_1}(x - x_1)^2 +
+      \dots
     \end{displaymath}
+    \begin{itemize}
+      \item a priori nie znamy obszaru jego zbieżności
+      \item im mniejsza $ (x - x_1) $ - tym mniej ważne człony
+      wyższych rzędów
+    \end{itemize}
+    $ \Rightarrow $ dla małych kroków -- przewidywania oparte
+    na wyrazach niższego rzędu powinny być wystarczające.
 
   \end{frame}
