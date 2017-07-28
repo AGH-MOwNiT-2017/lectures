@@ -27,27 +27,38 @@
     \end{block}
   \end{frame}
 
-  \subsection{Motywacja}
-    \begin{frame}
-      \begin{block}{}
-        Szeroka klasa zagadnień - szukanie najmniejszej wartości
-        przyjmowanej przez funkcję jednej lub wielu zmennych.
-      \end{block}
+\subsection{Motywacja}
 
-      \begin{exampleblock}{Przykład}
-        \begin{itemize}
-          \item minimalizacja kosztów producji
-          \item \ldots
-          \item linia geodezyjna w ogólnej teorii względności
-          \item przykład klasyczny:\\
-          \textbf{estymacja} parametrów modelu teoretycznego
-          przez \textbf{minimalizację} różnicy między danymi
-          teoretycznymi a eksperymentalnymi:\\
-          $
-            min!F(x) = \sum_{k/1}^{k} \left[ \frac{Y_k - T_k(\vec x)}{\sigma_k}
-            \right] ^2 Y_k \text{-- zmierzone wartości}
-          $
+  \begin{frame}
+    \begin{block}{}
+      Szeroka klasa zagadnień - szukanie najmniejszej wartości
+      przyjmowanej przez funkcję jednej lub wielu zmennych.
+    \end{block}
 
-        \end{itemize}
-      \end{exampleblock}
-    \end{frame}
+    \begin{exampleblock}{Przykład}
+      \begin{itemize}
+        \item minimalizacja kosztów producji
+        \item \ldots
+        \item linia geodezyjna w ogólnej teorii względności
+      \end{itemize}
+    \end{exampleblock}
+  \end{frame}
+
+  \begin{frame}
+    \begin{exampleblock}{Przykład -- c.d.}
+      \begin{itemize}
+        \item przykład klasyczny:\\
+        \textbf{estymacja} parametrów modelu teoretycznego
+        przez \textbf{minimalizację} różnicy między danymi
+        teoretycznymi a eksperymentalnymi:\\
+        $
+          min!F(x) = \sum_{k/1}^{k} \left[ \frac{Y_k - T_k(\vec x)}{\sigma_k}
+          \right] ^2 Y_k \text{-- zmierzone wartości,}
+        $ \\
+        $ \sigma_k $ - błąd pomiaru,\\
+        $ T_k $ - wartości teoretyczne, zależne od parametrów~
+        $ x_i{,}\ i=1{,} \dots {,}n $ \\
+        $ K \geq n{,}\ \text{zwykle}\ K \gg n $
+      \end{itemize}
+    \end{exampleblock}      
+  \end{frame}
