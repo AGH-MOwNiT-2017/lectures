@@ -9,6 +9,7 @@
         Inżynierii Oprogramowania.
       \end{enumerate}
     \end{block}
+
   \end{frame}
 
   \begin{frame}{Wstęp}
@@ -25,15 +26,14 @@
         (autor:~John~Smith)
       \end{itemize}
     \end{block}
+
   \end{frame}
 
 \subsection{Motywacja}
 
   \begin{frame}
-    \begin{block}{}
-      Szeroka klasa zagadnień - szukanie najmniejszej wartości
-      przyjmowanej przez funkcję jednej lub wielu zmennych.
-    \end{block}
+    Szeroka klasa zagadnień - szukanie najmniejszej wartości
+    przyjmowanej przez funkcję jednej lub wielu zmennych.
 
     \begin{exampleblock}{Przykład}
       \begin{itemize}
@@ -42,6 +42,7 @@
         \item linia geodezyjna w ogólnej teorii względności
       \end{itemize}
     \end{exampleblock}
+
   \end{frame}
 
   \begin{frame}
@@ -61,6 +62,7 @@
         $ K \geq n{,}\ \text{zwykle}\ K \gg n $
       \end{itemize}
     \end{exampleblock}
+
   \end{frame}
 
 \subsection{Terminologia}
@@ -79,6 +81,7 @@
         \textbf{function minimalization !!!}
       \end{itemize}
     \end{block}
+
   \end{frame}
 
 \subsection{Zdefiniowanie zagadnienia}
@@ -98,5 +101,41 @@
         aż do osiągnięcia minimum. ($ F(x) $ -- to procedura)
       \end{enumerate}
     \end{block}
+
+  \end{frame}
+
+  \begin{frame}
+    \begin{block}{Najlepsza metoda -- taka, która:}
+      \begin{itemize}
+        \item znajduje minimum (z zadaną tolerancją)
+        po najmniejszej liczbie obliczeń funkcji
+        \item ma małą złożoność obliczeniową (sama
+        metoda)
+        \item wymaga mało pamięci
+      \end{itemize}
+
+    \end{block}
+
+  \end{frame}
+
+\subsection{Gdzie szukać minimum funcji? (global minimum)}
+
+  \begin{frame}
+    \begin{block}{$ F(x) $ przyjmuje minimum w jednym z punktów:}
+      \begin{enumerate}
+        \item wszyskie $ \frac{\partial F}{\partial x} = 0 $
+        (p. stacjonarny -- stationary point)
+        \item niektóre $ \frac{\partial F}{\partial x} $
+        nie istnieją (wierzchołek -- cusp)
+        \item na krawędzi obszaru (edge point)
+      \end{enumerate}
+    \end{block}
+
+    Gdy nie znamy funkcji analitycznie -- musimy ograniczyć~
+    się do minimum lokalnego $ x_0 $:
+    \begin{displaymath}
+      \forall x \in \text{otoczenia}\ x_0{,}\ F(x) > F(x_0)
+      \to \text{\emph{unconstrained local minimization}}
+    \end{displaymath}
 
   \end{frame}
