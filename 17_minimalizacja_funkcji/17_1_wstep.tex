@@ -169,16 +169,14 @@
   \end{frame}
 
   \begin{frame}{Ksztalt funkcji $ F(x) $}
-    \begin{itemize}
-      \item[] $ \vec{g}^T * (\vec{x} - \vec{x_1}) $ -- proporcjonalny do
-      gradientu, wskazuje kierunek największego spadku funkcji,
-      w pobliżu minimum: $ \vec{g} \to 0{,}\ (\vec{x} - \vec{x_1}) \to 0
-      \; \Rightarrow $ człon liniowy, nie przepowiada minimum,
-      nie można go użyć do określenia wielkości kroku.
-      \item[] $ \frac{1}{2}((\vec{x} - \vec{x_1})^T) * G * (\vec{x} - \vec{x_1}) $
-      -- kwadratowy, najniższy człon przydatny do przewidywania minimum
-      $ G \approx $ stale w małych obszarach
-    \end{itemize}
+    $ \vec{g}^T * (\vec{x} - \vec{x_1}) $ -- proporcjonalny do
+    gradientu, wskazuje kierunek największego spadku funkcji,
+    w pobliżu minimum: $ \vec{g} \to 0{,}\ (\vec{x} - \vec{x_1}) \to 0
+    \; \Rightarrow $ człon liniowy, nie przepowiada minimum,
+    nie można go użyć do określenia wielkości kroku.
+    $ \frac{1}{2}((\vec{x} - \vec{x_1})^T) * G * (\vec{x} - \vec{x_1}) $
+    -- kwadratowy, najniższy człon przydatny do przewidywania minimum
+    $ G \approx $ stale w małych obszarach
     \begin{alertblock}{Uwaga}
       ta analiza nie jest słuszna dla $ F(\vec{x}) $ liniowych
       od $ \vec{x} $;\\
