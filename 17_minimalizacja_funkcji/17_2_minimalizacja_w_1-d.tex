@@ -76,4 +76,18 @@
         \end{itemize}
       \end{enumerate}
     \end{block}
+    \begin{itemize}
+      \item Minimum -- w [0,1]
+      \item Na początek -- potrzebne 2 punkty:
+      $F(x_1),F(x_2) : F(x_1) < F(x_2) \Rightarrow \text{min} F(x)\in [0{,}x_2]$
+      \item w $[0{,}x_2]$ już jest punkt $x_1$ -- dla kolejnej
+      redukcji $\to$ wyznaczenie $F(x)$ tylko w jednym punkcie.
+    \end{itemize}
+
+  \end{frame}
+
+  \begin{frame}{Metoda złotego podziału \emph{(golden section search)}}
+    Rozmieczenie punktów:\\
+    $t$ -- współczynnik redukcji po każdym etapie\\
+    \includegraphics[width=0.9\textwidth]{img/17/f_uni2}
   \end{frame}
