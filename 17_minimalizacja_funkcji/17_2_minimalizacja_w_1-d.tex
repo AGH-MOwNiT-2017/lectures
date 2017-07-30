@@ -141,13 +141,40 @@
         \end{displaymath}
         \hfil \emph{Zadanie:} Sprawdzić ten wzór
       \end{itemize}
-      a następnie:
+    \end{block}
+  \end{frame}
+
+  \begin{frame}{Kwadratowa interpolacja i aproksymacja}
+    \begin{block}{A następnie:}
       \begin{itemize}
         \item $x_{4}$ -- zastępuje jeden z $x_{1}{,}x_{2}{,}x_{3}$,
         wyznaczamy nowy $x_{4} \dots$
         \item warunek zakończenia: wartość $F(x_{4})$ bliska
         $F(x_{3})$ z zadaną dokładnością
       \end{itemize}
-
+    \end{block}
+    \begin{block}{Metoda dobra dla f. zbieżnych od kwadratowych, lecz:}
+      \begin{enumerate}
+        \item na każdym kroku $x_{1}{,}x_{2}{,}x_{3}$ mogą
+        wyznaczać $max$ a nie $min \Rightarrow$ rozbieżność
+        \item gdy $x_{1}{,}x_{2}{,}x_{3}$ -- prawie na prostej
+        $\to$ duży krok:
+        \begin{itemize}
+          \item trudności numeryczne
+          \item rozbieżność
+        \end{itemize}
+        \item który z poprzednich punktów odrzucić?
+        \item możliwe oscylacje wokół minimum zamiast zbieżności
+      \end{enumerate}
     \end{block}
   \end{frame}
+
+    \begin{frame}{Kwadratowa interpolacja i aproksymacja}
+      \begin{block}{Możliwe zabeżpieczenia:}
+        Zaniechanie metody przy wystąpieniu trudności.
+      \end{block}
+      \begin{block}{Używana:}
+        W ostatniej fazie minimizacji (f.~fizyczne $\to$
+        paraboliczne w pobliżu minimum).
+      \end{block}
+    \end{frame}
