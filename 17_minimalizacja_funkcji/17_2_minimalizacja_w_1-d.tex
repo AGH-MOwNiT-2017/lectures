@@ -68,7 +68,12 @@
       Funkcję $f(x)$ nazywamy \emph{unimodalną} na przedziale
       $[a{,}b]$ jeżeli:
       \begin{enumerate}
-        \item $\exists x^{*}\in [a{,}b] : f(x^{*}) = min_{x \in [a{,}b]}f(x) $
+        \item $\exists x^{*}\in [a{,}b] : f(x^{*}) = min_{x \in [a{,}b]}f(x)$
+        \item $\forall x_{1}{,}x_{2} : a \leq x_{1} < x_{2} \leq b$ zachodzi:
+        \begin{itemize}
+          \item $x_{2} \leq x_{*} \Rightarrow f(x_{1}) > f(x_{2})$
+          \item $x_{1} \geq x_{*} \Rightarrow f(x_{1}) < f(x_{2})$
+        \end{itemize}
       \end{enumerate}
     \end{block}
   \end{frame}
