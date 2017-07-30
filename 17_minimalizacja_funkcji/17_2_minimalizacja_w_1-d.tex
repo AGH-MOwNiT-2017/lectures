@@ -119,3 +119,27 @@
       $\Rightarrow$ ustalony krok, w drugą stronę -- z mniejszym krokiem.
     \end{block}
   \end{frame}
+
+\subsection{Kwadratowa interpolacja i aproksymacja}
+  \begin{frame}{Kwadratowa interpolacja i aproksymacja}
+    \begin{block}{Założenie: $F(x)$ jest parabolą}
+      \begin{itemize}
+        \item wyznaczamy $F(x)$ w 3 punktach: $x_{1}{,}x_{2}{,}x_{3}$
+        (interpolacja f.~kwadr.)
+        \item min $F(x) \to$ min paraboli przechodzącej przez
+        $x_{1}{,}x_{2}{,}x_{3}$ znajduje się w punkcie $x_4$:
+        \begin{displaymath}
+          x_4 = \frac{
+            \frac{F_{1}*(x_{2}+x_{3})}{(x_{1}-x_{2})*(x_{1}-x{3})} +
+            \frac{F_{2}*(x_{1}+x_{3})}{(x_{2}-x_{1})*(x_{2}-x{3})} +
+            \frac{F_{3}*(x_{1}+x_{2})}{(x_{3}-x_{1})*(x_{3}-x{2})}
+          }{2 * [
+            \frac{F_{1}}{(x_{1}-x_{2})*(x_{1}-x{3})} +
+            \frac{F_{2}}{(x_{2}-x_{1})*(x_{2}-x{3})} +
+            \frac{F_{3}}{(x_{3}-x_{1})*(x_{3}-x{2})}
+          ]}
+        \end{displaymath}
+      \end{itemize}
+
+    \end{block}
+  \end{frame}
