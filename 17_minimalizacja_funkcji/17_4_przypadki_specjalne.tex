@@ -18,11 +18,17 @@
   \end{frame}
 
   \begin{frame}{Liniowy model}
-    \begin{eqnarray}
+    \begin{displaymath}
       (*)\ \frac{\partial^2 F}{\partial x_{i} \partial x_{j}} =
       \frac{\partial}{\partial x_{i}} \frac{\partial}{\partial x_{j}}
       \sum_{k} f_{k}^2 = \frac{\partial}{\partial x_{i}}
       \sum_{k} 2 \cdot f_{k} \cdot \frac{\partial f_{k}}{\partial x_{j}} =
-      \nonumber \\
-    \end{eqnarray}
+    \end{displaymath}
+    \begin{displaymath}
+      \sum_{k} 2 \cdot \frac{\partial f_{k}}{\partial x_{i}} \cdot
+      \frac{\partial f_{k}}{\partial x_{j}} +
+      \sum_{k} 2 \cdot f_{k} \cdot
+      \frac{\partial^2 f_{k}}{\partial x_{i} \partial x_{j}}
+    \end{displaymath}
+
   \end{frame}
