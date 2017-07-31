@@ -1,0 +1,219 @@
+% !TEX encoding = UTF-8 Unicode
+\section{Algorytmy blokowe i BLAS}
+%%%%%%%%%%%%%%%%
+	\begin{frame}{Faktoryzacja}
+		Level 1, 2, 3 BLAS performance \\
+		Blocked algorithms \\
+		$$
+		\begin{pmatrix}
+		A_{11} & a_j & A_{13} \\
+		. & a_{jj} & a_j^T \\
+		. & . & A_{33}
+		\end{pmatrix}
+		=
+		\begin{pmatrix}
+		U_{11}^T & 0 & 0 \\
+		u_j^T & u_{jj} & 0 \\
+		U_{13}^T & u_j & U_{33}^T
+		\end{pmatrix}
+		*
+		\begin{pmatrix}
+		U_{11} & u_j  & U_{13} \\
+		0 & u_{jj} & u_j^T \\
+		0 & 0 & U_{33}
+		\end{pmatrix}
+		$$
+		Porównując współczynniki w kolumnie j otrzymujemy:
+		$
+		\begin{cases}
+		a_j = U_{jj}^T * u_j \\
+		a_{jj} = u_j^T * u_j + u_{jj}^2
+		\end{cases}
+		$ \\
+		Jeżeli $U_{11}$ został wyznaczony, to $u_j$ oraz $u_{jj}$ można obliczyć z:
+		$
+		\begin{cases}
+		U_{11}^T * u_j = a_j \\
+		u_{jj}^T = a_jj - u_j^T * u_{j}
+		\end{cases}
+		$
+	\end{frame}
+	\begin{frame}[fragile]{Realizacja z użyciem BLAS level 1}
+		\begin{lstlisting}
+			DO 30 J = 1, N
+				INFO = J
+				S = 0.0E0
+				JM1 = J - 1
+				IF(JM1 .LT. 1) GO TO 20
+				DO 10 K = 1, JM1
+					T = A(K,J) - SDOT(K-1, A(1,K), 1,
+					A(1,J), 1)
+					T = T/A(K,K)
+					A(K,J) = T
+					S = S + T*T
+			10 CONTINUE
+			20 CONTINUE
+			S = A(J,J) - S
+			... EXIT
+			IF (S .LE. 0.0E0) GO TO 40 A(J,J) = SQRT(S)
+			30 CONTINUE		
+		\end{lstlisting}
+	\end{frame}
+	\begin{frame}{Realizacja z użyciem BLAS level 1}
+		FUNCTION \textunderscore DOT(N,X, INCX,Y,INCY) = dot $ \leftarrow x^T * y $ \\ % !!!!!!!!!!!! Not finished part
+		N - number of elements of vectores x and y to be used in dot \\
+		X - array of length $lenx = (n - 1) * |inc x| + 1$ containing the n-vector $x$ \\
+		INCX - increment for the array $x$: \\
+		$incx \geq 0 $ $x$ stored forward in array $x$, i.e: $x_i \rightarrow x((i - 1) * incx + 1)$ \\
+		$incx < 0$ $x$ stored backward in array $x$, i.e: $x_i \rightarrow x((i - n) * incx + 1)$ \\
+		Y - \\
+		INCY - \\
+		OUTPUT: $s = \sum_{i=1}^n x_i * y_i$, $s = \sum_{i=1}^n x_i^{*} * y_i$ \\
+		if $incx = 0 \Rightarrow x_i = x(1) \forall i$ \\
+		$incy = 0 \Rightarrow y_i = y(1) \forall i$ \\
+		S = SDOT(n, x, incx, y, incy)
+	\end{frame}
+	\begin{frame}[allowframebreaks]{Realizacja z użyciem BLAS level 2}
+	\textunderscore TRSV(UPLO, TRANS, DIAG, N, A, LDA, X, INCX) \\ % !!!!!!!!!!!! Not finished part
+	we: $ Ay = x $, wy: $x \leftarrow y$ \\ % !!!!!!!!!!!! Not finished part, no space on slide
+	Solve Triangular System: \\ 
+	A - nxn upper or lower - triangular matrix A \\ %
+	uplo - upper/lower triangular opt \\
+	= 'L' - solve lower triangular system (forward elimin) \\
+	= 'U' - solve upper triangular system (back substitutuion) \\
+	trans - transposition option for A: \\
+	$N - : x \leftarrow A^{-1} x;$ \\
+	$T - : x \leftarrow A^{-T} x;$ \\
+	$C - : x \leftarrow A^{-H} x$ \\
+	diag - whether A is unit triangular i.e. $a_{ii} = 1$ \\
+	N - diag of A stored in array; \\
+	U - diag = 1, \\
+	n - no of rows and columns in A \\
+	A - array containing n-by-n triangular matrix \\
+	lda - the leading dimension of array a (decl. in call p) $lda \geq max(n, 1)$
+	x - array of $lenx = (n - 1) * |incx| + 1 \leftarrow$ rhs $n$-vector $x$ \\
+	incx - increment for x
+	OUTPUT:  $x$ - the solution vector replaces the input \\
+	Notes: subprogram do not check singularity of A \\
+	\end{frame}
+	\begin{frame}[fragile]{Realizacja z użyciem BLAS level 2 III}
+		Program ma postać:
+		\begin{lstlisting}
+		DO 10 J=1, N
+			CALL STRSU('Upper', 'Transpase', 
+			'Non-Unit', J-1, A, LDA, A(1, J), 1)
+		S - A(J, J) - SDOT(J-1, A(1, J), 1, A(1, J), 1)
+		IF (S .LE. ZERO) GO TO 20
+		A(J, J) = SQRT(S)
+		10 CONTINUE
+		\end{lstlisting}
+		
+	\end{frame}
+	\begin{frame}{Realizacja z użyciem BLAS level 2}
+	Improvement of the performance: \\ 
+	1 processor CRAY Y-MP, N= 500 \\
+	\begin{itemize}
+		\item dot version: 72 MFLOPS
+		\item 251 MFLOPS (81\% of A*B)
+	\end{itemize}
+	$\Rightarrow$ only 278 MFLOPS on 8 PES of CARY Y-MP \\
+	$\Rightarrow$ CRAY Y-MP (6 ns) $\rightarrow$ Theor. peak perf. = 333 Mflops (1 proc)
+	\end{frame}
+	\begin{frame}{Derivation of blocked algorithms}
+	$$
+		\begin{pmatrix}
+		A_{11} & a_{12} & A_{13} \\
+		. & a_{22} & a_{23} \\
+		. & . & A_{33}
+		\end{pmatrix}
+		=
+		\begin{pmatrix}
+		U_{11}^T & 0 & 0 \\
+		u_{12}^T & u_{22}^T & 0 \\
+		U_{13}^T & u_{23}^T & U_{33}^T
+		\end{pmatrix}
+		*
+		\begin{pmatrix}
+		U_{11} & u_{12}  & U_{13} \\
+		0 & u_{22} & u_{23} \\
+		0 & 0 & U_{33}
+		\end{pmatrix}
+	$$
+	Porównując macierze w drugim bloku kolumn mamy:
+	$
+	\begin{cases}
+		A_{12} = U_{11}^T * U_{12} \\
+		A_{22} = U_{12}^T * U_{12} + U_{22}^T * U_{22}
+	\end{cases}
+	$ \\ 
+	Jeżeli $U_{11}$ został już uprzednio wyliczony, to:
+	$$
+		U_{11}^T * U_{12} = A_{12} %TRSM
+	$$
+	$$
+		U_{22}^T * U_{22} = A_{22} - U_{12}^T * U_{12} %SYRK
+	$$
+	\end{frame}
+	
+	\begin{frame}{Realizacja z użyciem BLAS level 3}
+		\textunderscore TRSM (SIDE, UPLO, TRANSA, DIAG, M, N, ALPHA, A, LDA, B, LDB) %!!!!!!
+		ALPHA $\rightarrow \alpha$ - scalar \\
+		A $\rightarrow$ triangular $m \times m$; $n \times n$ \\
+		B $\rightarrow m \times n$ \\
+		B $\leftarrow \alpha$ op $(A^{-1})*B$; B $\leftarrow \alpha$ * B op ($A^{-1}$) %!!!!!!!!!! this line and next two
+		side - whether triangular A is the left or right matrix operand: \\
+		'L': B $\leftarrow A^{-1}B$ \\
+		'R': $\leftarrow BA^{-1}$ \\
+		OUTPUT: the indicated matrix solution replaces the input
+	\end{frame}
+	
+	\begin{frame}{Realizacja z użyciem BLAS level 3}
+		\textunderscore SYRK(UPLO, TRANS, N, K, ALPHA, A, LDA, BETA, C, LDC)
+		rank k update to o real symmetric, complex symmetric, complex Herm. % Misspelling?
+		$
+		\begin{cases}
+			C \leftarrow \alpha A A^T + \beta * C \\
+			C \leftarrow \alpha A^T A + \beta * C; C: n \times n \\
+		\end{cases}
+		$ \\
+		uplo - triangular storage option for C \\
+		trans - $
+		\begin{cases}
+			N \rightarrow C \leftarrow \alpha A A^T + \beta * C \\
+			T \rightarrow C \leftarrow \alpha A^T A + \beta * C \\
+			C \rightarrow C \leftarrow \alpha A^H A + \beta * C \\
+		\end{cases}$
+		k - number of rows and columns in A: $N \rightarrow A: n \times k$, inne: $A: k \times n$ \\
+		OUTPUT: C - upper/lower triangle of C (uplo) replaces inp.
+	\end{frame}
+	
+	\begin{frame}[fragile]{Realizacja z użyciem BLAS level 3}
+	Program ma postać
+		\begin{lstlisting}
+			DO 10 J=1, N, NB
+				CALL STRSM ('Left', 'Upper', 'Transpose', 
+				'Non-Unit', J-1, JB, ONE, A, LDA, A(1,J), LDA)
+				CALL SSYRK ('Upper', 'Transpose', 'Non-Unit', 
+				JB, J-1, -ONE, A(1,J), LDA, ONE, A(J,J), LDA)
+				CALL SPOTF2 ('Upper', JB, A(J,J), LDA, INFO)
+				IF (INFO.NE.O) GO TO 20
+			10 CONTINUE
+		\end{lstlisting}
+	\end{frame}
+	\begin{frame}{Speed in MFLOPS on CRAY Y-MP}
+		\begin{center}
+    			\begin{tabular}{| l | r | r |}
+   				 \hline
+				 variant & 1 PE & 8 PES \\
+				 \hline
+				 j, with LINPACK & 72 & 72 \\
+				 j, with Level 2 BLAS & 251 & 378 \\
+				 j, with Level 3 BLAS & 287 & 1225 \\
+				 i, with Level 3 BLAS & 290 & 1414 \\
+				 \hline
+			\end{tabular}
+		\end{center}
+	\end{frame}
+	
+
+	

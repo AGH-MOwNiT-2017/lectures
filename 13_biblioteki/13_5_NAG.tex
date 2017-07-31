@@ -1,0 +1,38 @@
+% !TEX encoding = UTF-8 Unicode
+\section{NAG - Numerical PVM Library}
+%%%%%%%%%%%%%%%%
+	\begin{frame}{NAG - Numerical PVM Library}
+	W oparciu o: 
+		\begin{itemize}
+			\item PVM (Parallel Virtual Machine)
+			\item BLACS
+		\end{itemize}
+		Zgodne ze ScaLAPACK \\
+		Model programowania: SPMD (Single Program Multiple Data)
+		\begin{itemize}
+			\item prostota - jeden kod źródłowy programu	
+			\item w bibliotece najmniej zmian w stosunku do biblioteki NAG F77
+		\end{itemize}
+		Zaplanowano możliwości konwersji do HPF, topologia procesorów: 2-D grid. 
+	\end{frame}
+	\begin{frame}{Zawartość NAG}
+		\begin{itemize}
+			\item algebra liniowa:
+				\begin{itemize}
+					\item rozwiązywanie układów równań gęstych i rzadkich,
+					\item faktoryzacja LU, Cholesky,
+					\item SVD,
+					\item symetryzacja zagadnienia własne. % !!!!!!!!!!!!
+				\end{itemize}
+			\item kwadratury,
+			\item minimalizacja.
+			\item generatory liczb pseudolosowych.
+		\end{itemize}
+		\begin{thebibliography}{9}
+			\setbeamertemplate{bibliography item}[online]
+      				\bibitem{NAG}{Numerical Algorithms Group \newblock Online resources \newblock \url{http://www.nag.co.uk}, \url{http://www.nag.com}}
+				%%%%%%%%%%%%%%%%
+				% www.mhpcc.edu/training/workshop/html/parallel_libs/parallel_libs.html
+				%%%%%%%%%%%%%%%%
+		\end{thebibliography}
+	\end{frame}

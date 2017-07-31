@@ -1,0 +1,113 @@
+\section{LAPACK - Linear Algebra Package}
+%%%%%%%%%%%%%%%%
+	\begin{frame}{LAPACK - Linear Algebra Package}
+		\begin{itemize}
+			\item Public domain software
+			\item Fortran77 routines
+			\item 1987 - 1992\dots
+			\item second release 1995
+			\item from HP-486 to CRAY,
+			\item 1 397 384 accesses to 21.01.1998
+		\end{itemize}
+		\textbf{CRPC} - \textbf{C}enter for \textbf{R}esearch on \textbf{P}arallel \textbf{C}omputing: 
+		\begin{itemize}
+			\item Rice,
+			\item Tennessee,
+			\item ORNL.
+		\end{itemize}
+		Supported by:
+		\begin{itemize}
+			\item National Sceince Foundation (NSF),
+			\item Defence Advanced Research Projects Agency (DARPA),
+			\item Departament of Energy (DoE).
+		\end{itemize}
+	\end{frame}
+	\begin{frame}[allowframebreaks]{LAPACK - Linear Algebra Package}
+		\begin{itemize}
+			\item vector,
+			\item shared memory multiprocessors,
+			\item high-performance "superscalar" workstations,
+			\item combines algorithms from LINPACK and EISPACK,
+			\item built on level 1, 2 and 3 BLAS (manufacturers optimized),
+			\item portable FORTRAN 77 (+BLAS): 
+			\begin{itemize}
+				\item 580 K lines, 250 K - library, \\350 K - testing and timing
+			\end{itemize}
+			\item basic problems $\Rightarrow$ blocked algorithms
+			\begin{itemize}
+				\item linear equations systems: $Ax = b$, 
+				\item factorization LU, LQ, QR,
+				\item leas squares: $min_x ||Ax - b ||_2$,
+				\item singular value decomposition: $A = U\sum V^T$,
+				\item eigenvalues and eigenvectors: $Ax = \lambda x$.
+			\end{itemize}
+			\item routines:
+			\begin{itemize}
+				\item simple and expert driver routines - standard complete problems,
+				\item computational routines,
+				\item auxiliary routines.
+			\end{itemize}
+		\end{itemize}
+	\end{frame}
+	\begin{frame}{BLAS - references}
+	%%%%%%%%%%%%%%%%
+	% More links: email and ftp
+	%%%%%%%%%%%%%%%%
+		\begin{thebibliography}{9}
+			\setbeamertemplate{bibliography item}[online]
+      				\bibitem{NetlibOrganization}{Netlib Organization \newblock Online resources \newblock \url{http://www.netlib.org/lapack}}
+		\end{thebibliography}
+	\end{frame}
+	\begin{frame}{LAPACK Naming Convention I}
+	TXXYY \\
+	T: \\
+	S - Single Precision REAL*4 \\
+	D - Double Precision REAL*8 \\
+	C - Complex COMPLEX*8 \\
+	Z - Double Complex COMPLEX*16 
+	\end{frame}
+	\begin{frame}{LAPACK Naming Convention II}
+	XX: 
+	\vspace{5mm}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+		\scriptsize
+	BD - bidiagonal \\
+	DI - diagonal \\
+	GB - general band \\
+	GE - general fill \\
+	GG - general matrices, generalized problem \\
+	GT - general tridiagonal \\
+	HB - complex Hermitian Band \\
+	HE - complex Hermitian \\
+	HG - upper Hessenberg matrix, generalized problem \\
+	HP - complex Hermitian, packed storage \\
+	HS - upper Hessenberg \\
+	OP - real orthogonal, packed storage \\
+	OR - real orthogonal \\
+	PB - symmetric or Hermitian positive definite band \\
+	PO - symmetric or Hermitian positive definite \\
+	\end{column}
+	\begin{column}{0.5\textwidth}
+	\scriptsize
+	PP - symmetric or Hermitian positive definite packed storage \\
+	PT - symmetric or Hermitian positive definite tridiagonal \\
+	SB - real symmetric band \\
+	SP - symmetric, packed storage \\
+	ST - real symmetric tridiagonal \\
+	SY - symmetric \\
+	TB - triangular band \\
+	TG - triangular matrices, generalized problem \\
+	TP - triangular packed storage \\
+	TR - triangular \\
+	TZ - trapezoidal \\
+	UN - complex unitary \\
+	UP - complex unitary packed storage \\
+		\end{column}
+	\end{columns}
+	\end{frame}
+	\begin{frame}{LAPACK90}
+		\begin{block}{LAPACK90}
+			Fortran90 interface to LAPACK.
+		\end{block}
+	\end{frame}
