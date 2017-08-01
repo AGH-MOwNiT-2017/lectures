@@ -18,19 +18,20 @@
   \end{frame}
 
   \begin{frame}{Liniowy model}
-    \begin{displaymath}
+    \begin{equation}
       (*)\ \frac{\partial^2 F}{\partial x_{i} \partial x_{j}} =
       \frac{\partial}{\partial x_{i}} \frac{\partial}{\partial x_{j}}
       \sum_{k} f_{k}^2 = \frac{\partial}{\partial x_{i}}
       \sum_{k} 2 \cdot f_{k} \cdot \frac{\partial f_{k}}{\partial x_{j}} =
-    \end{displaymath}
-    % \begin{displaymath}
-    %   \sum_{k} 2 \cdot \frac{\partial f_{k}}{\partial x_{i}} \cdot
-    %   \frac{\partial f_{k}}{\partial x_{j}} +
-    %   \sum_{k} 2 \cdot f_{k} \cdot
-    %   \frac{\partial^2 f_{k}}{\partial x_{i} \partial x_{j}}
-    %
-    % \end{displaymath}
+      \nonumber
+    \end{equation}
+    \begin{equation}
+      \sum_{k} 2 \cdot \frac{\partial f_{k}}{\partial x_{i}} \cdot
+      \frac{\partial f_{k}}{\partial x_{j}} +
+      \sum_{k} 2 \cdot f_{k} \cdot
+      \frac{\partial^2 f_{k}}{\partial x_{i} \partial x_{j}}
+      \nonumber
+    \end{equation}
     $(**)$ - zwkle uznajemy tem człon za mały w porównaniu
     z poprzedniem\\
     $\Rightarrow$ \emph{linearyzacja} (modelu! $T_{k}(x)$ -- liniowe)
@@ -52,4 +53,24 @@
       \item macierz $\left[ \frac{\partial^2 F}{\partial x_{i} \partial x_{j}} \right]^{-1}$
       nie zbiega się do macięrzy kowariancji
     \end{itemize}
+  \end{frame}
+
+\subsection{Likelihood maximization}
+  \begin{frame}{Likelihood maximization}
+    \begin{equation}
+      min!F(x) = \underbrace{- \sum_{k=1}^{k} ln\ f_{k}(x)}_{(*)}{,} \quad
+      f_{k}(x) = \frac{1}{\sigma^{2}_{k}} \left[ Y_{k} - T_{k}(x) \right]^2
+      \nonumber
+    \end{equation}
+    $(*)$ - logarytmiczna funkcja wiarygodności
+    \begin{equation}
+      \frac{\partial^2 F}{\partial x_{i} \partial x_{j}} =
+      - \frac{\partial}{\partial x_{i}}\frac{\partial}{\partial x_{j}} =
+      - \frac{\partial}{\partial x_{i}}
+      \sum_{k} \frac{1}{f_{k}} \frac{\partial f_{k}}{\partial x_{j}} =
+      \sum_{k} \frac{1}{f^{2}_{k}} \frac{\partial f_{k}}{\partial x_{i}} \frac{\partial f_{k}}{\partial x_{j}} -
+      \underbrace{\sum_{k} \frac{1}{f_{k}} \frac{\partial^{2} f_{k}}{\partial x_{i} \partial x_{j}}}_{(*)}
+      \nonumber
+    \end{equation}
+    $(*)$ -- jeżeli można pominąć \dots
   \end{frame}
