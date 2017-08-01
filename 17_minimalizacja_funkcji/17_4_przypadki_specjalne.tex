@@ -37,8 +37,19 @@
   \end{frame}
 
   \begin{frame}{Liniowy model}
-    \emph{gdy drugi człon w $(*)$ = 0} $\Rightarrow$
-    linear least squares $\to F(x)$ -- quadratic \\
+    %needs further formatting
+    \emph{gdy drugi człon w} $(*)$ = 0 $\Rightarrow$
+    linear least squares $\to F(x)$ -- quadratic; \\
     i cały problem minimalizacji $\Rightarrow$ znalezienie
     macierzy $\left[ \frac{\partial^2 F}{\partial x_{i} \partial x_{j}} \right]^{-1}$
+    a znalezienie min!$F(x)$ w pojedyńczym kroku newtonowskim;\\
+    \emph{gdy drugi człon w} $(*) \approx 0 \Rightarrow$
+    non-linear least squares\\
+    \begin{itemize}
+      \item $\frac{\partial^2 F}{\partial x_{i} \partial x_{j}}$
+      łatwe do policzenia (positiv defined)
+      \item kilka kroków $\to$ iteracyjnie
+      \item macierz $\left[ \frac{\partial^2 F}{\partial x_{i} \partial x_{j}} \right]^{-1}$
+      nie zbiega się do macięrzy kowariancji
+    \end{itemize}
   \end{frame}
