@@ -36,3 +36,23 @@
   \end{frame}
 
 \subsection{Algorytm Gelfanda-Cetlina (stepping m.)}
+  \begin{frame}{Algorytm Gelfanda-Cetlina (stepping m.)}
+    \begin{center}
+      \includegraphics[width=1\textwidth]{img/17/algo_g-c}
+    \end{center}
+  \end{frame}
+
+  \begin{frame}{Algorytm Gelfanda-Cetlina (stepping m.)}
+    \begin{enumerate}
+      \item z $\vec{x_{0}}$ -- lokalna minimalizacja $\Rightarrow$
+      min. w $\vec{a_{0}}$
+      \item z $\vec{x_{0}}$ -- długi, losowy krok do $\vec{x_{1}}$
+      \item z $\vec{x_{1}}$ -- lokalna minimalizacja $\Rightarrow$
+      min. w $\vec{a_{1}}$
+      \item długi krok (precipitous step) wzdłuż
+      $\vec{a_{1}} - \vec{a_{0}}$ do $\vec{x_{2}}$
+      \item z $\vec{x_{2}}$ -- lokalna minimalizacja $\Rightarrow$
+      min. w $\vec{a_{2}}$
+      \item długi krok wzdłuż $\vec{a_{2}} - \vec{a_{1}}$ \dots itd.
+    \end{enumerate}
+  \end{frame}
