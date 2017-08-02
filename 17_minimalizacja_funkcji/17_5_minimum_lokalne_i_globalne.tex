@@ -77,3 +77,22 @@
       \end{itemize}
     \end{block}
   \end{frame}
+
+  \subsection{Metoda Goldstein'a-Price'a}
+
+  \begin{frame}{Metoda Goldstein'a-Price'a}
+    \begin{itemize}
+      \item ładna i prosta
+      \item oparta na własnościach analitycznych $F(x)$
+    \end{itemize}
+    W pobliżu lokalnego minimum $x_{1}{,}, F(x)$:
+    \begin{displaymath}
+      F(\vec{x})=F(\vec{x_{1}}) \underbrace{+}_{(!)}
+      \frac{1}{2} \cdot (\vec{x} - \vec{x_{1}})^T \cdot
+      G \cdot (\vec{x} - \vec{x_{1}}) +
+      \underbrace{h.t.}_{\text{\emph{higher therms}}}
+    \end{displaymath}
+    (!) -- zanikły pierwsze pochodne!\\
+    Człony z 3-cią i wyższymi pochodnymi zawierają informacje
+    o pozostałych minimach.
+  \end{frame}
