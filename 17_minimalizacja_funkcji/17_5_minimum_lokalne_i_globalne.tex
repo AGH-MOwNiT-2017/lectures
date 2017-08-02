@@ -96,3 +96,67 @@
     Człony z 3-cią i wyższymi pochodnymi zawierają informacje
     o pozostałych minimach.
   \end{frame}
+
+  \begin{frame}
+    Usunięcie minimum w $x_{1} \to$ przez transformację:
+    \begin{displaymath}
+      F(\vec{x_{1}}{,}\vec{x}) =
+      \frac{2 \cdot \left[ F(\vec{x}) - F(\vec{x_{1}}) \right]}
+      {(\vec{x} - \vec{x_{1}})^T \cdot G \cdot (\vec{x} - \vec{x_{1}})} =
+      1 + h.t.
+    \end{displaymath}
+    G -- dodatnio określona (bo -- w minimum) $\Rightarrow$
+    w mianowniku forma kwadratowa zawsze dodatnia, czyli
+    po znalezieniu min $F_{1}(x)$ mamy:
+    \begin{itemize}
+      \item gdy $F_{1}(x) < 0 \to$ znaleziono lepsze
+      (głębsze) minimum
+      \item gdy $F_{1}(x) > 0 \to$ znaleziono inne minimum
+      lokalne, nie lepsze od tego w $x_{1}$; $\Rightarrow$
+      z tego punktu $(x_{2}) \Rightarrow F_{2}$ (związane z
+      $F_{1}$ tak, jak $F_{1}$ z $F$
+    \end{itemize}
+    \begin{alertblock}{Uwaga}
+      Metoda ta grozi zapętleniem $\to$ stąd, powtarzać
+      ja nie więcej niż kilka razy.
+    \end{alertblock}
+  \end{frame}
+
+  \subsection{Uwagi końcowe}
+  \begin{frame}{Uwagi końcowe}
+    \begin{itemize}
+      \item nie ma \emph{uniwersalnych} metod
+      minimalizacji tj.:
+      \begin{itemize}
+        \item[--] wszystkie funkcje
+        \item[--] wszystkie obszary danej funkcji
+      \end{itemize}
+      \item zalecane: używanie różnych metod
+      \item stopniowe zbliżanie się do minimum $\to$
+      kolejno:
+      \begin{itemize}
+        \item[--] metody Monte Carlo
+        \item[--] metody simplex / metoda Rosebrocka
+        (bezgradientowa)
+        \item[--] metody gradientowe
+      \end{itemize}
+      \item wykorzystać dostępną informację of $F(x)$
+      \item ważna: zadania z ograniczeniami (funkcje kary)
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}{Uwagi końcowe}
+    \begin{itemize}
+      \item powszechnie używany pakiet minimalizacyjny:
+      F.~James, M.~Roos: MINUIT, CERN Program Library
+      long write up D506 (516) $\Rightarrow$ zapoznać się!
+      \item głębsze wprowadzenie w zagadnienia minimalizacji
+      R.~Wit: "Metody programowania nieliniowego" WNT, Warszawa
+      1986
+      \item alternatywneb
+      \begin{itemize}
+        \item[$\Rightarrow$] Simulated annealing
+        \item[$\Rightarrow$] Genetic algorithms
+      \end{itemize}
+    \end{itemize}
+  \end{frame}
