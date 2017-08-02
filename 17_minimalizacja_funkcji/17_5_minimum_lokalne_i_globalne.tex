@@ -56,3 +56,24 @@
       \item długi krok wzdłuż $\vec{a_{2}} - \vec{a_{1}}$ \dots itd.
     \end{enumerate}
   \end{frame}
+
+  \begin{frame}{Algorytm Gelfanda-Cetlina (stepping m.)}
+    \begin{block}{Metoda jest nielokalna}
+      Przeszukiwanie zarówno w kierunku rosnących jak i
+      malejących wartości $F(x)$, z preferencją w kierunku
+      malejących (przewaga szukania nad zbieżnością).
+      \emph{O jakości} decyduje wybór \emph{"precipitous step"}
+      $\Rightarrow$ zwykle met. prób i błędów.\\
+      \textbf{Wada} - brak kryterium zatrzymania.
+    \end{block}
+
+    \begin{block}{Zwykle jest to}
+      \begin{itemize}
+        \item czas obliczeń
+        \item liczba wywołań $F(x)$
+        \item uzyskanie $F(x)$ mniejszej od pewnej zadanej
+        wartości
+        \item "zatoczenie koła" (trudne stwierdzenie)
+      \end{itemize}
+    \end{block}
+  \end{frame}
