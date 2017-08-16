@@ -59,45 +59,74 @@
 			30 CONTINUE		
 		\end{lstlisting}
 	\end{frame}
-	\begin{frame}{Realizacja z użyciem BLAS level 1}
-		FUNCTION \textunderscore DOT(N,X, INCX,Y,INCY) = dot $ \leftarrow x^T * y $ \\ % !!!!!!!!!!!! Not finished part
-		N - number of elements of vectores x and y to be used in dot \\
-		X - array of length $lenx = (n - 1) * |inc x| + 1$ containing the n-vector $x$ \\
-		INCX - increment for the array $x$: \\
-		$incx \geq 0 $ $x$ stored forward in array $x$, i.e: $x_i \rightarrow x((i - 1) * incx + 1)$ \\
-		$incx < 0$ $x$ stored backward in array $x$, i.e: $x_i \rightarrow x((i - n) * incx + 1)$ \\
-		Y - \\
-		INCY - \\
+	\begin{frame}{Realizacja z użyciem BLAS level 1 I}
+		\begin{tabular}{ l l l }
+			\textbf{FUNCTION} & \textunderscore \textbf{DOT(N,X, INCX,Y,INCY) = dot} & $ \leftarrow x^T * y $ \\
+			   & $\uparrow$ & $ \leftarrow x^H * y $ \\
+			   & S &  \\
+			   & D & \\
+			   & DS & \\
+		\end{tabular} \\ 
+		\textbf{N} - number of elements of vectores x and y to be used in dot \\
+		\textbf{X} - array of length $lenx = (n - 1) * |inc x| + 1$ containing the n-vector $x$ \\
+		\textbf{INCX} - increment for the array $x$: \\
+		$\textit{incx} \geq 0 $ $x$ stored forward in array $x$, i.e: $x_i \rightarrow x((i - 1) * incx + 1)$ \\
+		$\textit{incx} < 0$ $x$ stored backward in array $x$, i.e: $x_i \rightarrow x((i - n) * incx + 1)$ \\
+		\textbf{Y} - \\
+		\textbf{INCY} - \\
+	\end{frame}
+	\begin{frame}{Realizacja z użyciem BLAS level 1 II}
 		OUTPUT: $s = \sum_{i=1}^n x_i * y_i$, $s = \sum_{i=1}^n x_i^{*} * y_i$ \\
 		if $incx = 0 \Rightarrow x_i = x(1) \forall i$ \\
 		$incy = 0 \Rightarrow y_i = y(1) \forall i$ \\
 		S = SDOT(n, x, incx, y, incy)
 	\end{frame}
 	\begin{frame}[allowframebreaks]{Realizacja z użyciem BLAS level 2}
-	\textunderscore TRSV(UPLO, TRANS, DIAG, N, A, LDA, X, INCX) \\ % !!!!!!!!!!!! Not finished part
-	we: $ Ay = x $, wy: $x \leftarrow y$ \\ % !!!!!!!!!!!! Not finished part, no space on slide
-	Solve Triangular System: \\ 
-	A - nxn upper or lower - triangular matrix A \\ %
-	uplo - upper/lower triangular opt \\
+	\begin{tabular}{ l l l }
+		\textunderscore \textbf{TRSV} & \textbf{(UPLO, TRANS, DIAG, N, A, LDA, X, INCX)} \\
+		   $\uparrow$ & \\
+		   S, D, C, Z &  \\
+	\end{tabular} \\ 
+	we: $ Ay = x $, wy: $x \leftarrow y$ \\
+	\textit{Solve Triangular System}: $ x \leftarrow A^{-1}x $\\ 
+	$ A^{-1} = (A^T)^{-1}, A^{-H} = (A^H)^{-1} $ 
+	\begin{tabular}{c c}
+	$
+	\left .
+ 		 \begin{tabular}{c}
+			 $ x \leftarrow A^{-T} x $ \\
+			 $ x \leftarrow A^{-H} x $ 
+  		\end{tabular}
+	\right \}
+	$
+	 &
+		\begin{tabular}{c}
+			$ A \leftarrow A^T $ \\
+			$ A \leftarrow A^H $
+  		\end{tabular} 
+	\end{tabular} \\
+	
+	\textbf{A} - nxn upper or lower - triangular matrix A \\
+	\textbf{uplo} - upper/lower triangular opt \\
 	= 'L' - solve lower triangular system (forward elimin) \\
 	= 'U' - solve upper triangular system (back substitutuion) \\
 	trans - transposition option for A: \\
 	$N - : x \leftarrow A^{-1} x;$ \\
 	$T - : x \leftarrow A^{-T} x;$ \\
 	$C - : x \leftarrow A^{-H} x$ \\
-	diag - whether A is unit triangular i.e. $a_{ii} = 1$ \\
+	\textbf{diag} - whether A is unit triangular i.e. $a_{ii} = 1$ \\
 	N - diag of A stored in array; \\
 	U - diag = 1, \\
-	n - no of rows and columns in A \\
-	A - array containing n-by-n triangular matrix \\
-	lda - the leading dimension of array a (decl. in call p) $lda \geq max(n, 1)$
-	x - array of $lenx = (n - 1) * |incx| + 1 \leftarrow$ rhs $n$-vector $x$ \\
-	incx - increment for x
+	\textbf{n} - no of rows and columns in A \\
+	\textbf{A} - array containing n-by-n triangular matrix \\
+	\textbf{lda} - the leading dimension of array a (decl. in call p) $lda \geq max(n, 1)$
+	\textbf{x} - array of $lenx = (n - 1) * |incx| + 1 \leftarrow$ rhs $n$-vector $x$ \\
+	\textbf{incx} - increment for x
 	OUTPUT:  $x$ - the solution vector replaces the input \\
 	Notes: subprogram do not check singularity of A \\
 	\end{frame}
 	\begin{frame}[fragile]{Realizacja z użyciem BLAS level 2 III}
-		Program ma postać:
+		\textbf{Program ma postać:}
 		\begin{lstlisting}
 		DO 10 J=1, N
 			CALL STRSU('Upper', 'Transpase', 
@@ -148,19 +177,28 @@
 	$ \\ 
 	Jeżeli $U_{11}$ został już uprzednio wyliczony, to:
 	$$
-		U_{11}^T * U_{12} = A_{12} %TRSM
+		U_{11}^T * U_{12} = A_{12} TRSM (Level 3 BLAS)
 	$$
 	$$
-		U_{22}^T * U_{22} = A_{22} - U_{12}^T * U_{12} %SYRK
+		U_{22}^T * U_{22} = A_{22} - U_{12}^T * U_{12} SYRK(Level 2 BLAS)
 	$$
 	\end{frame}
 	
 	\begin{frame}{Realizacja z użyciem BLAS level 3}
-		\textunderscore TRSM (SIDE, UPLO, TRANSA, DIAG, M, N, ALPHA, A, LDA, B, LDB) %!!!!!!
+		\begin{tabular}{ l }
+			\textunderscore TRSM (SIDE,UPLO,TRANSA,DIAG,M,N,ALPHA,A,LDA,B,LDB) \\
+		   $\uparrow$ \\
+		   S, D, C, Z \\
+		\end{tabular} \\ 
 		ALPHA $\rightarrow \alpha$ - scalar \\
 		A $\rightarrow$ triangular $m \times m$; $n \times n$ \\
 		B $\rightarrow m \times n$ \\
-		B $\leftarrow \alpha$ op $(A^{-1})*B$; B $\leftarrow \alpha$ * B op ($A^{-1}$) %!!!!!!!!!! this line and next two
+		B $\leftarrow \alpha$ op $(A^{-1})*B$; B $\leftarrow \alpha$ * B op ($A^{-1}$)
+		\begin{tabular}{ c c c c c c }
+			$ op(A) $ & $ = $ & $ A, $ & $ A^T $ & $A^H $; & $ B - m \times n $ \\
+			 & & $\downarrow$ & $\downarrow$ & $\downarrow$ & \\
+			 $ transa $ & $ = $ & $ N $ & $ T $ & $ C $ & 		
+		\end{tabular} \\ 
 		side - whether triangular A is the left or right matrix operand: \\
 		'L': B $\leftarrow A^{-1}B$ \\
 		'R': $\leftarrow BA^{-1}$ \\
@@ -169,7 +207,7 @@
 	
 	\begin{frame}{Realizacja z użyciem BLAS level 3}
 		\textunderscore SYRK(UPLO, TRANS, N, K, ALPHA, A, LDA, BETA, C, LDC)
-		rank k update to o real symmetric, complex symmetric, complex Herm. % Misspelling?
+		rank k update to o real symmetric, complex symmetric, complex Herm.
 		$
 		\begin{cases}
 			C \leftarrow \alpha A A^T + \beta * C \\
