@@ -1,0 +1,61 @@
+\section{Wymagania stawiane różnicowemu rozwiązaniu zagadnienia początkowego}
+%%%%%%%%%%%%%%%%
+\begin{frame}{Wymagania}
+\textbf{Stawiane wymagania:}
+	\begin{itemize}
+      \item zgodność
+      \item dokładność
+      \item stabilność
+      \item efektywność
+	\end{itemize}
+    
+	\begin{flushleft}
+	Operator \textbf{T} - sprzęga poziomy czasowe, zależy od wyboru schematu 	całkowania i przestrzennego schematu różnicowego 
+	\end{flushleft}
+\end{frame}
+%%%%%%%%%%%%%%%%
+\begin{frame}{Wymagania dotyczące operatora T}
+  Operator T powinien zapewniać:
+  \begin{enumerate}
+    \item zgodność aproksymacji różnicowej 
+    \item dokładność aproksymacji różnicowej
+    \item stabilność schematu różnicowego
+    \item efektywność schematu różnicowego
+  \end{enumerate}
+\end{frame}
+%%%%%%%%%%%%%%%%
+\begin{frame}{Zgodność aproksymacji różnicowej}
+  \begin{block}{Wymóg podstawowy}
+  	w granicy - układ różnicowy indentyczny z różniczkowym
+  \end{block}
+\end{frame}
+%%%%%%%%%%%%%%%%
+\begin{frame}{Dokładność aproksymacji różnicowej}
+  \begin{itemize}
+    \item błędy obcięcia\par 
+    - ciągła zmienna niezależna \par
+    \quad $\Rightarrow$ zbiór punktów (wybór schematu różnicowego) \par
+    \quad $\Rightarrow$  od $\Delta$, $\Delta t$
+    \item błędy \par
+    \quad - ograniczona dokładność reprezentacji \textit{(fl. - arithmetic)}
+  \end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%
+\begin{frame}{Stabilność schematu różnicowego}
+  \begin{block}{Stabilność metody numerycznej}
+    Metoda numeryczna jest stabilna, gdy mały błąd na dowolnym etapie przenosi się z minimalną amplitudą
+    $$\varepsilon^{n+1} = g \cdot \varepsilon^{n}$$
+    gdzie: \par
+    \quad $\varepsilon$ - amplituda błędu \par
+    \quad $g$ - współczynnik wzmocnienia $\sim$ (T)
+  \end{block}
+  stabilność $\Rightarrow $ \[\abs{g} < 1\]
+  \textit{układ równań:} $\vec{\varepsilon}^{n}$, G  - macierz wzmocnienia
+\end{frame}
+%%%%%%%%%%%%%%%%
+\begin{frame}{Efektywność schematu różnicowego}
+$$\begin{array}{ll}
+czas \\
+pamiec
+\end{array} \left.\right\} \Rightarrow y$$
+\end{frame}
