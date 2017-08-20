@@ -1,0 +1,34 @@
+\section{Wstęp}
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Model}
+  \begin{center}
+    \fbox{$\left\{\begin{array}{ll}
+    \frac{du}{dt} + f(u,t) = 0 &\textrm{u = u(t)}\\
+    \textrm{warunki początkowe:} & \textrm{$u(t^0) = u^0$}
+    \end{array}\right.$}
+  \end{center}
+
+  - $\frac{df}{du} > 0$ - równanie typu ``rozpadu" \newline
+  - $\frac{df}{du} < 0$ - równanie typu ``wzrostu \newline
+  - $u$ zespolone - równanie typu ``oscylacyjnego" \par
+  \qquad\qquad gdy - $u$,$f$ zespolone $\Rightarrow$ \underline{para równań} \newline
+  \begin{itemize}
+    \item schematy całkowania po czasie $\Rightarrow$ przejście do równań różnicowych
+    \item właściwości schematów
+  \end{itemize}
+  Przenosi się to na:
+  \begin{itemize}
+    \item układy równań różniczkowych zwyczajnych
+    \item układy równań różniczkowych cząstkowych
+  \end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Model c.d.}
+  \textbf{Równanie modelowe można scałkować na siatce czasowej:}
+  $$\Delta t = t^{n+1}+t^n$$
+  $$u^{n+1} = u^n - \underbrace{\int_{t^n}^{t^{n+1}}f(u,t)dt}$$
+  \begin{flushright}
+    różne aproksymacje $\Rightarrow$ metody całkowania
+  \end{flushright}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%

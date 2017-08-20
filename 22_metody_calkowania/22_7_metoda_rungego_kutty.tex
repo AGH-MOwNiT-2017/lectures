@@ -1,0 +1,173 @@
+\section{Metoda Rungego-Kutty}
+%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Metoda Rungego-Kutty dla pojedynczego równania}
+	$$\frac{du(t)}{dt}=f(t,u)\qquad t \in [a,b] \quad u_0 = u(t_0)$$
+    Rozwiążanie $u(t)$ wyznaczamy w punktach
+    $$t_i = t_0+i\cdot h \qquad h=\frac{b-a}{n}, \quad i = 0,1,\ldots,n$$
+    W metodach jednokrokowych jawnych rozwiązanie:
+    $$u_{i+1} = u_i + h\cdot F(t_i,u_i,h) \qquad i = 0,1,\ldots,n-1 \qquad(*)$$
+    F - zadana funkcja
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Metody R-K - szczególny przypadek (*)}
+	$$u(t_{i+1}) = u(t_i)+h\cdot u'(t_1)+\frac{h^2}{2}\cdot u''(t_i)+\ldots+\frac{h^q}{q!}\cdot u^{(q)}(t_i) + R$$
+    dla \textbf{i = 0} :
+    $$u_1 = u(t_0) + h\cdot \underbrace{u'}_{!!}(t_0)+\frac{h^2}{2}\cdot\underbrace{u''}_{!!}(t_0)+\ldots+\frac{h^q}{q!}\cdot \underbrace{u^{(q)}}_{!!}(t_0) \qquad (**) $$
+    \begin{flushright}
+    	!! - należy wyznaczyć
+    \end{flushright}
+    \begin{center}
+    	\begin{tabular}{|r|} \hline
+    		$u'(t_0)=f(t_0,u_0)$\\ \hline
+        	$u''(t_0) = \frac{\partial f}{\partial t}\arrowvert_0+\frac{\partial f}{\partial u}\arrowvert_0 \cdot u'_0 = \frac{\partial f}{\partial t}\arrowvert_0 + \frac{\partial f}{\partial u}\arrowvert_0 \cdot f(t_0,u_0)$\\ \hline
+        itd... \\ \hline
+       		$u'(t_0)$ - prosto, wyższe - uciążliwe obliczenia!\\ \hline
+    	\end{tabular}
+    \end{center}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+	Równanie (**) można zapisać jako:
+    \begin{tabular}{ccl}
+    $u_1$ & = & $u_0+h \cdot \bigg[u'(t_0)\frac{h}{2}u''(t_0) +\ldots+\frac{h^{q-1}}{q!}u^{(q)}(t_0)\bigg] =$\\
+     & = & $u_0 + h \cdot \bigg[f(t_0,u_0)+\frac{h}{2}\cdot f^{(1)}(t_0,u_0)+\ldots+\frac{h^{q-1}}{q!}f^{q-1}(t_0,u_0)\bigg]$
+    \end{tabular}
+    gdzie:
+    $$f^{(s)}(t_0,u_0) = \frac{d^s}{dt^s}f(t,u(t))\bigg\arrowvert_{t=t_0, u(t)=u_0} \qquad s = 1,2,\ldots,q-1$$
+    \begin{block}{Idea metod Rungego-Kutty}
+    Ideą metod jest dobranie funkcji F (wzór *):
+    	\begin{itemize}
+          \item bez wyznaczania pochodnych $f^{(s)}(t_0,u_0)$
+          \item tak, by jak najlepiej przybliżyła funkcję $F_T$
+    	\end{itemize}
+    \end{block}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{R-punktowa metoda Rungego-Kutty}
+	$$(***)\left\{\begin{array}{l}
+	u_{i+1} = u_i + h F(t_i,u_i,h), \qquad i = 0,1,2,\ldots,n-1\\
+    F(t,u,h) = c_1k_1(t,u,h) + c_2k_2(t,u,h)+\ldots+c_rk_r(t,u,h)\\
+    k_1(t,u,h) = f(t,u) \\
+    k_j(t,u,h) = f(t+ha_j,u+h \sum_{n=1}^{j-1}b_{js}k_s(t,u,h)), \quad j = 2,\ldots,r \\
+    a_j = \sum_{s=1}^{j-1}b_{js}
+	\end{array}\right.$$
+    $a_j, b_{js}, c_k$ - stałe rzeczywiste, dobrane tak, aby:
+    $$\phi(h) = F(t,u,h) - F_T(t,u,h)$$
+    zawierała jedynie potęgi $h$ możliwie wysokiego rzędu. 	
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+	Niech:
+    \begin{tabular}{lcll}
+    $\alpha$ & = & $\frac{\partial f}{\partial t}+f\frac{\partial f}{\partial u}$ & \\
+    $\beta$ & = & $\frac{\partial^2f}{\partial t^2}+2f\frac{\partial^2f}{\partial t \partial u}+f^2\frac{\partial^2f}{\partial u^2}$ & f = f(t,u)
+    \end{tabular}
+ 	\newline \newline \par
+    Dla $r = 0$ wzory (***) mają postać:
+   	\newline
+    \begin{tabular}{rcl}
+    	$F(x,y,h)$ & $=$ & $c_1 \cdot k_1 + c_2 \cdot k_2 + c_3 \cdot k_3$ \\
+        $k_1$ & $=$ & $f(t,u)$ \\
+        $k_2$ & $=$ & $f(t + h \cdot a_2, u + h \cdot b_{21} \cdot k_1 =$ \\
+         & $=$ & $f(t+a_2 \cdot h, u+h \cdot a_2 \cdot k_1) $\\
+        $k_3$ & $=$ & $f(t+a_3 \cdot h, u+h \cdot (b_{31} \cdot k_1 + b_{32} \cdot k_2)) = $ \\
+         & $=$ & $f(t+a_3 \cdot h, u+h \cdot (a_3 - b_{32}) \cdot k_1 + h \cdot b_{32} \cdot k_2)$
+    \end{tabular}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+	$k_2, k_3$ rozwijamy w szereg Taylora wokół (t,u):
+    \begin{flushleft}
+    	$k_2=f(t,u)+ha_2\bigg(\frac{\partial f}{\partial t}+k_1\frac{\partial f}{\partial u}\bigg) + \frac{1}{2}h^2a_2^2\bigg(\frac{\partial^2f}{\partial t^2}+k_1\frac{\partial^2f}{\partial t \partial u}+k_1^2\frac{\partial^2f}{\partial u^2}\bigg)+O(h^3)$ \newline
+        $k_2 = f(t,u)+ha_2\alpha+\frac{1}{2}h^2a_2^2\beta+O(h^3)$ \newline
+        $k_3 = f(t,u)+ha_3\alpha + h^2(a_2 \cdot b_{32} \cdot \alpha \frac{\partial f}{\partial u} + \frac{1}{2}a_3^2\beta) + O(h^3)$
+    \end{flushleft}
+    stąd:
+    \begin{tabular}{r}
+    	$\varphi(h) = F(t,u,h) - F_T(t,u,h) = $\\
+    	$ = (c_1+c_2+c_3-1) \cdot f(t,u)+h \cdot \alpha \cdot (c_2 \cdot \alpha^2 + c_3 \cdot a_3 - \frac{1}{2}) + $ \\
+        $+ h^2 \cdot \big[c_3a_3b_{32}\alpha\frac{\partial f}{\partial u}+\frac{1}{2}(c_2 \cdot a_2^2 +c_3a_3^2)-\frac{1}{6}(\alpha \cdot \frac{\partial f}{\partial u}+\beta)\big]+O(h^3) $
+    \end{tabular}
+    \begin{block}{Uwaga!}
+    	Należy dobrać $c_1, c_2, c_3, a_2, a_3, b_{32}$ w taki sposób, aby w $\varphi(h)$ były tylko potęgi możliwie wysokiego stopnia.
+    \end{block}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+	\fbox{\textbf{r = 1}}
+    $$c_2=c_3=a_2=a_3=b_{32}=0$$
+    Przyjmuje się $c_1 = 1$ \qquad $\Rightarrow \left.\begin{array}{l}
+    \varphi(h) = O(h) \\
+    f(t,u,h) = f(t,u)
+    \end{array}\right.$
+    $$u_{i+1} = u_i + h \cdot f(t_i,u_i), \qquad i = 0,1, \ldots,n-1$$
+    \begin{block}{Wniosek}
+    	Jest to metoda Eulera.
+    \end{block}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+	\fbox{\textbf{r = 2}}
+    $$c_3 = b_{32} = 0$$
+    $\left\{\begin{array}{rcl}
+    	c_1 + c_2 - 1 & = & 0\\
+        c_2 \cdot a_2 - \frac{1}{2} & = & 0
+    \end{array}\right. \qquad\Rightarrow \qquad \varphi(h) = O(h^2)$
+    \begin{enumerate}
+      \item $c_1 = 0, c_2 = 1, a_2 = \frac{1}{2} \quad \Rightarrow \quad F(t,u,h) = f(t+\frac{1}{2}h, u+\frac{1}{2}h \cdot f(t,u)) \rightarrow \text{zmodyfikowana metoda Eulera}$
+      \item $c_1 = \frac{1}{2}, c_2 = \frac{1}{2}, a_2 = 1 \quad\Rightarrow\quad F(t,u,h) = \frac{1}{2} \cdot[f(t,u)+f(t+h,u+h \cdot f(t,u))]$
+    \end{enumerate}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+	\fbox{\textbf{r = 3}}
+    \begin{center}
+    	Dobieramy $c_1,c_2,c_3,a_2,a_3,b_{32}$, tak, aby w $\varphi(h)$ współczynniki przy $h^0,h,h^3$ - były zerowe:
+        $$\left\{\begin{array}{l}
+        c_1+c_2+c_3 = 1\\
+        c_2a_2+c_3a_3 = \frac{1}{2} \\
+        c_3a_2^2+c_3a_3^2 = \frac{1}{3} \\
+        c_3a_2b_{32} = \frac{1}{6}
+        \end{array}\right.\rightarrow\left.\begin{array}{c}
+        \text{4 równania, 6 niewiadomych}\\
+        \Rightarrow \\
+        \text{Trójpunktowa metoda Rungego-Kutty} \\
+        c_1 = \frac{1}{6},\quad c_2 = \frac{2}{3}, \quad c_3 = \frac{1}{6} \\
+        a_2 = \frac{1}{2},\quad a_3 = 1, \quad b_{32} = 2
+        \end{array}\right.$$
+    \end{center}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Praktyczne znaczenie - 4-punktowe wersje metody Rungego-Kutty}
+	a)
+    \begin{center}
+    	\begin{tabular}{l}
+    		$u_{i+1} = u_i+\frac{h}{6}(k_1+2k_2+2k_3+k_4)$, $\qquad i = 0,1,2, \ldots,n-1$\\
+            $k_1 = f(t_i,u_i)$,\\
+            $k_2 = f(t_i+\frac{1}{2}h,u_i+\frac{1}{2}hk_1)$,\\
+            $k_3 = f(t_i+\frac{1}{2}h,u_i+\frac{1}{2}hk_2)$,\\
+            $k_4 = f(t_i+h,u_i+hk_3)$
+    	\end{tabular}
+    \end{center}
+    b) 
+      \begin{center}
+    	\begin{tabular}{l}
+    		$u_{i+1} = u_i+\frac{h}{8}(k_1+3k_2+3k_3+k_4)$, $\qquad i = 0,1,2, \ldots,n-1$\\
+            $k_1 = f(t_i,u_i)$,\\
+            $k_2 = f(t_i+\frac{1}{3}h,u_i+\frac{1}{3}hk_1)$,\\
+            $k_3 = f(t_i+\frac{2}{3}h,u_i-\frac{1}{3}hk_1+hk_2)$,\\
+            $k_4 = f(t_i+h,u_i+hk_1-hk_2+hk_3)$
+    	\end{tabular}
+    \end{center}
+  	Dla obu: $\varphi_4(h) = O(h^5)$
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Wada metod R-4}
+	\textbf{Wada:} \quad np. dla \textbf{r = 4}, na etapie 1 kroku obliczeń wartość $f$ jest wyznaczana 4 razy i nie będą to wartości użyteczne na dalszych etapach.\newline\par
+    \begin{itemize}
+      \item Ćwiczenia z metod Rungego-Kutty
+      \item Procedura w Fortranie dla metody R-4
+      \item Metoda Rungego-Kutty dla programu Mathematica
+    \end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%
