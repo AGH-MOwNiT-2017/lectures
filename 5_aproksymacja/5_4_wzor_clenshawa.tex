@@ -1,0 +1,71 @@
+\section{Wzór rekurencyjny Clenshawa}
+%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Clenshaw's recurrence formula}
+	-elegancki i efektywny sposób sumowania wyrazów spełniających pewien wzór rekurencyjny:
+    $$f(x) = \sum_{k=0}^{N}c_kF_k(x)$$
+    przy czym $F(X)$ - spełnia wzór rekurencyjny:
+    $$F_{n+1}(x) = \alpha(n,x) \cdot F_n(x) + \beta(n,x) \cdot F_{n-1}(x)$$
+    $\alpha(n,x),\beta(n,x)$ - pewne funkcje\newline
+    Określamy rekurencyjnie $y_k,k = N,N-1,..,1$ (downward order; k - decreasing) jako:
+    $$y_{N+2}=y_{N+1} = 0, y_k(x) = \alpha(k,x) \cdot y_{k+1}+\beta(k+1,x) \cdot y_{k+2}+c_k$$
+    stąd: $c_k = y_k - \alpha(k,x) \cdot y_{k+1} - \beta(k+1,x) \cdot y_{k+2}$ \newline
+\end{frame} 
+%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+	Po podstawieniu:
+    $$f(x) = \sum_{k=N}^{0}[y_k-\alpha(k,x)y_{k+1}-\beta(k+1,x)y_{k+2}] \cdot F_k(x) = $$
+    $$\left.\begin{array}{rcccccl}
+    	=[ & y_N & - & 0 & - & 0 & ] F_N(x) \\
+        +[ &y_{N-1}& - & \alpha(N-1,x)\cdot y_n & - & 0 & ] F_{N-1}(x) \\
+         & \ldots & & \ldots & & \ldots & \\
+         +[ & y_8 & - & \alpha(8,x)y_9 & - & \beta(9,x)y_{10} & ] F_8(x) \\
+		+[ & y_7 & - & \alpha(7,x)y_8 & - & \beta(8,x)y_9 & ] F_7(x) \\
+        +[ & y_6 & - & \alpha(6,x)y_7 & - & \beta(7,x)y_8 & ] F_6(x) \\
+        +[ & y_5 & - & \alpha(5,x)y_6 & - & \beta(6,x)y_7 & ] F_5(x) \\
+         & \ldots & & \ldots & & \ldots & \\
+		+[ & y_2 & - & \alpha(2,x)y_3 & - & \beta(3,x)y_4 & ] F_2(x) \\
+        +[ & y_1 & - & \alpha(1,x)y_2 & - & \beta(2,x)y_3 & ] F_1(x) \\
+        +[ & y_0 & - & \alpha(0,x)y_1 & - & \beta(1,x)y_2 & ] F_0(x) =
+    \end{array}\right.$$
+\end{frame}
+%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+	$$=\beta(1,x_0) \cdot y_2 \cdot F_0(x)+F_1(x) \cdot y_1(x) +F_0(x) \cdot c_0 $$
+    wyznaczanie $f(x) = \sum_{k=0}^{N}c_kF_k(x)$ \newline
+    dla $F_k(x)$: $F_{n+1}(x) = \alpha(n,x) \cdot F_n(x) + \beta(n,x) \cdot F_{n+1}(x)$ \newline
+    sprowadza się do:
+    \begin{enumerate}
+    \item wyznaczenia $y_1$ i $y_2$ z formuły rekurencyjnej: \newline
+    	$$\left\{\begin{array}{l}
+    	y_{N+2} = y_{N+1} = 0 \\
+        y_k(x) = \alpha(k,x) \cdot y_{k+1} + \beta(k+1,x) \cdot y_{k+2} +c_k
+    	\end{array}\right.$$
+     \item obliczenie sumy \newline
+     $$f(x) = \beta(1,x) \cdot y_2(x) \cdot F_0(x) + y_1(x) \cdot F_1(x) + c_0 \cdot F_0(x)$$
+    \end{enumerate}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Istota wzoru}
+	Na każdym etapie działanie wszystkich poprzednich $c_k \rightarrow$ 2 współczynniki, przez które mnoży się $F_{k+1},F_k$ ( $\rightarrow$ na końcu: $F_1$ i $F_0$).\newline
+    Jeżeli:
+    $$\left.\begin{array}{cl}
+    	F_k(x) & \text{małe dla dużych K} \\
+        c_k & \text{małe dla dużych K}
+    \end{array}\right\} \Rightarrow\left.\begin{array}{c}
+    	 \text{suma określona będzie} \\
+         \text{przez małe} F_k(x)
+    \end{array}\right.$$
+    pamiętane współczynniki = rezultat ``delicate cancelation'' \newline
+    wykrywanie: $\beta(1,x) \cdot y_2 \cdot F_0,y_1 \cdot F_1$ - przeciwnych znaków i prawie równe
+\end{frame}
+%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+	Wtedy stosować \textbf{Clenshaw's recurrence in upward direction:}
+    $$Y_{-2} = y_{-1} = 0$$
+    $$y_k = \frac{1}{\beta(k+1,x)}[y_{k-2}-\alpha(k,x)y_{k-1} - c_k], k=0,1..,N-1$$
+    $$f(x) = c_NF_N(x) - \beta(B,x)F_{N-1}(x)y_{N-1} - F_N(x)y_{N-2}$$
+    \begin{flushright}
+    	\textit{Zadanie: } \quad Sprawdzić wzory Clenshaw'a dla $T_n(x)$ i $P_n(x)$.
+    \end{flushright}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%
