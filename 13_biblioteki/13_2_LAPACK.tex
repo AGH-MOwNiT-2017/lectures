@@ -22,7 +22,8 @@
 			\item Departament of Energy (DoE).
 		\end{itemize}
 	\end{frame}
-	\begin{frame}[allowframebreaks]{LAPACK - Linear Algebra Package}
+	\begin{frame}{LAPACK - Linear Algebra Package}
+	For: \\ 
 		\begin{itemize}
 			\item vector,
 			\item shared memory multiprocessors,
@@ -33,11 +34,15 @@
 			\begin{itemize}
 				\item 580 K lines, 250 K - library, \\350 K - testing and timing
 			\end{itemize}
+		\end{itemize}
+	\end{frame}
+	\begin{frame}{LAPACK - Linear Algebra Package}
+		\begin{itemize}
 			\item basic problems $\Rightarrow$ blocked algorithms
 			\begin{itemize}
 				\item linear equations systems: $Ax = b$, 
 				\item factorization LU, LQ, QR,
-				\item leas squares: $min_x ||Ax - b ||_2$,
+				\item least squares: $min_x ||Ax - b ||_2$,
 				\item singular value decomposition: $A = U\sum V^T$,
 				\item eigenvalues and eigenvectors: $Ax = \lambda x$.
 			\end{itemize}
@@ -51,14 +56,15 @@
 	\end{frame}
 	\begin{frame}{LAPACK Naming Convention I}
 	TXXYY \\
-	T: \\
+	\vspace{5mm}
+	\textbf{T}: \\
 	S - Single Precision REAL*4 \\
 	D - Double Precision REAL*8 \\
 	C - Complex COMPLEX*8 \\
 	Z - Double Complex COMPLEX*16 
 	\end{frame}
 	\begin{frame}{LAPACK Naming Convention II}
-	XX: 
+	\textbf{XX}: 
 	\vspace{5mm}
 	\begin{columns}
 		\begin{column}{0.5\textwidth}
@@ -66,7 +72,7 @@
 	BD - bidiagonal \\
 	DI - diagonal \\
 	GB - general band \\
-	GE - general fill \\
+	GE - general full \\
 	GG - general matrices, generalized problem \\
 	GT - general tridiagonal \\
 	HB - complex Hermitian Band \\

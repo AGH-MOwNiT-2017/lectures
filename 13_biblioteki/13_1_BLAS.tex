@@ -1,13 +1,13 @@
 % !TEX encoding = UTF-8 Unicode
 \section{BLAS - Basic Linear Algebra Subprograms}
 %%%%%%%%%%%%%%%%
-	\begin{frame}{Levels}
+	\begin{frame}{BLAS - Basic Linear Algebra Subprograms}{Levels}
 		\begin{itemize}
 			\item copy
 			\item dot
-			\item saxpy \quad $ z = \alpha x + y$
-			\item gaxpy \quad $z = Ax + y$
-			\item matmul \quad  $c = AB$
+			\item saxpy \\ \small $ z = \alpha x + y $ \normalsize
+			\item gaxpy \\ \small $ z = Ax + y $ \normalsize
+			\item matmul \\ \small  $ c = AB $ \normalsize
 		\end{itemize}
 		Level-1, Level-2, Level-3 $ \Rightarrow O(n), O(n^2), O(n^3)$
 	\end{frame}
@@ -43,7 +43,7 @@
 		1 & $y \leftarrow y + \alpha x$ 	& $2n$ 	& $3n$ 	& $\frac{2}{3} $ \\ \hline
 		2 & $y \leftarrow y + Ax$ 		& $2n^2$ 	& $n^2$ 	& 2 			\\ \hline
 		3 & $C \leftarrow C + AB$ 	& $2n^3$ 	& $4n^2$ 	& $\frac{n}{2}$ 	\\ \hline
-		\end{tabular}
+		\end{tabular} \\ 
 		
 		For level 1: 2 vector loads, 2 vector operations, 1 vector store\dots 
 		
@@ -54,7 +54,7 @@
 			\item \textit{clarity} - code $\rightarrow$ shorter, easier to read
 			\item \textit{modularity} - programmers have larger building blocks
 			\item \textit{performace} - manufacturers tuned machine-spec. BLAS
-			\item \textit{program portability} - machine dependences confined to the BLAS
+			\item \textit{program portability} - machine dependencies confined to the BLAS
 		\end{itemize}
 	\end{frame}
 	\begin{frame}{BLAS naming conventions}
