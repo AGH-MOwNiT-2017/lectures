@@ -335,7 +335,7 @@
 
     \begin{figure}
 		\centering
-		\includegraphics[height=0.8\textheight ,width=1\textwidth]{img/17/dygresja}
+		\includegraphics[width=0.95\textwidth]{img/17/dygresja}
 	\end{figure}
 
   \end{frame}
@@ -344,15 +344,15 @@
 
     \begin{block}{}
     	\begin{itemize}
-	  	    \item gdy $G \leq$ krok $= -g$
+	  	    \item gdy $G \leq 0$ krok $= -g$
 	  	    \\$\rightarrow$ kierunek - dobry,
 	  	    \\$\rightarrow$ wartość - dowolna
 	    \end{itemize}
 	    W $x_0 \rightarrow F(x)$ nie jest wypukła (dodatnio określona)
-	    \medskip
-	    \\Uogólnienie na n-D:
+	    \medskip\\
+	    \emph{Uogólnienie na n-D:}\\
 	    $g \rightarrow \vec{g}$, $G$ - macierz 2-gich poch;
-	    $F(\vec X) = a + \vec{g^T} \cdot \vec{x} + \frac{1}{2} \vec{x^T} G$ tylko dla $G$ dod. określonej
+	    $F(\vec X) = a + \vec{g}^T \cdot \vec{x} + \frac{1}{2} \vec{x}^T G$ tylko dla $G$ dod. określonej
 	    \\ma sens krok do:
 	    \begin{displaymath}
 	  		\vec{x} = - G^{-1} \cdot \vec{g}
@@ -389,7 +389,7 @@
 				\includegraphics[height=0.2\textheight ,width=0.3\textwidth]{img/17/matrix}
 			\end{figure}
 			(najprościej sprawdzić)
-			\item[--] skalar $E^T \cdot G\vec{e^T} > 0$ dla $\bigwedge \vec{e}$ (zwykłe $\rightarrow$ def.), wyjaśnia dlaczego $G$ dod.
+			\item[--] skalar $E^T \cdot G\vec{e} > 0$ dla $\bigwedge \vec{e}$ (zwykłe $\rightarrow$ def.), wyjaśnia dlaczego $G$ dod.
 			okr. daje formę $F(x)$ z minimum: $F(x)$ rośnie we wszystkich kierunkach od $\vec{e} = 0$
 			\item[--] $-V = G^{-1}$ jest dodatnio określona
       \end{itemize}
@@ -442,10 +442,10 @@
 
  	\begin{block}{Metoda sprzężonych kierunków \emph{conjugate directions}}
  	   Wektory $\vec{d_i}$ i $\vec{d_j}$ są \emph{sprzężone} ze względu na dodatnio określoną macierz, jeżeli:
- 	   \\$\vec{d_i^T} A\vec{d_j} = 0$ dla $i \neq j$;
+ 	   \\$\vec{d_i}^T A\vec{d_j} = 0$ dla $i \neq j$;
  	   \\gdy $A = I, \vec{d_i} \rightarrow$ ortogonalne
  	   \\(sprzężenie - uogólnienie ortogonalności)
- 	   \\ \textbf{n sprzężonych wektorów rozpina n-D przestrzeń}.
+ 	   \\ \textbf{$n$ sprzężonych wektorów rozpina n-D przestrzeń}.
  	   \\$A$ - nie określa jednoznacznie zbioru wektorów sprzężonych $\rightarrow$ można zastosować
  	   \emph{uogólnienie procedury ortogonalizacji Grama-Schmidta}:
  	   \\$d_1$ - dowolny wektor $d_2 = A \cdot d_1 - \frac{d_1^T A A d_1}{d_1^T A d_1} \cdot d_1 \rightarrow$ sprzężony do $d_1$
@@ -467,8 +467,8 @@
  	\begin{block}{Dowód:}
  	   $\left\{
         \begin{array}{l l}
-          \text{funkcja:} & F(\vec{x}) = F(\vec{0}) + \vec{g^T} \vec{x} + \frac{1}{2} x^T G \vec{x} \\
-          \text{kierunki sprzężone:} & \vec{d_i} \ \vec{d_i^T} G \vec{d_j} = 0 \ i \neq j
+          \text{funkcja:} & F(\vec{x}) = F(\vec{0}) + \vec{g}^T \vec{x} + \frac{1}{2} x^T G \vec{x} \\
+          \text{kierunki sprzężone:} & \vec{d_i} \ \vec{d_i}^T G \vec{d_j} = 0 \ i \neq j
 	    \end{array}
 	  \right.$
 	  \\gdzie: $G$ jest macierzą
@@ -481,12 +481,12 @@
  	\begin{block}{Dowód cd.}
 		\emph{$x, g$ -  jako kombinacje liniowe} w układzie o wektorach jednostkowych
 		\begin{displaymath}
-			\vec{x} = \sum_i y_i \vec{d_i}, \ \vec{g_i} = \sum_i c_i \vec{d_i}
+			\vec{x} = \sum_i y_i \vec{d_i}, \quad \vec{g} = \sum_i c_i \vec{d_i}
 		\end{displaymath}
 		wtedy:
 		\begin{displaymath}
-			F(x) = F(0) + (\sum_i c_i \vec{d_i^T}) \cdot (\sum_j y_j \vec{d_j}) +
-			\underbrace{\frac{1}{2} (\sum_i y_i \vec{d_i^T}) \cdot G \cdot (\sum_j y_j \vec{d_j})}_{(\star)}
+			F(x) = F(0) + (\sum_i c_i \vec{d_i}^T) \cdot (\sum_j y_j \vec{d_j}) +
+			\underbrace{\frac{1}{2} (\sum_i y_i \vec{d_i}^T) \cdot G \cdot (\sum_j y_j \vec{d_j})}_{(\star)}
 		\end{displaymath}
  	\end{block}
 
@@ -513,7 +513,7 @@
 			\\gdzie:
 			\begin{tabular}{|c|}
 		   	\hline
-				$b_j = \sum_i c_i d_i^T d_j  \  b'_j = \frac{1}{2} d_j^T G d_j$ - \underline{stałe}
+				$b_j = \sum_i c_i d_i^T d_j{,} \quad b'_j = \frac{1}{2} d_j^T G d_j$ - \underline{stałe}
 			\\ \hline
 			\end{tabular}
 		\end{center}
@@ -549,14 +549,14 @@
 	  \begin{center}
 	    $ \left\{
           \begin{array}{l}
-            \vec{_d^T} \cdot (\vec{g} + G \vec{x_0}) = 0 \\
-            \vec{_d^T} \cdot (\vec{g} + G \vec{x_1}) = 0
+            \vec{_d}^T \cdot (\vec{g} + G \vec{x_0}) = 0 \\
+            \vec{_d}^T \cdot (\vec{g} + G \vec{x_1}) = 0
 	      \end{array}
 	    \right\} $
 	    \ $(\vec{g}$ \emph{grad. w} $x = 0)$
 	  \end{center}
 	  \begin{center}
-	    $\vec{d_1^T} \cdot G (\vec{x_1} - \vec{x_0}) = 0  \  (\vec{x_1} - \vec{x_0})$ sprzeżony do $\vec{d_1}$
+	    $\vec{d_1}^T \cdot G (\vec{x_1} - \vec{x_0}) = 0  \  (\vec{x_1} - \vec{x_0})$ sprzeżony do $\vec{d_1}$
 	  \end{center}
  	\end{block}
 
@@ -587,7 +587,7 @@
  	\begin{block}{Metoda gradientów sprzężonych \emph{(conjugate gradients)}}
  	   $\Rightarrow$ wykorzystuje tylko 1-sze pochodne.
  	   \medskip
- 	   \\ $F(\vec{x})$ i $\vec{g}(\vec{x}$ wyznaczone w $\vec{x_0}$ i $\vec{x_1}$, z nich:
+ 	   \\ $F(\vec{x})$ i $\vec{g}(\vec{x})$ wyznaczone w $\vec{x_0}$ i $\vec{x_1}$, z nich:
  	   \smallskip
  	   \\ $\vec{\Delta x} = \vec{x_1} - \vec{x_0}$, \ $\vec{\Delta g} = \vec{g_1} - \vec{g_0}$
  	   \smallskip
@@ -618,17 +618,17 @@
   \begin{frame}{Metoda gradientów sprzężonych cd. }
 
    \begin{block}{}
-	  Warunek sprzężenia: $\vec{d_1^T} \cdot G \cdot \vec{d_0} = \vec{d_1^T} \cdot G \cdot (\vec{g_1} - \vec{g_0}) = 0$, czyli:
-	  $(-\vec{g_1} + b \cdot \vec{d_0}) \cdot G \cdot \vec{d_0} = (-\vec{g_1} -b \cdot \vec{g_0}) = 0$
-	  \\$\vec{x_1}$ - to min. wzdłuż $\vec{d_0} = -\vec{g_0} \Rightarrow \vec{g_0} \perp \vec{g_1} : \vec{g_1^T} \cdot \vec{g_0} = 0$
+	  Warunek sprzężenia: $\vec{d_1}^T \cdot G \cdot \vec{d_0} = \vec{d_1}^T \cdot G \cdot (\vec{g_1} - \vec{g_0}) = 0$, czyli:
+	  $(-\vec{g_1} + b \cdot \vec{d_0}) \cdot G \cdot \vec{d_0} = (-\vec{g_1} -b \cdot \vec{g_0}) \cdot (\vec{g_1} - \vec{g_0}) = 0$
+	  \\$\vec{x_1}$ - to min. wzdłuż $\vec{d_0} = -\vec{g_0} \Rightarrow \vec{g_0} \perp \vec{g_1} : \vec{g_1}^T \cdot \vec{g_0} = 0$
 	  \smallskip
 	  \\$\Rightarrow$
 	  $\begin{array}{|c|}
  	   	 \hline
- 	   	    b = \frac{\vec{g_1^T} \cdot \vec{g_1}}{\vec{g_0^T} \cdot \vec{g_0}}
+ 	   	    b = \frac{\vec{g_1}^T \cdot \vec{g_1}}{\vec{g_0}^T \cdot \vec{g_0}}
  	   	 \\ \hline
 	  \end{array}$,
- 	  czyli nowy sprzężony kierunek $\vec{d_1} = -\vec{g_1} + \frac{\vec{g_1^T} \cdot \vec{g_1}}{\vec{g_0^T} \cdot \vec{d_0}}$
+ 	  czyli nowy sprzężony kierunek $\vec{d_1} = -\vec{g_1} + \frac{\vec{g_1}^T \cdot \vec{g_1}}{\vec{g_0}^T \cdot \vec{d_0}}$
  	  \medskip
  	  \\i ten proces kontynuujemy generując $n$ kierunków \\ wzajemnie sprzężonych.
  	  \medskip
@@ -636,7 +636,7 @@
  	  \begin{center}
  	  	 $\begin{array}{|c|}
  	   	   \hline
- 	   	      \vec{d_{i+1}} = -\vec{g_{i+1}} + \frac{\vec{g_{i-1}^T} \cdot \vec{g_{i-1}}}{\vec{g_{i}^T} \cdot \vec{g_{i}}} \cdot \vec{d_i}
+ 	   	      \vec{d_{i+1}} = -\vec{g_{i+1}} + \frac{\vec{g_{i+1}}^T \cdot \vec{g_{i+1}}}{\vec{g_{i}}^T \cdot \vec{g_{i}}} \cdot \vec{d_i}
  	   	   \\ \hline
 	    \end{array}$
  	  \end{center}
