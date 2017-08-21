@@ -41,24 +41,23 @@
 	\subsection{Realizacja z użyciem BLAS level 1}
 	\begin{frame}[fragile]{Algorytmy blokowe i BLAS}
 		\begin{lstlisting}
-			DO 30 J = 1, N
-			
-				INFO = J
-				S = 0.0E0
-				JM1 = J - 1
-				IF(JM1 .LT. 1) GO TO 20
-				DO 10 K = 1, JM1
-					T = A(K,J) - SDOT(K-1, A(1,K), 1,
-					A(1,J), 1)
-					T = T/A(K,K)
-					A(K,J) = T
-					S = S + T*T
-			10 CONTINUE
-			20 CONTINUE
-				S = A(J,J) - S
-			... EXIT
-				IF (S .LE. 0.0E0) GO TO 40 A(J,J) = SQRT(S)
-			30 CONTINUE		
+    DO 30 J = 1, N		
+        INFO = J
+        S = 0.0E0
+        JM1 = J - 1
+        IF(JM1 .LT. 1) GO TO 20
+        DO 10 K = 1, JM1
+            T = A(K,J) - SDOT(K-1, A(1,K), 1,
+            A(1,J), 1)
+            T = T/A(K,K)
+            A(K,J) = T
+            S = S + T*T
+    10 CONTINUE
+    20 CONTINUE
+        S = A(J,J) - S
+    ... EXIT
+        IF (S .LE. 0.0E0) GO TO 40 A(J,J) = SQRT(S)
+    30 CONTINUE		
 		\end{lstlisting}
 	\end{frame}
 	\begin{frame}{Algorytmy blokowe i BLAS}
@@ -139,13 +138,13 @@
 	\begin{frame}[fragile]{Algorytmy blokowe i BLAS}
 		\textbf{Program ma postać:}
 		\begin{lstlisting}
-		DO 10 J=1, N
-				CALL STRSU('Upper', 'Transpase', 
-				'Non-Unit', J-1, A, LDA, A(1, J), 1)
-			S - A(J, J) - SDOT(J-1, A(1, J), 1, A(1, J), 1)
-			IF (S .LE. ZERO) GO TO 20
-			A(J, J) = SQRT(S)
-		10 CONTINUE
+    DO 10 J=1, N
+            CALL STRSU('Upper', 'Transpase', 
+            'Non-Unit', J-1, A, LDA, A(1, J), 1)
+        S - A(J, J) - SDOT(J-1, A(1, J), 1, A(1, J), 1)
+        IF (S .LE. ZERO) GO TO 20
+        A(J, J) = SQRT(S)
+    10 CONTINUE
 		\end{lstlisting}
 		
 	\end{frame}
@@ -239,14 +238,14 @@
 	\begin{frame}[fragile]{Algorytmy blokowe i BLAS}
 	Program ma postać
 		\begin{lstlisting}
-			DO 10 J=1, N, NB
-				CALL STRSM ('Left', 'Upper', 'Transpose', 
-				'Non-Unit', J-1, JB, ONE, A, LDA, A(1,J), LDA)
-				CALL SSYRK ('Upper', 'Transpose', 'Non-Unit', 
-				JB, J-1, -ONE, A(1,J), LDA, ONE, A(J,J), LDA)
-				CALL SPOTF2 ('Upper', JB, A(J,J), LDA, INFO)
-				IF (INFO.NE.O) GO TO 20
-			10 CONTINUE
+    DO 10 J=1, N, NB
+        CALL STRSM ('Left', 'Upper', 'Transpose', 
+        'Non-Unit', J-1, JB, ONE, A, LDA, A(1,J), LDA)
+        CALL SSYRK ('Upper', 'Transpose', 'Non-Unit', 
+        JB, J-1, -ONE, A(1,J), LDA, ONE, A(J,J), LDA)
+        CALL SPOTF2 ('Upper', JB, A(J,J), LDA, INFO)
+        IF (INFO.NE.O) GO TO 20
+    10 CONTINUE
 		\end{lstlisting}
 	\end{frame}
 	\begin{frame}{Speed in MFLOPS on CRAY Y-MP}
