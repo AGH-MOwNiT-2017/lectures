@@ -306,22 +306,26 @@
 
     \begin{block}{Dygresja: dodatnio określone formy kwadratowe}
       \emph{1-D forma kwadratowa:}
-	  \begin{displaymath}
-	  		F(x) = a + g \cdot x + \frac{1}{2} G \cdot x^2
-	  		g = \frac{\partial F}{\partial x} \bigg\vert_{0} \ , \ G = \frac{\partial^{2} F}{\partial x^2} \bigg\vert_{0}
-	  \end{displaymath}
-	  \begin{center}
-	  		$F(x)$ ma min. wtedy i tylko wtedy, gdy $G$ $\geq 0$.
-	  \end{center}
-      \begin{displaymath}
-	  		G = 0 \rightarrow \text{\emph{min}} \rightarrow \inf
-	  		x^m = -g/G
-	  \end{displaymath}
+	  \begin{equation}
+	  	F(x) = a + g \cdot x + \frac{1}{2} G \cdot x^2
+      \nonumber
+	  \end{equation}
+    \begin{equation}
+      g = \left.\frac{\partial F}{\partial x}\right|_{0}
+      G = \left.\frac{\partial^{2} F}{\partial x^2}\right|_{0}
+      \nonumber
+    \end{equation}
+	  $F(x)$ ma min. wtedy i tylko wtedy, gdy $G$ $\geq 0$.
+    \begin{equation}
+	  		G = 0 \rightarrow \text{\emph{min}} \rightarrow \infty; \qquad
+        x^m = -g/G
+        \nonumber
+	  \end{equation}
 	  \emph{Dla ogólnej funkcji nieliniowej:}
 	  \smallskip
 	  \begin{itemize}
 	  	    \item krok do $x = \frac{g}{G}$ gdy $G > 0$
-	  	    \\(w przeciwnym przypadku: $\inf$ lub maximum)
+	  	    \\(w przeciwnym przypadku: $\infty$ lub maximum)
 	  \end{itemize}
 	\end{block}
 
