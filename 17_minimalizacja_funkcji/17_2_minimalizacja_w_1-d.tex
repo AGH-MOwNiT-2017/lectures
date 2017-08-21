@@ -132,14 +132,14 @@
         $x_{1}{,}x_{2}{,}x_{3}$ znajduje się w punkcie $x_4$:
         \begin{displaymath}
           x_4 = \frac{
-            \frac{F_{1}*(x_{2}+x_{3})}{(x_{1}-x_{2})*(x_{1}-x{3})} +
-            \frac{F_{2}*(x_{1}+x_{3})}{(x_{2}-x_{1})*(x_{2}-x{3})} +
-            \frac{F_{3}*(x_{1}+x_{2})}{(x_{3}-x_{1})*(x_{3}-x{2})}
-          }{2 * [
-            \frac{F_{1}}{(x_{1}-x_{2})*(x_{1}-x{3})} +
-            \frac{F_{2}}{(x_{2}-x_{1})*(x_{2}-x{3})} +
-            \frac{F_{3}}{(x_{3}-x_{1})*(x_{3}-x{2})}
-          ]}
+            \frac{F_{1}*(x_{2}+x_{3})}{(x_{1}-x_{2})*(x_{1}-x_{3})} +
+            \frac{F_{2}*(x_{1}+x_{3})}{(x_{2}-x_{1})*(x_{2}-x_{3})} +
+            \frac{F_{3}*(x_{1}+x_{2})}{(x_{3}-x_{1})*(x_{3}-x_{2})}
+          }{2 * \left[
+            \frac{F_{1}}{(x_{1}-x_{2})*(x_{1}-x_{3})} +
+            \frac{F_{2}}{(x_{2}-x_{1})*(x_{2}-x_{3})} +
+            \frac{F_{3}}{(x_{3}-x_{1})*(x_{3}-x_{2})}
+          \right]}
         \end{displaymath}
         \begin{flushright}
           \emph{Zadanie:} Sprawdzić ten wzór
@@ -185,7 +185,6 @@
 
 \subsection{Metoda prób i błędów (success-failure method)}
   \begin{frame}{Metoda prób i błędów \emph{(success-failure method)}}
-    % source ommitted -- TODO: add to bibliography
     \begin{block}{Kompromis między}
       \begin{itemize}
         \item przeszukiwaniem na siatce
@@ -196,8 +195,8 @@
     \begin{itemize}
       \item gdy $F(x_{0} + d) < F(x_{0}) \to$ sukcess:\\
       $x_{0} \to x_{0} + d,$ \\
-      $d \to \alpha * d, \alpha$ -- expantion factor
-      $\alpha > 1, \alpha \approx 3.0$
+      $d \to \alpha * d, \alpha$ -- expansion factor % was: expantion
+      ($\alpha > 1, \alpha \approx 3.0$)
       \item gdy $F(x_{0} + d) > F(x_{0}) \to$ niepowodzenie: \\
       $d \to -\beta * d, \beta$ -- contraction factor
       $(\beta < 1, \beta \approx 0.4)$
