@@ -1,0 +1,51 @@
+% !TEX encoding = UTF-8 Unicode
+\section{Biblioteki do Javy}
+%%%%%%%%%%%%%%%%
+	\begin{frame}{Biblioteki do Javy}
+		Rosnąca popularność języka Java spowodowała, iż wielu twórców bibliotek numerycznych zaczęło przenosić je do tego języka. Większość z nich nie jest jeszcze w pełni gotowa lub znajduje się w fazie testów. Jednym ze źródeł informacji może być strona WWW:
+		\begin{thebibliography}{9}
+			\setbeamertemplate{bibliography item}[online]
+				\bibitem{javanumerics}{JavaNumerics \newblock Online resources \newblock \url{http://math.nist.gov/javanumerics}}
+		\end{thebibliography}
+	\end{frame}
+	\begin{frame}{JAva Matrix PACKage}
+		\begin{block}{Jampack}
+			Jest pakietem wielu klas do prowadzenia obliczeń na macierzach. Obecna wersja Jampack-u jest w fazie wstępnej i niekompletnej. Została opublikowana, aby sprawdzić czy istnieje zapotrzebowanie na tego typu pakiet. Jampack został stworzony przez osoby pracujące w NIST oraz w University of Matyland. Twórcy Jampacka postanowili, aby miał cechy takie jak:
+			\begin{itemize}
+				\item Przyjazność użytkownikowi
+				\item Możliwość dodawania nowych algorytmów
+				\item Otwartość kodu, użytkownik może ingerować w kod źródłowy
+				\item Możliwość uczestnictwa w rozbudowie przez użytkowników\
+			\end{itemize}
+		\end{block}
+	\end{frame}
+	\begin{frame}{Jampack - istniejące moduły}
+		\begin{itemize}
+			\item Macierze liczb zespolonych. Implementacja macierzy liczb rzeczywistych została odłożona na później.
+			\item Indeksowanie macierzy (pierwszy element macierzy $a_{1,1}$ lub $a_{0,0}$) może być dowolnie wybrane przez programistę
+			\item Zostały utworzone klasy dla odpowiednich typów macierzy. Zmat - ogólne, Zdigmat - macierze diagonalne. Klasa Zmat ma dwie podklasy macierzy trójkątnych oraz dodatnio określonych. 
+			\item Zdefiniowano większość operacji na macierzach. 
+			\item Faktoryzacje.
+			\item Wielokrotne użycie obliczonych faktoryzacji macierzy, np. przy rozwiązywaniu układów równań ze zmianą jedynie wektora b.
+			\item Zastosowane algorytmy nie są bardzo wyszukane. Pakiet ten nie zamierza konkurować z pakietami high-performance.
+		\end{itemize}
+		
+	\end{frame}
+	\begin{frame}[allowframebreaks]{Biblioteki do Javy}
+		\begin{block}{JAMA}
+			JAMA jest pakietem, który powstał równolegle z pakietem Jampack. Posiada on mniej zaimplementowanych metod. Obliczenia prowadzi na macierzach gęstych o wartościach rzeczywistych. Jej twórcy mają zamiar przedstawić pakiet jako standard dla macierzy. 
+			
+		\end{block}
+		\begin{block}{JLAPACK}
+			Twórcy LAPACKA postanowili przenieść go na platformę JAVY. Implementuje on wszystkie metody oferowane przez LAPACKA. Pakiet ten nie został jeszcze w pełni zoptymalizowany. 
+			
+		\end{block}
+		\begin{block}{OR-Objects}
+			Jest chyba najbogatszą z bibliotek. Oferuje on ponad 450 różnych funkcji operujących na macierzach, grafach, itp. Podstawowa wersja tego pakietu jest dostępna bezpłatnie pod adresem
+			\begin{thebibliography}{9}
+			\setbeamertemplate{bibliography item}[online]
+				\bibitem{javanumerics}{JavaNumerics \newblock Online resources \newblock \url{http://OpsResearch.com}}
+		\end{thebibliography}
+		\end{block}
+		
+	\end{frame}
