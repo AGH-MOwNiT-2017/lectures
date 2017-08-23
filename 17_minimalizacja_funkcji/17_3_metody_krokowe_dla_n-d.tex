@@ -31,7 +31,7 @@
   \begin{frame}{Zmiana jednego parametru cz.1}
 
 	Warunek na istnienie minimum - \emph{stacjonarny punkt} $ x_i $,
-	\\tj. znikanie wszystkich $ n $ pochodnych $ \frac{\partial F}{\partial x_i} $ , $ i = 1,2,3,\ldots ,n $
+	\\tj. \emph{znikanie wszystkich $ n $ pochodnych} $ \frac{\partial F}{\partial x_i} $ , $ i = 1,2,3,\ldots ,n $
 	\begin{figure}
 		\centering
 		\includegraphics[height=0.6\textheight ,width=0.8\textwidth]{img/17/change_param_1}
@@ -99,12 +99,12 @@
 	\begin{enumerate}
 		\item Wybieramy (losowo, min 1-D) 3 punkty $P_1,P_2,P_3$
 		\\i wyznaczamy w nich
-		\\ $F(x): P_H \rightarrow F(x)$ - największa (higest)
+		\\ $F(x): P_H \rightarrow F(x)$ - największa (highest)
 		\\ $P_L \rightarrow F(x)$ - najmniejsza (lowest)
 		\item Wyznaczamy "środek masy" wszystkich punktów
 		\\z pominięciem $P_H$
 		  \begin{displaymath}
-		    \overline{P}=\frac{1}{n}[\sum_{i=1}^{n+1}P_i-P_H]
+		    \overline{P}=\frac{1}{n}\left[\sum_{i=1}^{n+1}P_i-P_H\right]
 		  \end{displaymath}
 		\item Obliczamy odbicie $P_H$ wzgl. $\overline{P} : P$* $= \overline{P}+(\overline{P}-P_H)$ jeżeli
 		\\ $F(P$*$) < F(P_L) \Rightarrow$ nowy $P$** $= \overline{P}+2*(\overline{P}-P_H)$
@@ -126,7 +126,7 @@
 	Inne możliwości:
 	\begin{itemize}
 		\item współczynniki $\neq 2$ oraz $\neq \frac{1}{2}$,
-		\item interpolacja kwadratowa wzdłóż prostej $(P_H,\overline{P})$
+		\item interpolacja kwadratowa wzdłuż prostej $(P_H,\overline{P})$
 	\end{itemize}
 	\begin{block}{}
 	  	\textbf{Uwaga!}
@@ -150,7 +150,7 @@
 	  	\end{itemize}
     \end{block}
     \begin{block}{Zbieżność}
-	  	$\underbrace{EDM}_{ \text{estimated distance to minimum}} = F(P_H) - F(P_L) < \underbrace{EPSI}_{\epsilon}$
+	  	$\underbrace{EDM}_{ \text{estimated distance to minimum}} = F(P_H) - F(P_L) < \underbrace{EPSI}_{(\epsilon)}$
     \end{block}
 
   \end{frame}
@@ -165,12 +165,12 @@
  	   analitycznie $\rightarrow$ kłopotliwe $\Rightarrow$ numerycznie
  	   \begin{displaymath}
  	   	  \frac{\partial (F)}{\partial (x)} \bigg\vert_{x_0} \approx \frac{F(x_0+d) - F(x_0)}{d},
- 	   	  \; \delta \approx \frac{d}{2} \cdot \frac{\partial^2F}{\partial x^3}
+ 	   	  \quad \delta \approx \frac{d}{2} \cdot \frac{\partial^2F}{\partial x^3}
  	   \end{displaymath}
  	   lepiej:
  	   \begin{displaymath}
  	   	  \frac{\partial (F)}{\partial (x)} \bigg\vert_{x_0} \approx \frac{F(x_0+d) - F(x_0-d)}{2\cdot d},
- 	   	  \; \delta \approx \frac{d}{2} \cdot \frac{\partial^2F}{\partial x^3}
+ 	   	  \quad \delta \approx \frac{d}{2} \cdot \frac{\partial^2F}{\partial x^3}
  	   \end{displaymath}
   	\end{block}
 
@@ -250,14 +250,14 @@
           \text{- drugie pochodne}
 	    \end{array}
 	  \right\}$
-	  $\begin{array}{l} \text{w dowolnym punkcie } x_0 \Rightarrow \\ \text{\emph{tymi informacjami}} \end{array}$
+	  $\begin{array}{l} \text{\emph{w dowolnym punkcie }} x_0 \Rightarrow \\ \text{tymi informacjami} \end{array}$
 	  \smallskip
 	  \\Minimalizacja w pierwszym kroku.
 	  \begin{displaymath}
-	  		F(\vec{x}) = F(\vec{x_0}) + \vec{g^T} \cdot (\vec{x} - \vec{x_0}) +
+	  		F(\vec{x}) = F(\vec{x_0}) + \vec{g}^T \cdot (\vec{x} - \vec{x_0}) +
 	  		\frac{1}{2} (\vec{x} - \vec{x_0})^T \cdot G \cdot (\vec{x} - \vec{x_0})
 	  \end{displaymath}
-	  $\vec{g} - w \ \vec{x_0} \ G$ -  stała macierz
+	  $\vec{g} - w \ \vec{x_0} \quad G$ -  stała macierz
 	  \smallskip
 	  \\Minimum:
 	  \begin{displaymath}
@@ -270,7 +270,7 @@
   \begin{frame}{Metoda Newtona cd.}
 
     \begin{block}{}
-      $\clubsuit Z1$ - sprawdzić: $V = G^{-1}$ - macierz kowariancji (covariance)
+      $\clubsuit Z1$ - sprawdzić: $V = G^{-1}$ -- macierz kowariancji (covariance)
       \\$\Rightarrow$ jest to n-D odpowiednik 1-D interpolacji kwadratowej
       \smallskip
 	  \\ \emph{te same wady!}
@@ -311,7 +311,7 @@
       \nonumber
 	  \end{equation}
     \begin{equation}
-      g = \left.\frac{\partial F}{\partial x}\right|_{0}
+      g = \left.\frac{\partial F}{\partial x}\right|_{0}{,}\qquad
       G = \left.\frac{\partial^{2} F}{\partial x^2}\right|_{0}
       \nonumber
     \end{equation}
@@ -353,7 +353,7 @@
 	    \emph{Uogólnienie na n-D:}\\
 	    $g \rightarrow \vec{g}$, $G$ - macierz 2-gich poch;
 	    $F(\vec X) = a + \vec{g}^T \cdot \vec{x} + \frac{1}{2} \vec{x}^T G$ tylko dla $G$ dod. określonej
-	    \\ma sens krok do:
+	    ma sens krok do:
 	    \begin{displaymath}
 	  		\vec{x} = - G^{-1} \cdot \vec{g}
 	    \end{displaymath}
@@ -441,7 +441,7 @@
   \begin{frame}{Metody gradientowe}
 
  	\begin{block}{Metoda sprzężonych kierunków \emph{conjugate directions}}
- 	   Wektory $\vec{d_i}$ i $\vec{d_j}$ są \emph{sprzężone} ze względu na dodatnio określoną macierz, jeżeli:
+ 	   Wektory $\vec{d_i}$ i $\vec{d_j}$ \emph{są sprzężone} ze względu na dodatnio określoną macierz, jeżeli:
  	   \\$\vec{d_i}^T A\vec{d_j} = 0$ dla $i \neq j$;
  	   \\gdy $A = I, \vec{d_i} \rightarrow$ ortogonalne
  	   \\(sprzężenie - uogólnienie ortogonalności)
@@ -479,7 +479,7 @@
   \begin{frame}{Metoda sprzężonych kierunków cd.}
 
  	\begin{block}{Dowód cd.}
-		\emph{$x, g$ -  jako kombinacje liniowe} w układzie o wektorach jednostkowych
+		\emph{$x, g$ -  jako kombinacje liniowe:} w układzie o wektorach jednostkowych
 		\begin{displaymath}
 			\vec{x} = \sum_i y_i \vec{d_i}, \quad \vec{g} = \sum_i c_i \vec{d_i}
 		\end{displaymath}
@@ -549,14 +549,14 @@
 	  \begin{center}
 	    $ \left\{
           \begin{array}{l}
-            \vec{_d}^T \cdot (\vec{g} + G \vec{x_0}) = 0 \\
-            \vec{_d}^T \cdot (\vec{g} + G \vec{x_1}) = 0
+            \vec{d_1}^T \cdot (\vec{g} + G \vec{x_0}) = 0 \\
+            \vec{d_1}^T \cdot (\vec{g} + G \vec{x_1}) = 0
 	      \end{array}
 	    \right\} $
 	    \ $(\vec{g}$ \emph{grad. w} $x = 0)$
 	  \end{center}
 	  \begin{center}
-	    $\vec{d_1}^T \cdot G (\vec{x_1} - \vec{x_0}) = 0  \  (\vec{x_1} - \vec{x_0})$ sprzeżony do $\vec{d_1}$
+	    $\vec{d_1}^T \cdot G (\vec{x_1} - \vec{x_0}) = 0 \qquad (\vec{x_1} - \vec{x_0})$ sprzeżony do $\vec{d_1}$
 	  \end{center}
  	\end{block}
 
