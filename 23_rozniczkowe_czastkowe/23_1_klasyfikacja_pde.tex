@@ -12,13 +12,15 @@
     $R$ -- zbiór na płaszczyźnie
 
     Równanie:
-
-    \begin{multline*}
-      a(x, y, u, \frac{{\partial}u}{{\partial}x}, \frac{{\partial}u}{{\partial}y}) \cdot \frac{{\partial}^2u}{{\partial}x^2} +
+\begin{equation}\label{1}
+\begin{split}      
+a(x, y, u, \frac{{\partial}u}{{\partial}x}, \frac{{\partial}u}{{\partial}y}) \cdot \frac{{\partial}^2u}{{\partial}x^2} +
       2 \cdot b(x, y, u, \frac{{\partial}u}{{\partial}x}, \frac{{\partial}u}{{\partial}y}) \cdot \frac{{\partial}^2u}{{\partial}x{\partial}y} + \\
       + c(x, y, u, \frac{{\partial}u}{{\partial}x}, \frac{{\partial}u}{{\partial}y}) \cdot \frac{{\partial}^2u}{{\partial}y^2} +
-      f(x, y, u, \frac{{\partial}u}{{\partial}x}, \frac{{\partial}u}{{\partial}y}) = 0 \qquad (*)
-    \end{multline*}
+      f(x, y, u, \frac{{\partial}u}{{\partial}x}, \frac{{\partial}u}{{\partial}y}) = 0 
+\end{split}
+\end{equation}
+
 
     z warunkiem $a^2 + b^2 + c^2 \not = 0 \quad \forall_{(x,y) \in R}$
 
@@ -42,7 +44,7 @@
 \end{frame}
 
 \begin{frame}
-  W dowolnym $(x,y) \in R$ równanie $(*)$ jest:
+  W dowolnym $(x,y) \in R$ równanie $(\ref{1})$ jest:
   \begin{itemize}
     \item eliptyczne, gdy $b^2 - ac < 0$
     \item paraboliczne, gdy $b^2 - ac = 0$

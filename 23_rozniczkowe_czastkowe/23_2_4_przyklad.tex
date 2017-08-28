@@ -25,9 +25,9 @@
 
   Wówczas:
   \begin{itemize}
-    \item Siatka wewnętrzna $R_h = \{(2,2),(2,4),(4,2)\} \qquad (*)$
+    \item Siatka wewnętrzna \begin{equation}R_h = \{(2,2),(2,4),(4,2)\} \end{equation}
     \item Punkty wspólne karty płaskiej i brzegu $S$: $S_h^* = S_i \bigcup S_2 \bigcup \text{(4 $\bigcirc$ i 1 $\square$ na $S_3$)}$ % CZY KWADRACIK TO POWINNA BYĆ *???
-    \item Brzeg siatki: $S_h = \{ (2,0),(4,0),(0,2),(5,2),(4,3),(3,4),(0,4),(2,5) \} \qquad (\bigcirc)$
+    \item Brzeg siatki:$$S_h = \{ (2,0),(4,0),(0,2),(5,2),(4,3),(3,4),(0,4),(2,5) \}\quad (\bigcirc)$$
   \end{itemize}
 \end{frame}
 
@@ -56,7 +56,7 @@
         \begin{multline*}
           $$-2 \cdot ( \frac{1}{h_1 h_3} + \frac{1}{h_2 h_4}) \cdot u(x,y) + \\
           + \frac{2}{h_1 (h_1 + h_3)} u(x+h_1,y) + \frac{2}{h_2 (h_2 + h_4)} u(x,y + h_2) + \\
-          + \frac{2}{h_3 (h_1 + h_s)} u(x-h_3,y) + \frac{2}{h_2 (h_2 + h_4)} u(x,y - h_4) = 0$$ % 1. h_s W MIANOWNIOKU NIE MA ŻADNEGO SENSU (podejrzewam h_3)!!! 2. BARDZIEJ BYM SIĘ SPODZIEWAŁ h_4 PRZED NAWIASEM W MIANOWNIKU W OSTATNIM WYRAZIE
+          + \frac{2}{h_3 (h_1 + h_s)} u(x-h_3,y)+\frac{2}{h_2 (h_2 + h_4)} u(x,y - h_4)=0$$ % 1. h_s W MIANOWNIOKU NIE MA ŻADNEGO SENSU (podejrzewam h_3)!!! 2. BARDZIEJ BYM SIĘ SPODZIEWAŁ h_4 PRZED NAWIASEM W MIANOWNIKU W OSTATNIM WYRAZIE
         \end{multline*}
         jeżeli zaś punktem sąsiednim $(x,y)$ jest punkt $\in S_{h^-}$ % CZYŻBY CHODZIŁO O S_h^* ???
         to $u$ w punkcie sąsiednim zastępujemy przez wartość $f(x,y) \rightarrow$ krok 2.
