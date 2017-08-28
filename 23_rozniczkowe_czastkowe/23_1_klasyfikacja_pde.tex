@@ -1,0 +1,68 @@
+\section{Klasyfikacja PDE}
+
+\begin{frame}{Klasyfikacja PDE}
+  \begin{block}{Oznaczenie}
+    PDE -- partial differential equation (równanie różniczkowe cząstkowe)
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \begin{block}{Definicja -- równanie różniczkowe cząstkowe drugiego rzędu}
+    Niech:\\
+    $R$ -- zbiór na płaszczyźnie
+
+    Równanie:
+\begin{equation}\label{1}
+\begin{split}      
+a(x, y, u, \frac{{\partial}u}{{\partial}x}, \frac{{\partial}u}{{\partial}y}) \cdot \frac{{\partial}^2u}{{\partial}x^2} +
+      2 \cdot b(x, y, u, \frac{{\partial}u}{{\partial}x}, \frac{{\partial}u}{{\partial}y}) \cdot \frac{{\partial}^2u}{{\partial}x{\partial}y} + \\
+      + c(x, y, u, \frac{{\partial}u}{{\partial}x}, \frac{{\partial}u}{{\partial}y}) \cdot \frac{{\partial}^2u}{{\partial}y^2} +
+      f(x, y, u, \frac{{\partial}u}{{\partial}x}, \frac{{\partial}u}{{\partial}y}) = 0 
+\end{split}
+\end{equation}
+
+
+    z warunkiem $a^2 + b^2 + c^2 \not = 0 \quad \forall_{(x,y) \in R}$
+
+    nosi nazwę \textbf{równania różniczkowego cząstkowego drugiego rzędu}.
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  W szczególnym przypadku:
+
+  \begin{block}{Definicja -- równanie liniowe i słabo nieliniowe}
+    Niech:
+    $$a = a(x,y), \quad b = b(x,y), \quad c = c(x,y)$$
+
+    równanie to jest \textit{liniowym}, gdy:
+    $$f \equiv d(x,y) \frac{{\partial}u}{{\partial}x} + e(x,y) \frac{{\partial}u}{{\partial}y} + g(x,y)u + h(x,y)$$
+
+    zaś \textit{słabo nieliniowym}, gdy:
+    $$f \equiv f(x,y,u)$$
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  W dowolnym $(x,y) \in R$ równanie $(\ref{1})$ jest:
+  \begin{itemize}
+    \item eliptyczne, gdy $b^2 - ac < 0$
+    \item paraboliczne, gdy $b^2 - ac = 0$
+    \item hiperboliczne, gdy $b^2 - ac > 0$
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \begin{exampleblock}{Przykłady}
+      \begin{itemize}
+        \item r. potencjału; Laplace'a $\rightarrow$ eliptyczne (wszędzie)
+        $$\frac{{\partial}^2u}{{\partial}x^2} + \frac{{\partial}^2u}{{\partial}y^2} = 0$$
+
+        \item r. transportu ciepła $\rightarrow$ paraboliczne
+        $$\frac{{\partial}^2u}{{\partial}x^2} - \frac{{\partial}u}{{\partial}y} = 0$$
+
+        \item r. falowe $\rightarrow$ hiperboliczne
+        $$\frac{{\partial}^2u}{{\partial}x^2} - \frac{{\partial}^2u}{{\partial}y^2} = 0$$
+      \end{itemize}
+  \end{exampleblock}
+\end{frame}
