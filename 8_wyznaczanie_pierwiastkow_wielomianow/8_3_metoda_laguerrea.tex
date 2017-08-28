@@ -20,13 +20,12 @@
   \end{itemize}
 
   \begin{block}{}
-    $$ \begin{array}{ll}
-    (1) & P_n(x) = (x - x_1) \cdot (x - x_2) \cdot \ldots \cdot (x - x_n) \\
-    (2) & \ln|P_n(x)| = \ln|x - x_1| + \ln|x - x_2| + \ldots + \ln|x - x_n| \\
-    (3) & \frac{d \ln|P_n(x)|}{dx} = \frac{1}{x - x_1} + \frac{1}{x - x_2} + \ldots + \frac{1}{x - x_n} = \frac{P'_n(x)}{P_n(x)} \equiv G \\
-    (4) & -\frac{d^2 \ln|P_n(x)|}{dx^2} = \frac{1}{(x - x_1)^2} + \frac{1}{(x - x_2)^2} + \ldots + \frac{1}{(x - x_n)^2} = \\
-    & = \left[ \frac{P'_n(x)}{P_n(x)} \right] ^2 - \frac{P''_n(x)}{P_n(x)} \equiv H
-    \end{array} $$
+    \begin{enumerate}[I.]
+      \item $ P_n(x) = (x - x_1) \cdot (x - x_2) \cdot \ldots \cdot (x - x_n) $
+      \item $ \ln|P_n(x)| = \ln|x - x_1| + \ln|x - x_2| + \ldots + \ln|x - x_n| $
+      \item $ \frac{d \ln|P_n(x)|}{dx} = \frac{1}{x - x_1} + \frac{1}{x - x_2} + \ldots + \frac{1}{x - x_n} = \frac{P'_n(x)}{P_n(x)} \equiv G $
+      \item $ -\frac{d^2 \ln|P_n(x)|}{dx^2} = \frac{1}{(x - x_1)^2} + \frac{1}{(x - x_2)^2} + \ldots + \frac{1}{(x - x_n)^2} = \left[ \frac{P'_n(x)}{P_n(x)} \right] ^2 - \frac{P''_n(x)}{P_n(x)} \equiv H $
+    \end{enumerate}
   \end{block}
 \end{frame}
 
@@ -42,9 +41,9 @@
   \end{block}
 
   \begin{block}{Wniosek}
-    $$ \left. \begin{array}{rcl}
-      \text{wtedy z } (3) & : & \frac{1}{a} + \frac{m+1}{b} = G \\ % Czymkolwiek nie byłoby m; Wikipedia proponuje n-1, gdzie n – stopień wielomianu
-      (4) & : & \frac{1}{a^2} + \frac{m+1}{b^2} = H
+    $$ \left. \begin{array}{rl}
+      \text{wtedy z III.} & \frac{1}{a} + \frac{m+1}{b} = G \\ % Czymkolwiek nie byłoby m; Wikipedia proponuje n-1, gdzie n – stopień wielomianu
+      \text{IV.} & \frac{1}{a^2} + \frac{m+1}{b^2} = H
     \end{array} \right\} $$
   \end{block}
 

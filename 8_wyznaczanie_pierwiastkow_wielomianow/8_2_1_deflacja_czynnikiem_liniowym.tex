@@ -2,7 +2,7 @@
 
 \begin{frame}{Deflacja czynnikiem liniowym}
   \begin{block}{}
-    $$ f(x) = (x - \lambda) \cdot \underbrace{\sum_{i=0}^{m-1} b_i x^i}_{g(x)} + f(\lambda) \qquad (*) $$
+    \begin{equation} f(x) = (x - \lambda) \cdot \underbrace{\sum_{i=0}^{m-1} b_i x^i}_{g(x)} + f(\lambda) \label{linear} \end{equation}
   \end{block}
   gdy $ \lambda = \alpha $, wtedy $x$: pierwiastek $ f(x) = 0 $
 
@@ -18,7 +18,7 @@
 \end{frame}
 
 \begin{frame}
-  \textbf{Pochodna} -- Różniczkując równanie (*)
+  \textbf{Pochodna} -- Różniczkując równanie (\ref{linear})
 
   $$ f'(x) = (x - \lambda) \cdot g'(x) + g(x) $$
   $$ f'(x) = g(\lambda) $$

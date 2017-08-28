@@ -12,13 +12,17 @@
 
   czynnik kwadratowy może objąć 2 pierwiastki rzeczywiste lub zespolone
 
-  $$P(x) = (x^2 + p \cdot x + q) \cdot Q(x) + R \cdot x + S \qquad (*)$$
+  \begin{equation}
+    P(x) = (x^2 + p \cdot x + q) \cdot Q(x) + R \cdot x + S \label{bairstow}
+  \end{equation}
 \end{frame}
 
 \begin{frame}
   $$\left. \begin{array}{l}
   R(p,q)=0 \\ S(p,q)=0
   \end{array}\right\} \Rightarrow \text{met. Newtona-Raphsona}$$
+
+  \vspace{5mm}
 
   $$\left( \begin{array}{l}
   p^{(n+1)} \\ q^{(n+1)}
@@ -40,7 +44,7 @@
 \begin{frame}
   Pochodne znajdujemy w następujący sposób:
 
-  $P(x)$ -- nie zależy od $p$, $q$, \\ z $(*)$ mamy:
+  $P(x)$ -- nie zależy od $p$, $q$, \\ z (\ref{bairstow}) mamy:
 
   $$\left. \begin{array}{l}
   0 = (x^2 + p \cdot x + q) \cdot \frac{{\partial}Q}{{\partial}q} + Q + \frac{{\partial}R}{{\partial}q} + \frac{{\partial}S}{{\partial}q} \\ % NIE POWINNO BYĆ *x PRZY R'???
@@ -51,13 +55,15 @@
     \left( \leftarrow \frac{{\partial}R}{{\partial}q} \right) % NAPRAWDĘ NIE POWINNO BYĆ PO p?
   \end{array}$$
 
-  $$\left. \begin{array}{l}
-  (x^2 + p \cdot x + q) + \frac{{\partial}Q}{{\partial}q} + \frac{{\partial}R}{{\partial}q} \cdot x + \frac{{\partial}S}{{\partial}q} = -Q(x) \\ % NIE POWINNO BYĆ * dQ/dq ??? (zamiast +)
-  (x^2 + p \cdot x + q) + \frac{{\partial}Q}{{\partial}p} + \frac{{\partial}R}{{\partial}p} \cdot x + \frac{{\partial}S}{{\partial}p} = -x \cdot Q(x) % NIE POWINNO BYĆ * dQ/dp ??? (zamiast +)
-  \end{array}\right\}
-  \qquad (**)$$
+  \begin{equation}
+    \left. \begin{array}{l}
+    (x^2 + p \cdot x + q) + \frac{{\partial}Q}{{\partial}q} + \frac{{\partial}R}{{\partial}q} \cdot x + \frac{{\partial}S}{{\partial}q} = -Q(x) \\ % NIE POWINNO BYĆ * dQ/dq ??? (zamiast +)
+    (x^2 + p \cdot x + q) + \frac{{\partial}Q}{{\partial}p} + \frac{{\partial}R}{{\partial}p} \cdot x + \frac{{\partial}S}{{\partial}p} = -x \cdot Q(x) % NIE POWINNO BYĆ * dQ/dp ??? (zamiast +)
+    \end{array}\right\}
+    \label{bairstow2}
+  \end{equation}
 \end{frame}
 
 \begin{frame}
-  $(**)$ mają podobną strukturę jak $(*)$ $\rightarrow$ pochodne $\frac{{\partial}R}{{\partial}p}$, $\frac{{\partial}R}{{\partial}q}$, $\frac{{\partial}S}{{\partial}p}$, $\frac{{\partial}S}{{\partial}q}$ mogą być uzyskane przez syntetyczne dzielenie wielomianów $\left.\begin{array}{l} -Q(x) \\ -x Q(x) \end{array} \right\}$ przez czynnik kwadratowy.
+  (\ref{bairstow2}) mają podobną strukturę jak (\ref{bairstow}) $\rightarrow$ pochodne $\frac{{\partial}R}{{\partial}p}$, $\frac{{\partial}R}{{\partial}q}$, $\frac{{\partial}S}{{\partial}p}$, $\frac{{\partial}S}{{\partial}q}$ \\ \vspace{2mm} mogą być uzyskane przez syntetyczne dzielenie wielomianów \\ \vspace{3mm} $\left.\begin{array}{l} -Q(x) \\ -x Q(x) \end{array} \right\}$ przez czynnik kwadratowy.
 \end{frame}
