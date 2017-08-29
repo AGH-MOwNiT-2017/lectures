@@ -1,0 +1,52 @@
+\input{include/header}
+
+
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathreplacing,calc}
+
+\newcommand{\tikzmark}[1]{\tikz[overlay,remember picture] \node (#1) {};}
+
+\newcommand*{\AddNote}[5]{
+    \begin{tikzpicture}[overlay, remember picture]
+        \draw [decoration={brace,amplitude=0.5em},decorate,ultra thick,red]
+            ($(#3)!(#1.north)!($(#3)-(0,1)$)$) --
+            ($(#3)!(#2.south)!($(#3)-(0,1)$)$)
+                node [align=center, text width={#4}, pos=0.5, anchor=west] {#5};
+    \end{tikzpicture}
+}
+
+%%%%%%%%
+
+\subtitle{10. Numeryczna algebra liniowa -- wprowadzenie.}
+
+\begin{document}
+  \maketitle
+	\begin{frame}{Plan wykładu}
+		\tableofcontents
+	\end{frame}
+
+  \input{10_wyznaczanie_pierwiastkow_wielomianow/10_1_zastosowanie_num_algebry_liniowej+10_2_macierze_tekstowe}
+
+  \input{10_wyznaczanie_pierwiastkow_wielomianow/10_3_dlaczego_alg_rownolegle}
+
+ % \input{10_wyznaczanie_pierwiastkow_wielomianow/10_4_basic_matrix_algorithms} - matlab ma inną stronę internetową (ten adres na nią przekierowuje)  + i tak nie przekierowuje do niczego konkretnego ze strony matlaba
+
+  \section{Basic matrix algorithms}
+
+  \input{10_wyznaczanie_pierwiastkow_wielomianow/10_4_1_dot_product}
+
+  \input{10_wyznaczanie_pierwiastkow_wielomianow/10_4_4_matrix-vector_multiplication}
+
+  \input{10_wyznaczanie_pierwiastkow_wielomianow/10_4_5_the_gaxpy_computation+10_4_6_outer}
+
+ \input{10_wyznaczanie_pierwiastkow_wielomianow/10_4_7_matrix_multiplication}
+
+\section{Bibliografia}
+\begin{frame}{Bibliografia}
+  \begin{thebibliography}{9}
+    \setbeamertemplate{bibliography item}[online]
+      \bibitem[HARWELL-BOEING]{matrix}{Matrix Market \newblock The Harwell-Boeing Sparse Matrix Collection \newblock \small{\url{http://math.nist.gov/MatrixMarket/data/Harwell-Boeing/}}}
+  \end{thebibliography}
+\end{frame}
+
+\end{document}
