@@ -1,0 +1,36 @@
+\section{12.2 Podział metod iteracyjnych}
+
+\begin{frame}{}
+  \begin{block}{\textbf{stacjonarne} (\emph{stationary})}
+    \begin{itemize}
+      \item stałe współczynniki macierzy iteracyjnej,
+      \item starsze,
+      \item proste w zrozumieniu i implementacji,
+      \item są to metody: Jacobiego, G--S (SR), SOR, SSOR.
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}{}
+  \begin{block}{\textbf{niestacjonarne} (\emph{nonstationary})}
+    \begin{itemize}
+      \item współczynniki macierzy iteracyjnej zmieniają się w kolejnych krokach iteracji,
+      \item oparte na idei
+      \begin{itemize}
+        \item ciągu wektorów ortogonalnych (CG, MINRES ...),
+        \item wielomianów ortogonalnych (m. Czybyszewa),
+      \end{itemize}
+      \item stosunkowo nowe,
+      \item trudniejsze w zrozumieniu i implementacji,
+      \item szybciej zbieżne.
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}{}
+  \begin{block}{}
+    \emph{iterate} -- przybliżenie rozwiązania w kolejnej iteracji,
+    \newline \emph{residual} -- $r=Ay-b$,
+    \newline \emph{preconditioner, preconditioning matrix:} macierz transformująca układ równań do postaci o lepszych własnościach spektralnych
+  \end{block}
+\end{frame}

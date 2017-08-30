@@ -1,0 +1,27 @@
+%\section{Sens procedury iteracyjnej dla Ax=b}
+
+%\begin{frame}{}
+  %W każdym kroku następuje poprawianie rozwiązania.\\
+  %Przypadek, gdy źródłem Ax=b jest r. Poissona :
+  %\begin{itemize}
+    %\item $\boxed{\bigtriangledown^2u(x,y)=-\rho(x,y)$
+    %\item $\rho(x,y)$ -- f. rozkładu źródeł
+    %\item $\infty$ szybkość propagacji informacji
+  %\end{itemize}
+%\end{frame}
+
+%\begin{frame}{}
+  %Ale r. Poissona to graniczny (stacjonarny przypadek \emph{równania dyfuzji} :
+  %$$\frac{\partial u}{\partial t} = \bigtriangledown^2u=\rho$$
+  %którego jawne sformułowanie różnicowe ma postać:
+  %$\left. \parbox{10em}
+%{\begin{itemize}
+   %\item \text{temperatura}
+   %\item \text{ciśnienie}
+   %\item \text{wilgotność}
+   %\item \text{prędkość wiatru}
+  %\end{itemize}}
+%\right \} \text{równanie Naviera-Stokesa (6 zmiennych)}$
+  %Procedura iteracyjna- jawne rozwiązanie zagadnienia opisującego zbieżność w wyimaginowanym czsie iteracji (pseudoczas)
+%\end{frame}
+
