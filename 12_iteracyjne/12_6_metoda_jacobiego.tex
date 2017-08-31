@@ -1,6 +1,6 @@
 \section{12.6 Metoda Jacobiego}
 
-\begin{frame}{}
+\begin{frame}{Metoda Jacobiego}
   $$ A=D+(L+U);\{M=I-D^{-1}AW=D^{-1}b $$
   gdzie: L --poddiagonalna; P -- naddiagonalna;\\
   D=B -- diagonalna, z diagonalnych elementów macierzy A. Korzystając z zależności
@@ -11,11 +11,11 @@
 
 \begin{frame}
   \begin{block}{Procedura przestawiania wierszy}
-    \begin{enumerate}
-      \item spośród kolumn z $a_{ii} = 0$ wybieramy tą, która ma najwięcej zer,
-      \item w tej kolumnie wybieramy element o max $|a_{ii}|$ i przestawiamy wiersze tak, aby znalazł się on na diagonali,
-      \item Powtarzamy 1. i 2.
-    \end{enumerate}
+    \begin{itemize}
+      \item[1.] spośród kolumn z $a_{ii} = 0$ wybieramy tą, która ma najwięcej zer,
+      \item[2.] w tej kolumnie wybieramy element o max $|a_{ii}|$ i przestawiamy wiersze tak, aby znalazł się on na diagonali,
+      \item[3.] Powtarzamy 1. i 2.
+    \end{itemize}
   \end{block}
 \end{frame}
 
