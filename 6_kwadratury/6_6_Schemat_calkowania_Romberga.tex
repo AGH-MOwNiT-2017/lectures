@@ -1,0 +1,143 @@
+\section{Schemat całkowania Romberga}
+	\begin{frame}{Schemat całkowania Romberga}
+    	
+      Całkowity błąd złożonej kwadratury trapezów:
+      $\newline$
+      $E=\displaystyle \sum_{i=1}^{\infty}a_{i}h^{2i}$;\quad $a_{i}=a_{i}(a,\ b,\ f(x))$ , \textbf{nie zalezy od h!}
+    \end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}
+    		
+  	  	$\hfill${\it Zadanie}: p. Ralston
+	
+      	aby tak było -- $f\in C^{\infty}[a,\ b] \quad=\displaystyle \int_{a}^{b}f(x)dx$;
+
+      	$T_{a,j}$ - -wynik kwadratury trapezów dla $h_{j}=\displaystyle \frac{b-a}{2j}$
+		$\newline$
+        
+	  	\textbf{- 1-szy krok:}
+
+		$\left\{\begin{array}{l}
+			I-T_{0,j}=a_{2}h_{j}^{2}+a_{4}h_{j}^{4}+\ldots\\
+			I-T_{0,j+1}=a_{2}h_{j+1}^{2}+a_{4}h_{j+1}^{4}+\ldots\quad\ |\rightarrow h_{j+1}=\frac{h_{j}}{2};*4,\ -,\ /3
+		\end{array}\right.$ 
+		$\newline$
+        ekstrapolacja Richardsona daje:
+        $$
+        	I-\displaystyle \underbrace{\frac{1}{3}[4T_{0,j+1}-T_{0,j}]}_{T_{1,j}}=b_{4}h_{j}^{4}+b_{6}h_{j}^{6}+\ldots
+        $$
+        $T_{1,j} \equiv$ wzór Simpsona dla $2^{j}$ podprzedziałów.
+
+        $\hfill${\it Zadanie}: Pokazać
+
+    \end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}
+    	\textbf{- 2-gi krok:}
+        
+        $\left\{\begin{array}{l}
+        	I-T_{1,j}=b_{4}h_{j}^{2}+b_{6}h_{j}^{4}+\ldots \\
+        	I-T_{1,j+1}=b_{4}h_{j+1}^{2}+b_{6}h_{j+1}^{4}+\ldots\ *4_{j}j-j/3
+        \end{array}\right.$
+        
+        $$
+        I-\displaystyle \underbrace{\frac{1}{15}[16T_{1,j+1}-T_{1,j}]}_{T_{2,j}}=c_{6}h_{j}^{6}+c_{8}h_{j}^{8}+\ldots
+        $$
+        
+        I ogólnie:
+        mając
+        \begin{center}
+        $T_{0,j},\quad j=0$, 1, . . . , $m$
+        \end{center}
+        tworzymy:
+        
+        $$
+        	T_{i,j}=\displaystyle \frac{1}{4^{i}-1}(4^{i}T_{i-1,j-1}-T_{i-1,j}) ,\quad i, j=0, 1, 2, . . .   
+        $$
+        $\hfill${\it Zadanie}: Udowodnić
+    
+    \end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}{Romberg $T$-table:}
+    	\scalebox{0.92}{
+		$\begin{array}{ccccccccccc}
+          	T_{0,0} \\
+        	\downarrow & \searrow \\
+        	T_{0,1} & \rightarrow & T_{1,0} \\
+            \downarrow & \searrow & \downarrow & \searrow \\
+            T_{0,2} & \rightarrow & T_{1,1} & \rightarrow & T_{2,0} \\
+            \downarrow & \searrow & \downarrow & \searrow & \downarrow & \searrow \\
+            T_{0,3} & \rightarrow & T_{1,2} & \rightarrow & T_{2,1} & \rightarrow & T_{3,0} \\
+            & \ldots \\
+            \downarrow & \searrow & \downarrow & \searrow & \downarrow & \searrow & & \searrow \\
+            T_{0,m-1} & \rightarrow & T_{1,m-2} & \rightarrow & T_{2,m-3} & \rightarrow & T_{3,m-4} & \ldots & T_{m-1,0} \\
+            \downarrow & \searrow & \downarrow & \searrow & \downarrow & \searrow & & \searrow & \downarrow & \searrow \\
+            T_{0,m} & \rightarrow & T_{1,m-1} & \rightarrow & T_{2,m-2} & \rightarrow & T_{3,m-3} & \ldots & T_{m-1,1} & \rightarrow &  T_{m,0}\\
+            
+        \end{array}$
+        }
+        $\newline$
+        Sposób wypełniania wierszy tablicy $T$: (wystarczy 1 wiersz)
+    \end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}
+    	\textbf{- 1-sza iteracja:}
+        $\newline$
+    	$\begin{array}{ccc}
+        	T_{0,0} \\
+            T_{0,0} & \rightarrow & T_{0,1} \\
+            \downarrow & \swarrow \\
+            T_{1,0} & & T_{0,1}
+        \end{array}$
+        
+        $\newline$
+        
+    	\textbf{- 2-ga iteracja:}
+        
+        $\begin{array}{cccccc}
+            T_{0,0} & \rightarrow & T_{0,1} & \rightarrow & T_{0,2} \\
+            \downarrow & \swarrow &\downarrow \\
+            T_{1,0} & & T_{1,1} & & T_{0,2} \\
+            \downarrow & \swarrow \\
+            T_{2,0} & & T_{1,1} & & T_{0,2} \\
+        \end{array}$
+    \end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}
+    	Zbieżność całkowania Romberga $\rightarrow$ patrz Ralston $\newline$
+
+        Ogólnie: im wyższe $\mathrm{i}, h^{i}\rightarrow$ tym większe {\it f}$(\eta)$ $\newline$
+		ale -- w całkowaniu trapezów $\rightarrow$ zbieżność! $\newline$
+        
+		gdy $f(x)\in C^{\infty}[a,\ b]$, {\it to}:
+
+		\quad - w kolumnach $\displaystyle \lim_{l\rightarrow\infty}T_{p,l}\rightarrow I$;\quad $w (p+1)$ szybciej niż w $p$
+
+		\quad - ciąg diagonalny $T_{i,i}$ szybciej zbieżny do I niż ciągi w kolumnach
+        $\newline$
+
+		stąd warunek zakończenia:
+        \begin{center}
+        	$|T_{m,0}-T_{m-1,0}|<\delta \cdot |T_{m,0}|, \delta-$ {\it zadane}.
+        \end{center}
+        
+        Reszta schematu Romberga:
+        \begin{center}
+        	$E=c(i,\ j)\cdot h^{2j+2}\cdot f^{2j+2}(\eta)$
+        \end{center}
+		\hfill$c(i,\ j)$ - stała malejąca z $i$, $j$\quad $h=\displaystyle \frac{b-a}{2^{i+j}}.$
+
+
+    \end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{frame}
+    	Schemat Romberga wymaga by błąd kwadratury w  $i$-tym wierszu:
+        \begin{center}
+        	$E=\displaystyle \sum_{l=1}^{i}a_{l}h_{i}^{2l}+O(h_{i}^{2i+2})\ ,\quad\ f\in C^{2i+2}[a,\ b]$   
+        \end{center}
+W procedurze powinno to być sprawdzane!
+
+Procedury całkowania Romberga mogą być adaptacyjne.
+    \end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+		
