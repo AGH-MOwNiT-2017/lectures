@@ -1,0 +1,174 @@
+\section{Gaussian elimination-LU factorization}
+\begin{frame}{Gaussian elimination}
+$Ax=b\rightarrow Ux=c, Lc=b$
+
+$\mathrm{U}$ -upper triangular, $\mathrm{L}$ -lower triangular
+\scalebox{0.92}{
+$\left(\begin{array}{lll}
+a_{11} & a_{12} & a_{13}\\
+a_{21} & a_{22} & a_{23}\\
+a_{31} & a_{32} & a_{33}
+\end{array}\right) \left(\begin{array}{l}
+x_{1}\\
+x_{2}\\
+x_{3}
+\end{array}\right)=\left(\begin{array}{l}
+b_{1}\\
+b_{2}\\
+b_{3}
+\end{array}\right)
+\begin{array}{l}
+\frac{a_{21}}{a_{11}} 
+\\
+\\
+\\
+\end{array}
+\begin{array}{l}
+\bigg\}-
+\\
+\\
+\end{array}
+\left. \begin{array}{l}
+\frac{a_{31}}{a_{11}}
+\\
+\\
+\\
+\end{array}\right\}
+-a_{11}\neq0
+$}
+$$
+\scalebox{0.90}{
+$
+\left(\begin{array}{lll}
+a_{11} & a_{12} & a_{13}\\
+0 & a_{22}^{(2)} &a_{23}^{(2)}\\
+0 & a_{32}^{(2)} & a_{33}^{(2)}
+\end{array}\right) \cdot
+ \left(\begin{array}{l}
+x_{1}\\
+x_{2}\\
+x_{3}
+\end{array}\right)=
+\left(\begin{array}{l}
+b_{1}^{(2)} \\
+b_{2}^{(2)} \\
+b_{3}^{(2)}
+\end{array}\right)
+$
+}
+$$
+$a_{22}^{(2)}=a_{22}-\displaystyle \frac{a_{21}}{a_{11}}$ . $a_{12}, a_{23}^{(2)}=\ldots, a_{32}^{(2)}=a_{32}-\displaystyle \frac{a_{31}}{a_{11}}$ . $a_{12}, a_{33}^{(2)}=\ldots,$
+
+\begin{flushright}
+$
+b_{2}^{(2)}=b_{2}-\frac{a_{21}}{a_{11}}\ b_{1},\ b_{3}^{(2)}=b_{3}-\frac{a_{31}}{a_{11}}\ b_{1},
+$
+\end{flushright}
+
+\end{frame}
+\begin{frame}{Gaussian elimination}
+W wyniku następnego etapu otrzymamy:
+$$
+U = \left(\begin{array}{lll}
+a_{11} & a_{12} & a_{13}\\
+0 & a_{22}^{(2)} &a_{23}^{(2)}\\
+0 & 0 & a_{33}^{(3)}
+\end{array}\right)
+,\ c=\left(\begin{array}{l}
+b_{1}\\
+b_{2}^{(2)}\\
+b_{3}^{(3)}
+\end{array}\right)
+$$
+Ogólnie po $k$ etapach otrzymujemy:
+\begin{flushright}
+$
+A^{(k+1)}\cdot x=b^{(k+1)}\cdot x
+$
+
+$a_{ij}^{(k+1)}=a_{ij}^{(k)}-\displaystyle \frac{a_{ik}^{(k)}}{a_{kk}^{(k)}}\cdot a_{kj}^{(k)}, i, j>k$ \fbox{1a}
+$$
+a_{kk}
+$$
+$b_{i}^{(k+1)}=b_{i}^{(k)}-\displaystyle \frac{a_{ik}^{(k)}}{a_{kk}^{(k)}}\cdot b_{k}^{(k)}, i>k$ \fbox{1b}
+\end{flushright}
+przy założeniu, że $a_{kk}^{(k)}\neq 0$
+
+\end{frame}
+\begin{frame}{Gaussian elimination}
+W przeciwnym przypadku $\rightarrow$ row interchanges\newline W efekcie $A^{(n)}=U$ -upper triangular multiplier $l_{ik}=\displaystyle \frac{a_{ik}^{(k)}}{a_{kk}^{(k)}}, a_{kk}^{(k)}\neq 0$
+\end{frame}
+\begin{frame}{Relationship with LU factorization}
+$$
+L^{(k)}=\begin{bmatrix}
+1 \\
+ & \ddots & & 0 \\
+ & & 1\\
+ & &   -l_{k^{1}+1,k}  & \ddots\\
+ 0 & &  \vdots \\
+ & & -l_{n,k} &  0  & 1
+
+\end{bmatrix}
+$$
+- unit (1'' on diag.) lower triangular
+
+- elementary (sometimes) lower triangular
+
+- podobna do macierzy $I$
+
+\fbox{1a} możemy zapisać w postaci macierzowej
+$$
+A^{(k+1)}=L^{(k)}\cdot A^{(k)}
+$$
+\begin{flushright}
+{\it Zadanie}: Sprawdzić
+\end{flushright}
+
+
+\end{frame}
+\begin{frame}{Relationship with LU factorization}
+i w konsekwencji
+$$
+U=A^{(n)}=L^{(n-1)}\cdot L^{(n-2)}\cdot\ldots\cdot L^{(1)}\cdot A \ \ \ (*)
+$$
+\begin{flushright}
+{\it Zadanie}: Sprawdź
+\end{flushright}
+łatwo pokazać, że:
+$$
+(L^{(k)})^{-1}=\begin{bmatrix}
+1 \\
+ & \ddots & & 0 \\
+ & & 1\\
+ & &   -l_{k^{1}+1,k}  & \ddots\\
+ 0 & &  \vdots \\
+ & & l_{n,k} &  0  & 1
+
+\end{bmatrix}
+$$
+bo $L^{(k)}\cdot(L^{(k)})^{-1}=I$
+\end{frame}
+\begin{frame}{Relationship with LU factorization}
+Mnożąc kolejno przez $(L^{(n-1)})^{-1}, (L^{(n-2)})^{-1}$, . . . , $(L^{(1)})^{-1}$ otrzymamy:
+$$
+A=\underbrace{(L^{(1)})^{-1}\cdot(L^{(2)})^{-1}\cdot\ldots\cdot(L^{(n-1)})^{-1}}\cdot U\rightarrow A=L\cdot U
+$$
+\hspace{17mm}
+=L=
+$
+\begin{bmatrix}
+1 & & & \\
+l_{21}  & 1 & & 0 \\
+l_{31} & l_{32} & \ddots & 1 \\
+\vdots & \vdots & l_{k+1,k} & \vdots \\
+l_{n1} & l_{n2} & l_{nk} & 1
+\end{bmatrix}
+$
+\end{frame}
+\begin{frame}{Relationship with LU factorization}
+$\bullet$ do przechowywania $A^{(1)}, A^{(2)}$, . . . wystarczy jedna macierz \newline
+$\bullet l_{ij}$ -przechowywanie w miejscu powstająych kolumn z zerami \newline
+$\bullet$ nie musimy pamiętać "1" na diagonali
+
+$\bullet L/U$ array - w spakowanej postaci
+\end{frame}
