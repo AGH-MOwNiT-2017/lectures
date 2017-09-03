@@ -1,0 +1,25 @@
+\subsection{Deflacja czynnikiem liniowym}
+
+\begin{frame}{Deflacja czynnikiem liniowym}
+  \begin{block}{}
+    \begin{equation} f(x) = (x - \lambda) \cdot \underbrace{\sum_{i=0}^{m-1} b_i x^i}_{g(x)} + f(\lambda) \label{linear} \end{equation}
+  \end{block}
+  gdy $ \lambda = \alpha $, wtedy $x$: pierwiastek $ f(x) = 0 $
+
+  \vspace{5px}
+
+  pozostałe zera $f(x) = 0$: $ g(x) = \sum_{i=0}^{m-1} b_i x^i $ \qquad deflated equation
+
+  \vspace{5px}
+
+  \begin{alertblock}{Uwaga}
+    Ale następuje kumulowanie błędów: $\alpha$ z błędem, $b_i$ z błędem itd\dots
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}
+  \textbf{Pochodna} -- Różniczkując równanie (\ref{linear})
+
+  $$ f'(x) = (x - \lambda) \cdot g'(x) + g(x) $$
+  $$ f'(x) = g(\lambda) $$
+\end{frame}

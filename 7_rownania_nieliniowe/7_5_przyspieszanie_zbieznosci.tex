@@ -1,0 +1,28 @@
+\section{Przyspieszanie zbieżności - metoda Aitkena}
+%%%%%%%%%%%%%%%%
+\begin{frame}{Przyspieszanie zbieżności - metoda Aitkena}
+	$x_{i}$, $x_{i+1}$, $x_{i+2}$ - kolejne iteracje\linebreak
+	\begin{tabbing}
+		\quad \= $x_{i} - \alpha = \phi(x_{i-1}) - \phi(\alpha) = (x_{i-1} - \alpha) \cdot \phi'(\eta_{i-1})$, \quad $\eta_{i-1} \in (x_{i-1}, \alpha)$\\\\
+		\> $x_{i+2} - \alpha = (x_{i+1} - \alpha) \cdot \phi'(\eta_{i+1})$\\\\
+		\> $x_{i+1} - \alpha = (x_{i} - \alpha) \cdot \underbrace{\phi'(\eta_{i})}_{(*)}$
+	\end{tabbing}
+	$(*)$ - nieznane, ale w pobliżu $\alpha$; $\phi'(x) \approx$ stałe
+\end{frame}
+%%%%%%%%%%%%%%%%
+\begin{frame}{Przyspieszanie zbieżności - metoda Aitkena}
+	\[
+		\frac{x_{i+2} - x_{i+2}^{*}}{x_{i+1} - x_{i+2}^{*}} = \frac{x_{i+1} - x_{i+2}^{*}}{x_{i} - x_{i+2}^{*}}
+	\]
+	\[
+		x_{i+2}^{*} = \frac{x_{i} \cdot x_{i+2} - x_{i+1}^{2}}{x_{i+2} - 2 \cdot x_{i+1} + x_{i}} \quad \rightarrow \text{niedogodna: } L, A \rightarrow 0
+	\]
+	\[
+		\fbox{$x_{i+2}^{*} = x_{i} - \frac{(x_{i+1} - x_{i})^{2}}{x_{i+2} - 2 \cdot x_{i+1} + x_{i}} \rightarrow (*)$}
+	\]
+	$(*)$ - zbieżność kwadratowa bez obliczania 2-gich pochodnych\linebreak\linebreak
+	równość pochodnych \quad $\rightarrow$ \quad ze stałości:\linebreak
+	\[
+		\fbox{$\frac{x_{i} - x_{i-1}}{x_{i+1} - x_{i}}$}
+	\]
+\end{frame}

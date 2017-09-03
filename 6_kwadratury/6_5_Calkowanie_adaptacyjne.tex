@@ -1,0 +1,111 @@
+\section{Całkowanie adaptacyjne}
+	\begin{frame}{Całkowanie adaptacyjne}
+		
+      wzory złożone - Węzly równoodległe,
+      funkcje mogą mieć w przedziale całkowania różny (przedziałami) przebieg:
+      $\newline$
+      \begin{itemize}
+      \item wolnozmienne
+      \item oscylacyjne
+      \end{itemize}
+      $\newline$
+      potrzebna jest \textit{procedura rozpoznająca obszary: dobierająca krok!}
+      \end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+      \begin{frame}
+      
+        Liczymy całkę $\displaystyle \int_{a}^{b}f(x)d_{x},$\quad z dokładnością $\epsilon>0$
+
+        1. $m=1$, krok $h=\displaystyle \frac{b-a}{2}$
+
+      
+        $$ 
+        \int_{a}^{b}f(x)dx=\underbrace{\frac{h}{3}[f(a)+4f(a+h)+f(b)]}_{S(a,b)} - \underbrace{\frac{h^{5}}{90}f^{(4)}(\mu)}_{\alpha} ;\quad \mu\in(a,\ b)
+        $$
+      \end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+      \begin{frame}
+      
+		2. $m=2$, krok $\displaystyle \frac{h}{2}=\frac{b-a}{4}$ $\newline$
+        \scalebox{0.85}{
+            $
+                \displaystyle \int_{a}^{b}f(x)dx=\frac{h}{6}\underbrace{[f(a)+4f(a+\frac{h}{2})+f(a+h)}_{S(a,\frac{a+b}{2})}+\underbrace{(a+h)+4f(a+\frac{3}{4}h)+f(b)]}_{S(\frac{a+b}{2},b)} - 
+            $
+        }
+        \begin{center}
+          \scalebox{0.85}{
+            $
+            \displaystyle(\frac{h}{2})^{4}\frac{b-a}{180}f^{(4)}(\mu^{\star}) , \mu^{\star}\in(a,\ b)
+            $
+          }
+        \end{center}
+        przyjmijmy, że: $f^{(4)}(\mu)\approx f^{(4)}(\mu^{\star})$
+
+        \textbf{Z porównania 1. i 2. :}
+        $$
+        S(a,b)-\alpha\approx S(a,\ \frac{a+b}{2})+S(\frac{a+b}{2},\ b)-\frac{1}{16}\alpha \quad\Rightarrow
+        $$
+
+        $$
+        \alpha=\frac{16}{15}[S(a,\ b)-S(a,\ \frac{a+b}{2})-S(\frac{a+b}{2},\ b)]
+        $$
+
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}
+    	uzyskujemy:
+        $\newline$
+      \scalebox{0.8}{
+          $|\displaystyle \int_{a}^{b}f(x)dx-S(a,\ \frac{a+b}{2})-S(\frac{a+b}{2},\ b)|\approx\frac{1}{15}|s(a,\ b)-S(a,\ \frac{a+b}{2})-S(\frac{a+b}{2},\ b)|$ 
+      }
+      $\newline$
+      \scalebox{0.9}{
+      	(lewa strona równania powinna być równa $\epsilon$)
+      }
+	  $\newline$
+      
+      Wtedy:
+      $$
+	      |S(a,\ b)-S(a,\ \frac{a+b}{2})-S(\frac{a+b}{2},\ b)|<15\epsilon \quad(*)
+      $$
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}
+    	Mamy więc sposób postępowania:
+        $\newline$
+        \begin{itemize}
+          \item gdy spelnione $(*)$ $\displaystyle \Rightarrow S(a,\ \frac{a+b}{2})+S(\frac{a+b}{2},\ b)\newline$ 
+          przybliża całke $\displaystyle\int_{a}^{b}f(x)dx$ z dokladnością $\epsilon$, STOP
+			
+          \item nie jest spełnione $(*)$ stosujemy procedurę oceny błędu do przedziaów
+$[a,\displaystyle \ \frac{a+b}{2}], [\displaystyle \frac{a+b}{2},\ b]$ w każdym z nich: 	$\displaystyle \epsilon'=\frac{\epsilon}{2}$
+          
+          \item połowienie podprzedziałów i wyznaczanie $S$
+          
+          \item ten, na którym odpowiednik $(*)$ nie jest spełniony znów połowimy
+            
+        \end{itemize}
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,123 @@
+\begin{frame}
+{3.8 Interpolacja Hermite'a}
+
+Więcej o metodzie i jej autorze \\
+(autor: Shayne Waldrom,University of Auckland):\\
+\vspace{5mm}
+https://www.math.auckland.ac.nz/$\sim$waldron/Hermite/hermite.html
+\end{frame}
+
+\begin{frame}
+{3.8.1 Przypadek szczególny}
+
+$\{(x_{i}, f_{i}, f_{i}^{'}); i=1,2, \dots, N; x_{i}\neq x_{j}, i\neq j\}$
+$$
+P_{2N-1}(x)=\sum_{i/1}^{N}\alpha_{i}(x)f(i)+\sum_{i/1}^{N}\beta_{i}(x)f_{i}'
+$$
+$$
+\alpha_{i}\ =\ [1-2(x-x_{i})\Phi_{i}'(x_{i})]\Phi_{i}^{2}(x)
+$$
+$$
+\beta_{i}\ =\ (x-x_{i})\Phi_{i}^{2}(x)
+$$
+\begin{center}
+$\Phi_{i}(x) = \displaystyle \prod_{j/1,j\neq i}^{N}\frac{x-x_{j}}{x_{i}-x_{j}}, i=1, 2,\dots, N$
+$$
+\Phi_{i}'(x_{i})\ =\ [\Phi_{i}'(x)]_{x_{i}}
+$$
+\end{center}
+\textbf{Zadanie:} sprawdzić.
+
+
+\end{frame}
+
+\begin{frame}
+$$
+\alpha_{i}(x_{j})\ =\ [1-2(x_{j}-x_{i})\Phi_{i}'(x_{i})]\delta_{ij}^{2}=\delta_{ij}
+$$
+$$
+\beta_{i}(x_{j})\ =\ (x_{j}-x_{i})\delta_{ij}^{2}=0
+$$
+$\Rightarrow$ wielomian przechodzi przez $(x_{j},\ f_{j})$ , $j=1,2, \dots, N$ \\
+\vspace{3mm}
+$\alpha_{i}^{l}(x_{j})\ =\ [1-2(x_{j}-x_{i})\Phi_{i}(x_{i})]2\delta_{ij}\Phi_{i}'(x_{j})-2\Phi_{i}^{l}(x_{i})\delta_{ij}=0$ \\
+\vspace{3mm}
+$\beta_{i}'(x_{j})\ =\ (x_{j}-x_{i})2\delta_{ij}\Phi_{i}'(x_{j})+\delta_{ij}=\delta_{ij}$
+
+$$
+\Rightarrow\ P_{2N-1}'(x_{j})=f_{j}'
+$$
+\begin{flushright}$\rightarrow$ wzór zmodyfikowany \end{flushright}
+\end{frame}
+
+\begin{frame}
+{3.8.2 Ogólnie}
+
+\textcolor{blue}{Dane:}
+\begin{itemize}
+\item $k+1$ różnych węzłów: $x_{0}, x_{1}, \dots, x_{k}$
+
+\item liczby naturalne $m_{0}, m_{1},\dots , m_{k}, \displaystyle \sum_{i/1}^{k}m_{i}=n+1$
+\end{itemize}
+\textcolor{blue}{Szukamy:}
+
+dla dowolnej funkcji $ f(\rightarrow$liczb {\it $f_{i}^{(j)}$}$)$ wielomianu $H_{n}$ stopnia $\leq n,$ \\
+takiego, że:
+
+$H_{n}^{(j)}(x_{i})=f^{(j)}(x_{i})$ \quad dla $i=0, 1, \dots , k$
+\begin{center}
+$j=0, 1, \dots, m_{i-1}$
+\end{center}
+( $m_{i}=1\rightarrow$ interpolacja Lagrange'a)
+\end{frame}
+
+\begin{frame}
+\textcolor{blue}{Rozwiązanie:} \\
+\vspace{2mm}
+$s(i)=\left\{\begin{array}{l}
+0,\ i=0\\
+m_{0}+m_{1}+\cdots+m_{i-1},\ i>0
+\end{array}\right.$
+\vspace{2mm}
+
+$0\leq l\leq n:l=s(i)+j$
+
+$p_{s(0)}(x)=1$
+
+$p_{s(i)+j}(x)=(x-x_{0})^{m_{0}}(x-x_{1})^{m_{1}}\ldots(x-x_{i-1})^{mi-1}(x-x_{i})^{j}(\star)$ \\
+gdzie: $i=0, 1, \dots, k; \: j=1, 2, \dots , m_{i-1}$ \\
+\vspace{3mm}
+Szukany wielomian interpolacyjny:
+$$
+H_{n}(x)=\sum_{l/0}^{n}b_{l}p_{l}(x)=\sum_{i/0}^{k}\sum_{j/0}^{m_i-1}b_{s(i)+j}p_{s(i)+j}(x)
+$$
+\end{frame}
+
+\begin{frame}
+współczynniki $b_{l}$:
+
+
+$l$ - ustalone, $l=s(i)+j$
+$$
+H_{n}(x)=\underbrace{A(x)}_{b_{0},{b_{1},\ldots,b}_{l-1}}+b_{l}p_{l}(x)+\underbrace{B(..x)}_{b_{l+1},\ldots,b_{n}}(\star\star)
+$$
+ale: $(\mathrm{z}\star)$
+$$
+l=s(i)+jp_{l}(x)=p_{s(i)}(x)(x-x_{j})^{j}
+$$
+$
+$różniczkując$(\star\star)
+$
+$$
+H_{n}^{(j)}(x_{i})=A^{(j)}(x_{i})+b_{l}p_{s(i)}(x_{i})j!
+$$
+korzystając $\mathrm{z}$:
+$$
+H_{n}^{(j)}(x_{i})=f^{(j)}(x_{i})
+$$
+mamy:
+$$
+b_{l}=\frac{f^{(j)}(x_{i})-A^{(j)}(x_{i})}{p_{s(i)}(x_{i})_{j}j!}
+$$
+
+\end{frame}

@@ -1,0 +1,120 @@
+\subsection{Matrix-Vector multiplication}
+
+\begin{frame}[fragile]{Matrix-Vector multiplication}
+
+$z = A \cdot x; $ \\
+$z_i = \sum_{i=1}^n a_{i j}  x_j $ \\ 
+\vspace{10px}
+\begin{enumerate}[a)]
+	\item row version \\
+	$m = rows(A); \quad n = cols(A)$ \\
+	$z(1:m) = 0$
+\vspace{10px}
+
+\begin{lstlisting}[language=Matlab, mathescape]
+  function: z = matvec.ij(A, x)
+     for i = 1:m $\tikzmark{mark1}$
+         for j = 1:n
+	       z(i) = z(i) + A(i,j)$\cdot$x(j) $\tikzmark{mark3}$
+         end
+     end $\tikzmark{mark2}$
+   end matvec.ij\end{lstlisting}
+ \AddNote{mark1}{mark2}{mark3}{0.7cm}{$*$} %{góra}{dół}{poziomo}{szerokość tekstu}{tekst}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]
+	\begin{itemize} % pisanie myślników z palca jest jeszcze gorsze niż "a)"
+		\item $*$: in colon notation
+		\vspace{7px}
+		 \begin{lstlisting}[language=Matlab]
+		   for i = 1:m
+		       z(i) = A(i,:)%*$\cdot$*)x
+		   end\end{lstlisting}
+
+		 \item with dot
+		 \vspace{7px}
+		  \begin{lstlisting}[language=Matlab]
+		    for i = 1:m
+		        z(i) = dot(A(i,:),x)
+		    end\end{lstlisting}
+	\end{itemize}
+ \begin{alertblock}{Ważne}
+Dostęp do macierzy A $\Rightarrow$ wierszami
+  \end{alertblock}
+
+\end{frame}
+
+\begin{frame}[fragile]
+	\begin{enumerate}[b)]
+		\item column version \vspace{10px}
+
+$\left(  \begin{array}{ll} 
+   1 & 2\\
+   3 & 4\\
+   5 & 6\\
+\end{array}
+\right ) \cdot 
+\left ( \begin{array}{l} 
+   7\\
+   8\\
+\end{array}
+\right ) =
+\left ( \begin{array}{l}
+   1 \cdot 7 + 2 \cdot 8\\
+   3 \cdot 7 + 4 \cdot 8\\
+   5 \cdot 7 + 6 \cdot 8\\
+\end{array}
+\right ) = 7 \cdot
+\left ( \begin{array}{l}
+   1 \\
+   3 \\
+   5
+\end{array}
+\right ) + 8 \cdot
+ \left ( \begin{array}{l}
+   2 \\
+   4 \\
+   6
+\end{array}
+\right )
+$
+\vspace{10px}
+
+$m = rows(A); \quad n = cols(A) \quad z(1:m) = 0$
+\vspace{10px}
+ 
+ \begin{lstlisting}[language=Matlab, mathescape]
+  function: z = matrec.ij(A, x)
+     for j = 1:n $\tikzmark{mark1}$
+         for i = 1:m
+	       z(i) = z(i) + A(i,j) $\cdot$ x(j) $\tikzmark{mark3}$
+         end
+     end $\tikzmark{mark2}$
+   end matrec.ij\end{lstlisting}
+ \AddNote{mark1}{mark2}{mark3}{0.7cm}{$*$}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]
+	\begin{itemize}
+	\item $*$: in colon notation
+ \begin{lstlisting}[belowskip=-1.4 \baselineskip, language=Matlab]
+   z(1:m) = 0
+   for j = 1:n
+      z = z + x(j)%*$\cdot$*)A(:,i)
+   end\end{lstlisting}
+
+\item with dot
+ \begin{lstlisting}[belowskip=-1.4 \baselineskip, language=Matlab]
+   z(1:m) = 0
+   for j = 1:n
+       z = saxpy(x(j), A(:,i),z)
+   end\end{lstlisting}
+ \end{itemize}
+\vspace{24px}
+ \begin{alertblock}{Ważne}
+Dostęp do macierzy A $\Rightarrow$ kolumnami
+  \end{alertblock}
+
+\end{frame}

@@ -1,0 +1,53 @@
+
+\subsection{The gaxpy computation}
+
+\begin{frame}[fragile]{The gaxpy computation}
+
+$z = y + A\cdot x; $ \\
+
+$x \in R^n; $ \\
+$y \in R^n; $ \\
+$A \in R^{n\cdot n};$ \\
+(gaxpy = \textbf{g}eneral \textbf{A} \textbf{x} \textbf{p}lus \textbf{y})
+
+\vspace{10px}
+\begin{lstlisting}[language=Matlab]
+
+  function: z = gaxpy(A,x,y)
+       n = cols(a); z = y
+       for j = 1:n
+           z = z + x(j)%*$\cdot$*)A(:,j)
+       end
+   end
+ \end{lstlisting}
+
+\end{frame}
+
+
+\subsection{Outer product updates}
+
+\begin{frame}[fragile]{Outer product updates}
+
+$A \leftarrow A + x\cdot y^T; $ \\
+$a_{ij} = a_{ij} + x_i\cdot y_j, \quad i = 1:m, \quad j = 1:n $ \\
+
+\begin{itemize}
+\item ``ij'' version:
+\end{itemize}
+\begin{lstlisting}[belowskip=-1.4 \baselineskip, language=Matlab]
+       for i = 1:m
+           A(i,:) = A(i,:) + x(i)%*$\cdot y^T$*)
+       end\end{lstlisting}
+A $\rightarrow$ wierszami
+
+
+\begin{itemize}
+\item ``ji'' version:
+\end{itemize}
+\begin{lstlisting}[belowskip=-1.4 \baselineskip, language=Matlab]
+       for j = 1:n
+           A(:,j) = A(:,j) + y(j)%*$\cdot $*)x
+       end\end{lstlisting}
+A $\rightarrow$ kolumnami \hfill (obie ,,saxpy - based'')
+
+\end{frame}

@@ -1,0 +1,55 @@
+\section{12.10 Metoda Czybyszewa}
+
+\begin{frame}{Metoda Czybyszewa}
+  $B^{-1}=W(A)$ - wielomian macierzowy $M=1-W(A)A$ Znaleźć $W(U)$ taki, by:
+  $$minUmax|1-W(U)U|$$
+  %prawdopodobnie zły wzór
+  Jest to klasyczny problem aproksymacji $\Rightarrow$ wielomiany Czybyszewa
+\end{frame}
+
+\begin{frame}
+  \begin{block}{Przyspieszenie Czybyszewa metody SOR; odd-even ordering}
+    \begin{align*}
+    \rho &= \rho(M_J)\\
+    \omega^{(0)}&=1\\
+    \omega^{\frac{1}{2}}&=\frac{1}{1-\frac{1}{2}\rho^2}\\
+    \omega^{(t+\frac{1}{2})}&=\frac{1}{1-\frac{1}{4}\rho^2\omega^{(t)}}\text{, dla t=}\frac{1}{2},1,1\frac{1}{2},...\\
+    \omega^{(\infty)} &= \omega_{opt}
+    \end{align*}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{}
+ $\omega=1.0$
+\begin{lstlisting}[language=Matlab, mathescape]
+DO 2 t = 1, MAXIT$\qquad\qquad\qquad\qquad\qquad (\approx 100,1000)$
+    Norm = 0.0
+    DO 1 p= 1,n
+    DO 1 p= 1,n\\
+        IF ( MOD(p+q,2) .EQ. MOD(t,2)) THEN
+          Residual = $a_{p,q}\phi_{p,q-1}+b_{p,1}\phi_{p,q+1}+c_{p,q}\phi_{p-1,q}+$
+                     $d_{p,q}\phi_{p+1,q}+e_{p,q}\phi_{p,q}-f_{p,q}$
+          Norm = Norm + (Residual)$^2$
+                 $\phi_{p,q}=\phi_{p_q}-\omega*$Residual$/e_{p,q}$
+          ENDIF
+    1 CONTINUE
+(.) $\omega=1.0/(1.0-0.25\rho^2\omega)$
+(.) IF (t .EQ. 1) $\omega=1.0/(1.0-0.5\rho^2)$
+    IF (Norm .LT. EPS ||$\overrightarrow{f}$|| solution obtained
+2 CONTINUE
+\end{lstlisting}
+  \hfill\hfill Zadanie: Przećwiczyć na lab.
+\end{frame}
+
+\begin{frame}{}
+  \begin{block}{Uwagi do algorytmu}
+    \begin{itemize}
+      \item EPS $\approx 10^{-6}$,
+      \item $||f^\rightarrow|| -$ obliczona wcześniej norma prawej strony,
+      \item gdy usuniemy instrukcje (*) otrzymamy metodę G-S,
+      \item jeżeli dodatkowo zastąpimy $\omega=1$ przez $\omega=\omega_{opt}$-metodę SOR,
+      \item (Dla r. Poissona: $a=b=c=d=1, e=-4$)
+    \end{itemize}
+  \end{block}
+\end{frame}
+
