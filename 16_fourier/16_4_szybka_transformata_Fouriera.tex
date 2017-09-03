@@ -1,0 +1,72 @@
+\section{Szybka transformata Fouriera FFT dla $n=2^m$}
+%%%%%%%%%%%%%%%%
+\begin{frame}[allowframebreaks]{FFT}
+	\begin{itemize}
+		\item Danielson, Lanczos (1942)
+		\item R.L.Garwin (IBM Yorktown Heights Researcg Center)
+		\item J.W.Cooley, J.W.Turket (1962)
+	\end{itemize}
+	\begin{table}
+		\centering
+		\caption{Złożoność}
+		\begin{tabular}{l|lll}
+			& obliczeniowa && czasowa \\
+			\hline
+			klasyczna FT: & $O(N^2)$ & $\implies$ & 1.5 godziny \\
+			FFT: & $O(N\log_2N)$ & $\implies$ & 0.1 sekundy 
+		\end{tabular}
+		\caption*{Założenia: \\
+			rozmiar problemu: $N = 10^6$ \\
+			CPU $\sim$ 100 MFLOPS}
+	\end{table}
+	Dane: $f(x_k), x_k = \frac{2\pi}{n} \cdot k, k = 0, 1, \dots, n-1$ \\
+	Szukamy: $c_j = \frac{1}{n} \sum\limits_{\sfrac{k}{0}}^{n-1} f(x_k) \cdot e^{-i\frac{2\pi k}{n} \cdot j}, j = 0, 1, \dots, n-1$ \\
+	gdy: $a_k = \frac{1}{n} \cdot f(x_k), \omega = e^{-i\frac{2\pi}{n}}$ \\
+	to: $\underline{c_j = \sum\limits_{\sfrac{k}{0}}^{n-1} a_k \cdot \omega^{jk}}, j = 0, 1, \dots, n-1$ \\
+	Założenie: ilość punktów: n = $2^m \implies$ tyleż współczynników Fouriera. \\
+	Istota algorytmu: \\
+	(k - numer punktu) \\
+	gdy k parzyste $k = 2 \cdot k_1$ \\
+	gdy k nieparzyste $k = 2 \cdot k_1 + 1$ \\
+	Dziedzina k: \\
+	z dołu $\underline{k_1 = 0}$ (parzyste k)  \\
+	z góry: $n-1 = 2^m - 1 \implies$ k - nieparzyste: $2k_1 + 1 = n-1 \implies k_1 = \frac{n}{2} - 1$ \\
+	Rozdzielamy wyznaczanie współczyników: 
+	\[
+		c_j = \sum\limits_{k_1=0}^{\frac{n}{2} - 1} a_2 \cdot k_1 \cdot (\omega^2)^{j \cdot k_1} + \sum\limits_{k_1 = 0}^{\frac{n}{2} - 1} a_2 \cdot k_1 + 1 \cdot (\omega^2)^{j \cdot k_1} \cdot \omega^j
+		\tag{16.24}
+	\]
+	$\to$ \underline{niesymetria}: \\
+	\[
+	\begin{cases}
+		0 \leq k_1 \leq \frac{n}{2} - 1 \\
+		0 \leq j \leq n-1
+	\end{cases}
+	\tag{16.25}
+	\]
+	dla usunięcia niesymetrii: \\
+	(j - numer współczynika $c_j$)
+	\[
+		j = (\frac{1}{2} \cdot n) \cdot l + j_1, 0 \leq j_1 \leq \frac{n}{2} - 1
+	\]
+	$\to$ \underline{jest to odpowiednik dzielenia j przez $\frac{n}{2} ; j_1$ - reszta} \\
+	z kolei:
+	\[
+		\underline{(\omega^2)^{jk_1}} = \omega^{2 \cdot [\frac{n}{2} \cdot l + j_1] \cdot k_1} = \omega^{n \cdot l \cdot k_1 + 2j_1k_1} = (e^{-\frac{2\pi i}{n}})^{(n \cdot l \cdot k_1 + 2j_1k_1)} = \underline{(\omega^2)^{j_1k_1}}
+		\tag{16.26}
+	\]
+	bo: $\underline{\omega^{nlk_1}} = 1$ \\
+	\underline{i uzyskujemy}:
+	\[
+		c_j = \underbrace{\sum\limits_{k_1 = 0}^{\frac{n}{2} - 1} a_{2 \cdot k_1} \cdot (\omega^2)^{j_1k_1}}_{\varphi(j_1)} + \underbrace{ \sum\limits_{k_1 = 0}^{\frac{n}{2}-1} a_{2 \cdot k_1} + 1 \cdot (\omega^2)^{j_1k_1}}_{\psi(j_1)} \cdot \omega^j, 0\leq j_1 \leq \frac{n}{2} - 1
+		\tag{16.27}
+	\]
+	każdy z 2 członów jest transformatą Fouriera - zamiast pojedyńczej transformaty w n punktach $\to$ suma 2 transformat w $\frac{n}{2}$ punktach: 
+	\[
+		c_j = \varphi(j_1) + \omega^j \cdot \psi(j_1) ; j_1 = 0, 1, \dots, \frac{n}{2} - 1
+		\tag{16.28}
+	\]
+	itd $\dots \to$ dokonując dalszych podziałów. \\
+	złożoność obliczeniowa $\leq \underline{2 \cdot Nlog_2N}$ \\
+	Zadanie: Zrozumieć procedurę realizującą FFT dla N = 8 węzłów
+\end{frame}   
