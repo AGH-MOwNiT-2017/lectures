@@ -8,4 +8,5 @@ clean:
 	rm -f *.pdf
 
 clean_nopdfs:
-	rm -f *.aux *.log *.nav *.out *.snm *.toc *.vrb 
+	rm -f *.aux *.log *.nav *.out *.snm *.toc *.vrb *.synctex.gz
+ 

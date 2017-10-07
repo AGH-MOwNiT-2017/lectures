@@ -38,8 +38,10 @@
 		\end{cases}
 		$$
 	\end{frame}
+
 	\subsection{Realizacja z użyciem BLAS level 1}
-	\begin{frame}[fragile]{Algorytmy blokowe i BLAS}
+
+\begin{frame}[fragile]{Algorytmy blokowe i BLAS}
 		\begin{lstlisting}
     DO 30 J = 1, N		
         INFO = J
@@ -59,7 +61,8 @@
         IF (S .LE. 0.0E0) GO TO 40 A(J,J) = SQRT(S)
     30 CONTINUE		
 		\end{lstlisting}
-	\end{frame}
+\end{frame}
+	
 	\begin{frame}{Algorytmy blokowe i BLAS}
 		\begin{tabular}{ l l l }
 			\textbf{FUNCTION} & \textunderscore \textbf{DOT(N,X, INCX,Y,INCY) = dot} & $ \leftarrow x^T * y $ \\
@@ -135,7 +138,8 @@
 	OUTPUT:  $x$ - the solution vector replaces the input \\
 	Notes: subprogram do not check singularity of A \\
 	\end{frame}
-	\begin{frame}[fragile]{Algorytmy blokowe i BLAS}
+
+\begin{frame}[fragile]{Algorytmy blokowe i BLAS}
 		\textbf{Program ma postać:}
 		\begin{lstlisting}
     DO 10 J=1, N
@@ -147,7 +151,8 @@
     10 CONTINUE
 		\end{lstlisting}
 		
-	\end{frame}
+\end{frame}
+
 	\begin{frame}{Algorytmy blokowe i BLAS}
 	Improvement of the performance: \\ 
 	1 processor CRAY Y-MP, N= 500 \\
@@ -235,7 +240,7 @@
 		OUTPUT: C - upper/lower triangle of C (uplo) replaces inp.
 	\end{frame}
 	
-	\begin{frame}[fragile]{Algorytmy blokowe i BLAS}
+\begin{frame}[fragile]{Algorytmy blokowe i BLAS}
 	Program ma postać
 		\begin{lstlisting}
     DO 10 J=1, N, NB
@@ -247,7 +252,9 @@
         IF (INFO.NE.O) GO TO 20
     10 CONTINUE
 		\end{lstlisting}
-	\end{frame}
+\end{frame}
+
+
 	\begin{frame}{Speed in MFLOPS on CRAY Y-MP}
 		\begin{center}
     			\begin{tabular}{| l | r | r |}
@@ -264,4 +271,4 @@
 	\end{frame}
 	
 
-	
+% 	
