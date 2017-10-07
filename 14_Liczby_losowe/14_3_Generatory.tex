@@ -1,10 +1,10 @@
-﻿\section{Generatory liczb równomiernych}
+\section{Generatory liczb równomiernych}
 	\begin{frame}{Generatory liczb równomiernych}
 
 
 	\textbf{14.3.1 Ogólne}
-	\[          
-	x_{n+1}=f(\underbrace{x_{n},x_{n-1},\ldots,x_{n-k+1}}_{k \:stalych\: poczatkowych}) (mod\ \ M) 
+	\[
+	x_{n+1}=f(\underbrace{x_{n},x_{n-1},\ldots,x_{n-k+1}}_{k \:stalych\: poczatkowych}) (mod\ \ M)
 	\]
 	Zal:
 	$$
@@ -22,9 +22,9 @@
 	\includegraphics[width=70mm,height=20mm]{img/14/14_3_1_img}
 	\end{center}
 	\end{frame}
-   	
+
     \begin{frame}{Generatory liczb równomiernych}
-  	
+
 	\textbf{14.3.2 Generator Fibonacciego}
 	\begin{center}
  	$$x_{n+1} = (x_{n} + x_{n-1})(mod M)$$
@@ -38,10 +38,10 @@
 	\end{frame}
     \begin{frame}
 	\textbf{14.3.3 Generatory liniowe kongruentne}
-    
+
 	Większość generatorów to generatory {\it liniowe kongruentne}:\\ (1943, D.H. Lehmer)
 	\begin{center}
- 	$$I_{j+1} = (aI_{j}+c) mod\ m$$ 
+ 	$$I_{j+1} = (aI_{j}+c) mod\ m$$
 	\end{center}
 	gdzie:
 
@@ -56,8 +56,8 @@
     \begin{frame}
 	Liczby zmiennoprzecinkowe: $\displaystyle \frac{I_{j+1}}{m}\in[0$, 1)
     \newline
-    
-	sekwencja: $I_{1}, I_{2}$, {\it I}3, . . . ; $0\leq I_{i}\leq m-1$ 
+
+	sekwencja: $I_{1}, I_{2}$, {\it I}3, . . . ; $0\leq I_{i}\leq m-1$
     \newline \newline
     okres $\leq m$ ; zalezy od wyboru $a, c \left\{\begin{array}{l}
 	c\neq 0\ \rightarrow\ mieszane,\\
@@ -68,7 +68,7 @@
 
 	a) {\it szybkość generacji}
 	\newline
-    
+
 	Wady:
 
 	a) {\it korelacje sekwencji}
@@ -76,14 +76,14 @@
 	- $k$ -liczb losowych $\rightarrow$punkt w przestrzeni $k-D,$
 
 	- punkty nie zapełniają r\'{o}wnomiernie przestrzeni lecz ukladają się na $(k-1)-D$ 				hiperplaszczyznach. Ilość plaszczyzn $\neq m^{\frac{1}{k}}, np. \ \ k=3, m=2^{32}\rightarrow 1600$ 		plaszczyzn
-	
+
     \end{frame}
     \begin{frame}
 	Kiedyś IBM wsławił się zdaniem ``{\it gwarantuje tylko losowośc każdej liczby indywidualnie }''
     \newline
     \newline
 	b) {\it niższe bity są} ``{\it mniej losowe}'' niż {\it wyższe}:
-    
+
     - nie wykorzystywać liczb losowych w {\it kawałkach},
 
 	- np.do generowania liczb losowych $\in[1, 10 ]$
@@ -96,4 +96,3 @@
 
 	$J=1+MOD(INT(100000.0*RANF($iseed)$),\ 10)$
     \end{frame}
-    
