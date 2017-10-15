@@ -30,7 +30,7 @@ DO 2 t = 1, MAXIT$\qquad\qquad\qquad\qquad\qquad (\approx 100,1000)$
           Residual = $a_{p,q}\phi_{p,q-1}+b_{p,1}\phi_{p,q+1}+c_{p,q}\phi_{p-1,q}+$
                      $d_{p,q}\phi_{p+1,q}+e_{p,q}\phi_{p,q}-f_{p,q}$
           Norm = Norm + (Residual)$^2$
-                 $\phi_{p,q}=\phi_{p_q}-\omega*$Residual$/e_{p,q}$
+                 $\phi_{p,q}=\phi_{p_q}-\omega\cdot $Residual$/e_{p,q}$
           ENDIF
     1 CONTINUE
 (.) $\omega=1.0/(1.0-0.25\rho^2\omega)$

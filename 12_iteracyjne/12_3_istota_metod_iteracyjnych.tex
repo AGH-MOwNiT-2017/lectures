@@ -2,7 +2,7 @@
 
 \begin{frame}{Istota metod iteracynych dla Ax=b}
     \begin{center}
-      $A*x=b\quad(1)$
+      $A\cdot x=b\quad(1)$
     \end{center}
     \begin{itemize}
       \item gdzie A jest macierzą n x n;
@@ -19,8 +19,8 @@
       \item R -- pozostałość
     \end{itemize}
     $\Rightarrow$
-    $$B*x=-R*x+b$$<++>
-  $$\boxed{B*x=-(A-B)*x+b}\quad(2)$$
+    $$B\cdot x=-R\cdot x+b$$<++>
+  $$\boxed{B\cdot x=-(A-B)\cdot x+b}\quad(2)$$
   \end{block}
 \end{frame}
 
@@ -30,14 +30,14 @@
       \item odgadnięciu wektora początkowego $x^{(o)}$
       \item generowaniu ciągu iteracyjnego $x^{(t)}$ wg. postulowanego wzoru:
     \end{itemize}
-    $$B*x^{(t+1)}=-(A-B)*x^{(t)}+b \hskip \textwidth minus \textwidth (12.1)$$
-    $$x^{(t+1)}=\underbrace{-B^{-1}*(A-B)}_{I-B^{-1}*A=M \quad M - iteration matrix} *x^{(t)}+\underbrace{B^{-1}*b}_{W}\quad(3) \hskip \textwidth minus \textwidth (12.2)$$
+    $$B\cdot x^{(t+1)}=-(A-B)\cdot x^{(t)}+b \hskip \textwidth minus \textwidth (12.1)$$
+    $$x^{(t+1)}=\underbrace{-B^{-1}\cdot (A-B)}_{I-B^{-1}\cdot A=M \quad M\text{ - iteration matrix }} \cdot x^{(t)}+\underbrace{B^{-1}\cdot b}_{W}\quad(3) \hskip \textwidth minus \textwidth (12.2)$$
 \end{frame}
 
 \begin{frame}{}
     \textbf{Różne B $\rightarrow$ rodzina metod iteracyjnych:}
-    $$\boxed{x^{(t+1)}=M*x^{(t)}+B^{-1}*b}\quad(4)$$
+    $$\boxed{x^{(t+1)}=M\cdot x^{(t)}+B^{-1}\cdot b}\quad(4)$$
     Warunek \emph{zgodności} formuły iteracyjnej z szukanym rozwiązaniem
-    $$\lim_{t\to\infty} x^{(x+1)}= \lim_{t\to\infty}  (M*x^{(t)}+B^{-1}*b) \quad (5)$$
+    $$\lim_{t\to\infty} x^{(x+1)}= \lim_{t\to\infty}  (M\cdot x^{(t)}+B^{-1}\cdot b) \quad (5)$$
 \end{frame}
 
