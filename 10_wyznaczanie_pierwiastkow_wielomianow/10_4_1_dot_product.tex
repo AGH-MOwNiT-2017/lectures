@@ -3,10 +3,10 @@
 \begin{frame}[fragile]{Dot product}
 
 
-$ c = x^T\cdot y; \quad x,y \in R^n\text{ (vectors)} $ % \quad robi niezbyt duży odstęp w trybie matematycznym.
+$ c = x^T\cdot y; \quad x,y \in R^n\text{ (vectors)} $
 
 \vspace{10px}
- \begin{lstlisting}[language=Matlab] %Trochę więcej się koloruje przy ustawieniu Matlab, ale jeśli wolisz, wróć do Pascala.
+ \begin{lstlisting}[language=Matlab]
 
 function: c = dot(x,y)
 
@@ -26,8 +26,7 @@ function: c = dot(x,y)
 
 \begin{frame}[fragile]{saxpy}
 
-$ z = \alpha \cdot x + y == $ (saxpy = \textbf{s}calar \textbf{a}lpha \textbf{x} \textbf{p}lus \textbf{y})  $\alpha$ -- scalar % Tu chodziło o zaznaczenie pierwszych liter w celu wyjaśnienia nazwy
-%Myślę też, że tamto "==" nie ma żadnego sensu, lepiej by było zamiast niego zrobić przejście do nowej lini.
+$ z = \alpha \cdot x + y == $ (saxpy = \textbf{s}calar \textbf{a}lpha \textbf{x} \textbf{p}lus \textbf{y})  $\alpha$ -- scalar
 \vspace{10px}
  \begin{lstlisting}[language=Matlab]
 
@@ -52,8 +51,8 @@ function: z = saxpy(%*$\alpha$*),x,y)
 
 $ A\in R^{m\cdot n} $ \\
 \vspace{10px}
-$k$-th row of $A$: % Wyróżniłem k i A
-$$A(k, :) = [a_{k1}, a_{k2}, \dots , a_{kn}]$$ % Zmieniłem kropki
+$k$-th row of $A$:
+$$A(k, :) = [a_{k1}, a_{k2}, \dots , a_{kn}]$$
 $k$-th column of $A$:
 \vspace{10px}
 
