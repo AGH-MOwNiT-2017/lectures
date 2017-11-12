@@ -2,7 +2,7 @@
 	\begin{frame}{Konstrukcja interpolujących sześciennych funkcji sklejanych}
 		Podprzedział $[x_{i},x_{i+1}]$, oznaczmy:
        	\begin{itemize}
-       	\item $h_{i}=x_{i+1}-x-{i}$
+       	\item $h_{i}=x_{i+1}-x_{i}$
         \item $w=\frac{x-x_{i}}{h_{i}}$
         \item $\overline{w}=\frac{x_{i+1}-x}{h_{i}}=1-w$
        	\end{itemize}
@@ -15,7 +15,7 @@
 	\end{frame}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
     \begin{frame}
-    	 Niech dla $[x_{i},x_{i+1}]$ sześcienna funkcja skeljeana ma postać:
+    	 Niech dla $[x_{i},x_{i+1}]$ sześcienna funkcja sklejana ma postać:
         \[
         	s(x)= \underbrace{w\cdot y_{i+1}+\overline{w} \cdot y_{i}}_{\text{$(*)$}}
             + \underbrace{h^{2}_{i}[(w^{3}-w)\sigma_{i+1}+
@@ -23,7 +23,7 @@
         \]
         gdzie:
         $\newline(*)$ - człony standardowej interpolacji liniowej
-        $\newline(**)$ - korekta sześcienna - datkowe wygładzanie funkcji
+        $\newline(**)$ - korekta sześcienna - dodatkowe wygładzanie funkcji
         $\newline \sigma_{i}, \sigma_{i+1}$ - pewne stałe, do wyznaczenia
         $\newline$
         \begin{itemize}
@@ -80,10 +80,12 @@
         	h_{i-1}\sigma_{i-1}+2(h_{i-1}+h_{i})\sigma_{i}+h_{i}\sigma_{i+1}=
             \Delta_{i}-\Delta_{i-1}, \ \ i=2, 3, . . . , n-1
         \]
-        ale ponieważ mamy n niewiadomych $\sigma_{i}$ konieczne jest $\longrightarrow$
+        ale ponieważ mamy n niewiadomych $\sigma_{i}$ konieczne jest
+        określanie dwóch dodatkowych warunków.
     \end{frame}
     %%%%%%%%%%%%%%%%%%%%%%%
-    \begin{frame}{Określanie dwóch dodatkowych warunków}
+    \begin{frame}
+		$\newline$
     	Istnieje wiele sposobów określania dodatkowych warunków.
        \begin{enumerate}
        \item  \[
@@ -97,7 +99,7 @@
        		\framebox{$s'''(x_{1})=C^{'''}_{1}\ \ \ s'''(x_{n})=C^{'''}_{n}$}
        \]
         Stałe $C^{'''}_{1}$ i $C^{'''}_{n}$ mogą być określone bez znajomości 
-        $C^{'''}(x)$ i $C^{'''}(x)$:
+        $C_{1}(x)$ i $C_{n}(x)$:
         \[
         	\Delta_{i}\ =\ \frac{y_{i+1}-y_{i}}
             {x_{i+1}-x_{i}}\ ;\ \textrm{przybliża 1-szą pochodną}
@@ -146,7 +148,7 @@
             &|\cdot h_{1}^{2}
             \\
             s'''(x_{n})&=c_{n}'''(x_{1}) \Rightarrow
-            \frac{6}{h_{n-1}}(\sigma_{n}-\sigma_{n-1})=6\triangle_{n-3}^{(3)}
+            \frac{6}{h_{n-1}}(\sigma_{n}-\sigma_{n-1})=6\Delta_{n-3}^{(3)}
             &|\cdot h_{n-1}^{2}
         \end{align*}
         po przekształceniu: (cel = symetria)
@@ -195,7 +197,7 @@
     \begin{frame}{Inne ważne możliwości określania warunków}
     	\begin{enumerate}
         \setcounter{enumi}{1}
-    		\item natural cubic spline: $s''(x_{1})=s''(x_{2})=0$ (free boundary)
+    		\item natural cubic spline: $s''(x_{1})=s''(x_{n})=0$ (free boundary)
             \item complete spline: $s'(x_{1})=y'_{1}, \ \ s'(x_{n})=y'_{n}$
             (clamped boundary)
             \item $s''(x_{1})=y''_{1}; \ \ s^{n}(x_{n})=y''_{n}$
