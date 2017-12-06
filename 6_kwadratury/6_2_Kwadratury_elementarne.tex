@@ -10,7 +10,7 @@ y_{i}= \frac{1}{2}(x_{i}+x_{i+1}),\ \ \ f(x)=f(y_{i})+ \sum_{p=1}^{\infty}\frac{
 		$$
         
 		$$
-\int_{xi}^{x_{i+1}}f(x)dx=\underbrace{(y_{i})h_{i}}_{R}+\frac{1}{24}h_{i}^{3}f''(y_{i})\tilde{R}+\frac{1}{1920}h_{i}^{5}f^{(4)}(y_{i})+\ldots
+\int_{xi}^{x_{i+1}}f(x)dx=\underbrace{y_{i}h_{i}}_{R}+\frac{1}{24}h_{i}^{3}f''(y_{i})+\frac{1}{1920}h_{i}^{5}f^{(4)}(y_{i})+\ldots
 		$$
 	\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%
@@ -33,7 +33,7 @@ f(x_{i})=f(y_{i})- \frac{1}{2}h_{i}f'(y_{i})+\ldots,\ \ f(x_{i+1})=f(y_{i})+ \fr
         $$
         
         $$
-S = \frac{1}{6}h_{i}[f(x_{i})+4f(\frac{x_{i}+x_{i+1}}{2})+f(x_{i+1})];\ E=-\frac{1}{2880}h_{i}^{5}f^{(4)}(y_{i})
+S = \frac{1}{6}h_{i}[f(x_{i})+4f(\frac{x_{i}+x_{i+1}}{2})+f(x_{i+1})];\ \tilde{E}=-\frac{1}{2880}h_{i}^{5}f^{(4)}(y_{i})
 		$$
         oparta na interpolacji 2-go rzędu\newline ale dokładna dla funkcji sześciennych.
         
