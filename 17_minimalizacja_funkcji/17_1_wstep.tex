@@ -23,7 +23,7 @@
         przez \textbf{minimalizację} różnicy między danymi
         teoretycznymi a eksperymentalnymi:\\
         $
-          min!F(x) = \sum_{k/1}^{k} \left[ \frac{Y_k - T_k(\vec x)}{\sigma_k}
+          min!F(x) = \sum_{k = 1}^{n} \left[ \frac{Y_k - T_k(\vec x)}{\sigma_k}
           \right] ^2 Y_k \text{-- zmierzone wartości,}
         $ \\
         $ \sigma_k $ - błąd pomiaru,\\
@@ -130,7 +130,7 @@
     \begin{displaymath}
       F(\vec{x}) = \underbrace{F(\vec{x_1})}_{\text{stały}} +
       \vec{g}^T * (\vec{x} - \vec{x_1}) +
-      \frac{1}{2}(\vec{x} - \vec{x_1}^T) * G * (\vec{x} - \vec{x_1}) + \dots
+      \frac{1}{2}(\vec{x} - \vec{x_1})^T * G * (\vec{x} - \vec{x_1}) + \dots
     \end{displaymath}
     \begin{displaymath}
       g_i = \left. \frac{\partial F}{\partial x} \right|_{\vec{x_1}} \text{-- gradient;}\quad
