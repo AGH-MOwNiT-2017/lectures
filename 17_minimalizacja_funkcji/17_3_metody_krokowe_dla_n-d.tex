@@ -10,7 +10,7 @@
  		\item[--] doświadczenie z całkowania $\rightarrow$ mogą być tu też przydatne metody Monte-Carlo % item - pojedyncze wypunktowanie
  	  	\item[--] $\vec{x_i}$ - wybierane losowo, zgodnie z rozkładem: % $ .. $ - tekst matematyczny
  	  	\begin{itemize}
- 		  \item równownomiernym,
+ 		  \item równomiernym,
  		  \item normalnym
  	  	\end{itemize}
  	  	\item[--] o środku w najlepszym ze znalezionych punktów,
@@ -109,7 +109,7 @@
 		\item Obliczamy odbicie $P_H$ wzgl. $\overline{P} : P$* $= \overline{P}+(\overline{P}-P_H)$ jeżeli
 		\\ $F(P$*$) < F(P_L) \Rightarrow$ nowy $P$** $= \overline{P}+2*(\overline{P}-P_H)$
 		\\ $F(P$*$) > F(P_L) \Rightarrow$ nowy $P$** $= \overline{P}-1/2*(\overline{P}-P_H)$
-		\newcounter{saveenumi}	% do kontynuacji numeracji na następnym slajdze
+		\newcounter{saveenumi}	% do kontynuacji numeracji na następnym slajdzie
 		\setcounter{saveenumi}{\value{enumi}}
 	\end{enumerate}
 
@@ -199,7 +199,7 @@
 		\includegraphics[height=0.6\textheight ,width=0.6\textwidth]{img/17/wyznaczanie_pochodnych}
 	\end{figure}
     \begin{block}{}
-      poza p.symetrycznymi potrzeba $\frac{n(n-1)}{2}$ pkt. (mieszane pochodne)
+      poza p.~symetrycznymi potrzeba $\frac{n(n-1)}{2}$ pkt. (mieszane pochodne)
   	\end{block}
 
   \end{frame}
@@ -351,7 +351,7 @@
 	    W $x_0 \rightarrow F(x)$ nie jest wypukła (dodatnio określona)
 	    \medskip\\
 	    \emph{Uogólnienie na n-D:}\\
-	    $g \rightarrow \vec{g}$, $G$ - macierz 2-gich poch;
+	    $g \rightarrow \vec{g}$, $G$ - macierz 2-ich poch.;
 	    $F(\vec X) = a + \vec{g}^T \cdot \vec{x} + \frac{1}{2} \vec{x}^T G$ tylko dla $G$ dod. określonej
 	    ma sens krok do:
 	    \begin{displaymath}
@@ -380,7 +380,7 @@
 
   \begin{frame}{Badanie czy $G$ jest dodatnio określona cd.}
 
-    \begin{block}{Oglne warunki konieczne i wystarczające}
+    \begin{block}{Ogólne warunki konieczne i wystarczające}
       \begin{itemize}
       		\item[--] wszystkie wartości własne $> 0$ (b. trudne i przybliżone)
       		\item[--] wyznacznik wszystkich macierzy $> 0$
@@ -413,7 +413,7 @@
  	   				\item[--] krok pośredni pomiędzy m. Newtona a największego spadku
  	   				\\(duże $\lambda$ : krok krótki, w kierunku $\vec{g}$)
  	   			\end{itemize}
- 	   			\item[--] gdy jedna lub więcej diagonalnych 2-gich poch. $< 0$
+ 	   			\item[--] gdy jedna lub więcej diagonalnych 2-ich poch. $< 0$
  	   			\\ $\Rightarrow$ informacja o kierunku wzrostu ujemnej 1-szej poch.
  	   			\\w tym kierunku - szukanie met. zmiany 1 param.
  	   		\end{itemize}
@@ -422,16 +422,16 @@
 
   \end{frame}
 
-  \begin{frame}{Gdy $G$ - nie jest dododatnio określone cd.}
+  \begin{frame}{Gdy $G$ - nie jest dodatnio określone cd.}
 
  	\begin{block}{}
- 	Metody operte na powyższych regułach - \emph{guasi-Newton m.}
+ 	Metody oparte na powyższych regułach - \emph{quasi-Newton m.}
  	\medskip
  	\\Podstawowa wada tych metod - obliczanie i odwracanie
  	\\w każdym kroku macierzy drugich pochodnych
  	\smallskip
  	   	\begin{itemize}
- 	   		\item[--] obliczanie 2-gich poch. $\sim n^2$ (długie)
+ 	   		\item[--] obliczanie 2-ich poch. $\sim n^2$ (długie)
  	   		\item[--] odwracanie
  	   	\end{itemize}
  	\end{block}
@@ -460,7 +460,7 @@
   \begin{frame}{Metoda sprzężonych kierunków cd.}
 
     W minimalizacji - użyteczne wektory sprzężone
-    \\ze względu na \emph{hessjan} $G$
+    \\ze względu na \emph{hesjan} $G$
  	\begin{block}{Twierdzenie}
  	   Sekwencja liniowych minimalizacji w każdym z $n$ sprzężonych kierunków minimalizuje ogólną funkcję kwadratową $n$ zmiennych.
  	\end{block}
@@ -526,7 +526,7 @@
 
  	\begin{block}{Wnioski:}
 		\begin{itemize}
-			\item[--] minimalizacja nie wzdłóż osi ortogonalnych,
+			\item[--] minimalizacja nie wzdłuż osi ortogonalnych,
 			\\ale wzdłuż kierunków sprzężonych
 		\end{itemize}
  	\end{block}
@@ -556,7 +556,7 @@
 	    \ $(\vec{g}$ \emph{grad. w} $x = 0)$
 	  \end{center}
 	  \begin{center}
-	    $\vec{d_1}^T \cdot G (\vec{x_1} - \vec{x_0}) = 0 \qquad (\vec{x_1} - \vec{x_0})$ sprzeżony do $\vec{d_1}$
+	    $\vec{d_1}^T \cdot G (\vec{x_1} - \vec{x_0}) = 0 \qquad (\vec{x_1} - \vec{x_0})$ sprzężony do $\vec{d_1}$
 	  \end{center}
  	\end{block}
 
@@ -591,7 +591,7 @@
  	   \smallskip
  	   \\ $\vec{\Delta x} = \vec{x_1} - \vec{x_0}$, \ $\vec{\Delta g} = \vec{g_1} - \vec{g_0}$
  	   \smallskip
- 	   \\ Dla $F(\vec{x})$ kwadratowej, z hessjanem $G$:
+ 	   \\ Dla $F(\vec{x})$ kwadratowej, z hesjanem $G$:
  	   $\begin{array}{|c|}
  	   	  \hline
  	   	  \vec{\Delta g} = G \cdot \vec{\Delta x}
@@ -606,7 +606,7 @@
  	      \end{array}$
  	   \end{center}
  	   \smallskip
- 	   $\Rightarrow$ metoda uzyskiwania kierunków sprzężonych \emph{bez} znamomości $G$:
+ 	   $\Rightarrow$ metoda uzyskiwania kierunków sprzężonych \emph{bez} znajomości $G$:
  	   \\Pierwszy kierunek: $\vec{d_0} = \vec{-g_0}$
  	   \\min. wzdłuż $\vec{d_0}$ : w $\vec{x_1}$, gradient:  $\vec{g_1}$
  	   \\Drugi kierunek: $\vec{d_1} = -\vec{g_1} + b \cdot \vec{d_0}$

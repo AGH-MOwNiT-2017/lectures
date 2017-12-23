@@ -88,7 +88,7 @@
   \end{frame}
 
   \begin{frame}{Metoda złotego podziału \emph{(golden section search)}}
-    Rozmieczenie punktów:\\
+    Rozmieszczenie punktów:\\
     $t$ -- współczynnik redukcji po każdym etapie\\
     \centering
     \includegraphics[height=0.6\textheight]{img/17/f_uni2}
@@ -107,13 +107,13 @@
 
   \begin{frame}{Metoda złotego podziału \emph{(golden section search)}}
     \begin{block}{Optymalność}
-      W sensie minimax: minimalizuje maksymalną liczbę określen
+      W sensie minimax: minimalizuje maksymalną liczbę określeń
       $F(x)$
     \end{block}
     \begin{block}{Optymalność pesymistyczna}
-      Odpowiednik najleprzej strategii w grze przeciwko
+      Odpowiednik najlepszej strategii w grze przeciwko
       inteligentnemu przeciwnikowi.\\
-      Podejście dobre dla patologicznych funkcjii.
+      Podejście dobre dla patologicznych funkcji.
     \end{block}
     \begin{block}{Metoda Bermana}
       $x_{0} = \frac{a + b}{2}$; poszukiwanie tam, gdzie maleje
@@ -173,7 +173,7 @@
   \end{frame}
 
     \begin{frame}{Kwadratowa interpolacja i aproksymacja}
-      \begin{block}{Możliwe zabeżpieczenia:}
+      \begin{block}{Możliwe zabezpieczenia:}
         Zaniechanie metody przy wystąpieniu trudności.
       \end{block}
       \begin{block}{Używana:}
@@ -192,7 +192,7 @@
     \end{block}
     $x_{0}$ -- start point, $d$ -- initial step size
     \begin{itemize}
-      \item gdy $F(x_{0} + d) < F(x_{0}) \to$ sukcess:\\
+      \item gdy $F(x_{0} + d) < F(x_{0}) \to$ sukces:\\
       $x_{0} \to x_{0} + d,$ \\
       $d \to \alpha * d, \alpha$ -- expansion factor % was: expantion
       ($\alpha > 1, \alpha \approx 3.0$)

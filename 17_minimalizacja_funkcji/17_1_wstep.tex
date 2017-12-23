@@ -4,11 +4,11 @@
 
   \begin{frame}{Motywacja}
     Szeroka klasa zagadnień -- szukanie najmniejszej wartości
-    przyjmowanej przez funkcję jednej lub wielu zmennych.
+    przyjmowanej przez funkcję jednej lub wielu zmiennych.
 
     \begin{exampleblock}{Przykład}
       \begin{itemize}
-        \item minimalizacja kosztów producji
+        \item minimalizacja kosztów produkcji
         \item \ldots
         \item linia geodezyjna w ogólnej teorii względności
       \end{itemize}
@@ -23,7 +23,7 @@
         przez \textbf{minimalizację} różnicy między danymi
         teoretycznymi a eksperymentalnymi:\\
         $
-          min!F(x) = \sum_{k/1}^{k} \left[ \frac{Y_k - T_k(\vec x)}{\sigma_k}
+          min!F(x) = \sum_{k = 1}^{n} \left[ \frac{Y_k - T_k(\vec x)}{\sigma_k}
           \right] ^2 Y_k \text{-- zmierzone wartości,}
         $ \\
         $ \sigma_k $ - błąd pomiaru,\\
@@ -41,7 +41,7 @@
       \begin{itemize}
         \item tradycyjnie: \textbf{minimalizacja}
         \item maksymalizacja $(F = -f(x))$
-        \item optymalizacja -- kolizija z metodą teorii
+        \item optymalizacja -- kolizja z metodą teorii
         sterowania, (oparta o rachunek wariacyjny)
         \item b. stary termin: programowanie (liniowe,
         nieliniowe, matematyczne)
@@ -56,7 +56,7 @@
 
   \begin{frame}{Zdefiniowanie zagadnienia}
     \begin{block}{Zdefiniowanie zagadnienia}
-      \textbf{Mając daną funkcę $ F(x) $ znaleźć wartość
+      \textbf{Mając daną funkcję $ F(x) $ znaleźć wartość
       zmiennej $ x $, dla której $ F(x) $ przyjmuje
       najmniejszą wartość, przy czym:}
       \begin{enumerate}
@@ -83,12 +83,12 @@
     \end{block}
   \end{frame}
 
-\subsection{Gdzie szukać minimum funcji? (global minimum)}
+\subsection{Gdzie szukać minimum funkcji? (global minimum)}
 
-  \begin{frame}{Gdzie szukać minimum funcji? (global minimum)}
+  \begin{frame}{Gdzie szukać minimum funkcji? (global minimum)}
     \begin{block}{$ F(x) $ przyjmuje minimum w jednym z punktów:}
       \begin{enumerate}
-        \item wszyskie $ \frac{\partial F}{\partial x} = 0 $
+        \item wszystkie $ \frac{\partial F}{\partial x} = 0 $
         (p. stacjonarny -- stationary point)
         \item niektóre $ \frac{\partial F}{\partial x} $
         nie istnieją (wierzchołek -- cusp)
@@ -103,9 +103,9 @@
     \end{displaymath}
   \end{frame}
 
-\subsection{Ksztalt funkcji $ F(x) $}
-  \begin{frame}{Ksztalt funkcji $ F(x) $}
-    \begin{block}{Zalożenie}
+\subsection{Kształt funkcji $ F(x) $}
+  \begin{frame}{Kształt funkcji $ F(x) $}
+    \begin{block}{Założenie}
       $ F(x) $ -- ma sens fizyczny $ \Rightarrow $ w rozpatrywanym
       obszarze istnieją jej wszystkie pochodne.
     \end{block}
@@ -125,12 +125,12 @@
 
   \end{frame}
 
-  \begin{frame}{Ksztalt funkcji $ F(x) $}
+  \begin{frame}{Kształt funkcji $ F(x) $}
     dla n-D: $ x \to \vec{x} $
     \begin{displaymath}
       F(\vec{x}) = \underbrace{F(\vec{x_1})}_{\text{stały}} +
       \vec{g}^T * (\vec{x} - \vec{x_1}) +
-      \frac{1}{2}(\vec{x} - \vec{x_1}^T) * G * (\vec{x} - \vec{x_1}) + \dots
+      \frac{1}{2}(\vec{x} - \vec{x_1})^T * G * (\vec{x} - \vec{x_1}) + \dots
     \end{displaymath}
     \begin{displaymath}
       g_i = \left. \frac{\partial F}{\partial x} \right|_{\vec{x_1}} \text{-- gradient;}\quad
@@ -141,7 +141,7 @@
 
   \end{frame}
 
-  \begin{frame}{Ksztalt funkcji $ F(x) $}
+  \begin{frame}{Kształt funkcji $ F(x) $}
     $ \vec{g}^T * (\vec{x} - \vec{x_1}) $ -- proporcjonalny do
     gradientu, wskazuje kierunek największego spadku funkcji,
     w pobliżu minimum: $ \vec{g} \to 0{,}\ (\vec{x} - \vec{x_1}) \to 0
@@ -158,11 +158,11 @@
     \end{alertblock}
   \end{frame}
 
-  \begin{frame}{Ksztalt funkcji $ F(x) $}
+  \begin{frame}{Kształt funkcji $ F(x) $}
     \begin{block}{Optymalne algorytmy minimalizacji}
       Nie ma uniwersalnej metody minimalizacji. Dla b.~złego
       algorytmu można znaleźć $ F(x) $, którą minimalizuje on
-      najszybcziej -- i~odwrodnie.\\
+      najszybciej -- i~odwrotnie.\\
       \textbf{Zasada:} dobór algorytmu do funkcji.
 
     \end{block}
