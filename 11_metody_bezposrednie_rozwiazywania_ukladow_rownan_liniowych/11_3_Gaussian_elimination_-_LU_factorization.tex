@@ -8,7 +8,7 @@ $\left(\begin{array}{lll}
 a_{11} & a_{12} & a_{13}\\
 a_{21} & a_{22} & a_{23}\\
 a_{31} & a_{32} & a_{33}
-\end{array}\right) \left(\begin{array}{l}
+\end{array}\right)\cdot \left(\begin{array}{l}
 x_{1}\\
 x_{2}\\
 x_{3}
@@ -61,7 +61,7 @@ $a_{22}^{(2)}=a_{22}-\displaystyle \frac{a_{21}}{a_{11}}$ . $a_{12}, a_{23}^{(2)
 
 \begin{flushright}
 $
-b_{2}^{(2)}=b_{2}-\frac{a_{21}}{a_{11}}\ b_{1},\ b_{3}^{(2)}=b_{3}-\frac{a_{31}}{a_{11}}\ b_{1},
+b_{2}^{(2)}=b_{2}-\frac{a_{21}}{a_{11}}\cdot b_{1},\ b_{3}^{(2)}=b_{3}-\frac{a_{31}}{a_{11}}\cdot b_{1},
 $
 \end{flushright}
 
@@ -85,10 +85,10 @@ Ogólnie po $k$ etapach otrzymujemy:
 $
 A^{(k+1)}\cdot x=b^{(k+1)}\cdot x
 $
-
+$$
+$$
 $a_{ij}^{(k+1)}=a_{ij}^{(k)}-\displaystyle \frac{a_{ik}^{(k)}}{a_{kk}^{(k)}}\cdot a_{kj}^{(k)}, i, j>k$ \fbox{1a}
 $$
-a_{kk}
 $$
 $b_{i}^{(k+1)}=b_{i}^{(k)}-\displaystyle \frac{a_{ik}^{(k)}}{a_{kk}^{(k)}}\cdot b_{k}^{(k)}, i>k$ \fbox{1b}
 \end{flushright}
@@ -96,21 +96,22 @@ przy założeniu, że $a_{kk}^{(k)}\neq 0$
 
 \end{frame}
 \begin{frame}{Gaussian elimination}
-W przeciwnym przypadku $\rightarrow$ row interchanges\newline W efekcie $A^{(n)}=U$ -upper triangular multiplier $l_{ik}=\displaystyle \frac{a_{ik}^{(k)}}{a_{kk}^{(k)}}, a_{kk}^{(k)}\neq 0$
+W przeciwnym przypadku $\rightarrow$ row interchanges\newline W efekcie $A^{(n)}=U$ - upper triangular \\
+multiplier $l_{ik}=\displaystyle \frac{a_{ik}^{(k)}}{a_{kk}^{(k)}}, \quad a_{kk}^{(k)}\neq 0 $
 \end{frame}
 \begin{frame}{Relationship with LU factorization}
 $$
 L^{(k)}=\begin{bmatrix}
 1 \\
- & \ddots & & 0 \\
+ & \ddots & & & 0 \\
  & & 1\\
- & &   -l_{k^{1}+1,k}  & \ddots\\
- 0 & &  \vdots \\
- & & -l_{n,k} &  0  & 1
+ & &   -l_{k+1,k}  & \ddots\\
+ 0 & &  \vdots &\\
+ & & -l_{n,k} &  0  & & 1
 
 \end{bmatrix}
 $$
-- unit (1'' on diag.) lower triangular
+- unit ("1" on diag.) lower triangular
 
 - elementary (sometimes) lower triangular
 
@@ -138,18 +139,18 @@ $$
 $$
 (L^{(k)})^{-1}=\begin{bmatrix}
 1 \\
- & \ddots & & 0 \\
+ & \ddots & & & 0 \\
  & & 1\\
- & &   -l_{k^{1}+1,k}  & \ddots\\
+ & &   -l_{k+1,k}  & \ddots\\
  0 & &  \vdots \\
- & & l_{n,k} &  0  & 1
+ & & l_{n,k} &  0  & & 1
 
 \end{bmatrix}
 $$
 bo $L^{(k)}\cdot(L^{(k)})^{-1}=I$
 \end{frame}
 \begin{frame}{Relationship with LU factorization}
-Mnożąc kolejno przez $(L^{(n-1)})^{-1}, (L^{(n-2)})^{-1}$, . . . , $(L^{(1)})^{-1}$ otrzymamy:
+Mnożąc (*) kolejno przez $(L^{(n-1)})^{-1}, (L^{(n-2)})^{-1}$, . . . , $(L^{(1)})^{-1}$ otrzymamy:
 $$
 A=\underbrace{(L^{(1)})^{-1}\cdot(L^{(2)})^{-1}\cdot\ldots\cdot(L^{(n-1)})^{-1}}\cdot U\rightarrow A=L\cdot U
 $$
@@ -167,7 +168,7 @@ $
 \end{frame}
 \begin{frame}{Relationship with LU factorization}
 $\bullet$ do przechowywania $A^{(1)}, A^{(2)}$, . . . wystarczy jedna macierz \newline
-$\bullet l_{ij}$ -przechowywanie w miejscu powstająych kolumn z zerami \newline
+$\bullet l_{ij}$ -przechowywanie w miejscu powstających kolumn z zerami \newline
 $\bullet$ nie musimy pamiętać "1" na diagonali
 
 $\bullet L/U$ array - w spakowanej postaci

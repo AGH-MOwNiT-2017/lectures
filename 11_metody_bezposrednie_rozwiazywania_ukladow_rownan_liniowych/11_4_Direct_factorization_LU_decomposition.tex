@@ -33,7 +33,7 @@ u_{11} & u_{12} & \cdots & u_{1n}\\
 \begin{center}
 $(*)z_{1}=\displaystyle \frac{b_{1}}{l_{11}};z_{i}=\frac{1}{l_{ii}}\cdot(b_{i}-\sum_{j=1}^{i-1}l_{ij}\cdot z_{j})$ , $i=2$, 3, . . . , $n$
 \end{center}
-$(**)x_{n}=\displaystyle \frac{z_{n}}{u_{nn}};x_{i}=\frac{1}{u_{ii}}\cdot(z_{i}-\sum_{j=i+1}^{n}u_{ij}\cdot x_{j})$ , $i=i-1, i-2$, . . . , 1
+$(**)x_{n}=\displaystyle \frac{z_{n}}{u_{nn}};x_{i}=\frac{1}{u_{ii}}\cdot(z_{i}-\sum_{j=i+1}^{n}u_{ij}\cdot x_{j})$ , $i=n-1, n-2$, . . . , 1
 
 \# niewiadomych: $2 \cdot \left( \frac{n^{2}-n}{2}+n\right)=n^{2}+n$ \newline
 \# r\'{o}wna\'{n}: $a_{ij}=\displaystyle \sum_{k=1}^{n}l_{ik}\cdot u_{kj}\rightarrow n^{2}$
@@ -47,13 +47,13 @@ $\bullet$ Crout: $u_{ii}=1$
 
 $\bullet$ Choleski: $l_{ii}=u_{ii}$
 
-Ad.Choleski-macierz symetryczna, dodatkowo określona $A=(LD^{\frac{1}{2}})\cdot(D^{\frac{1}{2}}L^{T})$ \newline
-Sposób: na przemian-wiersze, kolumny $\mathrm{w}A.$
+Ad.Choleski - macierz symetryczna, dodatkowo określona $A=(LD^{\frac{1}{2}})\cdot(D^{\frac{1}{2}}L^{T})$ \newline
+Sposób: na przemian - wiersze, kolumny w A.
 
-Po obliczeniu-L,U zapisane $\mathrm{w}A.$
+Po obliczeniu - L,U zapisane w A.
 \end{frame}
 \begin{frame}{Faktoryzacja Doolitle'a}
-LU inaczej-lepszy wgląd kolejność obliczeń
+LU inaczej - lepszy wgląd kolejność obliczeń
 \scalebox{0.90}{
 $\begin{bmatrix}
 (1) & 0 & \cdots & 0 & 0\\
@@ -80,39 +80,55 @@ a_{21} & a_{22} & \cdots & a_{2n}\\
 
 }
 \newline
+\\
 $W \mathrm{i}$-tym wierszu macierzy $\mathrm{L}$ różne od $0$ tylko pierwsze $\mathrm{i}$ element\'{o}w $W\mathrm{j}$-tej kolumnie macierzy $\mathrm{U}$ r\'{o}zne od $0$ tylko pierwsze $\mathrm{i}$ elementów
 
 \end{frame}
 \begin{frame}{Faktoryzacja Doolitle'a}
+\begin{flushright}
+\scalebox{0.85}{
+$a_{ij}= \displaystyle \sum_{p=1}^{\min(i,j)} l_{ip}\cdot u_{pj}, \ \  i, \ \  j=1$, 2, . . . , $n$ 
+}
+\\
+\scalebox{0.85}{
+$ \mathrm{i}>\mathrm{j}$ 
+}
+\\
+\scalebox{0.85}{
+$a_{ij}=\displaystyle \sum_{p=1}^{j-1}l_{ip}\cdot u_{pj}+l_{ij}\cdot u_{jj}, \quad i=1$, 2, . . . , $n$
+}
+\\
+\scalebox{0.85}{
+$l_{ij}=\displaystyle \frac{1}{u_{jj}}(a_{ij}-\sum_{p=1}^{j-1}l_{ip}\cdot u_{pj})$
+}
+\\
+\scalebox{0.85}{
+$\mathrm{i}\leq \mathrm{j}$
+}
+\\
+\scalebox{0.85}{
+$a_{ij}=\displaystyle \sum_{p=1}^{i}l_{ip}\cdot u_{pj}, \quad i=1, 2, . . . , n$
+}
+\\
+\scalebox{0.85}{
+$u_{ij}=a_{ij}- \displaystyle \sum_{p=1}^{i-1}l_{ip}\cdot u_{pj}$
+}
+\end{flushright}
 
-\begin{center}
-$a_{ij}= \displaystyle \sum_{p=1}^{\min(i,j)} l_{ip}\cdot u_{pj}, \ \  i, \ \  j=1$, 2, . . . , $n$
-
-\hspace{55mm}
-$\mathrm{i}>\mathrm{j}$
-
-
-$a_{ij}=\displaystyle \sum_{p=1}^{j-1}l_{ip}\cdot u_{pj}+l_{ij}\cdot u_{jj}, i=1$, 2, . . . , $n$
-\end{center}
-$l_{ij}=\displaystyle \frac{1}{u_{jj}}(a_{ij}-\sum_{p=1}^{j-1}l_{ip}\cdot u_{pj})\mathrm{i}\leq \mathrm{j}a_{ij}=\sum_{p=1}^{i}l_{ip}\cdot u_{pj}, \ \ i=1$, 2, . . . , $n$
-$$
-u_{ij}=a_{ij}-\sum_{p=1}^{i-1}l_{ip}\cdot u_{pj}
-$$
-
-(Z tym, że $\sum_{p=q}^{m}=0$ gdy $m < g$, np. $u_{1j}=a_{1j}$ dla i=j) \newline
+(Z tym, że \scalebox{0.70} {$\displaystyle \sum_{p=q}^{m}=0$ } gdy $m < g$, np. $u_{1j}=a_{1j}$ dla i=j) \newline
 $L_{ij}, U_{ij}$ przechowywane w $\mathrm{L}/\mathrm{U}$ (bez "1" $\mathrm{z}$ diagonali)
 \end{frame}
 \begin{frame}{Faktoryzacja Doolitle'a}
 \begin{itemize}
-\item \textbf{ a) Row- wise order } w macierzy $L/U$
+\item \textbf{a) Row - wise order } w macierzy $L/U$
 w kroku $\mathrm{k}$ wyznaczamy $L_{k1}, L_{k2}$, . . . , $L_{k,k-1}, U_{k,k}$, . . . , $U_{k,n}$ porównać z metodą eliminacji Gaussa: partial sums are stored and retrieved
-\item \textbf{b) Column-wise order}  w macierzy $L/U$
+\item \textbf{b) Column - wise order}  w macierzy $L/U$
 
 $\mathrm{w}$ kroku $\mathrm{k}$ wyznaczamy $U_{1k}, U_{2k}$, . . . , $U_{k,k}, L_{k+1,k}$, . . . , $L_{n,k}$ porównać z metodą eliminacji Gaussa
 \end{itemize}
 
 
-- eliminacja Gaussa-wielokrotne pobieranie, powiększanie \newline - Doolittle-akumulacja do pamięci
+- eliminacja Gaussa - wielokrotne pobieranie, powiększanie \newline - Doolittle - akumulacja do pamięci
 
 \begin{flushright}
 {\it Zadanie}: Zbadać złożoność, stworzyć algorytm
@@ -151,31 +167,41 @@ $
 \end{frame}
 \begin{frame}{ Faktoryzacja Crout'a}
 \begin{flushright}
+\scalebox{0.90}{
 $a_{ij}= \displaystyle \sum_{p=1}^{\min(i,j)} l_{ip}\cdot 
-u_{pj}, i, j=1$, 2, . . . , $n$
+u_{pj}, \quad i, j=1$, 2, . . . , $n$
+}
 \end{flushright}
 \begin{flushright}
-$
-\mathrm{i}\geq \mathrm{j}
-$
+\scalebox{0.80}{
+$\mathrm{i}\geq \mathrm{j}$
+}
 \end{flushright}
 \begin{flushright}
-$a_{ij}=\displaystyle \sum_{p=1}^{j-1}l_{ip}\cdot u_{pj}+l_{ij}.\ \  i=1, 2, . . . , n$
+\scalebox{0.90}{
+$a_{ij}=\displaystyle \sum_{p=1}^{j-1}l_{ip}\cdot u_{pj}+l_{ij},\ \  i=1, 2, . . . , n$
+}
 \end{flushright}
 \begin{flushright}
-$l_{ij}=(a_{ij}-\sum_{p=1}^{j-1}l_{ip}\cdot u_{pj})$
+\scalebox{0.90}{
+$l_{ij}=(a_{ij}-\displaystyle \sum_{p=1}^{j-1}l_{ip}\cdot u_{pj})$
+}
 \end{flushright}
 \begin{flushright}
-$
-\mathrm{i}<\mathrm{j}
-$
+\scalebox{0.80}{
+$\mathrm{i}<\mathrm{j}$
+}
 \end{flushright}
 
 \begin{flushright}
-$a_{ij}= \sum_{p=1}^{i-1}l_{ip}\cdot u_{pj}+l_{ii}\cdot u_{ij}, i=1$, 2, . . . , $n$
+\scalebox{0.85}{
+$a_{ij}= \displaystyle \sum_{p=1}^{i-1}l_{ip}\cdot u_{pj}+l_{ii}\cdot u_{ij}, i=1$, 2, . . . , $n$
+}
 \end{flushright}
 \begin{flushright}
-$u_{ij}=\frac{1}{l_{ii}}(a_{ij}-\sum_{p=1}^{i-1}l_{ip}\cdot u_{pj})$
+\scalebox{0.90}{
+$u_{ij}=\frac{1}{l_{ii}}(a_{ij}- \displaystyle \sum_{p=1}^{i-1}l_{ip}\cdot u_{pj})$
+}
 \end{flushright}
 \end{frame}
 \begin{frame}{ Faktoryzacja Crout'a}
@@ -214,24 +240,24 @@ $
 D - diagonalna \hspace{40mm } {\it Doolittle}: \hspace{10mm} $L(DU)$ \newline
 \hspace*{55mm} $\rightarrow$ 
 \newline
- L, U-z ''$1$'' na głównej diagonali \hspace{15mm} {\it Crout}: \hspace{11mm}  $LD(U)$
+ L, U - z ''$1$'' na głównej diagonali \hspace{15mm} {\it Crout}: \hspace{11mm}  $LD(U)$
 \newline 
 \end{exampleblock}
 \end{frame}
 \begin{frame}{Faktoryzacja Choleski'ego}
 (symetric matrices) $a_{ij}=a_{ji}$
 
-pivot z diagonali, $A^{(k)}, \mathrm{k}=1,2,\ldots,\mathrm{n}$ -symetryczna, czyli
+pivot z diagonali, $A^{(k)}, \ \mathrm{k}=1,2,\ldots,\mathrm{n}$ - symetryczna, czyli
 $$
 a_{ij}^{(k)}=a_{ji}^{(k)},\ i\geq j,\ j\geq k
 $$
-$\mathrm{s}\mathrm{t}\omega$ dla faktoryzacji $A=LDU$
+stąd dla faktoryzacji $A=LDU$
 $$
 l_{ij}=u_{ij},\ i\geq j
 $$
 czyli $L=UT$
 
-Jeżeli $A$ jest dodatnio określona, to $d_{ii}>0, \mathrm{i}=1,\ldots,\mathrm{n}$
+Jeżeli $A$ jest dodatnio określona, to $d_{ii}>0, \ \mathrm{i}=1,\ldots,\mathrm{n}$
 \begin{flushright}
 {\it Zadanie}: Udowodnić powyższe 
 \end{flushright}
@@ -256,9 +282,9 @@ Ability to compute each entry in $L,U$ at one time, accumulating the sum repeate
 
 \end{frame}
 \begin{frame}{Computational sequences}
-$+$ -entries used (dane użyte)
+$+$ - entries used (dane użyte)
 
-$*$ -entries changed (dane zmienione)partial sum is avoided
+$*$ - entries changed (dane zmienione)
 
 \textbf{ a) Gaussian elimination}
 $$
@@ -279,9 +305,9 @@ $$
 
 \end{frame}
 \begin{frame}{Computational sequences}
-$+$ -entries used (dane użyte)
+$+$ - entries used (dane użyte)
 
-$*$ -entries changed (dane zmienione)partial sum is avoided
+$*$ - entries changed (dane zmienione)
 
 
 \textbf{a) row Doolittle LU decomposition}
@@ -303,9 +329,9 @@ $$
 
 \end{frame}
 \begin{frame}{Computational sequences}
-$+$ -entries used (dane użyte)
+$+$ - entries used (dane użyte)
 
-$*$ -entries changed (dane zmienione)partial sum is avoided
+$*$ - entries changed (dane zmienione)
 
 
 \textbf{a) Crout LU decomposition}
@@ -330,9 +356,9 @@ $$
 
 \textbf{Computational sequences for LDLT decomposition}
 
-$+$ -entries used (dane użyte)
+$+$ - entries used (dane użyte)
 
-$*$ -entries changed (dane zmienione)
+$*$ - entries changed (dane zmienione)
 
 \textbf{a) symetric Gaussian elimination}
 $$
@@ -350,9 +376,9 @@ $$
 \end{frame}
 \begin{frame}{Computational sequences}
 
-$+$ -entries used (dane użyte)
+$+$ - entries used (dane użyte)
 
-$*$ -entries changed (dane zmienione)
+$*$ - entries changed (dane zmienione)
 
 \textbf{b) row Doolittle LDLT decomposition}
 $$
@@ -367,9 +393,9 @@ $$
 
 \end{frame} 
 \begin{frame}{Computational sequences}
-$+$ -entries used (dane użyte)
+$+$ - entries used (dane użyte)
 
-$*$ -entries changed (dane zmienione)
+$*$ - entries changed (dane zmienione)
 
 \textbf{c) Crout LDLT decomposition}
 $$
@@ -403,12 +429,12 @@ $L_{11}, L_{22}-$ lower triangular submatrices
 $U_{11}, U_{22}-$ upper triangular submatrices
 \begin{flushright}
 $
-A_{11}=L_{11}\cdot U_{11}\ A_{21}=L_{21}\cdot U_{11}
+A_{11}=L_{11}\cdot U_{11}\quad A_{21}=L_{21}\cdot U_{11}
 $
 \end{flushright}
 \begin{flushright}
 $
-A_{12}=L_{11}\cdot U_{12}\ A_{22}=L_{21}\cdot U_{12}+L_{22}\cdot U_{22}
+A_{12}=L_{11}\cdot U_{12}\quad A_{22}=L_{21}\cdot U_{12}+L_{22}\cdot U_{22}
 $
 \end{flushright}
 
@@ -422,11 +448,11 @@ Sposób wyznaczania $L$ i $U$:
 $L_{11}, U_{11}$ constructed by triangular factorization of $A_{11}$
 \item \textbf{2.} $ L_{11}\cdot U_{12}=A_{12}\rightarrow$
 
-columns of $U_{12}$ -backward substitution
+columns of $U_{12}$ - backward substitution
 
 \item \textbf{3.} $L_{21}\cdot U_{11}=A_{21}\rightarrow$
 
-rows of $L_{21}$ -forward substitution 
+rows of $L_{21}$ - forward substitution 
 \item \textbf{4.}  $\overset{\bullet}{A_{22}}=A_{22}-L_{21}\cdot U_{12}=L_{22}\cdot U_{22}$
 \end{itemize}
 
@@ -463,19 +489,19 @@ A_{11} & A_{12}\\
 $$
 $ \overset{\bullet \bullet}{L_{21}}\cdot A_{11}=A_{21}\rightarrow$solution of sets of equations $ \overset{\bullet \bullet}{A_{22}}=A_{22}-\overset{\bullet \bullet}{L_{21}}\cdot A_{12}\rightarrow$matrix operations
 
-$($?? $)$ block-Schur complement
+$($?? $)$ block - Schur complement
 
 zachodzi $\overset{\bullet}{A_{22}}=\overset{-}{A_{22}}=\overset{\bullet \bullet}{A_{22}}$
 
-(Zaniedbując błędy obliczeń obliczeń)
+(Zaniedbując błędy obliczeń)
 \end{frame}
 \begin{frame}{Faktoryzacja blokowa}
-Kolejne kroki obliczeniowe dla rozkładu $($?? $)$
+Kolejne kroki obliczeniowe dla rozkładu $($??$)$
 $$
 A=\left(\begin{array}{ll}
 A_{11} & 0\\
 A_{21} & \overset{-}{A_{22}}
-\end{array}\right)\ \left(\begin{array}{ll}
+\end{array}\right)\cdot \left(\begin{array}{ll}
 I & \overset{-}{U_{12}}\\
 0 & I
 \end{array}\right)
@@ -518,7 +544,7 @@ $\hspace*{8mm} A_{22}\cdot y_{2} \hspace*{11.5mm} =\ b_{2}-A_{21}\cdot y_{1}\ $
 
 Kolejne kroki dla $($??$)$
 
-Kolejne kroki  $($?? $)$
+Kolejne kroki dla $($??$)$
 \begin{flushright}
 {\it Zadanie}: Przeprowadzić odpowiednie obliczenia
 \end{flushright}

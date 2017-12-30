@@ -35,7 +35,7 @@ $0+\cdots+0+a_{nn}'n_{n}=b_{n}' \linebreak$
 \end{flushright}
 $\mathrm{i}$ wtedy
 
-$x_{n}=b_{n}'/a_{nn}' x_{i}=(b_{i}'-\displaystyle \sum_{j=i+1}^{n})a_{ij}'x_{j}/a_{ii}'$ (via backward substitution)
+$ x_{n}=  \frac{b_{n}'}{a_{nn}'}\quad x_{i}= \frac{1}{a_{ii}'}(b_{i}'-\displaystyle \sum_{j=i+1}^{n})a_{ij}'x_{j}$ (via backward substitution)
     \end{frame}
 \begin{frame}{Gaussian elimination with backward substitution}
 
@@ -50,7 +50,7 @@ for $\mathrm{i}:=1$ to n-1 do
 
 \hspace{7mm} if $p\neq i$ then $E_{p}\leftrightarrow E_{i}$ /przestawienie/
 
-\hspace{7mm} for $\mathrm{j}:=\mathrm{i}+1$ to $\mathrm{n}$ do $(E_{j}-\displaystyle \frac{aji}{aE}\rightarrow E_{j}$
+\hspace{7mm} for $\mathrm{j}:=\mathrm{i}+1$ to $\mathrm{n}$ do $(E_{j}-\displaystyle \frac{a_{ji}}{a_{ii}}E_i\rightarrow E_{j})$
 
 \hspace{4mm} end
 
@@ -83,12 +83,12 @@ Liczba dziala\'{n} dodawania $\mathrm{i}$ odejmowania wynosi $\displaystyle \fra
 \begin{frame}{Gaussian elimination with backward substitution}
 \begin{itemize}
 \item \textbf{Macierz odwrotna} \newline
-$A^{-1}$ : $Ax=Ib\rightarrow Ix=A_{-1}b$
+$A^{-1}$ : $Ax=Ib\rightarrow Ix=A^{-1}b$
 \begin{flushright}
 {\it Zadanie}: Ułóż algorytm
 \end{flushright}
 \item \textbf{Wyznacznik macierzy}
-$\det A^{-1}(A=LU;\det A=\det L\cdot\det U,\ \cdots)$
+$\det A^{-1}\quad(A=LU;\quad \det A=\det L\cdot\det U,\ \cdots)$
 \begin{flushright}
 {\it Zadanie}: Sprawdzić
 \end{flushright}
@@ -141,7 +141,7 @@ $$
 1
 \end{array}\right)
 $$
-Obliczenia: arytmetyka {\it fl} $\mathrm{z} 5$-cioma cyframi znaczącymi.
+Obliczenia: arytmetyka {\it fl} z 5-cioma cyframi znaczącymi.
 $$
 \left(\begin{array}{lll}
 10 & -7 & 0\\
@@ -179,7 +179,7 @@ $$
 15005\cdot\ x_{3}=15004\rightarrow x_{3}=\frac{15004}{15005}=0.99993
 $$
 \end{center}
-Prawdziwe $x_{3}=1$-błąd wydaje się mały!
+Prawdziwe $x_{3}=1$ - błąd wydaje się mały!
 \newline
 Ale z równania 2) :
 $$
@@ -211,8 +211,8 @@ W $\mathrm{k}$-tym kroku wybieramy wiersz o największym współczynniku w niere
 
 \end{exampleblock}
 
-\begin{exampleblock}{Skalowanie -równoważenie (equalibration) macierzy}
-Maksymalne elementy w każdej kolumnie i każdym wierszu-tego samego rzędu
+\begin{exampleblock}{Skalowanie - równoważenie (equalibration) macierzy}
+Maksymalne elementy w każdej kolumnie i każdym wierszu - tego samego rzędu
 \end{exampleblock}
 
 \end{frame}
