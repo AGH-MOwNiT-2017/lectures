@@ -1,8 +1,8 @@
-\section{12.8 Metoda kolejnych nadrelaksacji - SOR (succesive overrelaxation)}
+\section{12.8 Metoda kolejnych nadrelaksacji - SOR (succesive over-relaxation)}
 
-\begin{frame}{Metoda kolejnych nadrelaksacji - SOR (succesive overrelaxation)}
+\begin{frame}{Metoda kolejnych nadrelaksacji - SOR (succesive over-relaxation)}
   Inaczej zapisany wzór roboczy SR(G-S):
-$$x^{(t+1)}_{i}=x^{(t)}_{i} \underbrace{\frac{1}{a_{ii}}[b_i-\sum^{i-1}_{j/1} a_{ij} x^{(t+1)}_j -\sum^{n}_{j/1} a_{ij} x^{(t)}_j ]}_{r^{(t)}_i \text{- poprawka do staregio rozwiązania } x^{(t)}_i}$$
+$$x^{(t+1)}_{i}=x^{(t)}_{i} \underbrace{\frac{1}{a_{ii}}[b_i-\sum^{i-1}_{j=1} a_{ij} x^{(t+1)}_j -\sum^{n}_{j=1} a_{ij} x^{(t)}_j ]}_{r^{(t)}_i \text{- poprawka do starego rozwiązania } x^{(t)}_i}$$
   %stare roziwązanie? poprawione z śtaregożozwiazania
   Przyspieszenie zbieżności:
   $$\boxed{x^{(t+1)}_{i}=x^{(t)}_{i}+\omega r^{(t)}_{i}}, \text{$\omega$ - pewna liczba}$$
@@ -60,11 +60,11 @@ $$x^{(t+1)}_{i}=x^{(t)}_{i} \underbrace{\frac{1}{a_{ii}}[b_i-\sum^{i-1}_{j/1} a_
 \begin{frame}
   \begin{block}{Teza}
     $$\rho(M_{GS})=\rho^2(M_J)$$
-    $$\omega_{opt}=\frac{2}{1+sqrt{1-\rho(M_{GS})}}$$
+    $$\omega_{opt}=\frac{2}{1+\sqrt{1-\rho(M_{GS})}}$$
     $$\lambda_{SOR}=\omega_{opt}-1$$
   \end{block}
   \begin{exampleblock}{Dla równania modelowego}
-    $$\rho=cos^2(\frac{\pi}{N}), \omega_{opt}\approx2(1-\frac{\pi}{N}, \lambda_{SOR}=1-\frac{2\pi}{N}$$
+    $$\rho=cos^2(\frac{\pi}{N}), \omega_{opt}\approx2(1-\frac{\pi}{N}, \lambda_{SOR}=1-\frac{2\pi}{N})$$
   \end{exampleblock}
 \end{frame}
 

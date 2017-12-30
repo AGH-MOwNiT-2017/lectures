@@ -10,8 +10,8 @@
 
 \begin{frame}{}
   i wzór roboczy
-  $$x^{(t+1)}_i=\frac{1}{a_{ii}}[b_i-\underbrace{\sum^{i-1}_{j/1} a_{ij}x^{(t+1)}_j}_{(\star)}-\underbrace{\sum^{n}_{j/i+1} a_{ij}x^{(t)}_{j}}_{(\star\star)}]$$
-  gdzie: ($\star$) - otrzymujemy z rozwiązania poprzednich równań w bieżącej (t + 1) iteracji i w tym tkwi przewaga nad m. Jacobiego i źródło wzrostu efektywności, ($\star\star)$ - z poprzedniej iteracji (t).
+  $$x^{(t+1)}_i=\frac{1}{a_{ii}}[b_i-\underbrace{\sum^{i-1}_{j=1} a_{ij}x^{(t+1)}_j}_{(\star)}-\underbrace{\sum^{n}_{j=i+1} a_{ij}x^{(t)}_{j}}_{(\star\star)}]$$
+  gdzie: ($\star$) - otrzymujemy z rozwiązania poprzednich równań w bieżącej (t + 1) iteracji i w tym tkwi przewaga nad metodą Jacobiego i źródło wzrostu efektywności, ($\star\star)$ - z poprzedniej iteracji (t).
 \end{frame}
 
 \begin{frame}{}
