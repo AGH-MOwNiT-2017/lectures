@@ -5,7 +5,7 @@
     \item $\{x_j^{(n-1)}\}$ - przybliżenie pierwiastków $\{\alpha_j\}$
     \item $\alpha_j=x_j^{(n-1)}+h_j$\\
     $f_i(\overrightarrow{x}^{(n-1)}+\overrightarrow{h})=0\quad\rightarrow\quad$szereg Taylora:
-    $$f_i(\overrightarrow{x}^{(n-1)})+\sum_{j/1}^{m}(\frac{\partial f_i}{\partial x_j})_{n-1} \cdot h_j+\underbrace{O(\delta x^2)}_{pomijamy}=0\quad(\star\star)$$
+    $$f_i(\overrightarrow{x}^{(n-1)})+\sum_{j=1}^{m}(\frac{\partial f_i}{\partial x_j})_{n-1} \cdot h_j+\underbrace{O(\delta x^2)}_{pomijamy}=0\quad(\star\star)$$
     gdzie $(\frac{\partial f_i}{\partial x_j})_{n-1}$- oznacza obliczone w $\overrightarrow{\alpha}^{(n-1)}$
   \end{itemize}
 \end{frame}
@@ -18,7 +18,7 @@
  \left.
  \begin{array}{lr}
  J^{(n1)} \cdot \overrightarrow{h}^{(n-1)} = -\overrightarrow{f}^{(n-1)}\\
- \overrightarrow{x}^{(n)} = \overrightarrow{x}^{(n1)}+\overrightarrow{h}^{(n-1)}
+ \overrightarrow{x}^{(n)} = \overrightarrow{x}^{(n-1)}+\overrightarrow{h}^{(n-1)}
  \end{array}\right\}
  \text{- układ równań liniowych}
  $$
