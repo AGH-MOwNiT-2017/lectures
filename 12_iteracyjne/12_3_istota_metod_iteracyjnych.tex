@@ -1,12 +1,12 @@
 \section{12.3 Istota metod iteracyjnych dla Ax=b}
 
-\begin{frame}{Istota metod iteracynych dla Ax=b}
+\begin{frame}{Istota metod iteracynych dla $A\mathrm{x}=b$}
     \begin{center}
-      $A*x=b\quad(1)$
+      $A \cdot \mathrm{x}=b$
     \end{center}
     \begin{itemize}
       \item gdzie A jest macierzą n x n;
-      \item x -- wektor n niewiadomych;
+      \item $\mathrm{x}$ -- wektor n niewiadomych;
       \item b -- wektor danych (źródeł)
     \end{itemize}
 \end{frame}
@@ -15,12 +15,11 @@
   \begin{block}{\textbf{Rozkład:}}
       $$A=B+R$$
     \begin{itemize}
-      \item B -- macierz dla, której łatwo $B^{-1}$
+      \item B -- macierz dla, której łatwo stworzyć $B^{-1}$
       \item R -- pozostałość
     \end{itemize}
-    $\Rightarrow$
-    $$B*x=-R*x+b$$<++>
-  $$\boxed{B*x=-(A-B)*x+b}\quad(2)$$
+    $$B \cdot x=-R \cdot x+b$$
+  $$\boxed{B \cdot x=-(A-B) \cdot x+b}$$
   \end{block}
 \end{frame}
 
@@ -28,16 +27,17 @@
     \textbf{Metody iteracyjne dla Ax = b (mesh relaxation methods) polegają na:}
     \begin{itemize}
       \item odgadnięciu wektora początkowego $x^{(o)}$
-      \item generowaniu ciągu iteracyjnego $x^{(t)}$ wg. postulowanego wzoru:
+      \item generowaniu ciągu iteracyjnego $x^{(t)}$ według postulowanego wzoru:
     \end{itemize}
-    $$B*x^{(t+1)}=-(A-B)*x^{(t)}+b \hskip \textwidth minus \textwidth (12.1)$$
-    $$x^{(t+1)}=\underbrace{-B^{-1}*(A-B)}_{I-B^{-1}*A=M \quad M - iteration matrix} *x^{(t)}+\underbrace{B^{-1}*b}_{W}\quad(3) \hskip \textwidth minus \textwidth (12.2)$$
+	$\newline$
+    $$B \cdot x^{(t+1)}=-(A-B) \cdot x^{(t)}+b$$
+    $$x^{(t+1)}=\underbrace{-B^{-1} \cdot (A-B)}_{I-B^{-1} \cdot A=M \quad \text{M - iteration matrix}} \cdot x^{(t)}+\underbrace{B^{-1}\cdot b}_{W}$$
 \end{frame}
 
 \begin{frame}{}
     \textbf{Różne B $\rightarrow$ rodzina metod iteracyjnych:}
-    $$\boxed{x^{(t+1)}=M*x^{(t)}+B^{-1}*b}\quad(4)$$
+    $$\boxed{x^{(t+1)}=M \cdot x^{(t)}+B^{-1} \cdot b}\quad(\star)$$
     Warunek \emph{zgodności} formuły iteracyjnej z szukanym rozwiązaniem
-    $$\lim_{t\to\infty} x^{(x+1)}= \lim_{t\to\infty}  (M*x^{(t)}+B^{-1}*b) \quad (5)$$
+    $$\lim_{t\to\infty} x^{(x+1)}= \lim_{t\to\infty}  (M \cdot x^{(t)}+B^{-1} \cdot b)$$
 \end{frame}
 
