@@ -2,11 +2,8 @@
 %%%%%%%%%%%%%%%%
 \begin{frame}[allowframebreaks]{Sposoby opisu procesu fizycznego}
 	\begin{enumerate}
-		\item w dziedzinie czasu (time domain) $
-		\implies A(t)
-		\begin{array}{l}
-		t - \text{czas} \\ A - \text{pewna wielkość}
-		\end{array}$
+		\item w dziedzinie czasu (time domain) $ \implies A(t) $ \\
+		$ t - \text{czas}, \quad A - \text{pewna wielkość} $
 		%%%%%%%%%%%%%%%%	
 		\item w dziedzinie $
 		\begin{array}{l}
@@ -16,23 +13,39 @@
 	\end{enumerate}
 	$A(t), \quad \widehat{A}(\omega) \,\, - $ dwie różne reprezentacje tej samej funkcji związane równaniami transformat Fouriera:
 	%%%%%%%%%%%%%%%%		
+	\begin{block}
+	\centering
+	\renewcommand{\arraystretch}{1.5}
+	\setlength{\abovedisplayskip}{0pt}
+	\setlength{\belowdisplayskip}{0pt}
+	\setlength{\abovedisplayshortskip}{0pt}
+	\setlength{\belowdisplayshortskip}{0pt}
 	\[
 	\begin{rcases*}
 		A(t) = \int\limits_{-\infty}^{\infty}\frac{d \omega}{2\pi}\widehat{A}(\omega) \cdot e^{i \omega t} \\
 		\widehat{A}(\omega) = \int\limits_{-\infty}^{\infty}dt \cdot A(t) \cdot e^{-i \omega t}
 	\end{rcases*}
-	\]		
+	\]
+	\end{block}
 	lub:
+	\begin{block}
+	\centering
+	\renewcommand{\arraystretch}{1.5}
+	\setlength{\abovedisplayskip}{0pt}
+	\setlength{\belowdisplayskip}{0pt}
+	\setlength{\abovedisplayshortskip}{0pt}
+	\setlength{\belowdisplayshortskip}{0pt}
 	\[
 	\begin{rcases*}
 		A(t) = \int\limits_{-\infty}^{\infty}df \cdot \widehat{A}(f) \cdot e^{2 \pi ift} \\
 		\widehat{A}(f) = \int\limits_{-\infty}^{\infty}dt \cdot A(t) \cdot e^{-2 \pi ift}
-		\end{rcases*}
-		\begin{array}{r}
+	\end{rcases*}
+	\begin{array}{r}
 		- \,\, \text{nie trzeba pamiętać}\\ \text{o czynniku} \frac{1}{2 \pi}
 	\end{array}
 	\]
-	\\ $t - \text{czas} \rightleftharpoons \omega - \text{częstość kołowa}$
+	\end{block}
+	$t - \text{czas} \rightleftharpoons \omega - \text{częstość kołowa}$
 	\\ $x - \text{położenie} \rightleftharpoons k = \frac{2 \pi}{\lambda} - \text{wektor falowy (liczba falowa)}$
 	\\ $\vdots$
 	\\ $A(t), \quad \widehat{A}(\omega) \,\, - $ ciągłe f. swych argumentów
@@ -46,15 +59,22 @@
 		\item FT - transformata Fouriera (Fourier Transform) \\
 		$x$ - ciągłe \\
 		$k$ - ciągłe \\
-		$A(x), A(k)$ - f. ciągłe
+		$A(x), \widehat{A}(k)$ - f. ciągłe
+		\begin{block}
+		\centering
+		\renewcommand{\arraystretch}{1.5}
+		\setlength{\abovedisplayskip}{0pt}
+		\setlength{\belowdisplayskip}{0pt}
+		\setlength{\abovedisplayshortskip}{0pt}
+		\setlength{\belowdisplayshortskip}{0pt}
 		\[
-			\widehat{A}(k) = \int\limits_{-\infty}^{\infty}dx A(x) e^{-ikx}
-			\tag{16.1}
-		\]
-		\[
+			\begin{array}{c}
+			\widehat{A}(k) = \int\limits_{-\infty}^{\infty}dx A(x) e^{-ikx} \\
 			A(x) = \int\limits_{-\infty}^{\infty} \frac{dk}{2 \pi} \widehat{A}(k) e^{ikx}
+			\end{array}
 			\tag{16.1}
 		\]
+		\end{block}
 	\end{enumerate}
 \end{frame}
 %%%%%%%%%%%%%%%%
@@ -66,14 +86,21 @@
 		\begin{center}
 			(ciągła odcinkami wraz z pochodną: na tych odcinkach - szereg zbieżny do B(x), w punktach nieciągłości - do wartości średniej)
 		\end{center}
+		\begin{block}
+		\centering
+		\renewcommand{\arraystretch}{1.5}
+		\setlength{\abovedisplayskip}{0pt}
+		\setlength{\belowdisplayskip}{0pt}
+		\setlength{\abovedisplayshortskip}{0pt}
+		\setlength{\belowdisplayshortskip}{0pt}
 		\[
-			\widehat{B}(k) = \int\limits_{L}dx B(x) e^{-ikx}
+			\begin{array}{c}
+			\widehat{B}(k) = \int\limits_{L}dx B(x) e^{-ikx} \\
+			B(x) = \frac{1}{L}\sum\limits_{l = -\infty}^{\infty} \widehat{B}(k) e^{ikx}
+			\end{array}
 			\tag{16.2}
 		\]
-		\[
-			B(x) = \frac{1}{L}\sum_{\sfrac{l}{-\infty}}^{\infty} B(k) e^{ikx}
-			\tag{16.2}
-		\]
+		\end{block}
 		\begin{tabular}{ll}
 			$l$ & - liczba całkowita \\
 			$k$ & - dyskretne
@@ -88,14 +115,21 @@
 		$x_p$ - dyskretne o skoku H \\
 		$x_p = p \cdot H$ \\
 		$p$ - liczba całkowita
+		\begin{block}
+		\centering
+		\renewcommand{\arraystretch}{1.5}
+		\setlength{\abovedisplayskip}{0pt}
+		\setlength{\belowdisplayskip}{0pt}
+		\setlength{\abovedisplayshortskip}{0pt}
+		\setlength{\belowdisplayshortskip}{0pt}
 		\[
-			\widehat{C}(k) = H \cdot \sum_{\sfrac{p}{-\infty}}^{\infty} C(x_p) e^{-ikx}
-			\tag{16.3}
-		\]
-		\[
+			\begin{array}{c}
+			\widehat{C}(k) = H \cdot \sum\limits_{p = -\infty}^{\infty} C(x_p) e^{-ikx} \\
 			C(x_p) = \int\limits_{k_g} \frac{dk}{2 \pi} \widehat{C}(k) e^{ikx_p}
+			\end{array}
 			\tag{16.3}
 		\]
+		\end{block}
 		$k$ - ciągła \\
 		$\widehat{C}(k)$ - periodyczna \\
 		okres $k_g = \frac{2 \pi}{H}$
@@ -111,14 +145,21 @@
 		$N$ - ilość punktów w okresie $D(x_p)$ \\
 		$k$ - dyskretna, skok $k_0 = \frac{2 \pi}{L}; k = l \cdot k_0$ \\
 		$\widehat{D}(k)$ - okresowa, okres $k_g = \frac{2 \pi}{H}$
+		\begin{block}
+		\centering
+		\renewcommand{\arraystretch}{1.5}
+		\setlength{\abovedisplayskip}{0pt}
+		\setlength{\belowdisplayskip}{0pt}
+		\setlength{\abovedisplayshortskip}{0pt}
+		\setlength{\belowdisplayshortskip}{0pt}
 		\[
-			\widehat{D}(k) = H \cdot \sum_{\sfrac{p}{0}}^{N-1} D(x_p) e^{-ikx_p}
+			\begin{array}{c}
+			\widehat{D}(k) = H \cdot \sum\limits_{p = 0}^{N-1} D(x_p) e^{-ikx_p} \\
+			D(x_p) = \frac{1}{L} \sum\limits_{l = 0}^{N-1} \widehat{D}(k) e^{ikx_p}
+				\end{array}
 			\tag{16.4}
 		\]
-		\[
-			D(x_p) = \frac{1}{L} \sum_{\sfrac{l}{0}}^{N-1} D(k) e^{ikx_p}
-			\tag{16.4}
-		\]
+		\end{block}
 	\end{enumerate}
 \end{frame}
 %%%%%%%%%%%%%%%%
@@ -213,10 +254,18 @@
 \begin{frame}[allowframebreaks]{Splot (konwolucja)}
 	$f(x), g(x) -$ funkcje
 	\\ \quad ich splot:
+	\begin{block}
+	\centering
+	\renewcommand{\arraystretch}{1.5}
+	\setlength{\abovedisplayskip}{0pt}
+	\setlength{\belowdisplayskip}{0pt}
+	\setlength{\abovedisplayshortskip}{0pt}
+	\setlength{\belowdisplayshortskip}{0pt}
 	\[
 		h(x) = \int\limits_{- \infty}^{\infty} dx' f(x')g(x-x')\equiv f \ast g
 		\tag{16.9}
 	\]
+	\end{block}
 	Własności:
 	\begin{table}[t]
 		\centering
@@ -247,7 +296,7 @@
 				&
 				\begin{tabular}{@{}l}
 					$\widehat{f}(k) \cdot \widehat{g}(k)$ \\
-					$\int\limits_{-\infty}^{\infty} \frac{dk'}{2 \pi} \cdot  \widehat{f}(k') \cdot \widehat{g}(k - k')$
+					$\int\limits_{-\infty}^{\infty} \frac{dk'}{2 \pi} \cdot \widehat{f}(k') \cdot \widehat{g}(k - k')$
 				\end{tabular} \\
 			\hline
 				FS(i)
@@ -259,13 +308,13 @@
 				&
 				\begin{tabular}{@{}l}
 					$\widehat{f}(k) \cdot \widehat{g}(k)$ \\
-					$\frac{1}{L} \cdot  \sum\limits_{\sfrac{L'}{-\infty}}^{\infty}  \widehat{f}(k') \cdot \widehat{g}(k - k')$
+					$\frac{1}{L} \cdot \sum\limits_{L' = -\infty}^{\infty} \widehat{f}(k') \cdot \widehat{g}(k - k')$
 				\end{tabular} \\
 			\hline
 				FS(ii)
 				&
 				\begin{tabular}{@{}l}
-					$H \cdot \sum\limits_{\sfrac{p'}{-\infty}}^{\infty}  f(x'_p) \cdot g(x_p - x'_p)$ \\
+					$H \cdot \sum\limits_{p' = -\infty}^{\infty}  f(x'_p) \cdot g(x_p - x'_p)$ \\
 					$f(x_p) \cdot g(x_p)$
 				\end{tabular}
 				&
@@ -283,7 +332,7 @@
 				&
 				\begin{tabular}{@{}l}
 					$\widehat{f}(k) \cdot \widehat{g}(k)$ \\
-					$\frac{1}{l} \cdot \sum\limits_{\sfrac{l'}{0}}^{N - 1}  \widehat{f}(k') \cdot \widehat{g}(k - k')$
+					$\frac{1}{l} \cdot \sum\limits_{l' = 0}^{N - 1}  \widehat{f}(k') \cdot \widehat{g}(k - k')$
 				\end{tabular}
 		\end{tabular}
 	\end{table}	

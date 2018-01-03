@@ -1,36 +1,39 @@
 \section{Transformata Hartley'a}
 %%%%%%%%%%%%%%%%
 \begin{frame}[allowframebreaks]{Transformata Hartley'a}
-	Tranformata Fouriera:
+	\begin{block}{Tranformata Fouriera}
 	\[
-		F(f) = \int\limits_{-\infty}^{\infty} X(t) e^{-i2\pi ft} dt ; X(t) = \int\limits_{-\infty}^{\infty} F(f) e^{i2\pi ft} df
+		F(f) = \int\limits_{-\infty}^{\infty} X(t) e^{-i2\pi ft} dt
 	\]
 	\[
-		c_j = \frac{1}{n} \sum\limits_{\sfrac{k}{0}}^{n-1} X(t_k) e^{-i2\pi j \frac{k}{n}} ; X(t_k) = \sum\limits_{\sfrac{k}{0}}^{n-1} c_j e^{i2\pi j \frac{k}{n}}
+		X(t) = \int\limits_{-\infty}^{\infty} F(f) e^{i2\pi ft} df
 	\]
-	Transformata Hartley'a:
 	\[
-		H(f) = \int\limits_{-\infty}^{\infty} X(t) \cas(2\pi ft) dt , X(t) = \int\limits_{-\infty}^{\infty} H(f) \cas(2\pi ft) dt
+		c_j = \frac{1}{n} \sum\limits_{k = 0}^{n-1} X(t_k) e^{-i2\pi j \frac{k}{n}}
 	\]
+	\[
+		X(t_k) = \sum\limits_{k = 0}^{n-1} c_j e^{i2\pi j \frac{k}{n}}
+	\]
+	\end{block}
+	\begin{block}{Transformata Hartley'a}
+	\[
+		H(f) = \int\limits_{-\infty}^{\infty} X(t) \cas(2\pi ft) dt
+	\]
+	\[
+	X(t) = \int\limits_{-\infty}^{\infty} H(f) \cas(2\pi ft) dt
+	\]
+	\end{block}
 	gdzie: $\cas(x) = \cos(x) + \sin(x)$
-	\begin{itemize}
-		\item R.V.L. Hartley: A more symetrical Fourier analysis applied to transmission problems, Proc. IRE, 30 (1942) 144, \\
-		\item R.N. Bracewell: The fast Hartley transform, Proc. IEEE 72 (1984) 1010 (No 8), \\
-		\item M.A. O'Neill: Faster than fast Fourier, Byte, April 1988, p.293. istotna różnica: zamiast $\underbrace{e^{-x \cdot i}}_{\text{zespolone}}$ mamy $\underbrace{\cas(x)}_{\text{rzeczywiste}}$ ($\implies$ ilość operacji arytmetycznych i pamięc)
-	\end{itemize}
-	\underline{wersja dyskretna HT}:
+	\begin{block}{Wersja dyskretna HT}
 	\[
-		H_j = \frac{1}{n} \sum\limits_{\sfrac{k}{0}}^{n-1} f(t_k) \cdot \cas \bigg( \frac{2\pi jk}{n} \bigg)
+		H_j = \frac{1}{n} \sum\limits_{k = 0}^{n-1} f(t_k) \cdot \cas \bigg( \frac{2\pi jk}{n} \bigg)
 	\]
 	\[
 		f(t_k) = \sum\limits_{j=0}^{n-1} H_j \cdot \cas \bigg( \frac{2\pi jk}{n} \bigg)
 	\]
-	własności HT: $\implies$ dla oznaczeń:
-	\begin{itemize}
-		\item r - real, i - imaginary \\
-		\item o - odd, e - even \\
-		\item F, f - Fourier, H - Hartley
-	\end{itemize}
+	\end{block}
+\end{frame}
+\begin{frame}{Własności HT}
 	\begin{block}{16.30}
 		\centering
 		\begin{enumerate}[1$^\circ$]
@@ -41,15 +44,31 @@
 			$f_1(t) \ast f_2(t) = H_1(f) \cdot H_{2e}(f) + H_1(-f) \cdot H_{2o}(f)$
 		\end{enumerate}
 	\end{block}
-	Szybka transformacja Hartley'a: \\
-	Fourier:
+	dla oznaczeń:
+	\begin{itemize}
+		\item r - real, i - imaginary \\
+		\item o - odd, e - even \\
+		\item F, f - Fourier, H - Hartley
+	\end{itemize}
+\end{frame}
+\begin{frame}{Szybka Transformacja Hartley'a}
+	\begin{block}{Fourier}
 	\[
 		F_j = F_{1j} + F_{2j} \cdot e^{-i\frac{2\pi j}{n'}} , n' = \frac{n}{2}
 	\]
-	Hartley:
+	\end{block}
+	\begin{block}{Hartley}
 	\[
 		H_j = H_{1j} + H_{2j} \cdot \cos \bigg( \frac{2\pi j}{n'} \bigg) + H_2(n'-1) \cdot \sin \bigg( \frac{2\pi j}{n'} \bigg)
 	\]
+	\end{block}
+\end{frame}
+\begin{frame}{Biliografia}
+	\begin{itemize}
+		\item R.V.L. Hartley: A more symetrical Fourier analysis applied to transmission problems, Proc. IRE, 30 (1942) 144, \\
+		\item R.N. Bracewell: The fast Hartley transform, Proc. IEEE 72 (1984) 1010 (No 8), \\
+		\item M.A. O'Neill: Faster than fast Fourier, Byte, April 1988, p.293. istotna różnica: zamiast $\underbrace{e^{-x \cdot i}}_{\text{zespolone}}$ mamy $\underbrace{\cas(x)}_{\text{rzeczywiste}}$ ($\implies$ ilość operacji arytmetycznych i pamięc)
+	\end{itemize}
 \end{frame}
 \begin{frame}{FFT - przydatna w:}
 	\begin{enumerate}

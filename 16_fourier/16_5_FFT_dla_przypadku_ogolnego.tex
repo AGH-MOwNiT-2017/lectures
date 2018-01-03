@@ -2,7 +2,7 @@
 %%%%%%%%%%%%%%%%
 \begin{frame}{FFT dla przypadku ogólnego I}
 	\[
-		c_j = \frac{1}{n} \sum\limits_{\sfrac{k}{0}}^{n-1} f(x_k)e^{-ijx_k}, x_k = \frac{2\pi}{n} \cdot k; 0, 1, \dots, n-1
+		c_j = \frac{1}{n} \sum\limits_{k = 0}^{n-1} f(x_k)e^{-ijx_k}, x_k = \frac{2\pi}{n} \cdot k; 0, 1, \dots, n-1
 	\]
 	$\omega = e^{-i\frac{2\pi}{n}}, a_k = \frac{1}{n} f(x_k)$
 	\[
@@ -10,7 +10,7 @@
 	\]
 	dla $n = r_1 \cdot r_2 \cdot \dots \cdot r_p, r_i$ liczby całkowite
 	\[
-		c_j = \sum\limits_{\sfrac{k}{0}}^{n-1} a_k \cdot e^{-i2\pi \overbrace{j \cdot \frac{k}{n}}^{(*)}}
+		c_j = \sum\limits_{k = 0}^{n-1} a_k \cdot e^{-i2\pi \overbrace{j \cdot \frac{k}{n}}^{(*)}}
 		\tag{16.29}
 	\]
 	(*) wyrazić przez $r_1, r_2, \dots, r_p$
@@ -23,11 +23,11 @@
 	\]
 	co, dla uproszczenia, można zapisać:
 	\[
-		j = \sum\limits_{\sfrac{i}{1}}^{p} \alpha_i \cdot n_i
+		j = \sum\limits_{i = 1}^{p} \alpha_i \cdot n_i
 	\]
 	gdzie
 	\[
-		n_r = r_{r+1} \cdot r_{r+2} \cdots r_p = \prod\limits_{\sfrac{i}{(r+1)}}^{p} r_i
+		n_r = r_{r+1} \cdot r_{r+2} \cdots r_p = \prod\limits_{i = (r+1)}^{p} r_i
 	\]
 	$n_p = 1, n_0 = n$ \\
 	zaś współczynniki:
@@ -39,7 +39,7 @@
 \begin{frame}{FFT dla przypadku ogólnego III}
 	Przydatne będą też:
 	\[
-		j_r = \sum\limits_{\sfrac{i}{(r+1)}}^{p} \alpha_i \cdot n_i, j_0 = j
+		j_r = \sum\limits_{i = (r+1)}^{p} \alpha_i \cdot n_i, j_0 = j
 	\]
 	przy czym:
 	\[
@@ -55,13 +55,13 @@
 	\underline{Dla każdej liczby całkowitej k, $0 \leq k \leq n-1$} \\
 	\underline{istnieje jedyna reprezentacja ilorazu $\frac{k}{n}$}:
 	\[
-		\frac{k}{n} = \frac{l_1}{\underbrace{r_1 \cdot r_2 \cdots r_p}_{n_0}} + \frac{l_2}{\underbrace{r_2 \cdot r_3 \cdots r_p}_{n_1}} + \cdots + \frac{l_{i+1}}{\underbrace{r_{i+1} \cdots r_p}_{n_i}} + \cdots + \frac{l_p}{r_p} = \underline{\sum\limits_{\sfrac{i}{0}}^{p-1} \frac{l_{i+1}}{n_i}}
+		\frac{k}{n} = \frac{l_1}{\underbrace{r_1 \cdot r_2 \cdots r_p}_{n_0}} + \frac{l_2}{\underbrace{r_2 \cdot r_3 \cdots r_p}_{n_1}} + \cdots + \frac{l_{i+1}}{\underbrace{r_{i+1} \cdots r_p}_{n_i}} + \cdots + \frac{l_p}{r_p} = \underline{\sum\limits_{i = 0}^{p-1} \frac{l_{i+1}}{n_i}}
 	\]
 	\[
 		l_i \in \{0, 1, \dots, r_i - 1\}
 	\]
 	\[
-		k_r = n_r \cdot \sum\limits_{\sfrac{i}{r}}^{p-1} \frac{l_{i+1}}{n_i}, k_0 = k
+		k_r = n_r \cdot \sum\limits_{i = r}^{p-1} \frac{l_{i+1}}{n_i}, k_0 = k
 	\]
 	\[
 		\begin{rcases}
@@ -71,7 +71,7 @@
 		\text{z dzielenia } \frac{k_{i-1}}{r_i}
 	\]
 	\[
-		j \cdot \frac{k}{n} = j_0 \cdot \frac{k_0}{n_0} = \Bigg( \sum\limits_{\sfrac{i}{1}}^{p} \alpha_i \cdot n_i \Bigg) \cdot \Bigg( \sum\limits_{\sfrac{r}{0}}^{p-1} \frac{l_{r+1}}{n_r} \Bigg) = \sum\limits_{\sfrac{r}{0}}^{p-1} \sum\limits_{\sfrac{i}{1}}^{p} l_{r+1} \cdot \alpha_i \cdot \frac{n_i}{n_r} \stackrel{\Delta}{=}	
+		j \cdot \frac{k}{n} = j_0 \cdot \frac{k_0}{n_0} = \Bigg( \sum\limits_{i = 1}^{p} \alpha_i \cdot n_i \Bigg) \cdot \Bigg( \sum\limits_{r = 0}^{p-1} \frac{l_{r+1}}{n_r} \Bigg) = \sum\limits_{r = 0}^{p-1} \sum\limits_{i = 1}^{p} l_{r+1} \cdot \alpha_i \cdot \frac{n_i}{n_r} \stackrel{\Delta}{=}	
 	\]
 \end{frame}
 %%%%%%%%%%%%%%%%
@@ -84,43 +84,47 @@
 		\end{cases}}}
 	\]
 	\[
-		\stackrel{\Delta}{=} M + \sum\limits_{\sfrac{r}{0}}^{p-1} \frac{l_{r+1}}{n_r} \cdot \Bigg( \underbrace{\sum\limits_{\sfrac{i}{(r+1)}}^{p} \alpha_i \cdot n_i}_{j_r} \Bigg) = M +  \sum\limits_{\sfrac{r}{0}}^{p-1} \frac{l_{r+1} \cdot j_r}{n_r}
+		\stackrel{\Delta}{=} M + \sum\limits_{r = 0}^{p-1} \frac{l_{r+1}}{n_r} \cdot \Bigg( \underbrace{\sum\limits_{i = (r+1)}^{p} \alpha_i \cdot n_i}_{j_r} \Bigg) = M +  \sum\limits_{r = 0}^{p-1} \frac{l_{r+1} \cdot j_r}{n_r}
 	\]
 	\[
-		\underline{\omega^{jk}} = e^{-i2\pi \bigg( M +  \sum\limits_{\sfrac{r}{0}}^{p-1} \frac{l_{r+1} \cdot j_r}{n_r} \bigg)} = e^{-i2\pi \sum\limits_{\sfrac{r}{0}}^{p-1} \frac{l_{r+1} \cdot j_r}{n_r}} =
+		\underline{\omega^{jk}} = e^{-i2\pi \bigg( M +  \sum\limits_{r = 0}^{p-1} \frac{l_{r+1} \cdot j_r}{n_r} \bigg)} = e^{-i2\pi \sum\limits_{r = 0}^{p-1} \frac{l_{r+1} \cdot j_r}{n_r}} =
 	\]
 	\[
-		= \prod\limits_{\sfrac{r}{0}}^{p-1} {\underbrace{\bigg( e^{-\frac{i2\pi}{n_r}} \bigg)}_{\omega_r}}^{l_{r+1} \cdot j_r} = \underline{\prod\limits_{\sfrac{r}{0}}^{p-1} \omega_r^{l_{r+1} \cdot j_r}}
+		= \prod\limits_{r = 0}^{p-1} {\underbrace{\bigg( e^{-\frac{i2\pi}{n_r}} \bigg)}_{\omega_r}}^{l_{r+1} \cdot j_r} = \underline{\prod\limits_{r = 0}^{p-1} \omega_r^{l_{r+1} \cdot j_r}}
 	\]
 \end{frame}
 %%%%%%%%%%%%%%%%
-\begin{frame}{FFT dla przypadku ogólnego VI}
-	Przykład: $p = 3, n = r_1 \cdot r_2 \cdot r_3$ \\
+\begin{frame}{FFT dla przypadku ogólnego: przykład}
+	\begin{exampleblock}{Przykład}
+	$p = 3, n = r_1 \cdot r_2 \cdot r_3$ \\
 	$n_0 = r_1r_2r_3 ; n_1 = r_2r_3 ; n_2 = r_3 ; n_3 = 1$ \\
 	$j = \alpha_1 \cdot (r_2 \cdot r_3) + \alpha_2 \cdot r_3 + \alpha_3 ; j_0 = j ; j_1 = \alpha_2  \cdot r_3 + \alpha_3 ; j_2 = \alpha_3$ \\
-	w miejsce $k \to k(l_1, l_2, l_3)$ zgodnie z $\frac{k}{n} = \sum\limits_{\sfrac{i}{0}}^{p-1} \frac{l_{i+1}}{n_i}$ \\
+	w miejsce $k \to k(l_1, l_2, l_3)$ zgodnie z $\frac{k}{n} = \sum\limits_{i = 0}^{p-1} \frac{l_{i+1}}{n_i}$ \\
 	oznaczamy:
 	\[
 		c^{(0)}(l_1, l_2, l_3) = a_k
 	\]
 	\[
-		c_j = \sum\limits_{\sfrac{k}{0}}^{n-1} a_k \cdot \omega^{jk} = \sum\limits_{\sfrac{l_1}{0}}^{r_1 - 1} \sum\limits_{\sfrac{l_2}{0}}^{r_2 - 1} \sum\limits_{\sfrac{l_3}{0}}^{lr_3 - 1} c^{(0)}(l_1, l_2, l_3) \cdot \omega^{jl_1} \omega_1^{j_1l_2} \omega_2^{j_2l_3}
+		c_j = \sum\limits_{k = 0}^{n-1} a_k \cdot \omega^{jk} = \sum\limits_{l_1 = 0}^{r_1 - 1} \sum\limits_{l_2 = 0}^{r_2 - 1} \sum\limits_{l_3 = 0}^{lr_3 - 1} c^{(0)}(l_1, l_2, l_3) \cdot \omega^{jl_1} \omega_1^{j_1l_2} \omega_2^{j_2l_3}
 	\]
+	\end{exampleblock}
 \end{frame}
 %%%%%%%%%%%%%%%%
-\begin{frame}{FFT dla przypadku ogólnego VII}
+\begin{frame}{FFT dla przypadku ogólnego: przykład cd}
+	\begin{exampleblock}{Przykład cd}
 	wyliczamy sumy kolejno, poczynając od wewnętrznej:
 	\[
-		\sum\limits_{\sfrac{l_3}{0}}^{r_3 - 1} c^{(0)}(l_1, l_2, l_3) \omega^{j_2l_3} = c^{(1)}(l_1, l_2,\alpha_3),
+		\sum\limits_{l_3 = 0}^{r_3 - 1} c^{(0)}(l_1, l_2, l_3) \omega^{j_2l_3} = c^{(1)}(l_1, l_2,\alpha_3),
 	\]
 	\[
 		l_1, \stackrel{\uparrow\nearrow}{l_2} - \text{ustalone} ; j_2 = j_2(\alpha_3) - \text{tylko}
 	\]
 	\[
-		\sum\limits_{\sfrac{l_2}{0}}^{r_2 - 1} c^{(1)}(l_1, l_2, \alpha_3)\omega_1^{j_1l_2} = c^{(2)}(l_1,\alpha_2,\alpha_3),
+		\sum\limits_{l_2 = 0}^{r_2 - 1} c^{(1)}(l_1, l_2, \alpha_3)\omega_1^{j_1l_2} = c^{(2)}(l_1,\alpha_2,\alpha_3),
 	\] 
 	\[
-		\sum\limits_{\sfrac{l_1}{0}}^{r_1 - 1} c^{(2)}(l_1, \alpha_2, \alpha_3) \omega^{jl_1} = c_j.
+		\sum\limits_{l_1 = 0}^{r_1 - 1} c^{(2)}(l_1, \alpha_2, \alpha_3) \omega^{jl_1} = c_j.
 	\]
 	(przyp. ogólny $\to$ szczególny)
+	\end{exampleblock}
 \end{frame}

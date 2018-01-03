@@ -7,7 +7,7 @@
 	\end{itemize}
 	szukamy wielomianu (trygonometrycznego)
 	\[
-		t_{n-1}(x) = \sum\limits_{\sfrac{j}{0}}^{n-1} c_j \cdot e^{ijx}
+		t_{n-1}(x) = \sum\limits_{j = 0}^{n-1} c_j \cdot e^{ijx}
 		\tag{16.12}
 	\]
 	który w \underline{n punktach $x_k \in (0, 2\pi]$} przyjmuje te same wartości, co interpolowana funkcja
@@ -20,7 +20,7 @@
 	\end{theorem}
 	\begin{proofs}
 		\[
-			\sum\limits_{\sfrac{j}{0}}^{n-1} c_j \cdot \underbrace{(e^{ix_k})^j}_{Z_k} = f(x_k), k = 0, 1, \dots, n-1
+			\sum\limits_{j = 0}^{n-1} c_j \cdot \underbrace{(e^{ix_k})^j}_{Z_k} = f(x_k), k = 0, 1, \dots, n-1
 			\tag{16.13}
 		\]
 		$\implies$ macierz układu: macierz Vandermonde'a jest nieosobliwa, \\ jeżeli \underline{$x_k$ są różne}, i:
@@ -34,23 +34,23 @@
 		n węzłów równoodległych, \underline{$x_k = \frac{2\pi}{n}\cdot k$}, k = 0, 1, \dots, n - 1 \\
 		\underline{funkcje $e^{ijx}$}, j = 0, 1, \dots, n - 1 tworzą \underline{układ ortogonalny} w sensie iloczynu skalarnego zdefinowanego: \\
 		\[
-			\langle f|g \rangle = \sum\limits_{\sfrac{k}{0}}^{n-1} f(x_k) \cdot g^* (x_k), x_k = \frac{2\pi}{n} \cdot k, k = 0, 1, \dots, n-1
+			\langle f|g \rangle = \sum\limits_{k = 0}^{n-1} f(x_k) \cdot g^* (x_k), x_k = \frac{2\pi}{n} \cdot k, k = 0, 1, \dots, n-1
 			\tag{16.15}
 		\]
 		\[
-			\langle e^{ijx}|e^{ilx} \rangle = \sum\limits_{\sfrac{k}{0}}^{n-1} e^{ijx_k}  \cdot e^{-ilx_k} = \sum\limits_{\sfrac{n}{0}}^{n-1} e^{i(j - l) \frac{2\pi k}{n}}\stackrel{\Delta}{=}
+			\langle e^{ijx}|e^{ilx} \rangle = \sum\limits_{k = 0}^{n-1} e^{ijx_k}  \cdot e^{-ilx_k} = \sum\limits_{n = 0}^{n-1} e^{i(j - l) \frac{2\pi k}{n}}\stackrel{\Delta}{=}
 			\tag{16.16}
 		\]
 	\end{proofs}
 	\begin{proofs}[\proofname\ (Cont.)]
 		\underline{dla $j = l$}
 		\[
-			\stackrel{\Delta}{=} \sum\limits_{\sfrac{k}{0}}^{n-1} e^0 = n
+			\stackrel{\Delta}{=} \sum\limits_{k = 0}^{n-1} e^0 = n
 			\tag{16.17}
 		\]
 		\underline{dla $j \neq l$}
 		\[
-			\stackrel{\Delta}{=} \sum\limits_{\sfrac{k}{0}}^{n-1} \underbrace{e^{\frac{i(j - l)2\pi}{n}}}_{\substack{
+			\stackrel{\Delta}{=} \sum\limits_{k = 0}^{n-1} \underbrace{e^{\frac{i(j - l)2\pi}{n}}}_{\substack{
 				\text{-szereg geom.} \\
 				\text{-n-wyrazów}
 			}} \cdot k = \frac{a_0 - a_n \cdot q}{1 - q} = \frac{1 - e ^{\overbrace{\frac{i(j - l)2\pi}{n} \cdot n}^{=1}}}{1 - e^{\frac{i(j -  l)2\pi}{n}}} = 0
@@ -60,7 +60,7 @@
 	\end{proofs}
 	\begin{proof}[\proofname\ (Cont.)]
 		\[
-			\langle e^{ijx}|e^{ilx} \rangle = \sum\limits_{\sfrac{k}{0}}^{n - 1}e^{ijx_k}  \cdot e^{-ilx_k} = 
+			\langle e^{ijx}|e^{ilx} \rangle = \sum\limits_{k = 0}^{n - 1}e^{ijx_k}  \cdot e^{-ilx_k} = 
 			\begin{cases}
 				0 & j \neq l \\
 				n & j = l
@@ -75,18 +75,18 @@
 	\begin{enumerate}[1$^\circ$]
 		\item
 		\begin{align*}
-			\langle t_{n-1}(x)|e^{ilx} \rangle = \Bigg\langle \sum\limits_{\sfrac{j}{0}}^{n-1} c_j \cdot e^{ijx} \Bigg|e^{ilx} \Bigg\rangle = \sum\limits_{\sfrac{j}{0}}^{n-1} c_j \cdot n \cdot \delta jl = \\ = c_l \cdot n \implies \underline{c_l = \frac{1}{n} \langle t_{n-1}(x)|e^{ilx} \rangle}
+			\langle t_{n-1}(x)|e^{ilx} \rangle = \Bigg\langle \sum\limits_{j = 0}^{n-1} c_j \cdot e^{ijx} \Bigg|e^{ilx} \Bigg\rangle = \sum\limits_{j = 0}^{n-1} c_j \cdot n \cdot \delta jl = \\ = c_l \cdot n \implies \underline{c_l = \frac{1}{n} \langle t_{n-1}(x)|e^{ilx} \rangle}
 			\tag{16.20}
 		\end{align*}
 		\item
 		\begin{align*}
-			\langle t_{n-1}(x)|e^{ilx} \rangle \underbrace{=}_{(**)} \sum\limits_{\sfrac{k}{0}}^{n-1}  \underbrace{t_{n-1}(x_k)}_{\substack{\text{=wartości} \\  \text{funkcji}}} \cdot e^{-ilx_k} = \\ = \sum\limits_{\sfrac{k}{0}}^{n-1} f(x_k) \cdot e^{-ilx_k} = \underline{\langle f(x)|e^{ilx} \rangle}
+			\langle t_{n-1}(x)|e^{ilx} \rangle \underbrace{=}_{(**)} \sum\limits_{k = 0}^{n-1}  \underbrace{t_{n-1}(x_k)}_{\substack{\text{=wartości} \\  \text{funkcji}}} \cdot e^{-ilx_k} = \\ = \sum\limits_{k = 0}^{n-1} f(x_k) \cdot e^{-ilx_k} = \underline{\langle f(x)|e^{ilx} \rangle}
 		\end{align*}
 	\end{enumerate}
 	- def. iloczynu (przypadek dyskretny) \\
 	czyli:
 	\[
-		\underline{c_j = \frac{1}{n} \sum\limits_{\sfrac{k}{0}}^{n-1} f(x_k) \cdot e^{-ilx_k}, j = 0, 1, \dots, n-1}
+		\underline{c_j = \frac{1}{n} \sum\limits_{k = 0}^{n-1} f(x_k) \cdot e^{-ilx_k}, j = 0, 1, \dots, n-1}
 		\tag{16.21}
 	\]
 	\begin{flushleft}
@@ -97,7 +97,7 @@
 		\underline{\textit{synteza Fouriera:}} \\
 		mając liczby $c_j, j = 0, 1, \dots, n-1$ szukamy
 		\[
-			(k) = \sum\limits_{\sfrac{j}{0}}^{n - 1} c_j \cdot e^{ij\frac{2\pi}{n} \cdot k}, k = 0, 1, \dots, n-1
+			(k) = \sum\limits_{j = 0}^{n - 1} c_j \cdot e^{ij\frac{2\pi}{n} \cdot k}, k = 0, 1, \dots, n-1
 			\tag{16.22}
 		\]
 	\end{flushleft}
