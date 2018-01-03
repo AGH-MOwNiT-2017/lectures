@@ -14,14 +14,14 @@
   	\underline{nie znamy} \qquad $\vec{u}(t')$ , $t' \in [t^n,t^{n+1}]$ \par
   \end{center}
   \underline{dla małych kroków czasowych} $\Delta t = t^{n+1} - t^n$ można: 
-  $${\vec{u}}^{n+1} = {\vec{u}}^n + \int_{t^n}^{t^{n+1}}dt'\Bigg\{ \sum_{r/0}^{p-1}\bigg[\frac{dr}{d t^r}(L\vec{u})\bigg]_{t^n}\frac{(t'-t^n)^r}{r!}+0((t'-t^n)^p)\Bigg\}$$
-  $${\vec{u}}^{n+1} = {\vec{u}}^n + \sum_{r/1}^{p}\bigg[\frac{d^{r-1}}{d t^{r-1}}(L\vec{u})\bigg]_{t^n}\frac{(\Delta t)^r}{r!}+0(\Delta t^{p+1})$$
+  $${\vec{u}}^{n+1} = {\vec{u}}^n + \int_{t^n}^{t^{n+1}}dt'\Bigg\{ \sum_{r=0}^{p-1}\bigg[\frac{dr}{d t^r}(L\vec{u})\bigg]_{t^n}\frac{(t'-t^n)^r}{r!}+0((t'-t^n)^p)\Bigg\}$$
+  $${\vec{u}}^{n+1} = {\vec{u}}^n + \sum_{r=1}^{p}\bigg[\frac{d^{r-1}}{d t^{r-1}}(L\vec{u})\bigg]_{t^n}\frac{(\Delta t)^r}{r!}+0(\Delta t^{p+1})$$
   p -rząd wielkości całkowania (ze względu na krok czasowy $\Delta t$)
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{W praktyce - ograniczenie do członów drugiego rzędu}
   $$\vec{u} ^{n+1} = \vec{u} ^n + L\vec{u}^n\Delta t+\bigg[\frac{d}{dt}(L\vec{u})\bigg]_{t^n} \frac{(\Delta t)^2}{2}$$
-  \textbf{Wyznaczanie wartosci pochodnej:}
+  \textbf{Wyznaczanie wartości pochodnej:}
   \begin{itemize}
     \item wartości zmiennych na poprzednich poziomach czasu $t^{n-1}$
     \item wprowadzenie poziomów pośrednich
@@ -42,7 +42,7 @@
 %%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{W praktyce c.d.}
   po uporządkowaniu w (*) można zapisać:
-  $$\vec{u}^{n+1} = (1-\varepsilon\cdot\Delta t\cdot L)^{-1}\cdot[1+(1-\varepsilon)\Delta t\cdot L]\cdot \vec{u}^n $$
+  $${\vec{u}}^{n+1} = (1-\varepsilon\cdot\Delta t\cdot L)^{-1}\cdot[1+(1-\varepsilon)\Delta t\cdot L]\cdot \vec{u}^n $$
   czyli: \fbox{$\vec{u}^{n+1}=T(\Delta,\Delta t)\vec{u}^n$} \qquad por.: $\frac{d\vec{u}}{dt} = L\vec{u}$\newline\newline\newline
   \textbf{T - operator różnicowy}, wiąże kolejne punkty na siatce czasowej $\equiv$ zagadnienie początkowe $\Rightarrow$ ciąg rozwiązań w izolowanych punktach czasowych (T).
 \end{frame}
