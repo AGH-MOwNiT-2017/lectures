@@ -4,7 +4,7 @@
 	\begin{enumerate}
 		\item w dziedzinie czasu (time domain) $ \implies A(t) $ \\
 		$ t - \text{czas}, \quad A - \text{pewna wielkość} $
-		%%%%%%%%%%%%%%%%	
+		%%%%%%%%%%%%%%%%
 		\item w dziedzinie $
 		\begin{array}{l}
 		\text{częstości} (\omega) \\ \text{częstotliwości} (f)
@@ -12,7 +12,7 @@
 		$\implies \widehat{A}(\omega) \quad \omega = 2 \pi f$
 	\end{enumerate}
 	$A(t), \quad \widehat{A}(\omega) \,\, - $ dwie różne reprezentacje tej samej funkcji związane równaniami transformat Fouriera:
-	%%%%%%%%%%%%%%%%		
+	%%%%%%%%%%%%%%%%
 	\begin{block}
 	\centering
 	\renewcommand{\arraystretch}{1.5}
@@ -60,21 +60,28 @@
 		$x$ - ciągłe \\
 		$k$ - ciągłe \\
 		$A(x), \widehat{A}(k)$ - f. ciągłe
-		\begin{block}
-		\centering
-		\renewcommand{\arraystretch}{1.5}
-		\setlength{\abovedisplayskip}{0pt}
-		\setlength{\belowdisplayskip}{0pt}
-		\setlength{\abovedisplayshortskip}{0pt}
-		\setlength{\belowdisplayshortskip}{0pt}
-		\[
-			\begin{array}{c}
-			\widehat{A}(k) = \int\limits_{-\infty}^{\infty}dx A(x) e^{-ikx} \\
-			A(x) = \int\limits_{-\infty}^{\infty} \frac{dk}{2 \pi} \widehat{A}(k) e^{ikx}
-			\end{array}
-			\tag{16.1}
-		\]
-		\end{block}
+        \begin{columns}
+            \begin{column}{0.35\textwidth}
+                \includegraphics[width=\textwidth]{img/16/ft_wykres1.png}
+            \end{column}
+            \begin{column}{0.65\textwidth}
+                \begin{block}
+                    \centering
+                    \renewcommand{\arraystretch}{1.5}
+                    \setlength{\abovedisplayskip}{0pt}
+                    \setlength{\belowdisplayskip}{0pt}
+                    \setlength{\abovedisplayshortskip}{0pt}
+                    \setlength{\belowdisplayshortskip}{0pt}
+                    \[
+                        \begin{array}{c}
+                            \widehat{A}(k) = \int\limits_{-\infty}^{\infty}dx A(x) e^{-ikx} \\
+                            A(x) = \int\limits_{-\infty}^{\infty} \frac{dk}{2 \pi} \widehat{A}(k) e^{ikx}
+                        \end{array}
+                        \tag{16.1}
+                    \]
+                \end{block}
+            \end{column}
+        \end{columns}
 	\end{enumerate}
 \end{frame}
 %%%%%%%%%%%%%%%%
@@ -86,21 +93,28 @@
 		\begin{center}
 			(ciągła odcinkami wraz z pochodną: na tych odcinkach - szereg zbieżny do B(x), w punktach nieciągłości - do wartości średniej)
 		\end{center}
-		\begin{block}
-		\centering
-		\renewcommand{\arraystretch}{1.5}
-		\setlength{\abovedisplayskip}{0pt}
-		\setlength{\belowdisplayskip}{0pt}
-		\setlength{\abovedisplayshortskip}{0pt}
-		\setlength{\belowdisplayshortskip}{0pt}
-		\[
-			\begin{array}{c}
-			\widehat{B}(k) = \int\limits_{L}dx B(x) e^{-ikx} \\
-			B(x) = \frac{1}{L}\sum\limits_{l = -\infty}^{\infty} \widehat{B}(k) e^{ikx}
-			\end{array}
-			\tag{16.2}
-		\]
-		\end{block}
+        \begin{columns}
+            \begin{column}{0.35\textwidth}
+                \includegraphics[width=\textwidth]{img/16/fs_wykres1.png}
+            \end{column}
+            \begin{column}{0.65\textwidth}
+                \begin{block}
+                    \centering
+                    \renewcommand{\arraystretch}{1.5}
+                    \setlength{\abovedisplayskip}{0pt}
+                    \setlength{\belowdisplayskip}{0pt}
+                    \setlength{\abovedisplayshortskip}{0pt}
+                    \setlength{\belowdisplayshortskip}{0pt}
+                    \[
+                        \begin{array}{c}
+                            \widehat{B}(k) = \int\limits_{L}dx B(x) e^{-ikx} \\
+                            B(x) = \frac{1}{L}\sum\limits_{l = -\infty}^{\infty} \widehat{B}(k) e^{ikx}
+                        \end{array}
+                        \tag{16.2}
+                    \]
+                \end{block}
+            \end{column}
+        \end{columns}
 		\begin{tabular}{ll}
 			$l$ & - liczba całkowita \\
 			$k$ & - dyskretne
@@ -115,21 +129,28 @@
 		$x_p$ - dyskretne o skoku H \\
 		$x_p = p \cdot H$ \\
 		$p$ - liczba całkowita
-		\begin{block}
-		\centering
-		\renewcommand{\arraystretch}{1.5}
-		\setlength{\abovedisplayskip}{0pt}
-		\setlength{\belowdisplayskip}{0pt}
-		\setlength{\abovedisplayshortskip}{0pt}
-		\setlength{\belowdisplayshortskip}{0pt}
-		\[
-			\begin{array}{c}
-			\widehat{C}(k) = H \cdot \sum\limits_{p = -\infty}^{\infty} C(x_p) e^{-ikx} \\
-			C(x_p) = \int\limits_{k_g} \frac{dk}{2 \pi} \widehat{C}(k) e^{ikx_p}
-			\end{array}
-			\tag{16.3}
-		\]
-		\end{block}
+        \begin{columns}
+            \begin{column}{0.35\textwidth}
+                \includegraphics[width=\textwidth]{img/16/dtft_wykres1.png}
+            \end{column}
+            \begin{column}{0.65\textwidth}
+                \begin{block}
+                    \centering
+                    \renewcommand{\arraystretch}{1.5}
+                    \setlength{\abovedisplayskip}{0pt}
+                    \setlength{\belowdisplayskip}{0pt}
+                    \setlength{\abovedisplayshortskip}{0pt}
+                    \setlength{\belowdisplayshortskip}{0pt}
+                    \[
+                        \begin{array}{c}
+                            \widehat{C}(k) = H \cdot \sum\limits_{p = -\infty}^{\infty} C(x_p) e^{-ikx_p} \\
+                            C(x_p) = \int\limits_{k_g} \frac{dk}{2 \pi} \widehat{C}(k) e^{ikx_p}
+                        \end{array}
+                        \tag{16.3}
+                    \]
+                \end{block}
+            \end{column}
+        \end{columns}
 		$k$ - ciągła \\
 		$\widehat{C}(k)$ - periodyczna \\
 		okres $k_g = \frac{2 \pi}{H}$
@@ -145,28 +166,35 @@
 		$N$ - ilość punktów w okresie $D(x_p)$ \\
 		$k$ - dyskretna, skok $k_0 = \frac{2 \pi}{L}; k = l \cdot k_0$ \\
 		$\widehat{D}(k)$ - okresowa, okres $k_g = \frac{2 \pi}{H}$
-		\begin{block}
-		\centering
-		\renewcommand{\arraystretch}{1.5}
-		\setlength{\abovedisplayskip}{0pt}
-		\setlength{\belowdisplayskip}{0pt}
-		\setlength{\abovedisplayshortskip}{0pt}
-		\setlength{\belowdisplayshortskip}{0pt}
-		\[
-			\begin{array}{c}
-			\widehat{D}(k) = H \cdot \sum\limits_{p = 0}^{N-1} D(x_p) e^{-ikx_p} \\
-			D(x_p) = \frac{1}{L} \sum\limits_{l = 0}^{N-1} \widehat{D}(k) e^{ikx_p}
-				\end{array}
-			\tag{16.4}
-		\]
-		\end{block}
+		\begin{columns}
+            \begin{column}{0.35\textwidth}
+                \includegraphics[width=\textwidth]{img/16/dft_wykres1.png}
+            \end{column}
+            \begin{column}{0.65\textwidth}
+                \begin{block}
+                    \centering
+                    \renewcommand{\arraystretch}{1.5}
+                    \setlength{\abovedisplayskip}{0pt}
+                    \setlength{\belowdisplayskip}{0pt}
+                    \setlength{\abovedisplayshortskip}{0pt}
+                    \setlength{\belowdisplayshortskip}{0pt}
+                    \[
+                        \begin{array}{c}
+                        \widehat{D}(k) = H \cdot \sum\limits_{p = 0}^{N-1} D(x_p) e^{-ikx_p} \\
+                        D(x_p) = \frac{1}{L} \sum\limits_{l = 0}^{N-1} \widehat{D}(k) e^{ikx_p}
+                        \end{array}
+                        \tag{16.4}
+                    \]
+                \end{block}
+			\end{column}
+		\end{columns}
 	\end{enumerate}
 \end{frame}
 %%%%%%%%%%%%%%%%
 \begin{frame}{Związki między transformatami Fouriera}
-	\begin{enumerate}
-		\item przez przejścia graniczne
-	\end{enumerate}
+	Przez przejścia graniczne:\\
+	\centering
+	\includegraphics[height=0.8\textheight]{img/16/przejscia_graniczne.png}
 \end{frame}
 %%%%%%%%%%%%%%%%
 \begin{frame}{Symetrie funkcji i jej transformaty I}
@@ -277,7 +305,7 @@
 			\hline
 			$f \ast (g +h ) = f \ast g + f \ast h$ & distributive \\
 			\hline
-		\end{tabular} 
+		\end{tabular}
 	\end{table}
 	%%%%%%%%%%%%%%%%
 	\begin{table}[t]
@@ -335,7 +363,7 @@
 					$\frac{1}{l} \cdot \sum\limits_{l' = 0}^{N - 1}  \widehat{f}(k') \cdot \widehat{g}(k - k')$
 				\end{tabular}
 		\end{tabular}
-	\end{table}	
+	\end{table}
 \end{frame}
 %%%%%%%%%%%%%%%%
 \begin{frame}{Transformaty 3-D i \dots}
@@ -352,7 +380,7 @@
 			k & \vec{k} = (k_1, k_2, k_3) \\
 			k\cdot x & \vec{k} \cdot \vec{x} \\
 			dx & d\vec{x} \\
-			\frac{d\vec{k}}{2\pi} & \frac{dk}{(2\pi)^3} \\	
+			\frac{d\vec{k}}{2\pi} & \frac{dk}{(2\pi)^3} \\
 			L & V_b = L_1 \cdot L_2 \cdot L_3 \\
 			H & V_c = H_1 \cdot H_2 \cdot H_3 \\
 			& \dots
