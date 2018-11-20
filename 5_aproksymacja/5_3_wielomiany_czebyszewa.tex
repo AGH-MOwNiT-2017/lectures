@@ -96,12 +96,12 @@
 	$\rightarrow$ jednostajna: $min!sup_{x \in [a,b]}|F(x)-f(x)|$ \newline
     baza $T_i(x)$ wygodna, bo $T_i(x)$ - równomierne w $[-1,1]$ \newline
     $F(x)$ \textbf{zastępujemy sumą częściową:}
-    $$F(x) \approx \sum_{j=0}^{N}c_jT_j(x)$$
+    $$F(x) \approx \sum_{j=0}^{n}c_jT_j(x)$$
     z $c_j$ wyznaczonymi z warunku ortogonalności w przypadku ciągłym
     $$F(x) = \sum_{j=0}^{\infty}c_jT_j(x)    \bigg\arrowvert \cdot\frac{T_i(x)}{\sqrt{1-x^2}}  \bigg\arrowvert \int_{-1}^{1}dx$$
     \begin{tabular}{ll}
     $c_0 = \frac{1}{\pi}\int_{-1}^{1}\frac{F(x)T_i(x)dx}{\sqrt{1-x^2}}$ &
-    $c_i = \frac{2}{\pi}\int_{-1}^{1}\frac{F(x)T_i(x)dx}{\sqrt{1-x^2}}, i=1,..,N$
+    $c_i = \frac{2}{\pi}\int_{-1}^{1}\frac{F(x)T_i(x)dx}{\sqrt{1-x^2}}, i=1,..,n$
     \end{tabular}
     
     Często - zamiast $\uparrow \rightarrow$ interpolacja $T_{n+1}(x)$
@@ -143,19 +143,19 @@
 \begin{frame}{Interpolujący wielomian Czebyszewa}
 	$T_n(x)$ zachowują się równomiernie w $[-1,1]$; min = -1, max = 1 - \textbf{ważna własność} \newline
     Do utworzenia wielomianu interpolacyjnego używamy liniowej kombinacji:
-    $$W_n(x) = \sum_{j=0}^{N}c_jT_j(x)$$
+    $$W_n(x) = \sum_{j=0}^{n}c_jT_j(x)$$
     $\{c_j\}$ - z własności ortogonalności dla przypadku dyskretnego:
-    $$x_k=\cos\Big(\frac{2k+1}{N+1}\frac{\pi}{2}\Big)\rightarrow \text{zera } T_{N+1}(x),k=0,1,..,N$$
-    $$\sum_{k=0}^{N}T_i(x_k)T_j(x_k) = \left\{\begin{array}{cc}
+    $$x_k=\cos\Big(\frac{2k+1}{n+1}\frac{\pi}{2}\Big)\rightarrow \text{zera } T_{n+1}(x),k=0,1,..,n$$
+    $$\sum_{k=0}^{n}T_i(x_k)T_j(x_k) = \left\{\begin{array}{cc}
     	0 & i \not= j \\
-        N+1 & i=j=0 \\
-        \frac{N+1}{2} & i=j\not=0
+        n+1 & i=j=0 \\
+        \frac{n+1}{2} & i=j\not=0
     \end{array}\right.$$
 \end{frame}
 %%%%%%%%%%%%%%%%%%%
 \begin{frame}{Warunek interpolacji}
-	$$f(x_k)= \sum_{j=0}^{N}c_jT_j(x_k)\Bigg\arrowvert T_i(x_k)) \Bigg\arrowvert \sum_{k=0}^{N}$$
-    $$\sum_{k=0}^{N}f(x_k)T_i(x_k)=\sum_{j=0}^{N}c_j\underbrace{\sum_{k=0}^{N}T_i(x_k)T_j(x_k)}_{\text{ortogonalność}}$$
+	$$f(x_k)= \sum_{j=0}^{n}c_jT_j(x_k)\Bigg\arrowvert T_i(x_k)) \Bigg\arrowvert \sum_{k=0}^{n}$$
+    $$\sum_{k=0}^{n}f(x_k)T_i(x_k)=\sum_{j=0}^{n}c_j\underbrace{\sum_{k=0}^{n}T_i(x_k)T_j(x_k)}_{\text{ortogonalność}}$$
 \end{frame}
 %%%%%%%%%%%%%%%%%%%
 \begin{frame}
@@ -164,8 +164,8 @@
 	\end{figure}
 \end{frame}
 \begin{frame}{Współczynniki $c_i$}
-	$$c_0 = \frac{1}{N+1}\sum_{k=0}^{N}f(x_k)T_0(x)=1$$
-    $$c_i = \frac{2}{N+1}\sum_{k=0}^{N}f(x_k)T_i(x_k)$$
+	$$c_0 = \frac{1}{n+1}\sum_{k=0}^{n}f(x_k)T_0(x)=1$$
+    $$c_i = \frac{2}{n+1}\sum_{k=0}^{n}f(x_k)T_i(x_k)$$
     Pozostaje nam wyliczenie sumy.
 \end{frame}
 %%%%%%%%%%%%%%%%%%%
