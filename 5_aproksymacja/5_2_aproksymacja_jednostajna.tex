@@ -2,16 +2,17 @@
 %%%%%%%%%%%%%%%%%%%
 \begin{frame}
 	Dla $F(x)$ określonej na $[a,b]$ szukamy $f(x)$:
-    $$min!\mathbf{F(x)-f(x)} = min!\underbrace{sup_{x \in [a,b]}|F(x)-f(x)|}_{\text{norma Czebyszewa}}$$
+    $$min! (\mathbf{F(x)-f(x)}) = min!\underbrace{sup_{x \in [a,b]}|F(x)-f(x)|}_{\text{norma Czebyszewa}}$$
 \end{frame}
 %%%%%%%%%%%%%%%%%%%
 \begin{frame}
 	\begin{block}{Twierdzenie Weierstrassa}
-	Jeżeli $F(x) \in C^0[a,b]$ to dla każdego $\varepsilon>0$ można dobrać $n(\varepsilon)$ takie, że istnieje $|F(x)-W_n(x)|<\varepsilon \Rightarrow F(x)$ można aproksymować jednostajnie wielomianami.
+	Jeżeli $F(x) \in C^0[a,b]$, to dla każdego $\varepsilon>0$ można dobrać $n(\varepsilon)$ takie, że istnieje $W_n(x): |F(x)-W_n(x)|<\varepsilon$ \newline
+    \newline Wniosek: $F(x)$ można aproksymować jednostajnie wielomianami.
 	\end{block}
-    szukamy $a_i$:\newline
+    Szukamy $a_i$:\newline
     $W_n(x) = \sum_{i=0}^{n}a_ix^i$ aby $min!E_n$, \newline
-    $E_n = max_{x \in [a,b]}$a,b
+    $E_n = max_{x \in [a,b]} |F(x) - W_n(x)|$
 \end{frame}
 %%%%%%%%%%%%%%%%%%%
 \begin{frame}
