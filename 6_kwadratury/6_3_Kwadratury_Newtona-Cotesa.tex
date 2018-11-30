@@ -1,7 +1,9 @@
 \section{Kwadratury Newtona-Cotesa}
 %%%%%%%%%%%%%%%%%%%%%%%%%
 	\begin{frame}{Kwadratury Newtona-Cotesa}
-	
+		Zamiana problematycznej funkcji podcałkowej na prosty wielomian interpolujący.
+		$\newline$$\newline$
+		\textcolor{blue}{Charakterystyka kwadratur N-C:}
     	\begin{itemize}
     	\item wzór interpolacyjny Lagrange'a:
         \[
@@ -9,11 +11,17 @@
         \]
         \item węzły równoodległe
     	\end{itemize}
+    	$\newline$
+    	\textcolor{blue}{Uwagi:}
+    	\begin{itemize}
+    	\item metody prostokątów i trapezów są szczególnymi przypadkami kwadratur N-C
+    	\item lepsze efekty uzyskuje się zastępując węzły równoodległe węzłami Czebyszewa
+    	\end{itemize}
 	\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%
 	\begin{frame}{Wzory zamknięte N-C}
     	$$
-        h=\frac{b-a}{n}, a=x_{0}<x_{1}<\ldots<x_{n}=b, x_{i}=x_{0}+i\cdot h, i=0, 1, \ldots , n
+        h=\frac{b-a}{n},\ a=x_{0}<x_{1}<\ldots<x_{n}=b,\newline x_{i}=x_{0}+i\cdot h,\ i=0, 1, \ldots , n
         $$
           $$
 \int_{a}^{b}f(x)dx=\sum_{i=0}^{n}a_{i}f(x_{i})+E
@@ -25,7 +33,7 @@ a_{i}=\int_{x_{0}}^{x_{n}}L_{i}(x)dx=\int_{x_{0}}^{x_{n}}\prod_{j=0,j\neq i}^{n}
           $$
           \begin{itemize}
           \item wszystkie $a_{i}>0$ tylko dla $:n\leq 7, n=9$
-          \item $\sum a_{i}$ =długości przedzialu całkowania(dlaczego?)
+          \item $\sum a_{i}$ =długości przedziału całkowania(dlaczego?)
           \end{itemize}
          \begin{flushright}
          	\textbf{Zadanie: pokazać}
@@ -52,7 +60,7 @@ a_{i}=\int_{x_{0}}^{x_{n}}L_{i}(x)dx=\int_{x_{0}}^{x_{n}}\prod_{j=0,j\neq i}^{n}
         \end{flushright}
 	\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%
-	\begin{frame}{Najczęściej używane formuły zamknięte Newtona-Cotesa}
+	\begin{frame}{Najczęściej używane formuły zamknięte N-C}
 		a) $n=1$, Trapezoid Rule
         $$
           \int_{x_{0}}^{x_{1}}f(x)dx=\frac{h}{2}[f(x_{0})+f(x_{1})]-\frac{h^{3}}{12}f''(\eta)\ ,\ \eta\in[a,\ b]
@@ -81,7 +89,7 @@ a_{i}=\int_{x_{0}}^{x_{n}}L_{i}(x)dx=\int_{x_{0}}^{x_{n}}\prod_{j=0,j\neq i}^{n}
 	\begin{frame}{Wzory otwarte N-C}
 		
 $h=\frac{b-a}{n+2} \ \ , a=x_{-1}<x_{0}<x_{1}<\ldots<x_{n}<x_{n+1}=b,$\\ $\newline$
-$x_{i}=x_{0}+i\cdot h, i=0, 1,\ldots,n$
+$x_{i}=x_{0}+i\cdot h,\ i=0, 1,\ldots,n$
 
    	$$
     \int_{a}^{b}f(x)dx=\int_{x_{-1}}^{x_{n+1}}f(x)dx=\sum_{i=0}^{n}a_{i}f(x_{i})+E
@@ -101,10 +109,13 @@ wszystkie $a_{i}>0$ tylko dla $n=1$, 2, 3, 5.
      $$
 		E= \frac{h^{n+3}\cdot f^{(n+2)}(\eta)}{(n+2)!}\int_{-1}^{n+1}t^{2}(t-1)\ldots(t-n)dt,
     $$
+     stopień dokładności: (n+1) 
+     $\newline$
     \item {\it n-nieparzyste}, $f\in C^{n+1}[a,\ b]$
     $$
 		E= \frac{h^{n+2}\cdot f^{(n+1)}(\eta)}{(n+1)!}\int_{-1}^{n+1}t(t-1)\ldots(t-n)dt,
     $$
+     stopień dokładności: (n) 
 	\end{itemize}
 	\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%
@@ -120,25 +131,26 @@ b) $n=1$
 \int_{x-1}^{x_{2}}f(x)dx=\frac{3h}{2}[f(x_{0})+f(x_{1})]+\frac{3h^{3}}{4}f''(\eta)
 		$$
 
-$n=2$ \textbf{, Milne's Rule}
+c) $n=2$ \textbf{, Milne's Rule}
 		$$
 \int_{x-1}^{x_{3}}f(x)dx=\frac{4h}{3}[2f(x_{0})-f(x_{1})+2f(x_{2})]+\frac{14h^{5}}{45}f^{(4)}(\eta)
 		$$
 
-$n=3$
+d) $n=3$
 		$$
 \int_{x-1}^{x_{4}}f(x)dx=\frac{5h}{24} [11f(x_{0})+f(x_{1})+f(x_{2})+11f(x_{3})]+ \frac{95h^{5}}{144}f^{(4)}(\eta)
 		$$
 	\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%
 	\begin{frame}{Kwadratury N-C -- podsumowanie}
-% 		- zwiększenie stopnia dokładności (otwartych i zamkniętych) przez dodanie co najmniej 2 nowych węzłów \newline\newline
-%         - otwarte -- na ogół gorsze od zamkniętych, używane:\\
-%         	\hspace{10mm} $\bullet$ osobliwości w granicach przedziału\\
-%             \hspace{10mm} $\bullet$ w numerycznym rozwiązywaniu równań różniczkowych zwyczajnych\newline\newline
-%         - możliwe formuły półotwarte (półzamknięte)
     \begin{itemize}
     	\item zwiększenie stopnia dokładności (otwartych i zamkniętych) przez dodanie co najmniej 2 nowych węzłów
+    		
+    	\item w przypadku dodania jednego punktu dla:
+    	\begin{itemize}
+    		\item[*] parzystej liczby węzłów $\rightarrow$ brak zmian st. dokładności,
+    		\item[*] nieparzytej liczby węzłów $\rightarrow$ wzrost st. dokładności o 2
+    	\end{itemize}
     	\item otwarte -- na ogół gorsze od zamkniętych, używane:
     		\begin{itemize}
     			\item[*] osobliwości w granicach przedziału
@@ -149,21 +161,10 @@ $n=3$
 	\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%
 	\begin{frame}
-%         - ze wzrostem $n$:\\
-% 			\hspace{10mm}$\bullet$ malenie stałego czynnika w $E$ , lecz wzrost rzędu pochodnej\\
-% 			\hspace{10mm}$\bullet$ trudności z oszacowaniem $E,$\\
-% 			\hspace{10mm}$\bullet$ duże wartości $f^{(n+1)}(\eta)$\\
-% 			\hspace{10mm}$\bullet$ $a_{i}>0:$\\
-% 			\hspace{10mm}zamknięte - tylko $n=1$, 2,\ldots 7 i 9\\
-% 			\hspace{10mm}otwarte - tylko $n=$1, 2, 3 i 5. - złe uwarunkowanie\\
-% 			\hspace{10mm}$\bullet$ oscylacyjny charakter wielomianu interpolacyjnego (zwłaszcza, że
-% 			węzły są równoodległe)\\
-% 			\hspace{10mm}$\bullet$ trudne do uzyskania liczby Cotesa\newline\newline
-% 		- $ \sum_{i=1}^{n}a_{i}=(b-a)$ ($\rightarrow$ dlaczego?).\\
 	\begin{itemize}
-		\item ze wzrostem $n$:
+		\item efekty wzrostu $n$:
         \begin{itemize}
-        	\item[*]  malenie stałego czynnika w $E$ , lecz wzrost rzędu pochodnej
+        	\item[*]  zmniejszanie stałego czynnika w $E$ , lecz wzrost rzędu pochodnej
             \item[*] trudności z oszacowaniem $E$
             \item[*] duże wartości $f^{(n+1)}(\eta)$
             \item[*] $a_{i}>0:$

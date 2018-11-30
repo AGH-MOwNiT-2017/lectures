@@ -4,19 +4,19 @@
       Całkowity błąd złożonej kwadratury trapezów:
       $\newline$
       $$E=\displaystyle \sum_{i=1}^{\infty}a_{i}h^{2i}$$
-	  $$a_{i}=a_{i}(a,\ b,\ f(x)) , \ \ \textbf{nie zalezy od h!}$$
+	  $$a_{i}=a_{i}(a,\ b,\ f(x)) , \ \ \textbf{nie zależy od h!}$$
     \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%
 	\begin{frame}
     		
   	  	$\hfill${\it Zadanie}: p. Ralston
 	
-      	aby tak było -- $f\in C^{\infty}[a,\ b] \quad=\displaystyle \int_{a}^{b}f(x)dx$;
+      	Aby tak było $\rightarrow$ $f\in C^{\infty}[a,\ b]; \quad I =\displaystyle \int_{a}^{b}f(x)dx$;
 
-      	$T_{a,j}$ - -wynik kwadratury trapezów dla $h_{j}=\displaystyle \frac{b-a}{2j}$
+      	$T_{a,j}$ -\ wynik kwadratury trapezów dla $h_{j}=\displaystyle  \frac{b-a}{2j}$
 		$\newline$
         
-	  	\textbf{- 1-szy krok:}
+	  	\textbf{1-szy krok:}
 
 		$\left\{\begin{array}{l}
 			I-T_{0,j}=a_{2}h_{j}^{2}+a_{4}h_{j}^{4}+\ldots\\
@@ -34,11 +34,11 @@
     \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%
 	\begin{frame}
-    	\textbf{- 2-gi krok:}
+    	\textbf{2-gi krok:}
         
         $\left\{\begin{array}{l}
         	I-T_{1,j}=b_{4}h_{j}^{2}+b_{6}h_{j}^{4}+\ldots \\
-        	I-T_{1,j+1}=b_{4}h_{j+1}^{2}+b_{6}h_{j+1}^{4}+\ldots\ *4_{j}j-j/3
+        	I-T_{1,j+1}=b_{4}h_{j+1}^{2}+b_{6}h_{j+1}^{4}+\ldots\quad\;*4;-;/3
         \end{array}\right.$
         
         $$
@@ -105,19 +105,19 @@
     \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%
 	\begin{frame}
-    	Zbieżność całkowania Romberga $\rightarrow$ patrz Ralston $\newline$
+    	\textcolor{blue}{Zbieżność całkowania Romberga} $\rightarrow$ patrz Ralston $\newline$
 
-        Ogólnie: im wyższe $\mathrm{i}, h^{i}\rightarrow$ tym większe $f^{i}(\eta)$ $\newline$
+        \textbf{Ogólnie:}$\newline$ Im wyższe $\mathrm{i}, h^{i}\rightarrow$ tym większe $f^{i}(\eta)$ $\newline$
 		ale -- w całkowaniu trapezów $\rightarrow$ zbieżność! $\newline$
         
-		gdy $f(x)\in C^{\infty}[a,\ b]$, {\it to}:
+		\textbf{Gdy $f(x)\in C^{\infty}[a,\ b]$,  to}:
+		\begin{itemize}
+		\item w kolumnach $\displaystyle \lim_{l\rightarrow\infty}T_{p,l}\rightarrow I$;\quad $w\ (p+1)$ szybciej niż w $p$
 
-		\quad - w kolumnach $\displaystyle \lim_{l\rightarrow\infty}T_{p,l}\rightarrow I$;\quad $w (p+1)$ szybciej niż w $p$
-
-		\quad - ciąg diagonalny $T_{i,i}$ szybciej zbieżny do I niż ciągi w kolumnach
-        $\newline$
-
-		stąd warunek zakończenia:
+		\item ciąg diagonalny $T_{i,i}$ szybciej zbieżny do I niż ciągi w kolumnach
+		\end{itemize}
+       
+		Stąd warunek zakończenia:
         \begin{center}
         	$|T_{m,0}-T_{m-1,0}|<\delta \cdot |T_{m,0}|, \delta-$ {\it zadane}.
         \end{center}
@@ -125,20 +125,23 @@
         Reszta schematu Romberga:
         \begin{center}
         	$E=c(i,\ j)\cdot h^{2j+2}\cdot f^{2j+2}(\eta)$
-        \end{center}
-		\hfill$c(i,\ j)$ - stała malejąca z $i$, $j$\quad $h=\displaystyle \frac{b-a}{2^{i+j}}.$
-
+        
+		$c(i,\ j)$ - stała malejąca z $i$, $j$\quad $h=\displaystyle \frac{b-a}{2^{i+j}}.$
+		\end{center}
 
     \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{frame}
-    	Schemat Romberga wymaga by błąd kwadratury w  $i$-tym wierszu:
+    \textbf{Uwagi:}
+    \begin{itemize}
+    	\item Schemat Romberga wymaga, by błąd kwadratury w  $i$-tym wierszu:
         \begin{center}
         	$E=\displaystyle \sum_{l=1}^{i}a_{l}h_{i}^{2l}+O(h_{i}^{2i+2})\ ,\quad\ f\in C^{2i+2}[a,\ b]$   
         \end{center}
 W procedurze powinno to być sprawdzane!
 
-Procedury całkowania Romberga mogą być adaptacyjne.
+\item Procedury całkowania Romberga mogą być adaptacyjne.
+\end{itemize}
     \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%
 		
