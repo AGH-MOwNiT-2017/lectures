@@ -1,63 +1,110 @@
+% !TeX spellcheck = pl_PL
 \section{Metoda różnic skończonych}
 
 %%%%%%%%%%%%%%%% 
 	\begin{frame}{Metoda różnic skończonych}
+		Cel: Przybliżenie pochodnych różnicami skończonymi
 		Wprowadzamy siatkę:
 		\begin{itemize}
-			\item $x = i \cdot h, i = 0,1 ... , N$					
-			\item $N \cdot h = \frac{\pi}{2}$		
+			\item $\Omega = (0, X), \varphi_i = \varphi(x_i), i = 0,1,...,N$
+			\item $x_i = i \cdot h$ - punkty siatki					
+			\item $h = \frac{X}{N}$ - odstępy między punktami		
 		\end{itemize}
 
-		$$\frac{d^2 \varphi}{dx^2} = \frac{\varphi_{i+1} - 2 \cdot \varphi_i + \varphi_{i-1}}{h^2} + O(h^2)$$
-
-		\begin{block}{Równanie różniczkowe $\Rightarrow$ układ równań różniczkowych}
-			$$
-			\begin{cases}
-				\varphi_{i-1} + (h^2 - 2)\varphi_i + \varphi_{i+1} = h^2 \cdot \alpha, i = 1,2, ..., N-1 \\
-				\varphi_0 = 1 \\
-				\varphi_N = 1
-			\end{cases}
-			$$
-		\end{block}	
+		$$\frac{\partial \varphi_i}{\partial x} = \frac{\varphi_{i+1} - \varphi_{i-1}}{2h^2} + O(h^2)$$ \\
+		$$\frac{\partial^2 \varphi_i}{\partial x^2} = \frac{\varphi_{i+1} - 2 \varphi_i + \varphi_{i-1}}{h^2} + O(h^2)$$
 	\end{frame}
+%%%%%%%%%%%%%%%%
+\begin{frame}{Metoda różnic skończonych}
+		\begin{exampleblock}{Przejście z równania różniczkowego na układ równań}
+		Przypomnijmy równanie z warunkami brzegowymi:
+		$$
+		\begin{cases}
+		\varphi^{''}(x) + \varphi(x) = \alpha \\
+		\varphi(0) = \varphi(\frac{\pi}{2}) = 1 \\
+		\end{cases}
+		$$
+		Przybliżając pochodne różnicami skończonymi otrzymujemy:
+		$$
+		\begin{cases}
+		\varphi_{i-1} + (h^2 - 2)\varphi_i + \varphi_{i+1} = h^2 \cdot \alpha \quad \forall_{i \in \{1,2, ..., N-1\}} \\
+		\varphi_0 = 1 \\
+		\varphi_N = 1
+		\end{cases}
+		$$
+	\end{exampleblock}	
+\end{frame}
 
 %%%%%%%%%%%%%%%% 
 
-	\begin{frame}{Metoda różnic skończonych - zapis macierzowy}
-		\textbf{Zapis macierzowy po włączeniu warunku brzegowego}
+\begin{frame}{Metoda różnic skończonych - zapis macierzowy}
+	\begin{exampleblock}{Zapis macierzowy po włączeniu warunku brzegowego}
+	{\scriptsize
+	$$
+	\begin{bmatrix}
+	(h^2 -2) & 1 &  &  &  &  & \\ 
+	1&  (h^2 -2)& 1 &  &  &  & \\ 
+	& 1 &  (h^2 -2)& 1 &  &  & \\ 
+	&  &  ...& &  &  & \\ 
+	&  & 1 & (h^2 -2) &  1& & \\ 
+	&  &  & 1 &  (h^2 -2)& 1 &
+	\end{bmatrix}		
+	\begin{bmatrix}
+	\varphi_1 \\
+	\varphi_2 \\
+	\varphi_3 \\
+	...\\
+	\varphi_{N-2}\\
+	\varphi_{N-1}\\
+	\end{bmatrix}		
+	= 		
+	\begin{bmatrix} 
+	h^2\alpha -1 \\
+	h^2\alpha\\
+	h^2\alpha\\
+	... \\
+	h^2\alpha\\
+	h^2\alpha - 1\\
+	\end{bmatrix}
+	$$}
+	
+	Postać prawej strony (dla $i = 1$ oraz $i = N-1$) jest wynikiem włączenia warunków brzegowych w zapis macierzowy
+	\end{exampleblock}
+\end{frame}
+%%%%%%%%%%%%%%%%
+\begin{frame}{Metoda różnic skończonych}
+	\begin{exampleblock}{Przejście z równania różniczkowego na układ równań}
+		Przypomnijmy równanie z warunkami brzegowymi:
 		$$
-		\footnotesize
-		\begin{bmatrix}
-		(h^2 -2) & 1 &  &  &  &  & \\ 
-		 1&  (h^2 -2)& 1 &  &  &  & \\ 
-		 & 1 &  (h^2 -2)& 1 &  &  & \\ 
-		 &  &  ...& &  &  & \\ 
-		  &  & 1 & (h^2 -2) &  1& & \\ 
-		  &  &  & 1 &  (h^2 -2)& 1 &
-		\end{bmatrix}		
-		\begin{bmatrix}
-		 \varphi_1 \\
-		 \varphi_2 \\
-		 \varphi_3 \\
-		 ...\\
-		 \varphi_{N-2}\\
-		 \varphi_{N-1}\\
-		\end{bmatrix}		
-		= 		
-		\begin{bmatrix} 
-		 h^2\alpha -1 \\
-		 h^2\alpha\\
-		 h^2\alpha\\
-		 ... \\
-		 h^2\alpha\\
-		 h^2\alpha - 1\\
-		\end{bmatrix}
+		\begin{cases}
+		\varphi^{''}(x) + \varphi(x) = \alpha \\
+		\varphi(0) = \varphi(\frac{\pi}{2}) = 1 \\
+		\end{cases}
 		$$
+		Przybliżając pochodne różnicami skończonymi otrzymujemy:
+		$$
+		\begin{cases}
+		\varphi_{i-1} + (h^2 - 2)\varphi_i + \varphi_{i+1} = h^2 \cdot \alpha \quad \forall_{i \in \{1,2, ..., N-1\}} \\
+		\varphi_0 = 1 \\
+		\varphi_N = 1
+		\end{cases}
+		$$
+	\end{exampleblock}	
+\end{frame}
 
-		
-		Postać prawej strony $(i = 1; i = N-1)$ $\leftarrow$ wynik włączenia warunku brzegowego w zapis macierzowy.
-		
-	\end{frame}
+%%%%%%%%%%%%%%%% 
+
+\begin{frame}{Literatura}	
+	\begin{thebibliography}{1}
+		\setbeamertemplate{bibliography item}[online]
+			
+		\bibitem{MRS}{
+			J.~Peterson
+			\newblock Finite Difference Methods for Boundary Value Problems
+			\newblock \url{http://people.sc.fsu.edu/~jpeterson/notes_fd.pdf}
+		}
+	\end{thebibliography}
+\end{frame}
 
 
 
