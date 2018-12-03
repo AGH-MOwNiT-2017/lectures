@@ -29,23 +29,23 @@ $L_{k}(x_{l})=\delta_{k,l}=\left\{\begin{array}{l}
 1,\ k=l\ (\star\star)
 \end{array}\right. \text{f. ,,wymierna''} $
 
-$(\star)\rightarrow$ licznik 
-$=(x-x_{0})(x-x_{1})\ldots(x-x_{k-1})^{\downarrow}(x-x_{k+1})\ldots(x-x_{n})$
+$(\star)$ -- licznik $d$
+$d=(x-x_{0})(x-x_{1})\ldots(x-x_{k-1})^{\downarrow}(x-x_{k+1})\ldots(x-x_{n})$
 
-$(\star\star)\rightarrow$ mianownik 
-$=(x_{k}-x_{0})(x_{k}-x_{1})\ldots(x_{k}-x_{k-1})(x_{k}-x_{k+1})\ldots(x_{k}-x_{n})$
+$(\star\star)$ -- mianownik $m$
+$m=(x_{k}-x_{0})(x_{k}-x_{1})\ldots(x_{k}-x_{k-1})(x_{k}-x_{k+1})\ldots(x_{k}-x_{n})$
 
 LIP:
 
-$$L_{k}(x)=\prod_{i/0,i\neq k}^{n}\frac{x-x_{i}}{(x_{k}-xi)}\ , \quad P_{n}(x)=\sum_{k/0}^{n}L_{k}(x)f(x_{k})$$
+$$L_{k}(x) = \frac{d}{m} = \prod_{i=0,i\neq k}^{n}\frac{x-x_{i}}{(x_{k}-x_{i})}\ , \quad P_{n}(x)=\sum_{k=0}^{n}L_{k}(x)f(x_{k})$$
 
-\textbf{Zadanie:} wykres $L_{k}(x)$ , sprawdzić $\displaystyle \sum_{k/0}^{n}L_{k}(x)=1$
+\textbf{Zadanie:} wykres $L_{k}(x)$ , sprawdzić $\displaystyle \sum_{k=0}^{n}L_{k}(x)=1$
 \end{frame}
 
 
 \begin{frame}{3.5.3 Jednoznaczność rozwiązania}
 
-$P_{n}(x)$ -wiel. stopnia $\leq n$, przechodzący przez punkty:
+$P_{n}(x)$ -- wiel. stopnia $\leq n$, przechodzący przez punkty:
 $$
 \{(x_{i},\ f_{i}),\ i=0,\ 1,\ 2,\cdots ,\ n\ ,\ x_{i}\neq x_{j}\}
 $$
@@ -54,14 +54,14 @@ $$
 
 Jest tylko jeden taki wielomian.\\
 \vspace{2mm}
-\textbf{Dane:} Niech $\exists q_{n}(x)\neq P_{n}(x)$ , przez w/w punkty,
+\textbf{Dane:} Niech $\exists q_{n}(x)\neq P_{n}(x)$ , przechodzący przez w/w punkty.
 
-$\Rightarrow r_{n}(x)=P_{n}(x) \quad -q_{n}(x)$ -wiel. stopnia $\leq n$
+Ustalmy $r_{n}(x)=P_{n}(x) - q_{n}(x)$ -- wiel. stopnia $\leq n$
 $$
- \: -r_{n}(x_{i})=0,\ i=\underbrace{0,1, \dots, n}_{n+1}
+ \: r_{n}(x_{i})=0,\ i=\underbrace{0,1, \dots, n}_{n+1}
 $$
 $$
-\Rightarrow r_{n}(x)\equiv 0
+r_{n}(x) \equiv 0
 $$
 \end{block}
 \end{frame}
@@ -69,7 +69,7 @@ $$
 \begin{frame}{3.5.4 Błąd interpolacji Lagrange'a}
 
 \begin{block}
-{Dygresja: Twierdzenie uogólnione $Tw$. {\it Rollea}:}
+{Dygresja: Twierdzenie uogólnione $Tw$. {\it Rolle'a}:}
 
 Założenia:
 \begin{center}
@@ -88,28 +88,28 @@ $$
 
 Twierdzenie Rolle'a kolejno do:
 
-$f \rightarrow f'\mathrm{o}$ {\it n}- zerach
+$f \rightarrow f'\mathrm{o}$ {\it n} zerach
 
-$f' \rightarrow f'' \:o\:(n-1)$ --zerach \newline
-$f^{(n-1)} \rightarrow f^{(n)} o\: 1$ \: --zerze
+$f' \rightarrow f'' \:o\:(n-1)$ zerach \newline
+$f^{(n-1)} \rightarrow f^{(n)} o\: 1$ zerze
  \end{frame}
- 
+
  \begin{frame}
  \begin{figure}[h]
 			\includegraphics[width=1 \linewidth]{img/3/interpol_3_5}
 	\end{figure}
-Rysunek 3.2: Funkcja spelniająca zalożenia uogólnionego tw. Rolle'a 
+Rysunek 3.2: Funkcja spelniająca zalożenia uogólnionego tw. Rolle'a
  \end{frame}
- 
- 
- 
+
+
+
  \begin{frame}
 
 Założenia:
 
 \begin{itemize}
-\item $x_{0}, x_{1}$, . . . , $x_{n}\in[a,\ b]$ różne punkty 
-\item $P_{n}(x)$ -wiel. interpolacyjny Lagrange'a 
+\item $x_{0}, x_{1}$, . . . , $x_{n}\in[a,\ b]$ -- różne punkty
+\item $P_{n}(x)$ -- wiel. interpolacyjny Lagrange'a
 \item $f\in C^{(n+1)}[a,\ b]$
 \end{itemize}
 
@@ -117,7 +117,7 @@ Założenia:
 {Teza:}
 $$\forall x\in[a,\ b]\ \exists\eta(x)\in(a,\ b)\ :$$
 
-$$f(x)=P_{n}(x)+\frac{f^{n+1}(\eta(x))}{(n+1)!}\prod_{i/0}^{n}(x-x_{i})\ (\star)$$
+$$f(x)=P_{n}(x)+\frac{f^{n+1}(\eta(x))}{(n+1)!}\prod_{i=0}^{n}(x-x_{i})\ (\star)$$
 \end{block}
 
 \end{frame}
@@ -125,29 +125,29 @@ $$f(x)=P_{n}(x)+\frac{f^{n+1}(\eta(x))}{(n+1)!}\prod_{i/0}^{n}(x-x_{i})\ (\star)
 \begin{frame}
 Dane:
 
-$x=x_{k}, k=0$, 2, . . . , $n \rightarrow f(x_{k})=P_{n}(x_{k})\Rightarrow$dowolny $\eta$ spelnia $(\star)$ \newline
+$x=x_{k}, k=0$, 1, . . . , $n \rightarrow f(x_{k})=P_{n}(x_{k})\Rightarrow$dowolny $\eta$ spelnia $(\star)$ \newline
 - dla ustalonego $x\neq x_{k}, k=0$, 1, . . . , $n\Rightarrow g(t)$ , $[a,\ b]$ :
 
-$$g(t)=f(t)-P_{n}(t)-[f(x)-P_{n}(x)]\prod_{i/0}^{n}\frac{t-x_{i}}{x-x_{i}}$$
+$$g(t)=f(t)-P_{n}(t)-[f(x)-P_{n}(x)]\prod_{i=0}^{n}\frac{t-x_{i}}{x-x_{i}}$$
 
 $$
  \left. \begin{array}{ll}
 f\in C^{(n+1)}[a,\ b] \\
 P\in C^{\infty}[a,\ b]\\
 x\neq x_{k}
-\end{array} \right \} \Rightarrow g(t)\in C^{(n+1)}[a,\ b] 
+\end{array} \right \} \Rightarrow g(t)\in C^{(n+1)}[a,\ b]
 $$
 
 $\fbox{$t=x_{k}:$}$
 
-$$g(x_{k})=\underbrace{f(x_{k})-P_{n}(x_{k})}_{=0}-[f(x)-P_{n}(x)]\underbrace{\prod_{i/0}^{n}\frac{x_{k}-x_{i}}{x-x_{i}}}_{=0}=0$$
+$$g(x_{k})=\underbrace{f(x_{k})-P_{n}(x_{k})}_{=0}-[f(x)-P_{n}(x)]\underbrace{\prod_{i=0}^{n}\frac{x_{k}-x_{i}}{x-x_{i}}}_{=0}=0$$
 
 \end{frame}
 
 \begin{frame}
 $\fbox{$t=x:$}$
 $$
-g(x)=f(x)-P_{n}(x)-[f(x)-P_{n}(x)]\underbrace{\prod_{i/0}^{n}\frac{x-x_{i}}{x-x_{i}}}_{=1}=0
+g(x)=f(x)-P_{n}(x)-[f(x)-P_{n}(x)]\underbrace{\prod_{i=0}^{n}\frac{x-x_{i}}{x-x_{i}}}_{=1}=0
 $$
 $\Rightarrow g(t)$ ma $(n+2)$ miejsc zerowych: $x, x_{0}, x_{1}$, . . . , $x_{n}$ \newline \newline
 Zastosowanie twierdzenia Rolle'a:
@@ -155,25 +155,25 @@ Zastosowanie twierdzenia Rolle'a:
 
 $$\begin{array}{ll}
 0=g^{(n+1)}(\displaystyle \eta)= \\
-f^{(n+1)}(\eta)-\underbrace{P_{n}^{(n+1)}(\eta)}_{=0}-[f(x)-P_{n}(x)]\frac{d^{n+1}}{dx^{n+1}} \left \{\prod_{i/0}^{n}\frac{t-x_{i}}{x-x_{i}} \right \}_{t=\eta}  \end{array}$$
+f^{(n+1)}(\eta)-\underbrace{P_{n}^{(n+1)}(\eta)}_{=0}-[f(x)-P_{n}(x)]\frac{d^{n+1}}{dx^{n+1}} \left \{\prod_{i=0}^{n}\frac{t-x_{i}}{x-x_{i}} \right \}_{t=\eta}  \end{array}$$
 
 
  \end{frame}
- 
+
  \begin{frame}
- 
+
 
 $\displaystyle \prod_{i/0}^{n}\frac{t-x_{i}}{x-x_{i}}=\frac{t^{n+1}}{\prod_{i/0}^{n}(x-x_{i})}+at^{n}+\cdots$
 $$
-f^{(n+1)}(\eta)=[f(x)-P_{n}(x)]\frac{(n+1)!}{\prod_{i/0}^{n}(x-x_{i})}
+f^{(n+1)}(\eta)=[f(x)-P_{n}(x)]\frac{(n+1)!}{\prod_{i=0}^{n}(x-x_{i})}
 $$
-\textbf{błąd interpolacji Lagrange'a:}
+\textbf{Błąd interpolacji Lagrange'a:}
 $$
-f(x)=P_{n}(x)+\underbrace{\frac{f^{n+1}(\eta(x))}{(n+1)!}\prod_{i/0}^{n}(x-x_{i})}_{- por.\: reszta\: Taylora!}
+f(x)=P_{n}(x)+\underbrace{\frac{f^{n+1}(\eta(x))}{(n+1)!}\prod_{i/0}^{n}(x-x_{i})}_{Porównaj\: z resztą\: Taylora!}
 $$
 
 
-\textbf{Zadanie:} Wyprowadź r. Taylora powyższą metodą \\
+\textbf{Zadanie:} Wyprowadź resztę Taylora powyższą metodą \\
 \end{frame}
 
 \begin{frame}
@@ -185,6 +185,6 @@ $\displaystyle \omega(x)=\prod_{k/0}^{n}(x-x_{k})$
 $P_{n}(x)=\displaystyle \omega(x)\sum_{k/0}^{n}\frac{f(x_{k})}{(x-x_{k})\omega ^{'}(x_{k})}$ \\
 \vspace{5mm}
 
-\textbf{Zadanie:} Sprawdzić
- 
+\textbf{Zadanie:} Sprawdzić.
+
  \end{frame}
