@@ -37,6 +37,8 @@
   \end{frame}
 
   \begin{frame}{Przeglądanie siatki \emph{(grid search)}}
+    Problem z doborem rozmiaru siatki, tak aby nie zgubić szukanej wartości.
+
     \includegraphics[width=1\textwidth]{img/17/przegladanie_siatki}
   \end{frame}
 
@@ -131,11 +133,11 @@
       inteligentnemu przeciwnikowi.\\
       Podejście dobre dla patologicznych funkcji.
     \end{block}
-    \begin{block}{Modyfikacje metody -- Przykład}
+    \begin{examples}{Modyfikacje metody -- Przykład}
       \textbf{Metoda Bermana}
       $x_{0} = \frac{a + b}{2}$; poszukiwanie tam, gdzie $f$ maleje.
       Ustalony krok, w drugą stronę -- z mniejszym krokiem.
-    \end{block}
+    \end{examples}
   \end{frame}
 
 \subsection{Kwadratowa interpolacja i aproksymacja}
@@ -149,7 +151,7 @@
         \item Min $f(x) $ to min paraboli przechodzącej przez
         $x_{1}{, }x_{2}{, }x_{3}$, znajduje się w punkcie $x_4$:
         \begin{displaymath}
-          x_4 = \frac{
+          x_4 = - \frac{
             \frac{f_{1}*(x_{2}+x_{3})}{(x_{1}-x_{2})*(x_{1}-x_{3})} +
             \frac{f_{2}*(x_{1}+x_{3})}{(x_{2}-x_{1})*(x_{2}-x_{3})} +
             \frac{f_{3}*(x_{1}+x_{2})}{(x_{3}-x_{1})*(x_{3}-x_{2})}
