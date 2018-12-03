@@ -1,37 +1,56 @@
 \section{Metody krokowe dla n-D (stepping methods in many variables)}
 
 \subsection{Przeszukiwanie losowe}
-
-  \begin{frame}{Przeszukiwanie losowe} %frame - granice slajdu
+  \begin{frame}{Przeszukiwanie losowe}
 
     \begin{block}{}
- 	  \begin{itemize} % itemize - granice punktowania
- 		\item[--] szukanie na siatce dla $n > 2$ - bez sensu \emph{(grid search)} % emph - kursywa
- 		\item[--] doświadczenie z całkowania $\rightarrow$ mogą być tu też przydatne metody Monte-Carlo % item - pojedyncze wypunktowanie
- 	  	\item[--] $\vec{x_i}$ - wybierane losowo, zgodnie z rozkładem: % $ .. $ - tekst matematyczny
- 	  	\begin{itemize}
- 		  \item równomiernym,
- 		  \item normalnym
- 	  	\end{itemize}
- 	  	\item[--] o środku w najlepszym ze znalezionych punktów,
- 	  	\\przy zadanej szerokości.
- 	  	\item[--] stosowane, gdy: % \\ - złamanie linii
- 	  	\begin{itemize}
- 		  \item nic nie wiadomo o $F(x)$,
- 		  \item $F(x)$ ma kilka minimów,
- 		  \item dla ustalenia rozsądnego punktu startowego
- 	  	\end{itemize}
- 	  \end{itemize}
- 	\end{block}
+      \textbf{Problem: } Grid search na n-D -- złożoność czasowa $O(k^n)$.\\
+      Algorytm niepraktyczny dla $n > 2$.\\
+      \textbf{Rozwiązanie: } Metody Monte-Carlo -- Wybór próbek losowo.
+    \end{block}
 
+    \begin{block}{Realizacja}
+   	  \begin{itemize}
+   	  	\item[--] $\vec{x_i}$ - ustalane losowo, zgodnie z rozkładem:
+   	  	\begin{itemize}
+   		  \item równomiernym,
+   		  \item normalnym
+   	  	\end{itemize}
+   	  	\item[--] Wybranie nalepszego znalezionego punktu.
+   	  \end{itemize}
+ 	  \end{block}
+
+    \begin{block}{}
+      Stosowane, gdy:
+      \begin{itemize}
+        \item nic nie wiadomo o $F(x)$.
+        \item $F(x)$ ma kilka minimów.
+        \item dla ustalenia rozsądnego punktu startowego innych metod.
+      \end{itemize}
+    \end{block}
   \end{frame}
 
-\subsection{Zmiana jednego parametru (single parameter variation)}
+\subsection{Zmiana jednego parametru (Powell Search Method)}
 
-  \begin{frame}{Zmiana jednego parametru cz.1}
+  \begin{frame}{Zmiana jednego parametru}
+    \begin{block}{Założenie}
+      Funkcja $f$ -- ciągła na poszukiwanym obszarze.
+    \end{block}
+    \begin{block}{Obserwacja}
+        Warunek na istnienie minimum - $ x_i $ -- \emph{stacjonarny punkt},
+        tj. znikają wszystkie $n$ pochodne cząstkowe, $ \frac{\partial f}{\partial x_i} = 0 $ , $ i = 1,2,3,\ldots ,n $
+    \end{block}
+    \begin{block}{Powell Search Method}
+        \begin{enumerate}
+          \item Wybierz jeden z $n$ wymiarów.
+          \item Wykonaj optymalizację 1-D na wybranym wymiarze.
+          \item Powtarzaj do uzyskania punktu $x_i$, będącego minimum dla wszystkich wymiarów $n$.
+        \end{enumerate}
+    \end{block}
+  \end{frame}
 
-	Warunek na istnienie minimum - \emph{stacjonarny punkt} $ x_i $,
-	\\tj. \emph{znikanie wszystkich $ n $ pochodnych} $ \frac{\partial F}{\partial x_i} $ , $ i = 1,2,3,\ldots ,n $
+  \begin{frame}{Zmiana jednego parametru cd.}
+    Przykład dwuwymiarowy.
 	\begin{figure}
 		\centering
 		\includegraphics[height=0.6\textheight ,width=0.8\textwidth]{img/17/change_param_1}
@@ -39,14 +58,14 @@
 
   \end{frame}
 
-  \begin{frame}{Zmiana jednego parametru cz.2}
+  \begin{frame}{Zmiana jednego parametru cd.}
 
-	Niebezpieczna - przypadki z wąwozem (narrow valley)
+	Bardzo wolna z uwagi na przypadki z wąwozem (narrow valley):
 	\begin{figure}
 		\centering
 		\includegraphics[height=0.6\textheight ,width=0.8\textwidth]{img/17/change_param_2}
 	\end{figure}
-	w tym przypadku - stosowane ulepszone metody
+	Dla takiego przykładu stosujemy ulepszone metody.
 
   \end{frame}
 
@@ -56,15 +75,15 @@
 
     \begin{block}{Algorytm}
  	  \begin{itemize}
- 		\item wykonuje się jeden pełny cykl minimalizacji wzgl. kolejno wszystkich parametrów (współrzędnych),
- 		\item zmiana osi układu współrzędnych - nowy układ ortogonalny:
- 		\\jedna z osi od punktu początkowego do końcowego
- 		\\w ostatnim cyklu minimalizacji,
- 		\item nowy cykl \ldots $\rightarrow$ w nowym układzie współrzędnych
-  	  \end{itemize}
+   		\item Wykonaj jeden pełny cykl minimalizacji wzgl. kolejno wszystkich parametrów (współrzędnych),
+   		\item Zmień osie układu współrzędnych - nowy układ ortogonalny:
+   		\\jedna z osi od punktu początkowego do końcowego
+   		\\w ostatnim cyklu minimalizacji,
+   		\item Wykonaj kolejny cykl w nowym układzie współrzędnych.
+  	\end{itemize}
   	\end{block}
-  	  Niestety $\rightarrow$ metoda mało efektywna dla dużego $n$
-  	  \\(w połączeniu z metodą aproks. kwadratowej)
+  	  Metoda mało efektywna dla dużego $n$
+  	  \\(w połączeniu z metodą aproks. kwadratowej.)
 
   \end{frame}
 
@@ -98,9 +117,9 @@
 
 	\begin{enumerate}
 		\item Wybieramy (losowo, min 1-D) 3 punkty $P_1,P_2,P_3$
-		\\i wyznaczamy w nich
-		\\ $F(x): P_H \rightarrow F(x)$ - największa (highest)
-		\\ $P_L \rightarrow F(x)$ - najmniejsza (lowest)
+		\\i wyznaczamy spośród nich:
+		\\ $P_H$ - gdzie $F$ największa (highest)
+		\\ $P_L$ - gdzie $F$ najmniejsza (lowest)
 		\item Wyznaczamy "środek masy" wszystkich punktów
 		\\z pominięciem $P_H$
 		  \begin{displaymath}
@@ -121,19 +140,16 @@
 		\setcounter{enumi}{\value{saveenumi}}
 		\item Punkt $P_H$ zastępujemy przez najlepszy z $P$* i $P$**
 		\smallskip
-		\\Jeżeli żaden z nowych punktów nie jest lepszy od $P_H$, tworzymy simplex oparty o $P_L$ w wymiarach $0.5$ $*$ poprzednie
+		\\Jeżeli żaden z nowych punktów nie jest lepszy od $P_H$, tworzymy simplex oparty o $P_L$ w wymiarach $0.5$ $*$ poprzednie.
 	\end{enumerate}
-	Inne możliwości:
+	Modyfikacje:
 	\begin{itemize}
-		\item współczynniki $\neq 2$ oraz $\neq \frac{1}{2}$,
-		\item interpolacja kwadratowa wzdłuż prostej $(P_H,\overline{P})$
+		\item Inne współczynniki $\neq 2$ oraz $\neq \frac{1}{2}$,
+		\item Interpolacja kwadratowa wzdłuż prostej $(P_H,\overline{P})$
 	\end{itemize}
-	\begin{block}{}
-	  	\textbf{Uwaga!}
- 	  	\\nowy punkt nie może być zbyt blisko $\overline{P}$ - bo to grozi redukcją
- 	  	\\(bez powrotu) simpleksów w $n$ do hiperpłaszczyzny
-    \end{block}
-
+    \begin{alertblock}{Uwaga}
+ 	  	Nowy punkt nie może być zbyt blisko $\overline{P}$, bo to grozi redukcją\\ (bez powrotu) simpleksów w $n$ do hiperpłaszczyzny.
+    \end{alertblock}
   \end{frame}
 
   \begin{frame}{Opis metody cz.4}
@@ -159,15 +175,15 @@
 
   \begin{frame}{Metody gradientowe}
 
- 	$\rightarrow$ w oparciu o informacje o funkcji w małych obszarach
+ 	Działają w oparciu o informacje o funkcji w małych obszarach
  	\\(używany gradient i ew. wyższe pochodne).
     \begin{block}{Wyznaczanie pochodnych}
- 	   analitycznie $\rightarrow$ kłopotliwe $\Rightarrow$ numerycznie
+ 	   analitycznie -- kłopotliwe, więc numerycznie:
  	   \begin{displaymath}
  	   	  \frac{\partial (F)}{\partial (x)} \bigg\vert_{x_0} \approx \frac{F(x_0+d) - F(x_0)}{d},
  	   	  \quad \delta \approx \frac{d}{2} \cdot \frac{\partial^2F}{\partial x^3}
  	   \end{displaymath}
- 	   lepiej:
+ 	   Lepiej:
  	   \begin{displaymath}
  	   	  \frac{\partial (F)}{\partial (x)} \bigg\vert_{x_0} \approx \frac{F(x_0+d) - F(x_0-d)}{2\cdot d},
  	   	  \quad \delta \approx \frac{d}{2} \cdot \frac{\partial^2F}{\partial x^3}
@@ -180,13 +196,13 @@
 
     \begin{block}{}
       \begin{itemize}
- 	      \item[--] $2 \cdot n$ wywołań $F(X)$ ($\rightarrow$ asym. : $n\ |\ 1$)
- 	      \item[--] ale łatwo przy okazji :
+ 	      \item[--] $2 \cdot n$ wywołań $F(X)$ (symetryczne, gdy $2\ |\ n$)
+ 	      \item[--] Lecz łatwo przy okazji obliczyć drugie pochodne:
  	  	  \begin{displaymath}
- 	   	  	\frac{\partial (F)}{\partial (x)} \bigg\vert_{x_0} \approx \frac{F(x_0+d) - 2 \cdot F(x_0) + F(x_0+d)}{d^2}
+ 	   	  	\frac{\partial (F)}{\partial (x^2)} \bigg\vert_{x_0} \approx \frac{F(x_0+d) - 2 \cdot F(x_0) + F(x_0-d)}{d^2}
  	      \end{displaymath}
- 	      $\clubsuit$ $Z1$ - sprawdzić: drugie pochodne są stałe w małych obszarach - nie są potrzebne kroki symetryczne
- 	      \item[--] tworzą macierz $n \times n$
+ 	      Sprawdzić: drugie pochodne są stałe w małych obszarach - nie są potrzebne kroki symetryczne.
+ 	      \item[--] Drugie pochodne tworzą macierz $n \times n$.
       \end{itemize}
   	\end{block}
 
@@ -199,7 +215,7 @@
 		\includegraphics[height=0.6\textheight ,width=0.6\textwidth]{img/17/wyznaczanie_pochodnych}
 	\end{figure}
     \begin{block}{}
-      poza p.~symetrycznymi potrzeba $\frac{n(n-1)}{2}$ pkt. (mieszane pochodne)
+      Poza p.~symetrycznymi potrzeba $\frac{n(n-1)}{2}$ pkt. (mieszane pochodne)
   	\end{block}
 
   \end{frame}
@@ -207,7 +223,7 @@
   \begin{frame}{Metody gradientowe}
 
     \begin{block}{Metoda największego spadku}
-      $\Rightarrow$ podążanie w kierunku wyznaczonym przez - $\vec g$ (gradient)
+      Podążanie w kierunku wyznaczonym przez - $\vec g$ (gradient)
       \\(w tym kierunku funkcja maleje najszybciej) (Cauchy)
       \\$\left\{
         \begin{array}{l}
@@ -226,11 +242,10 @@
   \begin{frame}{Metoda największego spadku cd.}
 
     \begin{block}{}
-      $\rightarrow$ jeżeli minimalizacja w 1-D 7 dokładna w kierunkach ortogonalnych
-      $\Rightarrow$ \emph{met. uzmienniania 1 parametru}
+      $\rightarrow$ Jeżeli minimalizacja w 1-D jest dokładna w kierunkach ortogonalnych -- \emph{met. uzmienniania 1 parametru}
       \smallskip
       \\Łatwo o przykład hipotetycznej funkcji,
-      \\ dla której  minimum jest $\perp$ gradientu
+      \\ dla której minimum jest $\perp$ gradientu.
   	\end{block}
     \begin{figure}
 		\centering
@@ -246,11 +261,12 @@
       \\$\left.
         \begin{array}{l}
           \text{- wartość,} \\
-          \text{- pierwsze i} \\
+          \text{- pierwsze pochodne} \\
           \text{- drugie pochodne}
 	    \end{array}
 	  \right\}$
-	  $\begin{array}{l} \text{\emph{w dowolnym punkcie }} x_0 \Rightarrow \\ \text{tymi informacjami} \end{array}$
+	  $\begin{array}{l} \text{\emph{W dowolnym punkcie }} x_0 \\
+     \text{Dysponujemy tymi informacjami} \end{array}$
 	  \smallskip
 	  \\Minimalizacja w pierwszym kroku.
 	  \begin{displaymath}
@@ -270,10 +286,10 @@
   \begin{frame}{Metoda Newtona cd.}
 
     \begin{block}{}
-      $\clubsuit Z1$ - sprawdzić: $V = G^{-1}$ -- macierz kowariancji (covariance)
-      \\$\Rightarrow$ jest to n-D odpowiednik 1-D interpolacji kwadratowej
+      Sprawdzić: $V = G^{-1}$ -- macierz kowariancji (covariance)
+      \\Jest to n-D odpowiednik 1-D interpolacji kwadratowej.
       \smallskip
-	  \\ \emph{te same wady!}
+	  \\ \emph{Te same wady!}
 	  \begin{itemize}
 	  	\item[--] niestabilna
 	  	\item[--] rozbieżna, gdy $V$ nie jest dodatnio określona
@@ -281,8 +297,8 @@
 	\end{block}
     \begin{block}{Zalety:}
       \begin{itemize}
-	  	\item[--] krok nie jest dowolny $\rightarrow$ określony przez metodę
-	  	\item[--] kierunek $\neq$ gradientu $\rightarrow$ brana pod uwagę korelacja parametrów
+	  	\item[--] krok nie jest dowolny, lecz określony przez metodę
+	  	\item[--] kierunek $\neq$ wartość gradientu, tylko brana pod uwagę korelacja parametrów
 	  \end{itemize}
 	\end{block}
 
@@ -292,12 +308,12 @@
 
 	\begin{block}{Używana:}
       \begin{itemize}
-	  	\item[--] blisko minimum
-	  	\item[--] funkcja $\rightarrow$ dodatnia kwadratowa (liniowe najmniejsze kwadraty) % ?????
+	  	\item[--] blisko minimum.
+	  	\item[--] gdy funkcja jest dodatnio określoną formą kwadratową.
 	  \end{itemize}
 	\end{block}
 	\begin{block}{}
-	    $\Rightarrow$ \emph{Ponadto - podstawa wielu metod}
+	    Metoda Newtona jest podstawą wielu metod.
 	\end{block}
 
   \end{frame}
@@ -363,11 +379,10 @@
 
   \begin{frame}{Metody gradientowe}
 
-    \begin{block}{Badanie czy $G$ jest dodatnio określona}
-      \begin{itemize}
-      		\item[--] brak prostych sposobów
-      \end{itemize}
-    \end{block}
+    \begin{alertblock}{}
+      \textbf{Badanie czy $G$ jest dodatnio określona.}\\
+      Brak prostych sposobów.
+    \end{alertblock}
     \begin{block}{\emph{Dla macierzy kwadratowych, symetrycznych - 2 warunki konieczne}}
       $1^o$ elementy diagonalne $> 0$ \ (wyst. 1 $\times$ 1)
       \\$2^o$ elementy pozadiagonalne:
@@ -425,7 +440,7 @@
   \begin{frame}{Gdy $G$ - nie jest dodatnio określone cd.}
 
  	\begin{block}{}
- 	Metody oparte na powyższych regułach - \emph{quasi-Newton m.}
+ 	Metody oparte na powyższych regułach - \emph{quasi-Newton method}
  	\medskip
  	\\Podstawowa wada tych metod - obliczanie i odwracanie
  	\\w każdym kroku macierzy drugich pochodnych
@@ -445,13 +460,13 @@
  	   \\$\vec{d_i}^T A\vec{d_j} = 0$ dla $i \neq j$;
  	   \\gdy $A = I, \vec{d_i} \rightarrow$ ortogonalne
  	   \\(sprzężenie - uogólnienie ortogonalności)
- 	   \\ \textbf{$n$ sprzężonych wektorów rozpina n-D przestrzeń}.
+ 	   \\ \textbf{n sprzężonych wektorów rozpina n-D przestrzeń}.
  	   \\$A$ - nie określa jednoznacznie zbioru wektorów sprzężonych $\rightarrow$ można zastosować
  	   \emph{uogólnienie procedury ortogonalizacji Grama-Schmidta}:
  	   \\$d_1$ - dowolny wektor $d_2 = A \cdot d_1 - \frac{d_1^T A A d_1}{d_1^T A d_1} \cdot d_1 \rightarrow$ sprzężony do $d_1$
  	   \\$d_3 =$ \ldots
  	   \begin{flushright}
- 	      $\clubsuit$ sprawdzić
+ 	      Zadanie: sprawdzić.
  	   \end{flushright}
  	\end{block}
 
@@ -459,8 +474,8 @@
 
   \begin{frame}{Metoda sprzężonych kierunków cd.}
 
-    W minimalizacji - użyteczne wektory sprzężone
-    \\ze względu na \emph{hesjan} $G$
+    W minimalizacji użyteczne są wektory sprzężone
+    \\ze względu na \emph{hesjan} $G$.
  	\begin{block}{Twierdzenie}
  	   Sekwencja liniowych minimalizacji w każdym z $n$ sprzężonych kierunków minimalizuje ogólną funkcję kwadratową $n$ zmiennych.
  	\end{block}
@@ -471,7 +486,7 @@
           \text{kierunki sprzężone:} & \vec{d_i} \ \vec{d_i}^T G \vec{d_j} = 0 \ i \neq j
 	    \end{array}
 	  \right.$
-	  \\gdzie: $G$ jest macierzą
+	  \\gdzie: $G$ jest macierzą.
  	\end{block}
 
   \end{frame}
@@ -495,7 +510,7 @@
   \begin{frame}{Metoda sprzężonych kierunków cd.}
 
  	\begin{block}{Dowód cd.}
- 		($\star$) wynik przegrupowania $\Rightarrow$
+ 		($\star$) wynik przegrupowania:
 		\begin{itemize}
 			\item podwójna suma
 			\item $i \neq j \Rightarrow$ równe zero (warunek sprzężenia)
@@ -526,12 +541,12 @@
 
  	\begin{block}{Wnioski:}
 		\begin{itemize}
-			\item[--] minimalizacja nie wzdłuż osi ortogonalnych,
+			Minimalizacja nie wzdłuż osi ortogonalnych,
 			\\ale wzdłuż kierunków sprzężonych
 		\end{itemize}
  	\end{block}
  	\begin{block}{}
-		Ale $\Rightarrow$ szukać innej konstrukcji $d_i$ \emph{(gdy znamy $G$ - m. Newtona
+		Ale można szukać innej konstrukcji $d_i$ \emph{(gdy znamy $G$ - m. Newtona
 		\\- w 1 kroku!)} $\Rightarrow$ \emph{Można wyznaczyć $d_i$ bez $G$!}
  	\end{block}
  	\begin{block}{Twierdzenie}
@@ -565,12 +580,12 @@
   \begin{frame}{Metoda sprzężonych kierunków cd. }
 
    \begin{block}{Dowód cd.}
-	  w przestrzeni:
+	  W przestrzeni:
 	  \smallskip
 	  \\3-D $\Rightarrow$ 3 dodatkowe minimalizacje
 	  \\ \ (3-ci kier. sprzężenia do 2 pierwszych)
 	  \\n-D $\Rightarrow$ $\frac{n(n+1)}{2}$ minimalizacje - ile elem. w $G$ - ale:
-	  \\ \ met. b. stabilna dla $F(x) \neq$ kwadratowych i nie wymaga
+	  \\ \ metoda bardzo stabilna dla $F(x) \neq$ kwadratowych i nie wymaga
 	  \\ \ znajomości pochodnych
 	  \medskip
 	  \\Uwaga: \emph{asymetria:}
@@ -585,7 +600,7 @@
   \begin{frame}{Metody gradientowe}
 
  	\begin{block}{Metoda gradientów sprzężonych \emph{(conjugate gradients)}}
- 	   $\Rightarrow$ wykorzystuje tylko 1-sze pochodne.
+ 	   Wykorzystuje tylko 1-sze pochodne.
  	   \medskip
  	   \\ $F(\vec{x})$ i $\vec{g}(\vec{x})$ wyznaczone w $\vec{x_0}$ i $\vec{x_1}$, z nich:
  	   \smallskip
@@ -606,7 +621,7 @@
  	      \end{array}$
  	   \end{center}
  	   \smallskip
- 	   $\Rightarrow$ metoda uzyskiwania kierunków sprzężonych \emph{bez} znajomości $G$:
+ 	   Metoda uzyskiwania kierunków sprzężonych \emph{bez} znajomości $G$:
  	   \\Pierwszy kierunek: $\vec{d_0} = \vec{-g_0}$
  	   \\min. wzdłuż $\vec{d_0}$ : w $\vec{x_1}$, gradient:  $\vec{g_1}$
  	   \\Drugi kierunek: $\vec{d_1} = -\vec{g_1} + b \cdot \vec{d_0}$
@@ -630,7 +645,7 @@
 	  \end{array}$,
  	  czyli nowy sprzężony kierunek $\vec{d_1} = -\vec{g_1} + \left(\frac{\vec{g_1}^T \cdot \vec{g_1}}{\vec{g_0}^T \cdot \vec{g_0}}\right) \cdot \vec{d_0} $
  	  \medskip
- 	  \\i ten proces kontynuujemy generując $n$ kierunków \\ wzajemnie sprzężonych.
+ 	  \\Ten proces kontynuujemy generując $n$ kierunków \\ wzajemnie sprzężonych.
  	  \medskip
  	  \\Można pokazać, że dla wszystkich sprzężonych kierunków zachodzi:
  	  \begin{center}
