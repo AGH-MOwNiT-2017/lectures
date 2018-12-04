@@ -4,16 +4,16 @@
   \begin{block}{}
     \begin{equation} f(x) = (x - \lambda) \cdot \underbrace{\sum_{i=0}^{m-1} b_i x^i}_{g(x)} + f(\lambda) \label{linear} \end{equation}
   \end{block}
-  gdy $ \lambda = \alpha $, wtedy $x$: pierwiastek $ f(x) = 0 $
+  Gdy $f(\lambda) = 0$, wtedy $x = \lambda$ -- pierwiastek funkcji f.
 
   \vspace{5px}
 
-  pozostałe zera $f(x) = 0$: $ g(x) = \sum_{i=0}^{m-1} b_i x^i $ \qquad deflated equation
+  Pozostałe $m - 1$ zer w $ g(x) = \sum_{i=0}^{m-1} b_i x^i $ -- deflated equation
 
   \vspace{5px}
 
   \begin{alertblock}{Uwaga}
-    Ale następuje kumulowanie błędów: $\alpha$ z błędem, $b_i$ z błędem itd\dots
+    Następuje kumulowanie błędów: $\lambda$ z błędem, $b_i$ z błędem itd\dots
   \end{alertblock}
 \end{frame}
 
@@ -21,5 +21,5 @@
   \textbf{Pochodna} -- Różniczkując równanie (\ref{linear})
 
   $$ f'(x) = (x - \lambda) \cdot g'(x) + g(x) $$
-  $$ f'(x) = g(\lambda) $$
+  $$ f'(\lambda) = g(\lambda) = \sum_{i=0}^{m-1} b_i \lambda^i$$
 \end{frame}
