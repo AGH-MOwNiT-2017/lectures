@@ -9,12 +9,12 @@ $$x^{(t+1)}_{i}=x^{(t)}_{i} + \underbrace{\frac{1}{a_{ii}}[b_i-\sum^{i-1}_{j=1} 
 \end{frame}
 
 \begin{frame}
-  wzór roboczy
+  Wzór roboczy
   $$a_{ii}x^{(t+1)}_{i}=\underbrace{a_{ii}}_{\Delta}x^{(t)}_{i}+\omega[b_i-\sum^{i-1}_{j=1}a_{ij}x^{(t+1)}_{j}-\sum^{n}_{j=i+1}a_{ij}x^{(t)}_{j}]-\omega\underbrace{a_{ii}}_{\Delta}x^{(t)}_{i}$$
   w zapisie macierzowym
   $$Dx^{(t+1)}=(1-\omega )Dx^{(t)}+\omega [b-Lx^{(t+1)}-Ux^{(t)}]$$
   po uporządkowaniu:
-  $$x^{(t+1)}=\underbrace{(D+\omega L)^{-1}[I-\omega (D+U)]}_{M}x^{(t)}+\underbrace{\omega(D+\omega L)^{-1}b}_{W(=B^{-1}b)}$$
+  $$x^{(t+1)}=\underbrace{(D+\omega L)^{-1}[D-\omega (D+U)]}_{M}x^{(t)}+\underbrace{\omega(D+\omega L)^{-1}b}_{W(=B^{-1}b)}$$
 \end{frame}
 
 \begin{frame}{}
@@ -28,7 +28,7 @@ $$x^{(t+1)}_{i}=x^{(t)}_{i} + \underbrace{\frac{1}{a_{ii}}[b_i-\sum^{i-1}_{j=1} 
     $$
     \omega\in(0,2) \Rightarrow
     \begin{cases}
-      \omega\in{(0,1]}\text{\quad- podrelaksacja}\\
+      \omega\in{(0,1}}\text{\quad- podrelaksacja}\\
       \omega\in{(1,2)}\text{\quad- nadrelaksacja}
     \end{cases}
     $$
