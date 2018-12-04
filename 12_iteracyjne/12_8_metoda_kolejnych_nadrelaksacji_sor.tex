@@ -2,7 +2,7 @@
 
 \begin{frame}{Metoda kolejnych nadrelaksacji - SOR (successive over-relaxation)}
   Inaczej zapisany wzór roboczy SR(G-S):
-$$x^{(t+1)}_{i}=x^{(t)}_{i} \underbrace{\frac{1}{a_{ii}}[b_i-\sum^{i-1}_{j=1} a_{ij} x^{(t+1)}_j -\sum^{n}_{j=1} a_{ij} x^{(t)}_j ]}_{r^{(t)}_i \text{- poprawka do starego rozwiązania } x^{(t)}_i}$$
+$$x^{(t+1)}_{i}=x^{(t)}_{i} + \underbrace{\frac{1}{a_{ii}}[b_i-\sum^{i-1}_{j=1} a_{ij} x^{(t+1)}_j -\sum^{n}_{j=i} a_{ij} x^{(t)}_j ]}_{r^{(t)}_i \text{- poprawka do starego rozwiązania } x^{(t)}_i}$$
   %stare roziwązanie? poprawione z śtaregożozwiazania
   Przyspieszenie zbieżności:
   $$\boxed{x^{(t+1)}_{i}=x^{(t)}_{i}+\omega r^{(t)}_{i}}, \text{$\omega$ - pewna liczba}$$
