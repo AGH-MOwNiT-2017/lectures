@@ -20,9 +20,9 @@
 \begin{frame}
   \begin{block}{Procedura przestawiania wierszy}
     \begin{itemize}
-      \item[1.] spośród kolumn z $a_{ii} = 0$ wybieramy tę, która ma najwięcej zer,
-      \item[2.] w tej kolumnie wybieramy element o max $|a_{ji}|$ i przestawiamy wiersze tak, aby znalazł się on na diagonali,
-      \item[3.] Powtarzamy 1. i 2.
+      \item[1)] spośród kolumn z $a_{ii} = 0$ wybieramy tę, która ma najwięcej zer,
+      \item[2)] w tej kolumnie wybieramy element o max $|a_{ji}|$ i przestawiamy wiersze tak, aby znalazł się on na diagonali,
+      \item[3)] powtarzamy 1) i 2).
     \end{itemize}
   \end{block}
 \end{frame}
@@ -44,13 +44,13 @@
   \begin{block}{Charakterystyka metody Jacobiego}
     \begin{itemize}
       \item prosta,
-      \item znaczenie dydaktyczne,
+      \item ma znaczenie dydaktyczne,
       \item wolnozbieżna,
       \item nie wykorzystuje całej, dostępnej w danym kroku informacji,
       \item pamiętane $x^{(t)}$ i $x^{(t+1)}$,
       \item zbieżna dla A silnie diagonalnie dominujących,
-      $$\text{wierszowo : }|a_{ii} > \sum_{j=1,j\neq i}^{n} |a_{ij},$$
-      $$\text{kolumnowo : }|a_{ii} > \sum_{j=1,j\neq i}^{n} |a_{ji},$$
+      $$\text{wierszowo : }|a_{ii}| > \sum_{j=1,j\neq i}^{n} |a_{ij}|,$$
+      $$\text{kolumnowo : }|a_{ii}| > \sum_{j=1,j\neq i}^{n} |a_{ji}|,$$
     \end{itemize}
   \end{block}
 \end{frame}
