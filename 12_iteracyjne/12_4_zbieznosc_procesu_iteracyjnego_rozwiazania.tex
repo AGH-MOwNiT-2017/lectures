@@ -26,7 +26,7 @@
     \\\hfill$Ms_i=\rho _is_i$\hfill (12.3)
     \newline
     \\Rozkładamy (rzuty na inne osie):
-    \[\varepsilon^{(t)}=M^t \sum_{i = 1}^{n} \alpha _i s_i , \alpha _i \text{ - amplituda kierunku } s_i\] (12.4)
+    \\\hfill\[\varepsilon^{(t)}=M^t \sum_{i = 1}^{n} \alpha _i s_i , \alpha _i \text{ - amplituda kierunku } s_i\]\hfill (12.4)
     \[\varepsilon^{(t)}=M^t \sum_{i = 1}^{n} \alpha _i s_i = \sum_{i = 1}^{n} \alpha _i M^{t-1}(\underbrace{Ms_i}_{\rho _i s_i}) = ... = \sum_{i = 1}^{n} \alpha _i \rho _i^t s_i \]
     \[\boxed{\varepsilon^{(t)}=\sum_{i = 1}^{n} \alpha _i \rho _i^t s_i} \qquad (12.5)\]
   \end{block}
@@ -37,7 +37,7 @@
     \[\lim_{t\to\infty} \varepsilon^{(t)} = \alpha _m \rho _m^t s_m\]
     gdzie: $\rho _m = max_i |\rho _i|= \rho$ promień spektralny macierzy iteracji
     \center \textbf{$\rho < 1$ - warunek zbieżności}
-    $$ \frac{||\varepsilon^{(t)}||}{||\varepsilon^{(0)}||} \leq ||M^{(t)}|| \text{ - zadana dokładność} \rho\Rightarrow ||M^{(t \cdot )}|| = 10^{-p}$$
+    $$ \frac{||\varepsilon^{(t)}||}{||\varepsilon^{(0)}||} \leq ||M^{(t)}|| \text{ - zadana dokładność} \rho\Rightarrow ||M^{(t\star)}|| = 10^{-p}$$
     \\$\lambda$ -- \emph{asymptotic convergence factor}
     \[\lambda^{t\star}=10^{-p} \rightarrow t\star = -p \cdot  \frac{ln 10}{ln \lambda} \text{ - iość iteracji}\]
   \end{block}
