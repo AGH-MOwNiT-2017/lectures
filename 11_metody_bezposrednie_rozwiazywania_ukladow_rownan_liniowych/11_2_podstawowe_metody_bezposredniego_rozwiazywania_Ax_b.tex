@@ -1,5 +1,5 @@
 \section{Podstawowe metody bezpośredniego rozwiązywania Ax=b}
-	\begin{frame}{Wstęp}
+\begin{frame}{Wstęp}
 \begin{exampleblock}{}
     $$
 E_{1}:a_{11}x_{1}+a_{12}x_{2}+\cdots+a_{1n}x_{n}=b_{1}
@@ -16,29 +16,31 @@ Podstawa metod bezpośrednich: operacje te nie zmieniają rozwiązań układów 
 \begin{flushright}
 {\it Zadanie}: Sprawdzić
 \end{flushright} 
-	\end{frame}
-    \begin{frame}{}
-    $\bullet(\lambda E_{i})\rightarrow E_{i}$
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Operacje elementarne}
+
+Operacje elementarne: \newline
+$\bullet(\lambda E_{i})\rightarrow E_{i}$
 
 $\bullet(E_{i}+\lambda E_{j})\rightarrow E_{i}$
 
-$\bullet E_{i}\leftrightarrow E_{i}$ \newline
-gdzie $\lambda$ -stała różna od zera \newline
+$\bullet E_{i}\leftrightarrow E_{i}$ (zamiana kolumn miejscami)\newline
+gdzie $\lambda$-stała różna od zera \newline
 Celem jest uzyskanie postaci: (triangular or reduced form)
 \begin{flushright}
 $a_{11}x_{1}+a_{12}x_{2}+\cdots+a_{1n}x_{n}=b_{1} \linebreak$
-
 $0+a_{22}'x_{2}+\cdots+a_{2n}'x_{n}=b_{2}'
  \linebreak$
 $ \hspace{60mm} \vdots \linebreak$
-$0+\cdots+0+a_{nn}'n_{n}=b_{n}' \linebreak$
+$0+\cdots+0+a_{nn}'x_{n}=b_{n}' \linebreak$
 \end{flushright}
 $\mathrm{i}$ wtedy
 
-$ x_{n}=  \frac{b_{n}'}{a_{nn}'}\quad x_{i}= \frac{1}{a_{ii}'}(b_{i}'-\displaystyle \sum_{j=i+1}^{n})a_{ij}'x_{j}$ (via backward substitution)
-    \end{frame}
+$ x_{n}=  \frac{b_{n}'}{a_{nn}'}\quad x_{i}= \frac{1}{a_{ii}'}(b_{i}'-\displaystyle \sum_{j=i+1}^{n} a_{ij}'x_{j})$ (via backward substitution)
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Gaussian elimination with backward substitution}
-
 \begin{exampleblock}{Elimination}
 for $\mathrm{i}:=1$ to n-1 do
 
@@ -58,7 +60,7 @@ if $a_{nn}=0$ then no unique solution exist!; STOP;
     	\end{exampleblock}
 
 \end{frame}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Gaussian elimination with backward substitution}
 \begin{exampleblock}{Backward substitution}
 $x_{n}=b_{n}'/a_{nn}'$;
@@ -67,11 +69,11 @@ for $\mathrm{i}:=\mathrm{n}-1$ downto 1 do $x_{i}=(b_{i}-\displaystyle \sum_{j=i
 \end{exampleblock}
 
 \begin{itemize}
-\item \textbf{Złożoność obiczeniowa}
+\item \textbf{Złożoność obliczeniowa}
 
-Liczba dziala\'{n} mnozenia $\mathrm{i}$ dzielenia wynosi $\displaystyle \frac{1}{3}\cdot(n^{3}+3n^{2}-n)$
+Liczba działań mnożenia $\mathrm{i}$ dzielenia wynosi $\displaystyle \frac{1}{3}\cdot(n^{3}+3n^{2}-n)$
 
-Liczba dziala\'{n} dodawania $\mathrm{i}$ odejmowania wynosi $\displaystyle \frac{1}{6}\cdot(2n^{3}+3n^{2}-5n)$
+Liczba działań dodawania $\mathrm{i}$ odejmowania wynosi $\displaystyle \frac{1}{6}\cdot(2n^{3}+3n^{2}-5n)$
 
 \begin{flushright}
 {\it Zadanie}: Sprawdzić, że złożoność wynosi $O(n^{3})$
@@ -80,6 +82,7 @@ Liczba dziala\'{n} dodawania $\mathrm{i}$ odejmowania wynosi $\displaystyle \fra
 \end{itemize}
 
 \end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Gaussian elimination with backward substitution}
 \begin{itemize}
 \item \textbf{Macierz odwrotna} \newline
@@ -106,6 +109,7 @@ $$
 \end{flushright}
 \end{itemize}
 \end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{ O wyborze elementów podstawowych - pivots}
 \begin{flushright}
 {\it Zadanie}: Przypomnieć normy wektorów $\mathrm{i}$ macierzy
@@ -113,7 +117,7 @@ $$
 $$
 \left(\begin{array}{lll}
 10 & -7 & 0\\
--3 & 2.009 & 6\\
+-3 & 2.099 & 6\\
 5 & -1 & 5
 \end{array}\right)\ \cdot
 \left(\begin{array}{l}
@@ -122,7 +126,7 @@ x_{2}\\
 x_{3}
 \end{array}\right)=\left(\begin{array}{l}
 7\\
-3.901\\
+3.991\\
 6
 \end{array}\right)\ 
 \begin{array}{l}
@@ -166,12 +170,13 @@ $$
  -bardzo mały w porównaniu z pozostałymi $\rightarrow$eliminacja bez przestawienia
 
 \end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{ O wyborze elementów podstawowych - pivots}
-Równanie 3) :
+Równanie 3) $E_{3}\leftarrow E_{3}-2.5\cdot E_{2}$ :
 \begin{center}
-6.001$\cdot$ 2.5$\cdot 10^{3}=\underbrace{1.5002}5\cdot 10^{4} \approx 1.5002\cdot 10^{4}$
+$2.5 \cdot 6.001\cdot 10^{3}=\underbrace{1.5227}5\cdot 10^{4} \approx 1.5227\cdot 10^{4}$
 $$
-\underbrace{(6\cdot 2.5\cdot 10^{3}+5)}_{15005}\cdot x_{3}=1.5002\cdot 10^{4}+2.5
+\underbrace{(5 + 2.5\cdot 6\cdot 10^{3})}_{15005}\cdot x_{3}= 2.5 + 1.5002\cdot 10^{4}
 $$
 $$
 15005\cdot\ x_{3}=15004\rightarrow x_{3}=\frac{15004}{15005}=0.99993
@@ -187,7 +192,8 @@ $$
 x_{2}=\frac{6.001-5.9995}{0.001}=\underline{-1.5}
 $$
 \end{frame}
-\begin{frame}{ O wyborze elementów podstawowych - pivots}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{O wyborze elementów podstawowych - pivots}
 Z równania 1) :
 $$
 10\cdot\ x_{1}+(-7)\cdot(-1.5)+0=7\rightarrow x_{1}=\underline{-0.35}
@@ -201,6 +207,7 @@ Powodem błędu jest zbyt mały element wiodący (pivot). Poszczególne wiersze 
 \textit{Zadanie}: Sprawdzić co będzie po zamianie 2) i 3) 
 \end{flushright}
 \end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{ O wyborze elementów podstawowych - pivots}
 
 Ogólna zasada: jeżeli w poszczególnych krokach mnożymy przez liczbę mniejszą lub równą 1, to możemy oczekiwać rozwiązania dokładnego.
@@ -214,6 +221,7 @@ Maksymalne elementy w każdej kolumnie i każdym wierszu - tego samego rzędu
 \end{exampleblock}
 
 \end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{ O wyborze elementów podstawowych - pivots}
 
 Np. Macierz $A$ można zrównoważyć na dwa sposoby:

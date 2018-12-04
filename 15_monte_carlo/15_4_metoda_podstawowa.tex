@@ -20,7 +20,7 @@
     \]
     $Y = f(X)$, przy czym $X$ - zmienna losowa o rozkładzie równomiernym $(0, 1)$
     
-    Oszacowanie $E\{X\}$ - średnia z $N$ niezależnych obserwacji: \[
+    Oszacowanie $E\{Y\}$ - średnia z $N$ niezależnych obserwacji: \[
     	\boxed{
         \hat{I} = \frac{1}{N} \sum_{i=1}^n f(x_i) \hspace{.5cm} (**)
         }
@@ -56,8 +56,8 @@
     
     \begin{block}{Estymator wariancji}
     	\[
-        	\sigma^2(\hat{I}) = \frac{1}{N} \S_f^2; 
-            \S_f^2 = \frac{1}{N-1} \sum_{i=1}^N [f(x_i) - \hat{I}]^2
+        	\sigma^2(\hat{I}) = \frac{1}{N} \sigma_f^2; 
+            \sigma_f^2 = \frac{1}{N-1} \sum_{i=1}^N [f(x_i) - \hat{I}]^2
         \]
     \end{block}
     
