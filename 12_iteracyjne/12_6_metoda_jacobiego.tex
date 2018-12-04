@@ -8,11 +8,13 @@
   W=D^{-1}b
   \end{cases}
   $$
-  gdzie: L --poddiagonalna; P -- naddiagonalna;\\
-  D=B -- diagonalna, z diagonalnych elementów macierzy A. Korzystając z zależności
+  gdzie: L -- poddiagonalna; P -- naddiagonalna;\\
+  D=B -- diagonalna, z diagonalnych elementów macierzy A.
+  $$Ax = (D+(L+U))x = b \implies Dx = -(L+U)x + b$$
+  Korzystając z zależności
   $$\boxed{Dx^{(t+1)}= -(L+U)x^{(t)}+b}$$
   otrzymujemy wzór roboczy:
-  $$x_i^{(t+1)}=\frac{1}{a_{ii}}[b_i-\sum_{j=1,j\neq i}^{n} a_{ij}x_j^{(t)}]\  ;\  a_{ii} \neq 0,\wedge i,$$
+  $$x_i^{(t+1)}=\frac{1}{a_{ii}}[b_i-\sum_{j=1,j\neq i}^{n} a_{ij}x_j^{(t)}]\  ;\  a_{ii} \neq 0, \forall i,$$
 \end{frame}
 
 \begin{frame}
