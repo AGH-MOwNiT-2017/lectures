@@ -43,10 +43,10 @@
 		1 & $y \leftarrow y + \alpha x$ 	& $2n$ 	& $3n$ 	& $\frac{2}{3} $ \\ \hline
 		2 & $y \leftarrow y + Ax$ 		& $2n^2$ 	& $n^2$ 	& 2 			\\ \hline
 		3 & $C \leftarrow C + AB$ 	& $2n^3$ 	& $4n^2$ 	& $\frac{n}{2}$ 	\\ \hline
-		\end{tabular} \\ 
-		
-		For level 1: 2 vector loads, 2 vector operations, 1 vector store\dots 
-		
+		\end{tabular} \\
+
+		For level 1: 2 vector loads, 2 vector operations, 1 vector store\dots
+
 		Higher level: Increase of granularity $\Rightarrow$ lower synchronization cost
 	\end{frame}
 	\begin{frame}{BLAS character}
@@ -63,6 +63,13 @@
 	\]
 	1 $\rightarrow$ fortran data type of the matrix \\
 	2, 3 $\rightarrow$ kind of the matrix involved \\
-	4, 5, 6 $\rightarrow$ type of the operation
-	\end{frame}
+	4, 5, 6 $\rightarrow$ type of the operation \\
 	
+	Example:
+	\textbf{dgemm}
+	\begin{itemize}
+		\item d -- double
+		\item ge -- general nonsymmetric
+		\item mm -- matrix-matrix product
+	\end{itemize}
+	\end{frame}
