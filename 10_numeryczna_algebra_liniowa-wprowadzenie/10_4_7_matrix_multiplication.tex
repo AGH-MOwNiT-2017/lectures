@@ -1,0 +1,68 @@
+
+\lstset{
+  mathescape = true,
+  basicstyle = \ttfamily}
+\newcommand{\dollar}{\mbox{\textdollar}}
+
+\subsection{Matrix -- matrix multiplication}
+
+\begin{frame}[fragile]{Matrix -- matrix multiplication}
+
+$C = A^{m\cdot r}\cdot B^{r\cdot n} $
+
+$$ c_{i j} = \sum_{k=1}^r a_{i k}  x_{k j} $$
+\begin{enumerate}[a)]
+  \item dot version
+\end{enumerate}
+
+\scriptsize{
+\begin{lstlisting}[belowskip=-1.4 \baselineskip, language=Matlab, mathescape]
+function: C=matmat.ijk(A,B)
+  m=rows(A); r=cols(A); n=cols(B); C(1:m,1:n)=0
+  for i=1:m
+    for j=1:n $\tikzmark{mark4}$
+      for k=1:r $\tikzmark{mark1}$
+        C(i,j)=C(i,j)+A(i,k) $\cdot$ B(k,j) $\tikzmark{mark3}$
+      end $\tikzmark{mark2}$
+    end $\tikzmark{mark5}$
+  end
+end matmat.ijk
+\end{lstlisting}
+}
+\AddNote{mark1}{mark2}{mark3}{1.5cm}{inner loop $\tikzmark{mark6}$}
+\AddNote{mark4}{mark5}{mark6}{1.6cm}{middle loop}
+\end{frame}
+
+\subsection{Matrix multiplication: loop ordering and properties}
+
+\begin{frame}[fragile]{Matrix multiplication: loop ordering and properties}
+
+$i j k \rightarrow 3! = 6 \text{ sposobów} $ \\
+
+\vspace{5px}
+\begin{tabular}{ |p{1cm}||p{1.6cm}||p{3.4cm}||p{3.7cm}|  }
+ \hline
+
+ loop order& Inner loop & Middle loop&Inner loop data access\\
+ \hline
+ ijk   & dot   &vector x matrix&   A by row, B by column\\
+\hline
+ jik&   dot & matrix x vector  &A by row, B by column\\
+\hline
+ ikj &saxpy & row gaxpy&  B by row\\
+\hline
+ jki    &saxpy & column gaxpy&  A by column\\
+\hline
+ kij &   saxpy  & row outer product& B by row\\
+\hline
+ kji& saxpy  & column outer product & A by column\\
+ \hline
+\end{tabular}
+
+\begin{itemize}
+\item Operations $\rightarrow$ dot, saxpy,
+\item modes of access.
+\end{itemize}
+
+Wybór zależy od architektury komputera.
+\end{frame}

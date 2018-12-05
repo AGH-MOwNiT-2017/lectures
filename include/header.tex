@@ -1,3 +1,4 @@
+\PassOptionsToPackage{lowtilde}{url}
 \documentclass[aspectratio=43,english]{beamer} %If you want to create Polish presentation, replace 'english' with 'polish' and uncomment 3-th line, i.e., '\usepackage{polski}'
 \usepackage[utf8]{inputenc}
 \usepackage{polski} %Uncomment for Polish language
@@ -11,7 +12,7 @@
 	%\usetheme[dark,parttitle=leftfooter]{AGH}  	%Use dark background and show part title in left footer
 }
 \mode<handout>{	%in 'handout' mode
-	\hypersetup{pdfpagemode=None}		
+	\hypersetup{pdfpagemode=None}
 	\usepackage{pgfpages}
   	\pgfpagesuselayout{4 on 1}[a4paper,border shrink=5mm,landscape]	%show 4 slides on 1 page
   	\usetheme{boxes}
@@ -21,7 +22,7 @@
 
 \AtBeginPart{ %At begin part: display its name
 	\frame{\partpage}
-} 
+}
 
 
 %%%%%%%%%%% Configuration of the listings package %%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -73,13 +74,48 @@
            {?}{{\'N}}1
 }
 %%%%%%%%%%%%%%%%%
+\setcounter{tocdepth}{1}
+
+\newcommand\tab[1][0.5cm]{\hspace*{#1}}
+
+
+\newcommand{\setcontributors}[1]{
+	\let\oldmaketitle\maketitle
+	\renewcommand{\maketitle}{
+		\begin{frame}
+			\oldmaketitle
+
+			\noindent
+				\begin{minipage}{0.4\textwidth}
+						\footnotesize{\textbf{Contributors}}\\
+						\scriptsize{#1}
+						% \footnotesize{\textbf{Source code}}\\
+						% 	\tab \scriptsize{\href{https://github.com/AGH-MOwNiT-2017/lectures}{\texttt{github.com/AGH-MOwNiT-2017/lectures}}}
+
+				\end{minipage}
+				\hfill%
+				\begin{minipage}{0.45\textwidth}\raggedleft% adapt widths of minipages to your needs
+					\includegraphics[width=25px, height=25px]{img/title/dice}
+					\includegraphics[width=60px, height=35px]{img/title/ki}
+					\includegraphics[width=30px, height=30px]{img/title/agh}
+
+				\end{minipage}%
+
+
+		\end{frame}
+	}
+}
 
 
 \title{Metody Obliczeniowe w Nauce i Technice}
-\author{Marian Bubak, PhD}
+\author{Marian Bubak}
 \date{}
 \institute[AGH]{
-	Institute of Computer Science\\ul. Kawiory 21\\30-055 Krakow\\
-	Poland\\
-	\url{http://www.icsr.agh.edu.pl/~mownit/}
+	Department of Computer Science\\
+	AGH University of Science and Technology\\
+	Krakow, Poland\\
+	\href{mailto:bubak@agh.edu.pl}{\texttt{bubak@agh.edu.pl}}\\
+	% \href{http://www.icsr.agh.edu.pl/~mownit/}{\texttt{icsr.agh.edu.pl/$\sim$mownit}}
+	\href{http://dice.cyfronet.pl/}{\texttt{dice.cyfronet.pl}}
+
 }

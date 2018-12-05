@@ -1,0 +1,184 @@
+\section{Kwadratury Newtona-Cotesa}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}{Kwadratury Newtona-Cotesa}
+	
+    	\begin{itemize}
+    	\item wzór interpolacyjny Lagrange'a:
+        \[
+        f(x)=\sum_{i=0}^{n}L_{i}(x)f(x_{i})+\frac{f^{(n+1)}(\eta(x))}{(n+1)!}\prod_{j=0}^{n}(x-x_{j})
+        \]
+        \item węzły równoodległe
+    	\end{itemize}
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}{Wzory zamknięte N-C}
+    	$$
+        h=\frac{b-a}{n}, a=x_{0}<x_{1}<\ldots<x_{n}=b, x_{i}=x_{0}+i\cdot h, i=0, 1, \ldots , n
+        $$
+          $$
+\int_{a}^{b}f(x)dx=\sum_{i=0}^{n}a_{i}f(x_{i})+E
+          $$
+		
+        \textbf{Liczby Cotesa:}
+          $$
+a_{i}=\int_{x_{0}}^{x_{n}}L_{i}(x)dx=\int_{x_{0}}^{x_{n}}\prod_{j=0,j\neq i}^{n}\frac{x-x_{j}}{x_{i}-x_{j}}dx
+          $$
+          \begin{itemize}
+          \item wszystkie $a_{i}>0$ tylko dla $:n\leq 7, n=9$
+          \item $\sum a_{i}$ =długości przedzialu całkowania(dlaczego?)
+          \end{itemize}
+         \begin{flushright}
+         	\textbf{Zadanie: pokazać}
+         \end{flushright}
+    
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}
+    	\textbf{Błąd} \textit{E}, $\eta\in[a,\ b]$ \newline
+        \begin{itemize}
+        \item \textit{n-parzyste}, $f\in C^{n+2}[a,\ b]$
+        $$
+ 		E= \frac{h^{n+3}\cdot f^{(n+2)}(\eta)}{(n+2)!}\int_{0}^{n}t^{2}(t-1)\ldots(t-n)dt
+ 		$$
+        stopień dokładności: (n+1) 
+        \item \textit{n-nieparzyste}, $f\in C^{n+1}[a,\ b]$
+        $$
+		E=\frac{h^{n+2}\cdot f^{(n+1)}(\eta)}{(n+1)!}\int_{0}^{n}t(t-1)\ldots(t-n)dt
+ 		$$
+        stopień dokładności: (n)
+        \end{itemize}
+        \begin{flushright}
+         	Zadanie, A. Ralston, Rozdz. 4 (1983)
+        \end{flushright}
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}{Najczęściej używane formuły zamknięte Newtona-Cotesa}
+		a) $n=1$, Trapezoid Rule
+        $$
+          \int_{x_{0}}^{x_{1}}f(x)dx=\frac{h}{2}[f(x_{0})+f(x_{1})]-\frac{h^{3}}{12}f''(\eta)\ ,\ \eta\in[a,\ b]
+        $$
+        b) $n=2$, Simpson's Rule
+      
+        $$
+          \int_{x_{0}}^{x_{2}}f(x)dx=\frac{h}{3}[f(x_{0})+4f(x_{1})+f(x_{2})]-\frac{h^{5}}{90}f^{(4)}(\eta)
+        $$
+        
+	\end{frame}          
+%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}
+        c) $n=3$, Simpson's Three-Eights Rule
+        $$
+          \int_{x_{0}}^{x_{3}}f(x)dx=\frac{3h}{8}[f(x_{0})+3f(x_{1})+3f(x_{2})+f(x_{3})]-\frac{3h^{5}}{80}f^{(4)}(\eta)
+        $$
+        d) $n=4$\newline\newline
+        \scalebox{0.85}{
+        $
+        \displaystyle\int_{x_{0}}^{x_{4}}f(x)dx=\frac{2h}{45}[7f(x_{0})+32f(x_{1})+12f(x_{2})+32f(x_{3})+7f(x_{4})]-\frac{8h^{7}}{945}f^{(6)}(\eta))
+        $
+        }
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}{Wzory otwarte N-C}
+		
+$h=\frac{b-a}{n+2} \ \ , a=x_{-1}<x_{0}<x_{1}<\ldots<x_{n}<x_{n+1}=b,$\\ $\newline$
+$x_{i}=x_{0}+i\cdot h, i=0, 1,\ldots,n$
+
+   	$$
+    \int_{a}^{b}f(x)dx=\int_{x_{-1}}^{x_{n+1}}f(x)dx=\sum_{i=0}^{n}a_{i}f(x_{i})+E
+    $$
+    
+\textbf{Liczby Cotesa:} $$a_{i}=\int_{a}^{b}L_{i}(x)dx$$
+
+wszystkie $a_{i}>0$ tylko dla $n=1$, 2, 3, 5.
+
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}
+	
+	\textbf{Błąd} $E, \eta\in[a,\ b]$
+	\begin{itemize}
+	\item {\it n-parzyste}, $f\in C^{n+2}[a,\ b]$
+     $$
+		E= \frac{h^{n+3}\cdot f^{(n+2)}(\eta)}{(n+2)!}\int_{-1}^{n+1}t^{2}(t-1)\ldots(t-n)dt,
+    $$
+    \item {\it n-nieparzyste}, $f\in C^{n+1}[a,\ b]$
+    $$
+		E= \frac{h^{n+2}\cdot f^{(n+1)}(\eta)}{(n+1)!}\int_{-1}^{n+1}t(t-1)\ldots(t-n)dt,
+    $$
+	\end{itemize}
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}{Najczęściej używane kwadratury otwarte Newtona-Cotesa}
+a) $n=0$ \textbf{, Midpoint Rule, Rectangle Rule}
+
+		$$
+\int_{x-1}^{x_{1}}f(x)dx=2hf(x_{0})+\frac{h^{3}}{3}f''(\eta)\ ,\ \eta\in[x_{-1},\ x_{n+1}]
+		$$
+
+b) $n=1$
+		$$
+\int_{x-1}^{x_{2}}f(x)dx=\frac{3h}{2}[f(x_{0})+f(x_{1})]+\frac{3h^{3}}{4}f''(\eta)
+		$$
+
+$n=2$ \textbf{, Milne's Rule}
+		$$
+\int_{x-1}^{x_{3}}f(x)dx=\frac{4h}{3}[2f(x_{0})-f(x_{1})+2f(x_{2})]+\frac{14h^{5}}{45}f^{(4)}(\eta)
+		$$
+
+$n=3$
+		$$
+\int_{x-1}^{x_{4}}f(x)dx=\frac{5h}{24} [11f(x_{0})+f(x_{1})+f(x_{2})+11f(x_{3})]+ \frac{95h^{5}}{144}f^{(4)}(\eta)
+		$$
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}{Kwadratury N-C -- podsumowanie}
+% 		- zwiększenie stopnia dokładności (otwartych i zamkniętych) przez dodanie co najmniej 2 nowych węzłów \newline\newline
+%         - otwarte -- na ogół gorsze od zamkniętych, używane:\\
+%         	\hspace{10mm} $\bullet$ osobliwości w granicach przedziału\\
+%             \hspace{10mm} $\bullet$ w numerycznym rozwiązywaniu równań różniczkowych zwyczajnych\newline\newline
+%         - możliwe formuły półotwarte (półzamknięte)
+    \begin{itemize}
+    	\item zwiększenie stopnia dokładności (otwartych i zamkniętych) przez dodanie co najmniej 2 nowych węzłów
+    	\item otwarte -- na ogół gorsze od zamkniętych, używane:
+    		\begin{itemize}
+    			\item[*] osobliwości w granicach przedziału
+    			\item[*] w numerycznym rozwiązywaniu równań różniczkowych zwyczajnych
+    		\end{itemize}
+   	 	\item możliwe formuły półotwarte (półzamknięte)
+    	\end{itemize}
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{frame}
+%         - ze wzrostem $n$:\\
+% 			\hspace{10mm}$\bullet$ malenie stałego czynnika w $E$ , lecz wzrost rzędu pochodnej\\
+% 			\hspace{10mm}$\bullet$ trudności z oszacowaniem $E,$\\
+% 			\hspace{10mm}$\bullet$ duże wartości $f^{(n+1)}(\eta)$\\
+% 			\hspace{10mm}$\bullet$ $a_{i}>0:$\\
+% 			\hspace{10mm}zamknięte - tylko $n=1$, 2,\ldots 7 i 9\\
+% 			\hspace{10mm}otwarte - tylko $n=$1, 2, 3 i 5. - złe uwarunkowanie\\
+% 			\hspace{10mm}$\bullet$ oscylacyjny charakter wielomianu interpolacyjnego (zwłaszcza, że
+% 			węzły są równoodległe)\\
+% 			\hspace{10mm}$\bullet$ trudne do uzyskania liczby Cotesa\newline\newline
+% 		- $ \sum_{i=1}^{n}a_{i}=(b-a)$ ($\rightarrow$ dlaczego?).\\
+	\begin{itemize}
+		\item ze wzrostem $n$:
+        \begin{itemize}
+        	\item[*]  malenie stałego czynnika w $E$ , lecz wzrost rzędu pochodnej
+            \item[*] trudności z oszacowaniem $E$
+            \item[*] duże wartości $f^{(n+1)}(\eta)$
+            \item[*] $a_{i}>0:$
+            zamknięte - tylko $n=1$, 2,\ldots 7 i 9
+            otwarte - tylko $n=$1, 2, 3 i 5. - złe uwarunkowanie
+            \item[*] oscylacyjny charakter wielomianu interpolacyjnego (zwłaszcza, że
+ 			węzły są równoodległe)
+            \item[*] trudne do uzyskania liczby Cotesa
+        \end{itemize}
+       \item $\sum_{i=1}^{n}a_{i}=(b-a)$ ($\rightarrow$ dlaczego?)
+	\end{itemize}
+	\end{frame}
+
+
+
+
+
+

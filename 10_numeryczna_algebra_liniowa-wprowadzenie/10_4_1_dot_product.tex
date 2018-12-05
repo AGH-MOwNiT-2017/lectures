@@ -1,0 +1,69 @@
+\subsection{Dot product}
+
+\begin{frame}[fragile]{Dot product}
+
+
+$ c = x^T\cdot y; \quad x,y \in R^n\text{ (vectors)} $
+
+\vspace{10px}
+ \begin{lstlisting}[language=Matlab]
+
+function: c = dot(x,y)
+
+   c = 0
+   n = length(x)
+ 	for i = 1 : n
+ 		c = c + x(i)%*$\cdot$*)y(i)
+ 	end
+
+ end dot
+ \end{lstlisting}
+
+
+\end{frame}
+
+\subsection{saxpy}
+
+\begin{frame}[fragile]{saxpy}
+
+$ z = \alpha \cdot x + y == $ (saxpy = \textbf{s}calar \textbf{a}lpha \textbf{x} \textbf{p}lus \textbf{y})  $\alpha$ -- scalar
+\vspace{10px}
+ \begin{lstlisting}[language=Matlab]
+
+function: z = saxpy(%*$\alpha$*),x,y)
+
+  n = length(x)
+ 	for i = 1 : n
+
+ 		z(i) = %*$\alpha \cdot \text{x(i)} + \text{y(i)} $*)
+
+ 	end
+
+ end saxpy
+ \end{lstlisting}
+
+\end{frame}
+
+
+\subsection{The colon notation}
+
+\begin{frame}{The colon notation}
+
+$ A\in R^{m\cdot n} $ \\
+\vspace{10px}
+$k$-th row of $A$:
+$$A(k, :) = [a_{k1}, a_{k2}, \dots , a_{kn}]$$
+$k$-th column of $A$:
+\vspace{10px}
+
+\begin{center}
+$A(:, k) = \left [ \begin{array}{l}
+   a_{1k} \\
+   a_{2k}\\
+   \vdots\\
+   a_{nk}
+\end{array}
+\right ] $
+\end{center}
+
+\end{frame}

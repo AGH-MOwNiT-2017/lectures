@@ -1,0 +1,65 @@
+\section{Metoda różnic skończonych}
+
+%%%%%%%%%%%%%%%% 
+	\begin{frame}{Metoda różnic skończonych}
+		Wprowadzamy siatkę:
+		\begin{itemize}
+			\item $x = i \cdot h, i = 0,1 ... , N$					
+			\item $N \cdot h = \frac{\pi}{2}$		
+		\end{itemize}
+
+		$$\frac{d^2 \varphi}{dx^2} = \frac{\varphi_{i+1} - 2 \cdot \varphi_i + \varphi_{i-1}}{h^2} + O(h^2)$$
+
+		\begin{block}{Równanie różniczkowe $\Rightarrow$ układ równań różniczkowych}
+			$$
+			\begin{cases}
+				\varphi_{i-1} + (h^2 - 2)\varphi_i + \varphi_{i+1} = h^2 \cdot \alpha, i = 1,2, ..., N-1 \\
+				\varphi_0 = 1 \\
+				\varphi_N = 1
+			\end{cases}
+			$$
+		\end{block}	
+	\end{frame}
+
+%%%%%%%%%%%%%%%% 
+
+	\begin{frame}{Metoda różnic skończonych - zapis macierzowy}
+		\textbf{Zapis macierzowy po włączeniu warunku brzegowego}
+		$$
+		\footnotesize
+		\begin{bmatrix}
+		(h^2 -2) & 1 &  &  &  &  & \\ 
+		 1&  (h^2 -2)& 1 &  &  &  & \\ 
+		 & 1 &  (h^2 -2)& 1 &  &  & \\ 
+		 &  &  ...& &  &  & \\ 
+		  &  & 1 & (h^2 -2) &  1& & \\ 
+		  &  &  & 1 &  (h^2 -2)& 1 &
+		\end{bmatrix}		
+		\begin{bmatrix}
+		 \varphi_1 \\
+		 \varphi_2 \\
+		 \varphi_3 \\
+		 ...\\
+		 \varphi_{N-2}\\
+		 \varphi_{N-1}\\
+		\end{bmatrix}		
+		= 		
+		\begin{bmatrix} 
+		 h^2\alpha -1 \\
+		 h^2\alpha\\
+		 h^2\alpha\\
+		 ... \\
+		 h^2\alpha\\
+		 h^2\alpha - 1\\
+		\end{bmatrix}
+		$$
+
+		
+		Postać prawej strony $(i = 1; i = N-1)$ $\leftarrow$ wynik włączenia warunku brzegowego w zapis macierzowy.
+		
+	\end{frame}
+
+
+
+
+

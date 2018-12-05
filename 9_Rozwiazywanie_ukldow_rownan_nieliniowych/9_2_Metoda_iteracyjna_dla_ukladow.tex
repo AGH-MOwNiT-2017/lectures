@@ -1,0 +1,35 @@
+\section{9.2 Metoda iteracyjna dla układów równań nieliniowych}
+
+\begin{frame}{}
+  $$\boxed{\overrightarrow{f}(\overrightarrow{x})=0}\text{ zapisujemy jako:}$$
+  $$x_i=\varphi_i(x_1,x_2,...,x_m) , i=1,2,...,m$$
+  co sugeruje metodę iteracyjną:
+  $$x_i^{(n)}=\varphi_i(x_1^{(n-1)},x_2^{(n-1)},...,x_m^{(n-1)}) , i=1,2,...,m$$
+  $$\boxed{\overrightarrow{x}^{(n)}=\overrightarrow{\varphi}(\overrightarrow{x}^{(n-1)})}\quad(\star)$$
+\end{frame}
+
+\begin{frame}{}
+  \begin{block}{Kryterium zbieżności}
+  	\emph{Niech:}
+    \begin{itemize}
+      \item[-] $\overrightarrow{\alpha}=\overrightarrow{\varphi}(\overrightarrow{\alpha})$
+      \item[-] istnieją $d_{ij}(\overrightarrow{x})=\frac{\partial\varphi_i(\overrightarrow{x})}{\partial x_j}$ , $i,j=1,2,...,m$\\
+      dla $\overrightarrow{x}\in R^m=\{\overrightarrow{x}:||\overrightarrow{x}-\overrightarrow{\alpha}||<\rho\} \Rightarrow$\\
+      D-macierz o elementach $d_{ij}$
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}{}
+  \begin{block}{Kryterium zbieżności}
+    \emph{Wtedy:}
+    \begin{itemize}
+      \item[-] \textbf{warunek wystarczający zbieżności ($\star$)} dla $\overrightarrow{x}_0\in R^m$\\
+      $$||D(\overrightarrow{x})||\leq L<1\quad,\quad\overrightarrow{x}\in R^m:$$
+      (w tym przypadku $\varphi$ - \emph{odwzorowanie zwężające} (contraction mapping)\\ $\Rightarrow$ dla dowolnych $\overrightarrow{x},\overrightarrow{y}: ||\overrightarrow{\varphi}(\overrightarrow{x})-\overrightarrow{\varphi}(\overrightarrow{y})||\leq L \cdot ||\overrightarrow{x}-\overrightarrow{y}||)$
+      \item[-] \textbf{warunek konieczny zbieżności ($\star$)}\\
+      promień spektralny $\rho(D)\leq 1$
+      \item \textbf{prędkość zbieżności} - zależna liniowo od L
+    \end{itemize}
+  \end{block}
+\end{frame}

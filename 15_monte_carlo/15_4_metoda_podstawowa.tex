@@ -22,7 +22,7 @@
     
     Oszacowanie $E\{X\}$ - średnia z $N$ niezależnych obserwacji: \[
     	\boxed{
-        \hat{I} = \frac{1}{N} \sum_{i/1}^n f(x_i) \hspace{.5cm} (**)
+        \hat{I} = \frac{1}{N} \sum_{i=1}^n f(x_i) \hspace{.5cm} (**)
         }
     \]
 \end{frame}
@@ -43,9 +43,9 @@
 		\begin{align*}
 			\sigma^2(\hat{I}) = 
             \sigma^2 \frac{1}{N} \left[ 
-            	\sum_{i/1}^n f(x_i)
+            	\sum_{i=1}^n f(x_i)
             	\right] =
-            \frac{1}{N^2} \sum_{i/1}^N \sigma^2 [f(x_i)] =
+            \frac{1}{N^2} \sum_{i=1}^N \sigma^2 [f(x_i)] =
             \\
             \frac{1}{N} \sigma^2 [f(x)] = 
             \frac{1}{N} \left[ 
@@ -57,7 +57,7 @@
     \begin{block}{Estymator wariancji}
     	\[
         	\sigma^2(\hat{I}) = \frac{1}{N} \S_f^2; 
-            \S_f^2 = \frac{1}{N-1} \sum_{i/1}^N [f(x_i) - \hat{I}]^2
+            \S_f^2 = \frac{1}{N-1} \sum_{i=1}^N [f(x_i) - \hat{I}]^2
         \]
     \end{block}
     

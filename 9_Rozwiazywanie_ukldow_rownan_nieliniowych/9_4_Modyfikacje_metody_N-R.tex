@@ -1,0 +1,30 @@
+\section{9.4 Modyfikacje metody N-R dla układów równań nieliniowych}
+
+\begin{frame}{}
+  \begin{block}{1) damped iterates}
+    $$F^{(n)}=\sum_{i=1}^{m} [f_i^{(n)}]^2$$
+    gdy $F^{(n)}<F{(n-1)}\quad\overrightarrow{x}^{(n)}$ - akceptujemy\\
+    w przeciwnym razie $\rightarrow$ próbujemy:
+    $$\overrightarrow{x}^{(n)}=\overrightarrow{x}^{(n-1)}+\rho \cdot \overrightarrow{h}^{(n-1)}$$
+    $$0<\rho<1,\text{ zwykle kolejno } \rho=\frac{1}{2},\frac{1}{4},\frac{1}{8}$$
+  \end{block}
+\end{frame}
+
+\begin{frame}{}
+  \begin{block}{2)}
+    J-duża złożoność obliczeniowa
+    $$J^{(n-1)}\text{ używamy dla }p\text{ iteracji:}$$
+    $$J^{(n-1)} \cdot \overrightarrow{h}^{(n-1+k)}=-\overrightarrow{f}^{(n-1+k)}$$
+    $$\overrightarrow{x}^{(n+k)}=\overrightarrow{x}^{(n-1+k)}\overrightarrow{h}^{(n-1+k)}, k=0,1,...,p-1$$
+    dobór $p$?
+  \end{block}
+\end{frame}
+
+\begin{frame}{}
+  \begin{block}{3)}
+    $$\overrightarrow{x}^{(n)}=\overrightarrow{x}^{(n-1)}-\underbrace{[J^{(n-1)}]^{-1}}_{(*)}\overrightarrow{f}^{(n-1)}$$
+    $$(*)H^{(n-1)}-\text{ przez przybliżenie}$$
+    $${i:H^{(n)}=H^{(n-1)}+\underbrace{D^{(n-1)}}_{(**)}}$$
+    $$(**)\rightarrow\text{ człon korekcyjny}$$
+  \end{block}
+\end{frame}

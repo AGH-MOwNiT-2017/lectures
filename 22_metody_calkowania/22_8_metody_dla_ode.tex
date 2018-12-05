@@ -1,0 +1,27 @@
+\section{Metody Rungego-Kutty dla układów ODE}
+%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Metody R-K dla układów ODE}
+	$$\left\{\begin{array}{l}
+		\vec{u}(t) = (u_1(t),u_2(t),\ldots,u_m(t))\\
+        \vec{f}(t,\vec{u}) = (f_1(t,\vec{u}),f_2(t,\vec{u}),\ldots,f_m(t,\vec{u}))\\
+        \vec{u_0}
+	\end{array}\right.$$
+    układ równań:
+    $$\left\{\begin{array}{l}
+    	\frac{d}{dt}\vec{u}(t) = \vec{f}(t,\vec{u}(t)), \qquad t\in[a,b]\\
+        \text{z warunkiem początkowym } \vec{u}(t_0) = \vec{u}_0
+    \end{array}\right.$$
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Postać r-punktowej metody R-K}
+	$$\vec{u}_{i+1} = \vec{u}_i + h \cdot \vec{F}(t_i,\vec{u}_i,h)$$
+    gdzie:
+    \begin{tabular}{lcl}
+    	$\vec{F}(t,\vec{u},h)$ & = & $c_1 \cdot k_1(t,\vec{u},h)+c_2 \cdot k_2(t_1,\vec{u},h)+\ldots+c_rk_r(t,\vec{u},h)$ \\
+        $\vec{k}_1(t,\vec{u}, h)$ & = & $f(t,\vec{u})$,\\
+        $\vec{k}_j(t,\vec{u},h)$ & = & $\vec{f}(t+h \cdot a_{j_1}\vec{u} + h \cdot \sum_{s = 1}^{j-1}b_{js}\vec{k}_s(t,\vec{u},h))$, $j = 2,3,\ldots,r$
+    \end{tabular}
+    $$a_j = \sum_{s = 1}^{j-1}b_{js}, \qquad j = 2,3,\ldots,r$$
+    $a_j,b_{js},c_r$ - stałe rzeczywiste, wartości takie same jak dla pojedynczego równania.
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%

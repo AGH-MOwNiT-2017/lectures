@@ -1,0 +1,40 @@
+\section{12.7 Metoda Gaussa-Seidla (G-S i S-R -successive relaxation)}
+
+\begin{frame}{Metoda Gaussa-Seidla (G-S i S-R -successive relaxation)}
+  $$A=\underbrace{(L+D)}_{B}+U$$
+  $$M=I-B^{-1}A=I-B^{-1}(B+U)=-B^{-1}U$$
+  $$x^{(t+1)}=-B^{-1}Ux^{(t)}+B^{-1}b$$
+  $$(D+L)x^{(t+1)}=-Ux^t+b$$
+  $$\boxed{Dx^{(t+1)}=-Lx^{(t+1)}-Ux^{(t)}+b}$$
+\end{frame}
+
+\begin{frame}{}
+  i wzór roboczy
+  $$x^{(t+1)}_i=\frac{1}{a_{ii}}[b_i-\underbrace{\sum^{i-1}_{j=1} a_{ij}x^{(t+1)}_j}_{(\star)}-\underbrace{\sum^{n}_{j=i+1} a_{ij}x^{(t)}_{j}}_{(\star\star)}]$$
+  gdzie: ($\star$) - otrzymujemy z rozwiązania poprzednich równań w bieżącej (t + 1) iteracji i w tym tkwi przewaga nad metodą Jacobiego i źródło wzrostu efektywności, ($\star\star)$ - z poprzedniej iteracji (t).
+\end{frame}
+
+\begin{frame}{}
+  \begin{block}{Charakterystyka metody G-S}
+    \begin{itemize}
+      \item elementy diagonali powinny być $\neq$ 0 $\rightarrow$ przestawianie
+      \item wystarczy pamiętać aktualne przybliżenie $x^{(t+1)}$
+      \item zbieżna dla A:
+      \begin{itemize}
+        \item[*] silnie diagonalnie dominujących wierszowo, kolumnowo,
+        \item[*] symetrycznych,
+        \item[*] dodatnio określonych $(xAx>O\wedge x\neq 0)$.
+      \end{itemize}
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}{}
+  Dla modelowego zadania:
+  \begin{align*}
+  \lambda_{GS}&=\rho^2\\
+  \lambda_{GS}&=cos^2(\frac{\pi}{N}\approx 1-(\frac{\pi^2}{N^2})\\
+          t^* &= \frac{ln10}{\pi^2}(pn^2)...
+  \end{align*}
+\end{frame}
+

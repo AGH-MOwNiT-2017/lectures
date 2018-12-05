@@ -1,0 +1,37 @@
+\section{Dlaczego algorytmy równoległe?}
+
+\begin{frame}{Dlaczego algorytmy równoległe?}
+
+\begin{exampleblock}{Przykład -- przewidywanie pogody (globalnie):}
+rozwiązywanie równania Naviera-Stokesa na 3D siatce wokół Ziemi
+
+Zmienne:
+
+  $\left. \parbox{10em}
+{\begin{itemize}
+   \item \text{temperatura}
+   \item \text{ciśnienie}
+   \item \text{wilgotność}
+   \item \text{prędkość wiatru}
+  \end{itemize}}
+\right \} \text{równanie Naviera-Stokesa (6 zmiennych)}$
+\end{exampleblock}
+
+Obliczenia:
+
+$\left. \parbox{15em}
+{\begin{itemize}
+   \item \text{elementarna komórka 1 km}
+   \item \text{10 warstw}
+  \end{itemize}}
+\right \} 5\cdot10^9\text{ komórek}$
+
+\begin{itemize}
+    \item w każdej komórce:
+	$6\cdot 8 \text{ Bytes} \Rightarrow 2\cdot 10^{11} \text{ Bytes} = 200 \text{ Gbytes}$,
+
+    \item w każdej komórce 100 operacji fp,
+    \item obliczenia 1 kroku czasowego 1 min $\Rightarrow \frac{100\cdot5\cdot10^9}{60} = 8 \text{ GFLOPS}$
+ \end{itemize}
+
+\end{frame}

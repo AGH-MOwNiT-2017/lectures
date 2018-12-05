@@ -1,0 +1,43 @@
+\section{12.3 Istota metod iteracyjnych dla Ax=b}
+
+\begin{frame}{Istota metod iteracynych dla $A\mathrm{x}=b$}
+    \begin{center}
+      $A \cdot \mathrm{x}=b$
+    \end{center}
+    \begin{itemize}
+      \item gdzie A jest macierzą n x n;
+      \item $\mathrm{x}$ -- wektor n niewiadomych;
+      \item b -- wektor danych (źródeł)
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \begin{block}{\textbf{Rozkład:}}
+      $$A=B+R$$
+    \begin{itemize}
+      \item B -- macierz dla, której łatwo stworzyć $B^{-1}$
+      \item R -- pozostałość
+    \end{itemize}
+    $$B \cdot x=-R \cdot x+b$$
+  $$\boxed{B \cdot x=-(A-B) \cdot x+b}$$
+  \end{block}
+\end{frame}
+
+\begin{frame}{}
+    \textbf{Metody iteracyjne dla Ax = b (mesh relaxation methods) polegają na:}
+    \begin{itemize}
+      \item odgadnięciu wektora początkowego $x^{(o)}$
+      \item generowaniu ciągu iteracyjnego $x^{(t)}$ według postulowanego wzoru:
+    \end{itemize}
+	$\newline$
+    $$B \cdot x^{(t+1)}=-(A-B) \cdot x^{(t)}+b$$
+    $$x^{(t+1)}=\underbrace{-B^{-1} \cdot (A-B)}_{I-B^{-1} \cdot A=M \quad \text{M - iteration matrix}} \cdot x^{(t)}+\underbrace{B^{-1}\cdot b}_{W}$$
+\end{frame}
+
+\begin{frame}{}
+    \textbf{Różne B $\rightarrow$ rodzina metod iteracyjnych:}
+    $$\boxed{x^{(t+1)}=M \cdot x^{(t)}+B^{-1} \cdot b}\quad(\star)$$
+    Warunek \emph{zgodności} formuły iteracyjnej z szukanym rozwiązaniem
+    $$\lim_{t\to\infty} x^{(x+1)}= \lim_{t\to\infty}  (M \cdot x^{(t)}+B^{-1} \cdot b)$$
+\end{frame}
+

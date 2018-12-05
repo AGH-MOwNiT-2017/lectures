@@ -1,0 +1,50 @@
+\input{include/header}
+
+%%%%%%%%%%%%%%%%
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{xfrac}
+\usepackage{breqn}
+\usepackage{caption}
+\usepackage{enumerate}
+%%%%%%%%%%%%%%%%
+\makeatletter
+\newenvironment<>{proofs}[1][\proofname]{%
+	\par
+	\def\insertproofname{#1\@addpunct{.}}%
+	\usebeamertemplate{proof begin}#2}
+{\usebeamertemplate{proof end}}
+\makeatother
+%%%%%%%%%%%%%%%%
+\DeclareMathOperator\cas{cas}
+%%%%%%%%%%%%%%%%
+\newcommand*{\blockbreak}{\usebeamertemplate{block end}\usebeamertemplate{block begin}}
+%%%%%%%%%%%%%%%%
+
+\subtitle{16. Szeregi i transformaty Fouriera}
+\setcontributors{Maciej Trzebiński\\Mikołaj Biel}
+
+
+\begin{document}
+	\maketitle
+    %%%%%%%%%%%%%%%%
+    \begin{frame}{Outline}
+    	\tableofcontents
+    \end{frame}
+
+    %%%%%%%%%%%%%%%%
+    \input{16_fourier/16_1_wstep}
+    %%%%%%%%%%%%%%%%
+	\input{16_fourier/16_2_podstawowe_wlasnosci}
+	%%%%%%%%%%%%%%%%
+	\input{16_fourier/16_3_interpolacja_trygonometryczna}
+	%%%%%%%%%%%%%%%%
+	\input{16_fourier/16_4_szybka_transformata_Fouriera}
+	%%%%%%%%%%%%%%%%
+	\input{16_fourier/16_5_FFT_dla_przypadku_ogolnego}
+	%%%%%%%%%%%%%%%%
+	\input{16_fourier/16_6_transformata_hartleya}
+	%%%%%%%%%%%%%%%%
+	\input{16_fourier/16_7_transformata_fouriera_w_internecie}
+	%%%%%%%%%%%%%%%%
+\end{document}

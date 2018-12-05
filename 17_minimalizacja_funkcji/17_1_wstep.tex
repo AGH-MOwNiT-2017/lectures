@@ -1,0 +1,170 @@
+\section{Wstęp}
+
+\subsection{Motywacja}
+
+  \begin{frame}{Motywacja}
+    Szeroka klasa zagadnień -- szukanie najmniejszej wartości
+    przyjmowanej przez funkcję jednej lub wielu zmiennych.
+
+    \begin{exampleblock}{Przykład}
+      \begin{itemize}
+        \item minimalizacja kosztów produkcji
+        \item \ldots
+        \item linia geodezyjna w ogólnej teorii względności
+      \end{itemize}
+    \end{exampleblock}
+  \end{frame}
+
+  \begin{frame}{Motywacja}
+    \begin{exampleblock}{Przykład cd.}
+      \begin{itemize}
+        \item przykład klasyczny:\\
+        \textbf{estymacja} parametrów modelu teoretycznego
+        przez \textbf{minimalizację} różnicy między danymi
+        teoretycznymi a eksperymentalnymi:\\
+        $
+          min!F(x) = \sum_{k = 1}^{n} \left[ \frac{Y_k - T_k(\vec x)}{\sigma_k}
+          \right] ^2 Y_k \text{-- zmierzone wartości,}
+        $ \\
+        $ \sigma_k $ - błąd pomiaru,\\
+        $ T_k $ - wartości teoretyczne, zależne od parametrów~
+        $ x_i{,}\ i=1{,} \dots {,}n $ \\
+        $ K \geq n{,}\ \text{zwykle}\ K \gg n $
+      \end{itemize}
+    \end{exampleblock}
+  \end{frame}
+
+\subsection{Terminologia}
+
+  \begin{frame}{Terminologia}
+    \begin{block}{Terminologia}
+      \begin{itemize}
+        \item tradycyjnie: \textbf{minimalizacja}
+        \item maksymalizacja $(F = -f(x))$
+        \item optymalizacja -- kolizja z metodą teorii
+        sterowania, (oparta o rachunek wariacyjny)
+        \item b. stary termin: programowanie (liniowe,
+        nieliniowe, matematyczne)
+        \item ekstremalizacja
+        \item hill-climbing \\
+        \textbf{function minimalization !!!}
+      \end{itemize}
+    \end{block}
+  \end{frame}
+
+\subsection{Zdefiniowanie zagadnienia}
+
+  \begin{frame}{Zdefiniowanie zagadnienia}
+    \begin{block}{Zdefiniowanie zagadnienia}
+      \textbf{Mając daną funkcję $ F(x) $ znaleźć wartość
+      zmiennej $ x $, dla której $ F(x) $ przyjmuje
+      najmniejszą wartość, przy czym:}
+      \begin{enumerate}
+        \item $ F(x) $ nie musi być zadana analitycznie --
+        tylko: dla każdego $ x $ znamy jej wartość $ F(x) $
+        \item wartości $ x $ mogą być ograniczone do pewnego
+        obszaru -- constrained minization
+        \item mogą być dostępne $ \frac{\partial F}{\partial x} $
+        \item $ f(x) $ jest obliczana w wielu punktach --
+        aż do osiągnięcia minimum. ($ F(x) $ -- to procedura)
+      \end{enumerate}
+    \end{block}
+  \end{frame}
+
+  \begin{frame}{Zdefiniowanie zagadnienia}
+    \begin{block}{Najlepsza metoda -- taka, która:}
+      \begin{itemize}
+        \item znajduje minimum (z zadaną tolerancją)
+        po najmniejszej liczbie obliczeń funkcji
+        \item ma małą złożoność obliczeniową (sama
+        metoda)
+        \item wymaga mało pamięci
+      \end{itemize}
+    \end{block}
+  \end{frame}
+
+\subsection{Gdzie szukać minimum funkcji? (global minimum)}
+
+  \begin{frame}{Gdzie szukać minimum funkcji? (global minimum)}
+    \begin{block}{$ F(x) $ przyjmuje minimum w jednym z punktów:}
+      \begin{enumerate}
+        \item wszystkie $ \frac{\partial F}{\partial x} = 0 $
+        (p. stacjonarny -- stationary point)
+        \item niektóre $ \frac{\partial F}{\partial x} $
+        nie istnieją (wierzchołek -- cusp)
+        \item na krawędzi obszaru (edge point)
+      \end{enumerate}
+    \end{block}
+    Gdy nie znamy funkcji analitycznie -- musimy ograniczyć
+    się do minimum lokalnego $ x_0 $:
+    \begin{displaymath}
+      \forall x \in \text{otoczenia}\ x_0{,}\ F(x) > F(x_0)
+      \to \text{\emph{unconstrained local minimization}}
+    \end{displaymath}
+  \end{frame}
+
+\subsection{Kształt funkcji $ F(x) $}
+  \begin{frame}{Kształt funkcji $ F(x) $}
+    \begin{block}{Założenie}
+      $ F(x) $ -- ma sens fizyczny $ \Rightarrow $ w rozpatrywanym
+      obszarze istnieją jej wszystkie pochodne.
+    \end{block}
+    Wokół $ x_1 - F(x) $ -- \textbf{w szereg Taylora (1-D):}
+    \begin{displaymath}
+      F(x) = F(x_1) + \left. \frac{\partial F}{\partial x} \right|_{x_1}(x - x_1) +
+      \left. \frac{1}{2} \frac{\partial^2 F}{\partial x^2} \right|_{x_1}(x - x_1)^2 +
+      \dots
+    \end{displaymath}
+    \begin{itemize}
+      \item a priori nie znamy obszaru jego zbieżności
+      \item im mniejsza $ (x - x_1) $ - tym mniej ważne człony
+      wyższych rzędów
+    \end{itemize}
+    $ \Rightarrow $ dla małych kroków -- przewidywania oparte
+    na wyrazach niższego rzędu powinny być wystarczające.
+
+  \end{frame}
+
+  \begin{frame}{Kształt funkcji $ F(x) $}
+    dla n-D: $ x \to \vec{x} $
+    \begin{displaymath}
+      F(\vec{x}) = \underbrace{F(\vec{x_1})}_{\text{stały}} +
+      \vec{g}^T * (\vec{x} - \vec{x_1}) +
+      \frac{1}{2}(\vec{x} - \vec{x_1})^T * G * (\vec{x} - \vec{x_1}) + \dots
+    \end{displaymath}
+    \begin{displaymath}
+      g_i = \left. \frac{\partial F}{\partial x} \right|_{\vec{x_1}} \text{-- gradient;}\quad
+      G_{ij} = \left. \frac{\partial^2 F}{\partial x_i \partial y_j} \right|_{\vec{x_1}}
+    \end{displaymath}
+    symbole $ \Rightarrow $ ($ x_i $ -- składowa; $ \vec{x_i} $
+    -- wektor; niekiedy zamiast $ \vec{x} $ -- samo~$ x $)
+
+  \end{frame}
+
+  \begin{frame}{Kształt funkcji $ F(x) $}
+    $ \vec{g}^T * (\vec{x} - \vec{x_1}) $ -- proporcjonalny do
+    gradientu, wskazuje kierunek największego spadku funkcji,
+    w pobliżu minimum: $ \vec{g} \to 0{,}\ (\vec{x} - \vec{x_1}) \to 0
+    \; \Rightarrow $ człon liniowy, nie przepowiada minimum,
+    nie można go użyć do określenia wielkości kroku.
+    $ \frac{1}{2}((\vec{x} - \vec{x_1})^T) * G * (\vec{x} - \vec{x_1}) $
+    -- kwadratowy, najniższy człon przydatny do przewidywania minimum
+    $ G \approx $ stale w małych obszarach
+    \begin{alertblock}{Uwaga}
+      Ta analiza nie jest słuszna dla $ F(\vec{x}) $ liniowych
+      od $ \vec{x} $;\\
+      \textbf{Wtedy:} programowanie liniowe, rozwiązanie --
+      krawędzi obszaru ograniczeń.
+    \end{alertblock}
+  \end{frame}
+
+  \begin{frame}{Kształt funkcji $ F(x) $}
+    \begin{block}{Optymalne algorytmy minimalizacji}
+      Nie ma uniwersalnej metody minimalizacji. Dla b.~złego
+      algorytmu można znaleźć $ F(x) $, którą minimalizuje on
+      najszybciej -- i~odwrotnie.\\
+      \textbf{Zasada:} dobór algorytmu do funkcji.
+
+    \end{block}
+
+  \end{frame}

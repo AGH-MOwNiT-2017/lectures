@@ -1,0 +1,30 @@
+\section{12.5 Sens procedury iteracyjnej dla Ax=b}
+
+\begin{frame}{Sens procedury iteracyjnej dla Ax=b}
+  W każdym kroku następuje poprawianie rozwiązania.\\
+  Przypadek, gdy źródłem Ax=b jest rozkład Poissona :
+  \begin{itemize}
+    \item \fbox{$\bigtriangledown^2u(x,y)=-\rho(x,y)$}
+    \item $\rho(x,y)$ -- funkcja rozkładu źródeł
+    \item $\infty$ szybkość propagacji informacji
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{}
+  Ale rozkład Poissona to graniczny (stacjonarny) przypadek \emph{równania dyfuzji} :
+  $$\boxed{\frac{\partial u}{\partial t} - \bigtriangledown^2u=\rho}$$
+  którego jawne sformułowanie różnicowe ma postać:
+  $$
+  \left.
+  \begin{array}{lr}
+    \text{siatka t}:\\
+    t\rightarrow p,\\
+    t+\Delta t\rightarrow p+1
+  \end{array}\right|
+  \underbrace{u^{(p+1)}=u^{(p)}+\Delta t\Delta^{||}y^{(p)}}_{Mu^{(p)}}+\underbrace{\rho\Delta t}_{W=B^{-1}b}
+  $$
+  
+
+  Procedura iteracyjna- jawne rozwiązanie zagadnienia opisującego zbieżność w wyimaginowanym czasie iteracji (pseudoczas)
+\end{frame}
+

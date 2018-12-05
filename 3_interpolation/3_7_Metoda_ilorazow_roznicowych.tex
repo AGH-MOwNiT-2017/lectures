@@ -1,0 +1,104 @@
+\section{Metoda ilorazów różnicowych (divided differences)}
+\begin{frame}
+{3.7 Metoda ilorazów różnicowych (divided differences)}
+
+Interesuje nas nie wartość a postać wielomianu.
+
+$P_{n}(x)-\text{LIP, stp. } \leq n$, zgodny z $f(x)$ w $\{x_{0},\ x_{1},\ .\ .\ .\ ,\ x_{n}\}$
+
+można zapisać w postaci:
+\begin{equation*}\begin{split}
+P_{n}(x)=a_{0}+a_{1}(x-x_{0})+a_{2}(x-x_{0})(x-x_{1})+ \\
+\cdots+a_{n}(x-x_{0})(x-x_{1})\cdots(x-x_{n-1})
+\end{split}
+\end{equation*}
+
+$a_{0}$: $a_{0}=P_{n}(x_{0})=f(x_{0})$
+
+$a_{1}$ : $f(x_{0})+a_{1}(x_{1}-x_{0})=P_{n}(x_{1})=f(x_{1}) \Rightarrow$
+
+$$
+a_{1}=\frac{f(x_{1})-f(x_{0})}{x_{1}-x_{0}}
+$$
+\end{frame}
+
+\begin{frame}
+Wprowadzamy notację:
+\begin{itemize}
+\item 0-wy iloraz różnicowy wzgl. $x_{i}$ : $f[x_{i}]=f(x_{i})$ \\
+pozostałe - indukcyjnie:
+
+\item 1-szy:
+$$
+f[x_{i},\ x_{i+1}]=\frac{f[x_{i+1}]-f[x_{i}]}{x_{i+1}-x_{i}}
+$$
+gdy zaś określone są ilorazy $\mathrm{a}_{}\dot{\mathrm{z}}$ do $(k-1)$ , czyli
+$$
+f[x_{i},\ x_{i+1},\ x_{i+k-1}] \: i \: f[x_{i+1},\ x_{i+2},\ x_{i+k}]
+$$
+\item to wtedy k-ty iloraz różnicowy:
+\end{itemize}
+$$
+f[x_{i},\ x_{i+1}, ...\ x_{i+k}]=\frac{f[x_{i+1},x_{i+2},\ldots.x_{i+k}]-f[x_{i},x_{i+1},\ldots.x_{i+k-1}]}{x_{i+k}-x_{i}}
+$$
+\end{frame}
+
+\begin{frame}
+Interpolacyjny wzór Newtona z ilorazami różnicowymi:
+$$
+P_{n}(x)=f[x_{0}]+\sum_{k/1}^{n}f[x_{0},\ x_{1},\ .\ .\ .\ ,\ x_{k}](x-x_{0})\cdots(x-x_{k-1})
+$$
+\textbf{Zadanie}: policzyć $a_{2}, a_{3}$, zapisać algorytm.
+
+\end{frame}
+
+\begin{frame}
+
+\begin{block}
+{Twierdzenie iloraz różnicowy a pochodna}
+
+Założenia:
+\begin{itemize}
+\item $f\in C^{n}[a,\ b]$
+\item $x_{0}, x_{1}$, . . . , $x_{n}\in[a,\ b] $ i są różne
+\end{itemize}
+
+Teza:
+$$
+\exists\eta\in(a,\ b)\ f[x_{0},\ x_{1},\ .\ .\ .\ ,\ x_{n}]=\frac{f^{(n)}(\eta)}{n!}
+$$
+\end{block}
+\vspace{5mm}
+
+\textbf{Zadanie:} dowód.
+\end{frame}
+
+\begin{frame}
+\textbf{Węzły równoodległe}
+
+$h=x_{i+1}-x_{i} \quad i=0, 1, ..., n-1$ \\
+$x=x_{0}+sh$ \\
+$x-x_{i}=(s-i)h$ \\
+
+\begin{equation*} \begin{split} P_{n}(x)=P_{n}(x_{0}+sh) = f[x_{0}]+shf[x_{0}, x_{1}]+s(s - 1)h^{2}f[x_{0},x_{1},x_{2}]+ \\ 
++ \cdots +s(s-1)\cdots(s-n+1)h^{n}f[x_{0},x_{1},\dots ,x_{n}] \end{split} \end{equation*}
+
+$(_{k}^{s})=\displaystyle \frac{s(s-1)\ldots(s-k+1)}{k!}$
+$$
+P_{n}(x)=P_{n}(x_{0}+sh)=\sum_{k/0}^{n}(_{k}^{s})k!h^{k}f[x_{0},\ x_{1},\ .\ .\ .\ ,\ x_{k}]
+$$
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item Newton forward divided-difference formule {\it (r. progresywna)} \\
+\vspace{2mm}
+$f[x_{0},\displaystyle \ x_{1},\cdots,\ x_{k}]=\frac{1}{k!h^{k}}\triangle^{k}f(x_{0})$ \\
+\vspace{3mm}
+$\rightarrow$ różnica progresywna rzędu $k$
+\end{itemize}
+
+$$P_{n}(x)=\displaystyle \sum_{k/0}^{n}(_{k}^{s})\triangle^{k}f(x_{0})$$
+\end{frame}
+
+
