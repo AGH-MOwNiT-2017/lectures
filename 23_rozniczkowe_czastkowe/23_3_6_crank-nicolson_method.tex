@@ -19,7 +19,7 @@ to:
 \begin{equation} \frac{\partial ^2 u}{\partial x^2} \big \vert _{A} = \frac{1}{2} \cdot \left ( \frac{\partial ^2 u}{\partial x^2} \Big \vert _{0} + \frac{\partial ^2 u}{\partial x^2} \Big \vert _{4} \right )\end{equation}
 \textbf{W met. ,,Implicit'' wprowadzamy:}
 \begin{multline} \lambda \cdot u(x-h,t) - 2 \cdot (1+\lambda)\cdot u(x,t) + \lambda \cdot (x+h,t) = \\
- -\lambda \cdot (x-h,t-k) - 2 \cdot (1-\lambda) \cdot u(x,t-k) - \lambda \cdot u(x+h,t-k)\end{multline}
+ -\lambda \cdot u(x-h,t-k) - 2 \cdot (1-\lambda) \cdot u(x,t-k) - \lambda \cdot u(x+h,t-k)\end{multline}
 czyli:
-$$ \underline{\lambda \cdot u_3 - 3\cdot (1+\lambda)u_0 + \lambda u_1 = -\lambda \cdot u_7 - 2(1-\lambda)u_4 - \lambda u_8}$$
+$$ \underline{\lambda \cdot u_3 - 2\cdot (1+\lambda)u_0 + \lambda u_1 = -\lambda \cdot u_7 - 2(1-\lambda)u_4 - \lambda u_8}$$
 \end{frame}
