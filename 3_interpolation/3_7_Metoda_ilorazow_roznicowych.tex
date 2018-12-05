@@ -80,13 +80,15 @@ $h=x_{i+1}-x_{i} \quad i=0, 1, ..., n-1$ \\
 $x=x_{0}+s*h$ \\
 $x-x_{i}=(s-i)h$ \\
 
-\begin{equation*} \begin{split} P_{n}(x)=P_{n}(x_{0}+s*h) = f[x_{0}]+s*h*f[x_{0}, x_{1}]+s(s - 1)h^{2}f[x_{0},x_{1},x_{2}]+ \\
-+ \cdots +s(s-1)\cdots(s-n+1)h^{n}f[x_{0},x_{1},\dots ,x_{n}] \end{split} \end{equation*}
+\begin{gather*} P_{n}(x)=P_{n}(x_{0}+s*h) =\\
+   f[x_{0}]+s*h*f[x_{0}, x_{1}]+s(s - 1)h^{2}f[x_{0},x_{1},x_{2}]+ \\
++ \cdots +s(s-1)\cdots(s-n+1)h^{n}f[x_{0},x_{1},\dots ,x_{n}]
+\end{gather*}
 
-$\binom{s}{k}=\displaystyle \frac{s(s-1)\ldots(s-k+1)}{k!}$
-$$
-P_{n}(x)=P_{n}(x_{0}+sh)=\sum_{k/0}^{n}(_{k}^{s})k!h^{k}f[x_{0},\ x_{1},\ .\ .\ .\ ,\ x_{k}]
-$$
+\begin{gather*}
+\binom{s}{k}=\displaystyle \frac{s(s-1)\ldots(s-k+1)}{k!}\\
+P_{n}(x)=P_{n}(x_{0}+sh)=\sum_{k=0}^{n}(_{k}^{s})k!h^{k}f[x_{0}, x_{1}, \cdots ,x_{k}]
+\end{gather*}
 \end{frame}
 
 \begin{frame}
@@ -98,5 +100,5 @@ $f[x_{0},\displaystyle \ x_{1},\cdots,\ x_{k}]=\frac{1}{k!h^{k}}\triangle^{k}f(x
 $\rightarrow$ różnica progresywna rzędu $k$
 \end{itemize}
 
-$$P_{n}(x)=\displaystyle \sum_{k/0}^{n}(_{k}^{s})\triangle^{k}f(x_{0})$$
+$$P_{n}(x)=\displaystyle \sum_{k=0}^{n}(_{k}^{s})\triangle^{k}f(x_{0})$$
 \end{frame}

@@ -12,21 +12,14 @@ https://www.math.auckland.ac.nz/$\sim$waldron/Hermite/hermite.html
 {3.8.1 Przypadek szczególny}
 
 Dane: $\{(x_{i}, f_{i}, f_{i}^{'}); i=1,2, \dots, N; x_{i}\neq x_{j}, i\neq j\}$
-$$
-P_{2N-1}(x)=\sum_{i/1}^{N}\alpha_{i}(x)f(i)+\sum_{i/1}^{N}\beta_{i}(x)f_{i}'
-$$
-$$
-\alpha_{i}\ =\ [1-2(x-x_{i})\Phi_{i}'(x_{i})]\Phi_{i}^{2}(x)
-$$
-$$
-\beta_{i}\ =\ (x-x_{i})\Phi_{i}^{2}(x)
-$$
-\begin{center}
-$\Phi_{i}(x) = \displaystyle \prod_{j/1,j\neq i}^{N}\frac{x-x_{j}}{x_{i}-x_{j}}, i=1, 2,\dots, N$
-$$
-\Phi_{i}'(x_{i})\ =\ [\Phi_{i}'(x)]_{x_{i}}
-$$
-\end{center}
+\begin{gather*}
+  P_{2N-1}(x)=\sum_{i=1}^{N}\alpha_{i}(x)f(i)+\sum_{i=1}^{N}\beta_{i}(x)f_{i}'\\
+  \alpha_{i}\ =\ [1-2(x-x_{i})\Phi_{i}'(x_{i})]\Phi_{i}^{2}(x)\\
+  \beta_{i}\ =\ (x-x_{i})\Phi_{i}^{2}(x)\\
+  \Phi_{i}(x) = \displaystyle \prod_{j=1,j\neq i}^{N}\frac{x-x_{j}}{x_{i}-x_{j}}, i=1, 2,\dots, N\\
+  \Phi_{i}'(x_{i})\ =\ [\Phi_{i}'(x)]_{x_{i}}
+\end{gather*}
+
 \textbf{Zadanie:} sprawdzić.
 
 
@@ -90,7 +83,7 @@ gdzie: $i=0, 1, \dots, k; \: j=1, 2, \dots , m_{i-1}$ \\
 \vspace{3mm}
 Szukany wielomian interpolacyjny:
 $$
-H_{n}(x)=\sum_{l/0}^{n}b_{l}p_{l}(x)=\sum_{i/0}^{k}\sum_{j/0}^{m_i-1}b_{s(i)+j}p_{s(i)+j}(x)
+H_{n}(x)=\sum_{l=0}^{n}b_{l}p_{l}(x)=\sum_{i=0}^{k}\sum_{j=0}^{m_i-1}b_{s(i)+j}p_{s(i)+j}(x)
 $$
 \end{frame}
 

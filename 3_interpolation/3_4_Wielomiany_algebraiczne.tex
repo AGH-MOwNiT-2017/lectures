@@ -1,60 +1,60 @@
 \section{Wielomiany algebraiczne}
 	\begin{frame}{3.4 Wielomiany algebraiczne \\ 3.4.1 Cechy wielomianów algebraicznych}
-	
+
 
 	\begin{itemize}
 	\item łatwość obliczeń $+, *, \displaystyle \frac{d}{dx}, \displaystyle \int dx\ldots $ \newline
-    
-   
+
+
     \begin{block}{Twierdzenie Weierstrass'a}
-    Dla dowolnej $f(x)$ ciągłej na $[a,\ b]$ (skończonym), i każdego 
-   
+    Dla dowolnej $f(x)$ ciągłej na $[a,\ b]$ (skończonym), i każdego
+
     $\epsilon>0$ istnieje wielomian $W_{n}(x)$, $n=n(x)$ taki, że:
 
 	\[ \max\limits_{x \in [a,b]}|f(x)-W_{n}(x)|<\epsilon \]
-    
-    
+
+
   	\end{block}
     \end{itemize}
-     
+
 	\end{frame}
-    
+
     \begin{frame}{3.4.2 Postać naturalna wielomianu}
     \begin{block}{}
-		$$W(x)=\sum_{i/0}^{n}a_{i}x^{i},\ a_{i}=\frac{W^{(i)}(0)}{i!}$$
+		$$W(x)=\sum_{i=0}^{n}a_{i}x^{i},\ a_{i}=\frac{W^{(i)}(0)}{i!}$$
     \end{block}
         \begin{itemize}
         \item postać naturalna - rozwinięcie Maclaurina \\
-        
+
         \item $a_{i}$ - znormalizowane pochodne
 		\end{itemize}
     \end{frame}
-    
+
     \begin{frame}{3.4.3 Algorytm W.G. Hornera}
-    \setlength\parindent{24pt} 
+    \setlength\parindent{24pt}
 	\begin{block}{}
 		$$W(x)=(\ldots(a_{n}x+a_{n-1})x+\cdots+a_{1})x+a_{0}$$
 	\end{block}
 	czyli:
-	
+
 	$\qquad W_{n}=a_{n},$ \\
-	
+
 	$\qquad W_{i}=W_{i+1}x+a_{i}, \quad i=n-1, n-2, \cdots , 0$ \\
-	
+
 	$\qquad W(x)=W_{0}$ \\
-	
+
 	otrzymujemy:
 	\begin{itemize}
 	\item $n-$mnożeń, $n -$dodawań
 	\item numerycznie poprawny (wskaźnik kumulacji $\approx 2n+1$)
-	\end{itemize} 
+	\end{itemize}
     \vspace{3mm}
 	$\quad$\textbf{Zadanie:} sprawdzić.
     \end{frame}
-    
+
     \begin{frame}{3.4.4 Postać Newtona}
     \begin{block}{}
-	$$W(x)\ =\ \sum_{k/0}^{n}b_{k}p_{k}(x)\ ;$$
+	$$W(x)\ =\ \sum_{k=0}^{n}b_{k}p_{k}(x)\ ;$$
 	\end{block}
 	$$p_{0}(x)\ =\ 1$$
 

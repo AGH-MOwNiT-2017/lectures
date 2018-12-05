@@ -5,7 +5,7 @@
 
 $P_{1}(x)$ -- przez $(x_{0},\ y_{0})$ i $(x_{1},\ y_{1})$
 $$
-P_{1}(x)=\underbrace{\frac{(x-x_{1})}{(x_{0}-x_{1})}}_{L_0(x)}y_{0}+\underbrace{\frac{(x-x_{0})}{(x_{1}-x_{0})}}_{L_1(x)}y_{1}=\sum_{k/0}^{1}L_{k}(x)f(x_{k})
+P_{1}(x)=\underbrace{\frac{(x-x_{1})}{(x_{0}-x_{1})}}_{L_0(x)}y_{0}+\underbrace{\frac{(x-x_{0})}{(x_{1}-x_{0})}}_{L_1(x)}y_{1}=\sum_{k=0}^{1}L_{k}(x)f(x_{k})
 $$
 \begin{itemize}
 \item wielomian stopnia $\leq 1$
@@ -115,9 +115,10 @@ Założenia:
 
 \begin{block}
 {Teza:}
-$$\forall x\in[a,\ b]\ \exists\eta(x)\in(a,\ b)\ :$$
-
-$$f(x)=P_{n}(x)+\frac{f^{n+1}(\eta(x))}{(n+1)!}\prod_{i=0}^{n}(x-x_{i})\ (\star)$$
+\begin{gather*}
+  \forall x \in[a,\ b] \text{ } \exists \eta \in (a, b), \eta = \eta(x): \\ \\
+  f(x)=P_{n}(x)+\frac{f^{n+1}(\eta)}{(n+1)!}\prod_{i=0}^{n}(x-x_{i})\ (\star)
+\end{gather*}
 \end{block}
 
 \end{frame}
@@ -145,7 +146,7 @@ $$g(x_{k})=\underbrace{f(x_{k})-P_{n}(x_{k})}_{=0}-[f(x)-P_{n}(x)]\underbrace{\p
 \end{frame}
 
 \begin{frame}
-$\fbox{$t=x:$}$
+$\fbox{$t=x \neq x_k:$}$
 $$
 g(x)=f(x)-P_{n}(x)-[f(x)-P_{n}(x)]\underbrace{\prod_{i=0}^{n}\frac{x-x_{i}}{x-x_{i}}}_{=1}=0
 $$
@@ -163,14 +164,15 @@ f^{(n+1)}(\eta)-\underbrace{P_{n}^{(n+1)}(\eta)}_{=0}-[f(x)-P_{n}(x)]\frac{d^{n+
  \begin{frame}
 
 
-$\displaystyle \prod_{i/0}^{n}\frac{t-x_{i}}{x-x_{i}}=\frac{t^{n+1}}{\prod_{i/0}^{n}(x-x_{i})}+at^{n}+\cdots$
+$\displaystyle \prod_{i=0}^{n}\frac{t-x_{i}}{x-x_{i}}=\frac{t^{n+1}}{\prod_{i=0}^{n}(x-x_{i})}+at^{n}+\cdots$
 $$
 f^{(n+1)}(\eta)=[f(x)-P_{n}(x)]\frac{(n+1)!}{\prod_{i=0}^{n}(x-x_{i})}
 $$
 \textbf{Błąd interpolacji Lagrange'a:}
-$$
-f(x)=P_{n}(x)+\underbrace{\frac{f^{n+1}(\eta(x))}{(n+1)!}\prod_{i/0}^{n}(x-x_{i})}_{Porównaj\: z resztą\: Taylora!}
-$$
+\begin{gather*}
+  f(x)=P_{n}(x)+\underbrace{\frac{f^{(n+1)}(\eta)}{(n+1)!}\prod_{i=0}^{n}(x-x_{i})}_{\text{Porównaj z resztą Taylora!}}
+\end{gather*}
+
 
 
 \textbf{Zadanie:} Wyprowadź resztę Taylora powyższą metodą \\
@@ -180,9 +182,9 @@ $$
 \begin{itemize}
 \item Alternatywny zapis LIP: $(x_{0},\ x_{1},\ \ldots,\ x_{n})$ :
 \end{itemize}
-$\displaystyle \omega(x)=\prod_{k/0}^{n}(x-x_{k})$
+$\displaystyle \omega(x)=\prod_{k=0}^{n}(x-x_{k})$
 
-$P_{n}(x)=\displaystyle \omega(x)\sum_{k/0}^{n}\frac{f(x_{k})}{(x-x_{k})\omega ^{'}(x_{k})}$ \\
+$P_{n}(x)=\displaystyle \omega(x)\sum_{k=0}^{n}\frac{f(x_{k})}{(x-x_{k})\omega ^{'}(x_{k})}$ \\
 \vspace{5mm}
 
 \textbf{Zadanie:} Sprawdzić.
