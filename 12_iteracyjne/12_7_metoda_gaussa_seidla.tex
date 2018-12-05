@@ -2,16 +2,18 @@
 
 \begin{frame}{Metoda Gaussa-Seidla (G-S i S-R -successive relaxation)}
   $$A=\underbrace{(L+D)}_{B}+U$$
-  $$M=I-B^{-1}A=I-B^{-1}(B+U)=-B^{-1}U$$
+  $$M=I-B^{-1}A=I-B^{-1}(B+U)=-B^{-1}U, (*)$$
   $$x^{(t+1)}=-B^{-1}Ux^{(t)}+B^{-1}b$$
   $$(D+L)x^{(t+1)}=-Ux^t+b$$
   $$\boxed{Dx^{(t+1)}=-Lx^{(t+1)}-Ux^{(t)}+b}$$
+  \ \\
+  (*) Pamiętamy, że $$x^{(t+1)} = M x^{(t)} + W, M=I-B^{-1}A, W = B^{-1}b$$\\
 \end{frame}
 
 \begin{frame}{}
-  i wzór roboczy
-  $$x^{(t+1)}_i=\frac{1}{a_{ii}}[b_i-\underbrace{\sum^{i-1}_{j/1} a_{ij}x^{(t+1)}_j}_{(\star)}-\underbrace{\sum^{n}_{j/i+1} a_{ij}x^{(t)}_{j}}_{(\star\star)}]$$
-  gdzie: ($\star$) - otrzymujemy z rozwiązania poprzednich równań w bieżącej (t + 1) iteracji i w tym tkwi przewaga nad m. Jacobiego i źródło wzrostu efektywności, ($\star\star)$ - z poprzedniej iteracji (t).
+  Wzór roboczy:
+  $$x^{(t+1)}_i=\frac{1}{a_{ii}}[b_i-\underbrace{\sum^{i-1}_{j=1} a_{ij}x^{(t+1)}_j}_{(\star)}-\underbrace{\sum^{n}_{j=i+1} a_{ij}x^{(t)}_{j}}_{(\star\star)}]$$
+  gdzie: ($\star$) - otrzymujemy z rozwiązania poprzednich równań w bieżącej (t + 1) iteracji i w tym tkwi przewaga nad metodą Jacobiego i źródło wzrostu efektywności, ($\star\star)$ - z poprzedniej iteracji (t).
 \end{frame}
 
 \begin{frame}{}

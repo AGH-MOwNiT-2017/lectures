@@ -3,13 +3,14 @@
 \begin{frame}{Aproksymacja średniokwadratowa}
   	\begin{figure}
 	\includegraphics[height=0.8\textheight]{img/5/aproksymacja_sredniokwadratowa}
+        % TODO - correct aproksymujaca into aproksymująca
 	\end{figure}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%
 \begin{frame}{Postawienie problemu}
 	\textbf{Dane:}\newline
     - ${(x_i,y_i = F(x_i)),i=0,1,\ldots,n}$, czyli mamy (n+1) węzłów \newline
-    - układ funkcji bazowych: $\varphi_j(x),j=0,1,\ldots,m$.\newline\par
+    - układ funkcji bazowych: $\varphi_j(x), j=0,1,\ldots,m$.\newline\par
     \textbf{Szukamy wielomianu uogólnionego:}
     $$f(x) = \sum_{j = 0}^{m} a_j \varphi_j(x)$$
     czyli $\{{a_j}\}_{j=0}^m$, dla których:
@@ -18,13 +19,18 @@
 \end{frame}
 %%%%%%%%%%%%%%%%%%%
 \begin{frame}{Przypadek ciągły}
-	Dla przypadku ciągłego:
-    $$min!\int_a^bw(x)[F(x)-f(x)]^2dx : \sum \rightarrow \int$$
+    Dla przypadku ciągłego minimalizujemy wartość całki:
+    $$min!\int_a^bw(x)[F(x)-f(x)]^2dx% : \sum \rightarrow \int
+    $$
     $\Rightarrow$ aproksymacja średniokwadratowa funkcji ciągłych\newline
-    $w(x_i)$ - funkcja wagowa, $w(x_i)>0$ (jak dla iloczynu skalarnego) i zwykle: $w(x_i) \sim \frac{1}{[\text{błąd }F(x_i)]^2}$ \newline
+
+    $w(x)$ - funkcja wagowa, $w(x)\geqslant0$ ((jak dla iloczynu skalarnego))\newline
+    Zwykle: $w(x_i) \sim \frac{1}{[\text{błąd }F(x_i)]^2}$ lub $w(x) = 1$
+\end{frame}
+\begin{frame}{Współczynniki wielomianu uogólnionego}
     Współczynniki $\{a_j\}$ znajdujemy z warunku: $\frac{\partial H}{\partial a_k} = 0, k=0,1,\ldots,m$
     $\Rightarrow$ układ $(m+1)$ równań liniowych o $(m+1)$ niewiadomych
-    $$\frac{\partial H}{\partial a_k} = -2 \cdot \sum_{i=0}^{n}w(x_i)\bigg[F(x_i)-\sum_{j=0}^{m}a_j\varphi_j(x_i)\bigg]\varphi_k(x_i)=0;k=0,1,\ldots,m+1$$
+    $$\frac{\partial H}{\partial a_k} = -2 \cdot \sum_{i=0}^{n}w(x_i)\bigg[F(x_i)-\sum_{j=0}^{m}a_j\varphi_j(x_i)\bigg]\varphi_k(x_i)=0;k=0,1,\ldots,m$$
     Jest to \textbf{układ normalny.}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%
@@ -87,14 +93,14 @@
 %%%%%%%%%%%%%%%%%%%
 \begin{frame}{Ortogonalność funkcji}
 	\begin{block}{Definicja ortogonalności funkcji}
-	Funkcje $f(x)$ i $g(x)$ nazywamy ortogonalnymi na dyskretnym zbiorze punktów $\{x_i,i=0,1,..,n\}$ jeżeli:
+	Funkcje $f(x)$ i $g(x)$ nazywamy ortogonalnymi na dyskretnym zbiorze punktów $\{x_i,i=0,1,..,n\}$, jeżeli:
     $$\sum_{i=0}^{n}f(x_i)\cdot g(x_i) = 0, \sum_{i=0}^{n}[f(x_i)]^2 > 0,\sum_{i=0}^{n}[g(x_i)]^2 > 0$$
 	\end{block}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%
 \begin{frame}{Ortogonalność ciągów}
 	\begin{block}{Definicja ortogonalności ciągów}
-	Ciąg funkcyjny $\{\varphi_k(x)\}$ nazywamy ortogonalnymi na dyskretnym zbiorze punktów $\{x_i\}$ jeśli:
+	Ciągi funkcyjne $\{\varphi_k(x)\}$ nazywamy ortogonalnymi na dyskretnym zbiorze punktów $\{x_i\}$, jeżeli:
     $$\sum_{i=0}^{n}\varphi_j(x_i)\varphi_k(x_i) = \left\{\begin{array}{cl}
     	0 & j \not= k \\
         >0 & j = k \quad \rightarrow (*)
@@ -105,9 +111,9 @@
 %%%%%%%%%%%%%%%%%%%
 \begin{frame}{Aproksymacja średniokwadratowa wielomianami ortogonalnymi}
 	Dla wielomianów ortogonalnych układ normalny:
-    $$\sum_{i=0}^{n}w(x_i)\Bigg[F(x_I)-\underbrace{\sum_{j=0}^{m}a_j\varphi_j(x_i)}\Bigg]\varphi_k(x_i)=0,k=0,1,..,m$$
+    $$\sum_{i=0}^{n}w(x_i)\Bigg[F(x_i)-\underbrace{\sum_{j=0}^{m}a_j\varphi_j(x_i)}\Bigg]\varphi_k(x_i)=0, k=0,1,..,m$$
     \begin{center}
-    	$$\sum_{i=0}^{n}w(x_i)\varphi_k(x_i)\sum_{j=0}^{m}a_j\varphi_j(x_i)=$$\newline$$=\sum_{j=0}^{m}a_j\sum_{i=0}^{m}w(x_i)\varphi_k(x_i)\varphi_j(x_i) = a_k\sum_{i=0}^{n}W_i\varphi_k^2(x_i)$$
+    	$$\sum_{i=0}^{n}w(x_i)F(x_i)\varphi_k(x_i)=\sum_{i=0}^{n}w(x_i)\varphi_k(x_i)\sum_{j=0}^{m}a_j\varphi_j(x_i)=$$\newline$$=\sum_{j=0}^{m}a_j\sum_{i=0}^{n}w(x_i)\varphi_k(x_i)\varphi_j(x_i) = a_k\sum_{i=0}^{n}W_i\varphi_k^2(x_i)$$
     \end{center}
     
 \end{frame}
@@ -126,14 +132,13 @@
 \end{frame}
 %%%%%%%%%%%%%%%%%%%
 \begin{frame}{Aproksymacja średniokwadratowa funkcjami sklejanymi}
-	\begin{flushright}
-		\textit{Zadanie:} \quad Pokazać, że: $f(x) = s(x)$
-	\end{flushright}
+	Możliwa jest aproksymacja średniokwadratowa funkcjami sklejanymi.\newline
+    Przykład: \url{https://pl.wikibooks.org/wiki/Metody_numeryczne_fizyki/Aproksymacja}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%
-\begin{frame}{Wielomiany Legrendre'a}
-	Określone wzorem $P_n(x) = \frac{1}{n!2^n}\frac{d^n}{dx^n}[(x^{-1})^n],x \in [-1,1], n = 0,1,\ldots$
-    Spełniają wzór rekurencyjny:
+\begin{frame}{Wielomiany Legendre'a}
+	Określone wzorem $$P_n(x) = \frac{1}{n!2^n}\frac{d^n}{dx^n}[(x^{2}-1)^n], x \in [-1,1], n = 0,1,\ldots$$\\
+    Spełniają wzór rekurencyjny (dla $n\geqslant1$):
     $$(2n+1) \cdot x \cdot P_n(x)=(n+1)P_{n+1}(x)+n \cdot P_{n-1}(x)$$
     \begin{flushleft}
     	$$\left.\begin{array}{l}
@@ -158,7 +163,7 @@
 	\begin{flushright}
     	\textit{Zadanie:} \quad Pokazać, że $P_n(-x) = (-1)^n \cdot P_n(x)$ 
     \end{flushright}
-	spełniają równania różniczkowe:
+	Wielomiany Legendre'a spełniają równania różniczkowe:
         $$\frac{d}{dx}\bigg[(1-x^2)\frac{dP_n(x)}{dx}\bigg]+n(n+1)P_n(x) = 0$$
         (wynik rozdzielania zmiennych w r. Laplace'a we współrzędnych sferycznych) \newline \par
         \textbf{Ortogonalność: }

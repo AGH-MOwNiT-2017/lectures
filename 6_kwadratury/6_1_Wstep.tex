@@ -1,8 +1,8 @@
-\section{Wstep}
+\section{Wstęp}
 %%%%%%%%%%%%%%%%%%%%%%%%%
 	\begin{frame}{Wstep} 
     
-a) \textit {kwadratura} - przypadek specjalny zagadnienia poczqtkowego:
+a) \textit {kwadratura} - przypadek specjalny zagadnienia początkowego:
 $$
  I=\int_{a}^{b}f(x)dx\ \equiv I=y(b), \displaystyle \frac{dy}{dx}=f(x) , \underbrace{(a)=0}_\text{(*)}
 $$
@@ -34,9 +34,9 @@ $$
         $$
 		d) \textbf{Stopień dokładności kwadratury} \newline
         \textit{E} - błąd kwadratury, {$P_{k}$} - wielomian stopnia k \newline
-        stopień - liczba całkowita n < 0 :
+        stopień - liczba całkowita n $<$ 0 :
         $$
-			E(P_{k})=0 \forall k\leq n,\ E(P_{n+1})\neq 0
+			E(P_{k})=0  \ \ \forall k\leq n,\ E(P_{n+1})\neq 0
 		$$
         całkowanie, dodawanie - operacje liniowe $\Rightarrow$ zamiast $P_{k}$$\rightarrow x^{k}.$
     \end{frame}
@@ -45,8 +45,8 @@ $$
 		Metoda uzyskiwania wyników o dużej dokładności przy użyciu formuł niskiego rzędu	
        
         \begin{itemize}
-          \item Archimedes (-200)
-          \item L. F. Richardson, J. A. Gaunt (1927)
+          \item Archimedes (200 p.n.e.)
+          \item L. F. Richardson, J. A. Gaunt (1927 n.e)
         \end{itemize}
         niech	\textit{h} - krok, \textit{E} - błąd obliczeń $\rightarrow$ postać asymptotyczna
         $$
@@ -64,12 +64,12 @@ $$
 		$$
         \begin{array}{l}
 \varphi=\varphi_{1}(h_{1})+\sum_{i=k}^{\infty}{a_{i}}\cdot h_{1}^{i}\ \text{\textbar}\cdot h_{2}^{k}\\
-\varphi=\varphi_{1}(h_{2})+\sum_{i=k}^{\infty}{a_{i}}\cdot h_{2}^{i}\ \text{\textbar}\cdot h_{1}^{k}
+\varphi=\varphi_{2}(h_{2})+\sum_{i=k}^{\infty}{a_{i}}\cdot h_{2}^{i}\ \text{\textbar}\cdot h_{1}^{k}
 		\end{array}\Bigg\lvert -
         $$
         
 		$$
-\varphi=\frac{1}{h_{1}^{k}-h_{2}^{k}}\cdot(h_{1}^{k}\cdot\varphi_{2}-h_{2}^{k}\cdot\varphi_{1})+\sum_{i=k+1}^{\infty}a_{i}\cdot\frac{h_{1}^{k}h_{2}^{i}-h_{2}^{k}h_{2}^{k}}{h_{1}^{k}-h_{2}^{k}}
+\varphi=\frac{1}{h_{1}^{k}-h_{2}^{k}}\cdot(h_{1}^{k}\cdot\varphi_{2}-h_{2}^{k}\cdot\varphi_{1})+\sum_{i=k+1}^{\infty}a_{i}\cdot\frac{h_{1}^{k}h_{2}^{i}-h_{1}^{i}h_{2}^{k}}{h_{1}^{k}-h_{2}^{k}}
 		$$
 		wynik $\Rightarrow$ zwiększenie najmniejszego wykładnika potęgi \textit{h} w \textit{E} , \\
 		ER pozwala poprawić wynik nawet gdy od razu wybrano metodę rzędu \textit{k} + 1.        

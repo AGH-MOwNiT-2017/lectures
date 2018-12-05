@@ -1,8 +1,5 @@
 \subsection{Przybliżenie równania Laplace'a układem równań różnicowych}
 
-% Pierwszy link odnosi się do pliku na komputerze autora oryginalnego PDFa lub do lokalizacji na serwerze Bubaka, do której nie mamy dostępu (w co wątpię).
-% Drugi link jest martwy, odpowiedni wydział odpowiedniej uczelni ma już nową stronę internetową, na której nie znalazłem podanych treści.
-
 \begin{frame}{\large{Przybliżenie równania Laplace'a układem równań różnicowych}}
   \centerline{\includegraphics[width = 0.5 \linewidth]{img/23/przyblizanie}}
   $h>0, \qquad 0<h_i \le h, \qquad i = 1,2,3,4$ \\
@@ -25,7 +22,7 @@
 
   Wtedy:
 \begin{equation}
-\begin{split}    
+\begin{split}
 u_{x x} + u_{y y} \equiv u_0 \cdot (\alpha_0 + \alpha_1 + \alpha_2 + \alpha_3 + \alpha_4) + u_x \cdot (h_1 \alpha_1 - h_3 \alpha_3) + \\
     + u_y \cdot (\alpha_2 h_2 - \alpha_4 h_4) + \frac{1}{2} u_{x x} \cdot (h_1^2 \alpha_1 + h_3^2 \alpha_3) + \\
     + \frac{1}{2} u_{y y} \cdot (h_2^2 \alpha_2 + h_4^2 \alpha_4) + \sum_{i=1}^4 O(h_i^3)
@@ -39,14 +36,14 @@ u_{x x} + u_{y y} \equiv u_0 \cdot (\alpha_0 + \alpha_1 + \alpha_2 + \alpha_3 + 
     $$ \begin{array}{l}
     \alpha_0 = -2 \cdot \left[ \frac{1}{h_1 h_3} + \frac{1}{h_2 h_4} \right], \\
     \alpha_1 = \frac{2}{h_1 (h_1 + h_3)}, \\
-    \alpha_2 = \frac{2}{h_2 (h_2 + h_3)}, \\ 
+    \alpha_2 = \frac{2}{h_2 (h_2 + h_3)}, \\
     \alpha_3 = \frac{2}{h_3 (h_1 + h_3)}, \\
     \alpha_4 = \frac{2}{h_4 (h_2 + h_4)}
     \end{array}$$
   \end{block}
 
   Zastąpienie równania Laplace'a przybliżeniem $(\ref{2})$ opiera się na:
-  $$ \lim_{h \rightarrow 0} \sum_{i=1}^4 [O(h_i^3)] = 0$$ % W zasadzie w oryginale autor uparcie stosuje 0() zamiast O()...
+  $$ \lim_{h \rightarrow 0} \sum_{i=1}^4 [O(h_i^3)] = 0$$
 \end{frame}
 
 \begin{frame}

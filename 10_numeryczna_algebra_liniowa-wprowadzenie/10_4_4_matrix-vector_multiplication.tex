@@ -3,7 +3,7 @@
 \begin{frame}[fragile]{Matrix-Vector multiplication}
 
 $z = A \cdot x; $ \\
-$z_i = \sum_{i=1}^n a_{i j}  x_j $ \\ 
+$z_i = \sum_{i=1}^n a_{i j}  x_j $ \\
 \vspace{10px}
 \begin{enumerate}[a)]
 	\item row version \\
@@ -24,7 +24,7 @@ $z_i = \sum_{i=1}^n a_{i j}  x_j $ \\
 \end{frame}
 
 \begin{frame}[fragile]
-	\begin{itemize} % pisanie myślników z palca jest jeszcze gorsze niż "a)"
+	\begin{itemize}
 		\item $*$: in colon notation
 		\vspace{7px}
 		 \begin{lstlisting}[language=Matlab]
@@ -49,13 +49,13 @@ Dostęp do macierzy A $\Rightarrow$ wierszami
 	\begin{enumerate}[b)]
 		\item column version \vspace{10px}
 
-$\left(  \begin{array}{ll} 
+$\left(  \begin{array}{ll}
    1 & 2\\
    3 & 4\\
    5 & 6\\
 \end{array}
-\right ) \cdot 
-\left ( \begin{array}{l} 
+\right ) \cdot
+\left ( \begin{array}{l}
    7\\
    8\\
 \end{array}
@@ -83,7 +83,7 @@ $
 
 $m = rows(A); \quad n = cols(A) \quad z(1:m) = 0$
 \vspace{10px}
- 
+
  \begin{lstlisting}[language=Matlab, mathescape]
   function: z = matrec.ij(A, x)
      for j = 1:n $\tikzmark{mark1}$
