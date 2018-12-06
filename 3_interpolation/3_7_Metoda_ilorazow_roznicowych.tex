@@ -97,8 +97,20 @@ P_{n}(x)=P_{n}(x_{0}+sh)=\sum_{k=0}^{n}(_{k}^{s})k!h^{k}f[x_{0}, x_{1}, \cdots ,
 \vspace{2mm}
 $f[x_{0},\displaystyle \ x_{1},\cdots,\ x_{k}]=\frac{1}{k!h^{k}}\triangle^{k}f(x_{0})$ \\
 \vspace{3mm}
-$\rightarrow$ różnica progresywna rzędu $k$
+Różnica progresywna rzędu $k$
 \end{itemize}
 
 $$P_{n}(x)=\displaystyle \sum_{k=0}^{n}(_{k}^{s})\triangle^{k}f(x_{0})$$
+\end{frame}
+
+\begin{frame}
+  \begin{gather*}
+    \Delta^{(0)} y_i := y_i\\
+    \Delta^{(k)} y_i := \Delta^{(k - 1)} y_{i+1} - \Delta^{(k - 1)} y_i, k \ge 1
+  \end{gather*}
+
+  Forward differences -- przykład dla 4 punktów:
+  \begin{figure}[h]
+  			\includegraphics[width = 0.4 \linewidth]{img/3/interpol_3_7}
+  	\end{figure}
 \end{frame}
