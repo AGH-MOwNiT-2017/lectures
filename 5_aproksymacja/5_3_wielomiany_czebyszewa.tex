@@ -93,29 +93,6 @@
 	\end{tabular}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%
-\begin{frame}{Aproksymacja wielomianami Czebyszewa}
-	$\rightarrow$ jednostajna: $min!sup_{x \in [a,b]}|F(x)-f(x)|$ \newline
-    baza $T_i(x)$ wygodna, bo $T_i(x)$ - równomierne w $[-1,1]$ \newline
-    $F(x)$ \textbf{zastępujemy sumą częściową:}
-    $$F(x) \approx \sum_{j=0}^{n}c_jT_j(x)$$
-    z $c_j$ wyznaczonymi z warunku ortogonalności w przypadku ciągłym
-    $$F(x) = \sum_{j=0}^{\infty}c_jT_j(x)    \bigg\arrowvert \cdot\frac{T_i(x)}{\sqrt{1-x^2}}  \bigg\arrowvert \int_{-1}^{1}dx$$
-    \begin{tabular}{ll}
-    $c_0 = \frac{1}{\pi}\int_{-1}^{1}\frac{F(x)T_i(x)dx}{\sqrt{1-x^2}}$ &
-    $c_i = \frac{2}{\pi}\int_{-1}^{1}\frac{F(x)T_i(x)dx}{\sqrt{1-x^2}}, i=1,..,n$
-    \end{tabular}
-    
-    Często - zamiast $\uparrow \rightarrow$ interpolacja $T_{n+1}(x)$
-\end{frame}
-%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-	\textbf{Tworzymy wyrażenia wymierne postaci:}
-    $$T_{n,k}(x) = \frac{\sum_{i=0}^{n}a_iT_i(x)}{\sum_{i=0}^{k}b_iT_i(x)}$$
-    o $a_i$, $b_i$ dobranych tak, by w liczniku wyrażenia 
-    $$F(x)-T_{n,k}(x) = \frac{\big[\sum_{j=0}^{\infty}c_jT_j(x)\big] \cdot \big[\sum_{i=0}^{k}b_iT_i(x)\big] - \sum_{i=0}^{n}a_iT_i(x)}{\sum_{i=0}^{k}b_iT_i(x)}$$
-    znikały współczynniki dla $T_i(x),i=0,1,2,..,k+n$
-\end{frame}
-%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Interpolacja Czebyszewa (z węzłami $T_{n+1}(x)$)}
 	$W_n(x)$ - wielomian interpolacyjny stopnia $n$; $W_n(x) = f(x_k),k=0,1,..,n$
     $$f(x) = W_n(x)+E_n(x); E_n(x) = \frac{f^{(n+1)}(c)}{(n+1)!}\underbrace{\prod_{i=0}^{n}(x-x_i)}_{\omega_n}
@@ -124,21 +101,6 @@
     $\Rightarrow$ \textbf{Rozwiązanie:} Wprost z własności minimaksu $T_{n+1}(x)$ jako $x_k$ wziąć węzły - zera $T_{n+1}(x)$:
     $$x_k = \cos \Big(\frac{2k+1}{n+1}\frac{\pi}{2}\Big), k=0,1,..,n \rightarrow \text{interpolacja Czebyszewa}$$
     
-\end{frame}
-%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-	- interpolacja z równoodległymi węzłami (11 węzłów)\newline
-    - interpolacja z węzłami Czebyszewa $\rightarrow$ zera $T_{11}(x)$
-    \begin{block}{Uwaga}
-    Transformacja przedziału $x \in [a,b] \rightarrow t \in [-1,1]$
-    $$x=\frac{b-a}{2}t+\frac{a+b}{2}$$
-    \end{block}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-	\begin{figure}
-		\includegraphics[height=0.8\textheight]{img/5/czebyszew.jpg}
-	\end{figure}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%
 \begin{frame}{Interpolujący wielomian Czebyszewa}
@@ -159,14 +121,52 @@
     $$\sum_{k=0}^{n}f(x_k)T_i(x_k)=\sum_{j=0}^{n}c_j\underbrace{\sum_{k=0}^{n}T_i(x_k)T_j(x_k)}_{\text{ortogonalność}}$$
 \end{frame}
 %%%%%%%%%%%%%%%%%%%
-\begin{frame}
-	\begin{figure}
-		\includegraphics[height=0.8\textheight]{img/5/interpolacja.jpg}
-	\end{figure}
-\end{frame}
 \begin{frame}{Współczynniki $c_i$}
 	$$c_0 = \frac{1}{n+1}\sum_{k=0}^{n}f(x_k)T_0(x)=1$$
     $$c_i = \frac{2}{n+1}\sum_{k=0}^{n}f(x_k)T_i(x_k)$$
     Pozostaje nam wyliczenie sumy.
 \end{frame}
 %%%%%%%%%%%%%%%%%%%
+\begin{frame}
+    - interpolacja z równoodległymi węzłami (11 węzłów)\newline
+    - interpolacja z węzłami Czebyszewa $\rightarrow$ zera $T_{11}(x)$
+    \begin{block}{Uwaga}
+        Transformacja przedziału $x \in [a,b] \rightarrow t \in [-1,1]$
+        $$x=\frac{b-a}{2}t+\frac{a+b}{2}$$
+    \end{block}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+    \begin{figure}
+        \includegraphics[height=0.8\textheight]{img/5/czebyszew.jpg}
+    \end{figure}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+    \begin{figure}
+        \includegraphics[height=0.8\textheight]{img/5/interpolacja.jpg}
+    \end{figure}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Aproksymacja wielomianami Czebyszewa}
+    $\rightarrow$ jednostajna: $min!sup_{x \in [a,b]}|F(x)-f(x)|$ \newline
+    baza $T_i(x)$ wygodna, bo $T_i(x)$ - równomierne w $[-1,1]$ \newline
+    $F(x)$ \textbf{zastępujemy sumą częściową:}
+    $$F(x) \approx \sum_{j=0}^{n}c_jT_j(x)$$
+    z $c_j$ wyznaczonymi z warunku ortogonalności w przypadku ciągłym
+    $$F(x) = \sum_{j=0}^{\infty}c_jT_j(x)    \bigg\arrowvert \cdot\frac{T_i(x)}{\sqrt{1-x^2}}  \bigg\arrowvert \int_{-1}^{1}dx$$
+    \begin{tabular}{ll}
+        $c_0 = \frac{1}{\pi}\int_{-1}^{1}\frac{F(x)T_i(x)dx}{\sqrt{1-x^2}}$ &
+        $c_i = \frac{2}{\pi}\int_{-1}^{1}\frac{F(x)T_i(x)dx}{\sqrt{1-x^2}}, i=1,..,n$
+    \end{tabular}
+
+    Często - zamiast $\uparrow \rightarrow$ interpolacja $T_{n+1}(x)$
+\end{frame}
+%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+    \textbf{Tworzymy wyrażenia wymierne postaci:}
+    $$T_{n,k}(x) = \frac{\sum_{i=0}^{n}a_iT_i(x)}{\sum_{i=0}^{k}b_iT_i(x)}$$
+    o $a_i$, $b_i$ dobranych tak, by w liczniku wyrażenia
+    $$F(x)-T_{n,k}(x) = \frac{\big[\sum_{j=0}^{\infty}c_jT_j(x)\big] \cdot \big[\sum_{i=0}^{k}b_iT_i(x)\big] - \sum_{i=0}^{n}a_iT_i(x)}{\sum_{i=0}^{k}b_iT_i(x)}$$
+    znikały współczynniki dla $T_i(x),i=0,1,2,..,k+n$
+\end{frame}
