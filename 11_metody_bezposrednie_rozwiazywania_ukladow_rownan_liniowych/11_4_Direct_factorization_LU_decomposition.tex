@@ -53,7 +53,7 @@ Sposób: na przemian - wiersze, kolumny w A.
 Po obliczeniu - L,U zapisane w A.
 \end{frame}
 \begin{frame}{Faktoryzacja Doolitle'a}
-LU inaczej - lepszy wgląd kolejność obliczeń
+LU inaczej - lepszy wgląd w kolejność obliczeń
 \scalebox{0.90}{
 $\begin{bmatrix}
 (1) & 0 & \cdots & 0 & 0\\
@@ -81,7 +81,7 @@ a_{21} & a_{22} & \cdots & a_{2n}\\
 }
 \newline
 \\
-$W \mathrm{i}$-tym wierszu macierzy $\mathrm{L}$ różne od $0$ tylko pierwsze $\mathrm{i}$ element\'{o}w $W\mathrm{j}$-tej kolumnie macierzy $\mathrm{U}$ r\'{o}zne od $0$ tylko pierwsze $\mathrm{i}$ elementów
+$W \mathrm{i}$-tym wierszu macierzy $\mathrm{L}$ różne od $0$ tylko pierwsze $\mathrm{i}$ element\'{o}w $W\mathrm{j}$-tej kolumnie macierzy $\mathrm{U}$ różne od $0$ tylko pierwsze $\mathrm{j}$ elementów
 
 \end{frame}
 \begin{frame}{Faktoryzacja Doolitle'a}
@@ -115,7 +115,6 @@ $u_{ij}=a_{ij}- \displaystyle \sum_{p=1}^{i-1}l_{ip}\cdot u_{pj}$
 }
 \end{flushright}
 
-(Z tym, że \scalebox{0.70} {$\displaystyle \sum_{p=q}^{m}=0$ } gdy $m < g$, np. $u_{1j}=a_{1j}$ dla i=j) \newline
 $L_{ij}, U_{ij}$ przechowywane w $\mathrm{L}/\mathrm{U}$ (bez "1" $\mathrm{z}$ diagonali)
 \end{frame}
 \begin{frame}{Faktoryzacja Doolitle'a}
@@ -135,37 +134,39 @@ $\mathrm{w}$ kroku $\mathrm{k}$ wyznaczamy $U_{1k}, U_{2k}$, . . . , $U_{k,k}, L
 \end{flushright} 
 
 \end{frame}
-\begin{frame}{ Faktoryzacja Crout'a}
+\begin{frame}{Faktoryzacja Crouta}
 \scalebox{0.90}{
 $
 \begin{bmatrix}
 l_{11} & 0 & \cdots & 0 &  0 \\
-l_{21} & l_{22} \\
-\vdots \\
-l_{i1} & l_{i2}  & \cdots\\
-\vdots \\
+l_{21} & l_{22}  \\
+\vdots & \vdots & \ddots \\
+l_{i1} & l_{i2}  & \cdots \\
+\vdots & \vdots\\
 l_{n1} & l_{n2} & \cdots & l_{n,n-1} & l_{nn}
 \end{bmatrix} \cdot
 \begin{bmatrix}
 1 & u_{12} & \cdots & u_{1n}\\
 0 & 1 & \cdots & u_{2n}\\
+\vdots & 0 &  & \vdots\\
+ & \vdots &  & u_{in}\\
  &  &  & \vdots\\
- &  & 1 & u_{in}\\
- &  &  & \vdots\\
- 0 & \cdots & \cdots & 1
-\end{bmatrix}=\begin{bmatrix}
-a_{11} & a_{12} & a_{1n}\\
-a_{21} & a_{22} & a_{2n}\\
- &  & \vdots\\
- a_{i1} & a_{i2} & a_{in}\\
- &  & \vdots\\
- a_{n1} & a_{n2} & a_{nn}
+ 0 & \cdots & & 1
+\end{bmatrix}
+=
+\begin{bmatrix}
+a_{11} & a_{12} & \cdots & a_{1n}\\
+a_{21} & a_{22} & \cdots & a_{2n}\\
+ \vdots & \vdots & & \vdots\\
+ a_{i1} & a_{i2} & \cdots & a_{in}\\
+ \vdots & \vdots & &\vdots\\
+ a_{n1} & a_{n2} & \cdots & a_{nn}
 \end{bmatrix}
 $
 }
 
 \end{frame}
-\begin{frame}{ Faktoryzacja Crout'a}
+\begin{frame}{Faktoryzacja Crouta}
 \begin{flushright}
 \scalebox{0.90}{
 $a_{ij}= \displaystyle \sum_{p=1}^{\min(i,j)} l_{ip}\cdot 
@@ -204,8 +205,8 @@ $u_{ij}=\frac{1}{l_{ii}}(a_{ij}- \displaystyle \sum_{p=1}^{i-1}l_{ip}\cdot u_{pj
 }
 \end{flushright}
 \end{frame}
-\begin{frame}{ Faktoryzacja Crout'a}
-Kolejność obliczeń w algorytmie Crout'a:
+\begin{frame}{Faktoryzacja Crouta}
+Kolejność obliczeń w algorytmie Crouta:
 
 $$
 \begin{bmatrix}
@@ -235,7 +236,7 @@ $
 \newline \hspace*{30mm} różnica $\rightarrow$ kumulacja w 1 kroku
 
 \end{frame}
-\begin{frame}{ Faktoryzacja Crout'a}
+\begin{frame}{Faktoryzacja Crouta}
 \begin{exampleblock}{Ogólnie faktoryzacja do postaci $A=LDU$}
 D - diagonalna \hspace{40mm } {\it Doolittle}: \hspace{10mm} $L(DU)$ \newline
 \hspace*{55mm} $\rightarrow$ 
@@ -244,7 +245,7 @@ D - diagonalna \hspace{40mm } {\it Doolittle}: \hspace{10mm} $L(DU)$ \newline
 \newline 
 \end{exampleblock}
 \end{frame}
-\begin{frame}{Faktoryzacja Choleski'ego}
+\begin{frame}{Faktoryzacja Choleskiego}
 (symetric matrices) $a_{ij}=a_{ji}$
 
 pivot z diagonali, $A^{(k)}, \ \mathrm{k}=1,2,\ldots,\mathrm{n}$ - symetryczna, czyli
@@ -263,7 +264,7 @@ Jeżeli $A$ jest dodatnio określona, to $d_{ii}>0, \ \mathrm{i}=1,\ldots,\mathr
 \end{flushright}
 
 \end{frame}
-\begin{frame}{Faktoryzacja Choleski'ego}
+\begin{frame}{Faktoryzacja Choleskiego}
 \begin{exampleblock}{}
 $$
 A=(LD^{\frac{1}{2}})(D^{\frac{1}{2}}L^{T})=\overline{L}\ \overline{L}^{T}
