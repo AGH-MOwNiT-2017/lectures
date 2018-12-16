@@ -1,70 +1,66 @@
 \section{LAPACK - Linear Algebra Package}
 %%%%%%%%%%%%%%%%
-	\begin{frame}{LAPACK - Linear Algebra Package}
+	\begin{frame}{LAPACK -- Linear Algebra Package}
 		\begin{itemize}
-			\item Public domain software
-			\item Fortran77 routines
-			\item 1987 - 1992\dots
-			\item second release 1995
-			\item from HP-486 to CRAY,
-			\item 1 397 384 accesses to 21.01.1998
+			\item Biblioteka \textit{Open Source} -- BSD-new
+			\item Implementacja w języku Fortran 90.
+			\item Pierwsze wydanie: 1.0 -- 29 luty 1992 r.
+			\item Obecne wydanie: 3.8.0 -- 12 listopad 2017 r.
 		\end{itemize}
-		\textbf{CRPC} - \textbf{C}enter for \textbf{R}esearch on \textbf{P}arallel \textbf{C}omputing: 
+		Twórcy:
+		\textbf{CRPC} - \textbf{C}enter for \textbf{R}esearch on \textbf{P}arallel \textbf{C}omputing:
 		\begin{itemize}
 			\item Rice,
 			\item Tennessee,
 			\item ORNL.
 		\end{itemize}
-		Supported by:
-		\begin{itemize}
-			\item National Science Foundation (NSF),
-			\item Defence Advanced Research Projects Agency (DARPA),
-			\item Departament of Energy (DoE).
-		\end{itemize}
 	\end{frame}
-	\begin{frame}{LAPACK - Linear Algebra Package}
-	For: \\ 
+	\begin{frame}{LAPACK - cechy}
 		\begin{itemize}
-			\item vector,
-			\item shared memory multiprocessors,
-			\item high-performance "superscalar" workstations,
-			\item combines algorithms from LINPACK and EISPACK,
-			\item built on level 1, 2 and 3 BLAS (manufacturers optimized),
-			\item portable FORTRAN 77 (+BLAS): 
+			\item Projektowany dla procesorów wektorowych i równoległych, posiadających dzieloną pamięć.
+			\item Łączy algorytmy z bibliotek LINPACK oraz EISPACK.
+			\item Zbudowany na BLAS -- wykorzystanie optymalizacji.
+			\item Złożoność projektu -- stan na grudzień 2018:
 			\begin{itemize}
-				\item 580 K lines, 250 K - library, \\350 K - testing and timing
+				\item $843$ tyś. linii kodu -- biblioteka
+				\item $541$ tyś. linii kodu -- testy
 			\end{itemize}
 		\end{itemize}
 	\end{frame}
 	\begin{frame}{LAPACK - Linear Algebra Package}
 		\begin{itemize}
-			\item basic problems $\Rightarrow$ blocked algorithms
+			\item Rozwiązania problemów -- algorytmy blokowe
 			\begin{itemize}
-				\item linear equations systems: $Ax = b$, 
-				\item factorization LU, LQ, QR,
-				\item least squares: $min_x ||Ax - b ||_2$,
-				\item singular value decomposition: $A = U\sum V^T$,
-				\item eigenvalues and eigenvectors: $Ax = \lambda x$.
+				\item Układy równań liniowych: $Ax = b$,
+				\item Faktoryzacje LU, LQ, QR,
+				\item Metoda najmniejszych kwadratów: $min_x ||Ax - b ||_2$,
+				\item Rozkład według wartości osobliwych: $A = U\sum V^T$,
+				\item Macierze i wektory własne: $Ax = \lambda x$.
 			\end{itemize}
-			\item routines:
+
+			\item Podział metod w LAPACK:
 			\begin{itemize}
-				\item simple and expert driver routines - standard complete problems,
+				\item simple and expert driver routines,
 				\item computational routines,
 				\item auxiliary routines.
 			\end{itemize}
 		\end{itemize}
 	\end{frame}
-	\begin{frame}{LAPACK Naming Convention I}
-	TXXYY \\
+
+	\begin{frame}{LAPACK -- konwencja nazw}
+	Nazwa metody postaci: TXXYY \\
 	\vspace{5mm}
-	\textbf{T}: \\
-	S - Single Precision REAL*4 \\
-	D - Double Precision REAL*8 \\
-	C - Complex COMPLEX*8 \\
-	Z - Double Complex COMPLEX*16 
+	\textbf{T} -- Typ: \\
+	\begin{itemize}
+		\item S - Single Precision REAL*4 \\
+		\item D - Double Precision REAL*8 \\
+		\item C - Complex COMPLEX*8 \\
+		\item Z - Double Complex COMPLEX*16
+	\end{itemize}
 	\end{frame}
-	\begin{frame}{LAPACK Naming Convention II}
-	\textbf{XX}: 
+
+	\begin{frame}{LAPACK -- konwencja nazw}
+	\textbf{XX} -- Rodzaj macierzy:
 	\vspace{5mm}
 	\begin{columns}
 		\begin{column}{0.5\textwidth}
@@ -102,9 +98,4 @@
 	UP - complex unitary packed storage \\
 		\end{column}
 	\end{columns}
-	\end{frame}
-	\begin{frame}{LAPACK90}
-		\begin{block}{LAPACK90}
-			Fortran90 interface to LAPACK.
-		\end{block}
 	\end{frame}
