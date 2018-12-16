@@ -166,7 +166,7 @@
         \[
         \begin{bmatrix}
     -h_{1} & h_{1} & 0 & 0  & 0 \\
-    h_{1} & 2(h_{i}+h_{2}) & h_{2} & 0  & 0 \\
+    h_{1} & 2(h_{1}+h_{2}) & h_{2} & 0  & 0 \\
     0 & h_{2} & 2(h_{2}+h_{3}) & h_{3} & 0 \\
     \vdots & \vdots & \vdots & \vdots & \vdots \\
     0 & 0 & h_{n-2} & 2(h_{n-2}+h_{n-1}) & h_{n-1} \\
@@ -184,12 +184,12 @@
         \]
         \[	=
         	\begin{bmatrix}
-        		h_{1}^{2}\Delta^{(3)}_{i} \\
+        		h_{1}^{2}\Delta^{(3)}_{1} \\
                 \Delta_{2} - \Delta_{1} \\
                 \Delta_{3} - \Delta_{2} \\
                 \vdots \\ 
                 \Delta_{n-1} - \Delta_{n-2} \\
-                \Delta_{n} - \Delta_{n-1}
+                -h_{n-1}^{2}\Delta^{(3)}_{n-3}
         	\end{bmatrix}
         \]
     \end{frame}
