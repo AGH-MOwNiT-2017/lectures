@@ -3,7 +3,7 @@
 \begin{frame}{Przydatność deflacji}
   $P(x)$ -- wielomian,
 
-  $r$ -- znaleziony pierwiastek $P(x)$.
+  $r$ -- znaleziony pierwiastek wielomianu $P$.
 
   Realizujemy \textit{faktoryzację}:
   \begin{block}{}
@@ -11,8 +11,9 @@
   \end{block}
 
   \begin{itemize}
-    \item zmniejszenie złożoności obliczeniowej ($Q$ -- niższego stopnia niż $P$)
-    \item uniknięcie pomyłki -- powrotu do pierwiastka już znalezionego.
+    \item Zmniejszenie złożoności obliczeniowej\\
+     ($Q$ -- niższego stopnia niż $P$)
+    \item Uniknięcie pomyłki -- powrotu do pierwiastka już znalezionego.
   \end{itemize}
 \end{frame}
 
@@ -34,9 +35,10 @@
 \begin{frame}
   \begin{block}{Podejście minimalizujące błędy}
     \begin{itemize}
-      \item kolejne pierwiastki uzyskane w procesie deflacji są \textit{próbnymi (tentative)},
-      \item \textit{polishing (re-solving)} -- wygładzanie -- z użyciem pełnego $P(x)$ np. metodą Newtona-Raphsona,
-      \item niebezpieczeństwo -- zlanie się dwóch pierwiastków w jeden -- dodatkowa deflacja tylko jeden raz.
+      \item Kolejne pierwiastki uzyskane w procesie deflacji są \textit{próbnymi (tentative)},
+      \item \textit{Polishing (re-solving)} -- wygładzanie -- z użyciem pełnego $P(x)$ np. metodą Newtona-Raphsona,
+      \item Niebezpieczeństwo -- zlanie się dwóch pierwiastków w jeden.\\
+        Dodatkowa deflacja tylko jeden raz.
     \end{itemize}
   \end{block}
 \end{frame}

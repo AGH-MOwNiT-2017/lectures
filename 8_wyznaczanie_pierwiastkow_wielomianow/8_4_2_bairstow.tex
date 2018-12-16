@@ -1,7 +1,7 @@
 \subsection{Pierwiastki zespolone -- metoda Bairstowa}
 
 \begin{frame}{Pierwiastki zespolone -- metoda Bairstowa}
-  \textit{(można też metodą N-R)}
+  \textit{(Można użyć również metody N-R.)}
 
   \vspace{5px}
 
@@ -10,7 +10,7 @@
   $$x_1 = \alpha + \textit{\textrm{i}}\beta, \quad x_2 = \alpha - \textit{\textrm{i}}\beta$$
   $$(x - x_1)(x - x_2) = x^2 - 2 \cdot \alpha x + (\alpha^2 + \beta^2) = x^2 + p \cdot x + q$$
 
-  czynnik kwadratowy może objąć 2 pierwiastki rzeczywiste lub zespolone
+  Czynnik kwadratowy może objąć 2 pierwiastki rzeczywiste lub zespolone.
 
   \begin{equation}
     P(x) = (x^2 + p \cdot x + q) \cdot Q(x) + R \cdot x + S \label{bairstow}
@@ -31,11 +31,11 @@
   \left( \begin{array}{l}
   p^{(n)} \\ q^{(n)}
   \end{array} \right)
-  +
+  -
   \left( \begin{array}{ll}
   \frac{{\partial}R}{{\partial}p} & \frac{{\partial}R}{{\partial}q} \\
   \frac{{\partial}S}{{\partial}p} & \frac{{\partial}S}{{\partial}q}
-  \end{array} \right)_n^{-1}
+  \end{array} \right)^{-1}
   \left( \begin{array}{l}
   R^{(n)} \\ S^{(n)}
   \end{array} \right)$$
@@ -44,21 +44,21 @@
 \begin{frame}
   Pochodne znajdujemy w następujący sposób:
 
-  $P(x)$ -- nie zależy od $p$, $q$, \\ z (\ref{bairstow}) mamy:
+  $P(x)$ -- nie zależy od $p$, $q$, \\ Z równania (\ref{bairstow}) mamy:
 
   $$\left. \begin{array}{l}
-  0 = (x^2 + p \cdot x + q) \cdot \frac{{\partial}Q}{{\partial}q} + Q + \frac{{\partial}R}{{\partial}q} + \frac{{\partial}S}{{\partial}q} \\ % NIE POWINNO BYĆ *x PRZY R'???
-  0 = (x^2 + p \cdot x + q) \cdot \frac{{\partial}Q}{{\partial}p} + x \cdot Q + \frac{{\partial}R}{{\partial}p} + \frac{{\partial}S}{{\partial}p} % NIE POWINNO BYĆ *x PRZY R'???
+  0 = (x^2 + p \cdot x + q) \cdot \frac{{\partial}Q}{{\partial}q} + Q + x \cdot \frac{{\partial}R}{{\partial}q} + \frac{{\partial}S}{{\partial}q} \\
+  0 = (x^2 + p \cdot x + q) \cdot \frac{{\partial}Q}{{\partial}p} + x \cdot Q + x \cdot \frac{{\partial}R}{{\partial}p} + \frac{{\partial}S}{{\partial}p}
   \end{array}\right\}
   \begin{array}{l}
-    \left( \leftarrow \frac{{\partial}R}{{\partial}q} \right) \\
-    \left( \leftarrow \frac{{\partial}R}{{\partial}q} \right) % NAPRAWDĘ NIE POWINNO BYĆ PO p?
+    \left( \leftarrow \frac{{\partial}P}{{\partial}q} \right) \\
+    \left( \leftarrow \frac{{\partial}P}{{\partial}p} \right)
   \end{array}$$
 
   \begin{equation}
     \left. \begin{array}{l}
-    (x^2 + p \cdot x + q) + \frac{{\partial}Q}{{\partial}q} + \frac{{\partial}R}{{\partial}q} \cdot x + \frac{{\partial}S}{{\partial}q} = -Q(x) \\ % NIE POWINNO BYĆ * dQ/dq ??? (zamiast +)
-    (x^2 + p \cdot x + q) + \frac{{\partial}Q}{{\partial}p} + \frac{{\partial}R}{{\partial}p} \cdot x + \frac{{\partial}S}{{\partial}p} = -x \cdot Q(x) % NIE POWINNO BYĆ * dQ/dp ??? (zamiast +)
+    (x^2 + p \cdot x + q) \cdot \frac{{\partial}Q}{{\partial}q} + \frac{{\partial}R}{{\partial}q} \cdot x + \frac{{\partial}S}{{\partial}q} = -Q(x) \\
+    (x^2 + p \cdot x + q) \cdot \frac{{\partial}Q}{{\partial}p} + \frac{{\partial}R}{{\partial}p} \cdot x + \frac{{\partial}S}{{\partial}p} = -x \cdot Q(x)
     \end{array}\right\}
     \label{bairstow2}
   \end{equation}

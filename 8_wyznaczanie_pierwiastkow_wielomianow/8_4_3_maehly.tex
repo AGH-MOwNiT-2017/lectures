@@ -1,25 +1,22 @@
-\subsection{Metoda Maehly'ego -- technika wygładzania pierwiastków}
+\subsection{Procedura Maehly'ego -- technika wygładzania pierwiastków}
 
-\begin{frame}{Met. Maehly'ego -- technika wygładzania pierwiastków}
-  Zapobiega zlewaniu się w jeden dwóch różnych pierwiastków (na~etapie wygładzania) $\leftarrow$ równocześnie unikamy deflacji.
+\begin{frame}{Pro. Maehly'ego -- technika wygładzania pierwiastków}
+  Zapobiega zlewaniu się w jeden dwóch różnych pierwiastków (na~etapie wygładzania) -- równocześnie unikamy deflacji.\\
 
   \begin{block}{Zredukowany wielomian}
     $$P_j(x) \equiv \frac{P(x)}{(x - x_1)\ldots(x - x_j)}$$
   \end{block}
+    Wykorzystujemy znane pierwiastki do znalezienia kolejnych.
 
   $$P'_j(x) = \frac{P'(x)}{(x - x_1)\ldots(x - x_j)} - \frac{P(x)}{(x - x_1)\ldots(x - x_j)} \sum_{i=1}^j \frac{1}{x - x_i}$$
 \end{frame}
 
 \begin{frame}
   Pojedynczy krok metody Newtona-Raphsona można zapisać:
-
-  $$x_{k+1} = x_k - \frac{P_j(x_k)}{P'_j(x_k)}$$
-
-  czyli:
-
-  $$x_{k+1} = x_k - \frac{P(x_k)}{P'(x_k) - P(x_k) \cdot \sum_{j=0}^j(x - x_i)^{-1}}$$ % INDEKS JEST NA PEWNO ZŁY.
-
-  \textbf{Zadanie:} i- po węzłach już wygładzonych % NIE MAM POJĘCIA, O CO CHODZI, CZEGOŚ TU BRAKUJE...
+  \begin{gather*}
+    x_{k+1} = x_k - \frac{P_j(x_k)}{P'_j(x_k)}\\ \\
+    x_{k+1} = x_k - \frac{P(x_k)}{P'(x_k) - P(x_k) \cdot \sum_{i=1}^{j}\frac{1}{(x_k - x_i)}}
+  \end{gather*}
 
   $\Rightarrow$ zero suppression.
 \end{frame}
