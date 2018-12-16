@@ -1,7 +1,7 @@
-\section{Kwadratury Gaussa}
+ \section{Kwadratury Gaussa}
 \newcommand\myeq{\stackrel{\mathclap{\normalfont\mbox{def}}}{=}}
   \begin{frame}{Wielomiany ortogonalne - uzupełnienie}
-      Funkcja wagowa: $w(x)$ na $[a,b]$
+      \textbf{Funkcja wagowa $w(x)$ na $[a,b]$:}
       \begin{itemize}
           \item całkowalna na $[a,b]$
           \item $w(x) \geq 0 \ $ $\forall x \in [a,b] \ $,
@@ -17,35 +17,39 @@
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \begin{frame}
       \begin{exampleblock}{Definicja}
-          \textit{wielomiany ortogonalne i znormalizowane} 
-          - f, g ortogonalne gdy
-          $\newline$
-          $<f|g>=0$
-          f, g - znormalizowane gdy $<f|f>=1$
+          \textit{Wielomiany ortogonalne i znormalizowane} 
+          \begin{itemize}
+          \item f, g - ortogonalne, gdy $<f|g>=0$
+          \item f, g - znormalizowane gdy $<f|f>=1$
+          \end{itemize}
       \end{exampleblock}
       \begin{exampleblock}{Definicja}
-          \textit{zbiór ortonormalny} - zbiór funkcji wzajemnie 
+          \textit{Zbiór ortonormalny} - zbiór funkcji wzajemnie 
           ortogonalnych i indywidualnie znormalizowanych
       \end{exampleblock}
+      
       \begin{exampleblock}{Definicja}
-       \textit{zbiór liniowo zależny i liniowo niezależny} - 
-       $\newline$
+       \textit{Zbiór liniowo zależny i liniowo niezależny}
+      \scalebox{0.85}{
        $\{\varphi_{i}\}_{i=0}^{n}- {\it ortogonalny}: 
           \ \ 
-       <\varphi_{j}|\varphi_{k}>=\alpha_{j}\cdot\delta_{jk}$
+       <\varphi_{j}|\varphi_{k}>=\alpha_{j}\cdot\delta_{jk}$ }
        $\newline$
-       Zbiór funkcji $\{ \varphi_{i}\}_{i=0}^{n}$ jest liniowo niezależny
-       na $[a,b]$:
-       \[
+       Zbiór funkcji $\{ \varphi_{i}\}_{i=0}^{n}$ jest liniowo niezależny na $[a,b]$:
+      
+       \begin{center}
+       \scalebox{0.85}{
+       $
        (\forall x\in[a,\ b]\ :\ \sum_{i=0}^{n}c_{i}\varphi_{i}(x)=0) 
        \Rightarrow c_{0}=c_{1}=\ldots=c_{n}=0
-       \]
+       $ } 
+       \end{center}
        w przeciwnym przypadku - zbiór ten jest liniowo zależny
       \end{exampleblock}
   \end{frame}
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \begin{frame}
-      \begin{block}{Twierdzenie liniowa niezależność zbioru wielominaów
+      \begin{block}{Twierdzenie liniowa niezależność zbioru wielomianów
       stopnia $\leq n$}
           \begin{large}
               \textbf{Założenia:}
@@ -61,14 +65,15 @@
           $\forall [a,b], \ \ b > a$
       \end{block}
       $\newline$
-      \begin{block}{Zadanie}
-          Dowód twierdzenia
-      \end{block}
+      $\newline$
+      
+      \hfill\textbf{Zadanie: Udowodnić twierdzenie}
+         
   \end{frame}
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \begin{frame}
       \begin{large}
-          \textbf{Wniosek:}
+          \textbf{Wniosek:}$\newline$
       \end{large}
       $\newline$
       Dowolny wielomian stopnia $k \leq n$:
@@ -76,15 +81,11 @@
           Q_{k}(x)= \sum_{j=0}^{k}c_{j}\varphi_{k}(x)\ 
           \ \ (\exists\{c_{j}\})
       \]
-      konstruowanie zbioru wielomianów ortogonalnych 
-      $\{\varphi_{i}\}_{i=0}^{n}$:
+      \textbf{Konstruowanie zbioru wielomianów ortogonalnych 
+      $\{\varphi_{i}\}_{i=0}^{n}$:}
       \[
           [a,b], \ \ w(x)
       \]
-
-      \begin{block}{Zadanie}
-          Pokazać, że są rzeczywiście ortogonalne
-      \end{block}
       \[
        \varphi_{0}(x)=1; \ \ (\varphi_{-1}(x)=0)
       \]
@@ -95,33 +96,41 @@
        \frac{<\varphi_{i} | \varphi_{i}>}{<\varphi_{i-1} | \varphi_{i-
        1}>}\varphi_{i-1}(x)
       \]
+       \hfill\textbf{Zadanie: Pokazać, że są rzeczywiście ortogonalne}
   \end{frame}
   %%%%%%%%%%%%%%%%%%%%%%%%%%%
   \begin{frame}
-      \begin{block}{Twierdzenie o zerach wielominaów ortogonalnych}
+      \begin{block}{Twierdzenie o zerach wielomianów ortogonalnych}
           \begin{large}
               \textbf{Założenia:}
           \end{large}
+          \scalebox{0.9}{
           $\newline$
           $\{\varphi_{i}\}_{i=0}^{n}$ - zbiór wielomianów ortogonalnych na
-          $[a,b]$, \\ (względem $w(x))$
+          $[a,b]$,\ (względem $w(x))$}
           $\newline$
-          $\varphi_{k}(x) , k=0, 1, . . ., n$
-          $\newline$
+          \scalebox{0.9}{
+          $\varphi_{k}(x) ,\ k=0, 1, . . ., n$
+          }
+          $\newline$  $\newline$ 
           \begin{large}
               \textbf{Teza:}
           \end{large}
-          $\newline$
-          $\varphi_{k}(x) , \ k\geq 1$ ma $k$ różnych zer i leżą one w 
-          $(a,b)$
-          $\newline$
-          zera $\varphi_{j-1}(x)$ i $\varphi_{j}(x)$ występują na przemian
+          
+         \begin{itemize}
+           \item$\varphi_{k}(x) , \ k\geq 1$ ma $k$ różnych zer i leżą one w $(a,b)$
+          
+          \item zera $\varphi_{j-1}(x)$ i $\varphi_{j}(x)$ występują na przemian
+          \end{itemize}
       \end{block}
   \end{frame}
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \begin{frame}{Ograniczenia kwadratur Newtona-Cotesa}
+      \textbf{Uwagi:}
+      $\newline$
       \begin{itemize}
-      \item węzły $x_{0},x_{1},\ldots , x_{n}$ równoległe, $h, \ f$ - 
+      \item węzły $x_{0},x_{1},\ldots , x_{n}$ równoodległe $\rightarrow$ $h = const.$ 
+      $\newline$ $f$ - 
       stablicowane
       \item $\int_{a}^{b}f(x)dx\approx\sum_{i=0}^{n}a_{i}f(x_{i})$
       $\newline$
@@ -132,15 +141,18 @@
   \end{frame}
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \begin{frame}{Podstawowe cechy kwadratur Gaussa}
+  	   \textbf{Uwagi:}
+      $\newline$
       \begin{itemize}
       \item możliwość doboru $a_{i}$ i $x_{i}$, $i=1,2,\ldots,n$
-          więc można uzyskać stopień dokładności $2n-1$
+          więc można uzyskać stopień dokładności $2n-1$ (w przypadku n-punktowej kwadratury)
       \item szersza klasa funkcji podcałkowych (w sposób naturalny):
-      \end{itemize}
+      
       \[
-          \int_{a}^{b}w(x)f(x)dx\approx\sum_{i=0}a_{i}f(x_{i})n
+          \int_{a}^{b}w(x)f(x)dx\approx\sum_{i=1}^{n}a_{i}f(x_{i})
       \]
-      waga - np. do usunięcia całkowalnej osobliwości
+      \item $w(x)$ - funkcja ważąca $\rightarrow$ może zawierać w sobie całkwoalną osobliwość 
+      \end{itemize}
   \end{frame}
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \begin{frame}
@@ -148,17 +160,17 @@
           Odcięte ${x_{i}}$ n-punktowej kwadratury Gaussa z funkcją ważącą 
           $w(x)$ w $[a,b]$ są zerami wielomianu ortogonalnego
           $\varphi_{n}(x)$ dla tego samego przedziału i tej samej funkcji
-          ważącej
+          ważącej:
           $\newline$
           $\newline$
           $\{\varphi_{i}\}_{i=0}^{n}$ - zbiór wielomianów ortogonalnych w 
           $[a,b]$
           $\newline$
-          $\varphi_{n}(x)$ - ma $n$ różnych zer $x_{1},x_{2}, \ldots, 
-          \ \ n \in (a,b)$
+          $\varphi_{n}(x)$ - ma $n$ różnych zer $x_{1},x_{2}, \ldots,x_{n}
+          \  \in (a,b)$
           \[
-              f(x)= \sum_{i=1}^{n}\prod_{j=1,j\neq 
-              i}^{n}\frac{x-x_{j}}{x_{i}-x_{j}}f(x_{i})+\frac{f^{(n)}
+              f(x)= \sum_{i=1}^{n}f(x_{i})\prod_{j=1,j\neq 
+              i}^{n}\frac{x-x_{j}}{x_{i}-x_{j}}+\frac{f^{(n)}
               (\eta(x))}
               {n!}\prod_{i=1}^{n}(x-x_{i})
           \]
@@ -176,16 +188,16 @@
               \textbf{Teza:}
           \end{large}
       $\newline$
-      {\it Kwadratura ma stopień dokładności $2n-1$};
+      {\it Kwadratura ma stopień dokładności $2n-1$} (dla n-punktowej kwadratury) ;
       {\it tzn. jest dokładna dla wielomianu}:
-
+	\begin{center}
       $P(x)=Q(x)\cdot\varphi_{n}(x)+R(x)$ ;\quad $Q, R-${\it stopnia} $<n. $
-
+	\end{center}
       \end{block}
   \end{frame}
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \begin{frame}
-	\begin{block}{Twierdzenie stopień dokładności kwadratury Gaussa}
+	\begin{block}{Twierdzenie o stopniu dokładności kwadratury Gaussa}
       \begin{large}
               \textbf{Dowód:}
           \end{large}
@@ -205,13 +217,12 @@
    \begin{frame}
 		\begin{block}{Twierdzenie stopień dokładności kwadratury Gaussa}
      		
-          \textbf{czyli:}
+          \textbf{Czyli:}
           $$
           \int_{a}^{b}w(x)\underbrace{P(x)}_{2n-1}dx=\int_{a}^{b}w(x)\underbrace{R(x)}_{< n} dx=\sum_{i=1}^{n}a_{i}R_{i}+0
           $$
-          $\quad\rightarrow R_{i}$ stopnia $<n$, kwadratura ma przynajmniej taki
-          stopień \quad dokładności.
-
+          $R_{i}$ stopnia $<n$ $\rightarrow$  kwadratura ma przynajmniej taki stopień \quad dokładności.
+		$\newline$
           Z drugiej strony: $x_{i}, i=1$, 2, . . . , $n$ -- pierwiastki $\varphi_{n}(x)$
           tzn.
           $$
@@ -222,8 +233,8 @@
      	\end{block}
   \end{frame}
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \begin{frame}{Wagi $a_{1}, a_{2}, \ldots, a_{n}$}
-     znając odcięte $x_{1}, x_{2}$, . . . , $x_{n}\Rightarrow$ z układu równań:
+  \begin{frame}{Wyznaczanie wag $a_{1}, a_{2}, \ldots, a_{n}$}
+     Znając odcięte $x_{1}, x_{2}$, . . . , $x_{n}\rightarrow$ wagi wyznaczamy z układu równań:
      
   	\[
     \begin{bmatrix}
@@ -247,18 +258,20 @@
             0
     \end{bmatrix}
     \]
-    zera w wektorze z prawej strony powyższego równania - bo $\newline$ $\varphi_{1}(x)$ , . . . , $\varphi_{n-1}(x)$ są ortogonalne do $\varphi_{0}(x)$ -- stałej!
+    \textbf{Uwaga:}
+    \begin{itemize}
+    \item Zera w wektorze z prawej strony powyższego równania - bo $\newline$ $\varphi_{1}(x)$ , . . . , $\varphi_{n-1}(x)$ są ortogonalne do $\varphi_{0}(x)$ -- stałej!
     $\newline$
-    W układzie -- tylko dokładne dla wielomianów ortogonalnych stopnia $n-1!!$
-    \begin{block}{Zadanie}
-    	Wyprowadzić 2 i 3-punktowe wzory Gaussa - wprost.
-    \end{block}
-
+    \item W układzie wagi -- dokładne tylko dla wielomianów ortogonalnych stopnia $n-1!!!$
+    \end{itemize}
+   \textbf{Zadanie: 
+    	Wyprowadzić 2 i 3-punktowe wzory Gaussa-wprost.}
   \end{frame}
   %%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \begin{frame}
+  \begin{frame}{Praktyczne postacie kwadratur Gaussa-... }
   	\begin{figure}[h]
 			\includegraphics[width=.95\linewidth]{img/6/6_03}
+			$\newline$
 		\end{figure}
   \end{frame}
 

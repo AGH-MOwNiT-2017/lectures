@@ -30,7 +30,7 @@
         	$|| \vec{d} - \tilde{d} || \le \varrho_d \cdot K_d \cdot || \vec{d} ||$ \\ \vspace{.1cm}
             $|| \varphi(\vec{d}) - fl(A(\vec{d})) || \le \varrho_w \cdot K_w \cdot || \varphi(\vec{d}) ||$ \\}
 
-        $\varphi(\vec{d})$ - dokładnie rozwiązanie zadania o zaburzonych danych $\tilde{d}$ \\
+        $\varphi(\vec{d})$ - dokładnie rozwiązanie zadania o zaburzonych danych $d$ \\
         $K_w, K_d$ - wskaźniki kumulacji algorytmu A w klasie zadań $\left\{\varphi, D\right\}$
         $K_w, K_d$:
         \begin{itemize}
@@ -47,7 +47,7 @@
 \end{frame}
 %%%%%%%%%%%%%%%%
 \begin{frame}[fragile]{Algorytmy numerycznie poprawne - przykład}
-	\begin{exampleblock}{Przykład 1}
+	\begin{exampleblock}{Przykład 1 - Iloczyn skalarny}
 		Numeryczna poprawność algorytmu $\vec{a} \cdot \vec{b} = \sum_{i=1}^{n} a_i \cdot b_i$
         
 \begin{lstlisting}[escapechar=|]
@@ -59,7 +59,7 @@
 \end{frame}
 %%%%%%%%%%%%%%%%
 \begin{frame}{Algorytmy numerycznie poprawne - przykład}
-	\begin{exampleblock}{Przykład 1}
+	\begin{exampleblock}{Przykład 1 - Iloczyn skalarny }
 		{\bf Realizacja algorytmu}: $fl(A(\vec{a}, \vec{b}))$:
         \begin{enumerate}
         	\item dane - reprezentacje \\
@@ -72,7 +72,7 @@
                     fl(A(\vec{a}, \vec{b})) = \{
                         [
                             \hat{a_1} \cdot \hat{b_1} \cdot (1 + \varepsilon_1) +
-                            \hat{a_2} \cdot \hat{b_2} \cdot (1 + \varepsilon_2) +
+                            \hat{a_2} \cdot \hat{b_2} \cdot (1 + \varepsilon_2)  
                         ]
                         \cdot (1 + \delta_2) + \hat{a_3} \cdot \hat{b_3} \cdot (1 + \varepsilon_3)
                     \} \cdot (1 + \delta_3); 
@@ -94,13 +94,14 @@
 \end{frame}
 %%%%%%%%%%%%%%%%
 \begin{frame}[fragile]{Algorytmy numerycznie poprawne - przykład}
+	\textbf{Analiza poprawności numerycznej:}
 	\begin{exampleblock}{Przykład 1}
     	{\bf Interpretacja (dowolność)}
         \begin{itemize}
         	\item dokładny wynik: $K_w = 0$
             \item dla zaburzonych danych:
             	\begin{addmargin}[1cm]{0cm}
-            		$|| \vec{a} - \tilde{a} || \le \beta^{1-t} \cdot || \vec{a} ||$ \hspace{.5cm} $(K_{d_1} = 1)$\\
+            		$|| \vec{a} - \tilde{a} || \le \beta^{1-t} \cdot || \vec{a} \ ||$ \hspace{.5cm} $(K_{d_1} = 1)$\\
             		$|| \vec{b} - \tilde{b} || \le (n + 1) \cdot \beta^{1-t} \cdot || \vec{b} ||$ \hspace{.5cm} $(K_{d_2} = n+1)$
             	\end{addmargin}
         \end{itemize}

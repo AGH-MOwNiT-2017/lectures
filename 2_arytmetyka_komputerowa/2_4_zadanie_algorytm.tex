@@ -1,6 +1,7 @@
 \section{Zadanie, algorytm}
 \begin{frame}{Zadanie, algorytm}
     \begin{block}{Definicja}
+    	\textbf{Zadanie:}
         \begin{columns}
             \column{.5\linewidth}
                 \hfill dla danych
@@ -11,7 +12,7 @@
                 $\vec{d} = \left( d_1, d_2, ..., d_n \right) \in R_d$\newline
                 $\vec{w} = \left( w_1, w_2, ..., w_m \right) \in R_w$\newline
                 $\vec{w} = \varphi(\vec{d})$
-        \end{columns}
+        \end{columns}$\newline$
         $R_d$, $R_w$ - skończenie wymiarowe, unormowane przestrzenie kartezjańskie\newline
         $\varphi: D_0 \subset R_d \rightarrow R_w$ - odwzorowanie ciagłe
     \end{block}
@@ -20,13 +21,13 @@
     \end{block}
 \end{frame}
 %%%%%%%%%%%%%%%%
-\begin{frame}{Realizacja algorytmu w arytmetyce fl - $fl(A(\vec{d}))$}
-    zastąpienie:
+\begin{frame}{Realizacja algorytmu w arytmetyce float - $fl(A(\vec{d}))$}
+    Zastąpienie:
     \begin{itemize}
         \item $d, x, ..$
         \item arytmetyki
     \end{itemize}
-    przez:
+    Przez:
     \begin{itemize}
         \item $rd(d), rd(x), ..$
         \item arytmetykę float
@@ -44,8 +45,9 @@
     \le 
     \varrho_w ||\vec{w} ||
     \] \[
-    \varrho_d, \varrho_w = \underbrace{k}_{\text{małe, } \approx 10} \cdot \beta^{1-t}
+    \varrho_d, \varrho_w = \underbrace{k}_{\text{małe, } \approx 10} \cdot \  \beta^{1-t}
     \]
     \end{block}
-    - reprezentowane z małymi błędami.
+    $\newline$
+    W realizacji w arytmetyce float oczekujemy, że $\vec{d}$ oraz $\vec{w}$ będą reprezentowane z małymi błędami.
 \end{frame}
