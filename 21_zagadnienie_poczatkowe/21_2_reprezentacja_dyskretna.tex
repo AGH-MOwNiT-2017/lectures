@@ -2,47 +2,53 @@
 \begin{frame}{Reprezentacja dyskretna}
   $$\frac{d \vec{u}}{dt} = L\vec{u}$$
   $1^o$\quad L $\rightarrow$ przekształcamy na operator różnicowy (siatka przestrzenna $x_j$) \newline
-  $2^o$ \quad wprowadzamy siatkę czasową: $t^n$ 
+  $2^o$ \quad wprowadzamy siatkę czasową: $t^n$
   $$t^n = \sum_{r=2}^{n}\Delta t_r$$
   $\Delta t_r $- krok czasowy
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Całkowanie równania stanu od $t^n$ do $t^{n+1}$}
-  $${\vec{u}}^{n+1} = {\vec{u}}^n + \int_{t^n}^{t^{n+1}}dt' L\vec{u}(\vec{r},t')$$ 
-  $\Rightarrow$ związek między stanami w siąsiednich chwilach $t^n$,$t^{n+1}$
+  $$u = \vec{u}$$
+  $${u}^{n+1} = {u}^n + \int_{t^n}^{t^{n+1}}dt' Lu(\vec{r},t')$$
+  To związek między stanami w sąsiednich chwilach $t^n$,$t^{n+1}$.
   \begin{center}
-  	\underline{nie znamy} \qquad $\vec{u}(t')$ , $t' \in [t^n,t^{n+1}]$ \par
+  	\qquad $u(t')$ , $t' \in [t^n,t^{n+1}]$ -- nieznane
   \end{center}
-  \underline{dla małych kroków czasowych} $\Delta t = t^{n+1} - t^n$ można: 
-  $${\vec{u}}^{n+1} = {\vec{u}}^n + \int_{t^n}^{t^{n+1}}dt'\Bigg\{ \sum_{r=0}^{p-1}\bigg[\frac{dr}{d t^r}(L\vec{u})\bigg]_{t^n}\frac{(t'-t^n)^r}{r!}+0((t'-t^n)^p)\Bigg\}$$
-  $${\vec{u}}^{n+1} = {\vec{u}}^n + \sum_{r=1}^{p}\bigg[\frac{d^{r-1}}{d t^{r-1}}(L\vec{u})\bigg]_{t^n}\frac{(\Delta t)^r}{r!}+0(\Delta t^{p+1})$$
-  p -rząd wielkości całkowania (ze względu na krok czasowy $\Delta t$)
+\end{frame}
+\begin{frame}
+  \underline{Dla małych kroków czasowych} $\Delta t = t^{n+1} - t^n$ można:
+  $${u}^{n+1} = {u}^n + \int_{t^n}^{t^{n+1}}dt'\Bigg\{ \sum_{r=0}^{p-1}\bigg[\frac{dr}{d t^r}(Lu)\bigg]_{t^n}\frac{(t'-t^n)^r}{r!}+0((t'-t^n)^p)\Bigg\}$$
+  $${u}^{n+1} = {u}^n + \sum_{r=1}^{p}\bigg[\frac{d^{r-1}}{d t^{r-1}}(Lu)\bigg]_{t^n}\frac{(\Delta t)^r}{r!}+0(\Delta t^{p+1})$$
+  $p$ -- rząd wielkości całkowania (ze względu na krok czasowy $\Delta t$)
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{W praktyce - ograniczenie do członów drugiego rzędu}
-  $$\vec{u} ^{n+1} = \vec{u} ^n + L\vec{u}^n\Delta t+\bigg[\frac{d}{dt}(L\vec{u})\bigg]_{t^n} \frac{(\Delta t)^2}{2}$$
+\begin{frame}{Całkowanie -- praktyka}
+  W praktyce -- ograniczenie do członów drugiego rzędu.
+  $$u ^{n+1} = u ^n + Lu^n\Delta t+\bigg[\frac{d}{dt}(Lu)\bigg]_{t^n} \frac{(\Delta t)^2}{2}$$
   \textbf{Wyznaczanie wartości pochodnej:}
   \begin{itemize}
     \item wartości zmiennych na poprzednich poziomach czasu $t^{n-1}$
     \item wprowadzenie poziomów pośrednich
-    \item użycie nieznanych $\vec{u}^n+1$ (w czasie o krok późniejszym $t^{n+1}$)
+    \item użycie nieznanych $u^n+1$ (w czasie o krok późniejszym $t^{n+1}$)
   \end{itemize}
-  $\Rightarrow$ \textbf{Szczególny przypadek:} $\rightarrow$ użycie nieznanych wartości $u^{n+1}$:
+\end{frame}
+\begin{frame}{Całkowanie -- praktyka cd.}
+  \textbf{Szczególny przypadek:} $\rightarrow$ użycie nieznanych wartości $u^{n+1}$:
   \begin{center}
-  	$\vec{u}^{n+1} = \vec{u}^n+L\vec{u}^n(1-\varepsilon)\Delta t+L\vec{u}^{n+1}\varepsilon \Delta t $\qquad(*)
+  	$u^{n+1} = u^n+Lu^n(1-\varepsilon)\Delta t+Lu^{n+1}\varepsilon \Delta t $\qquad(*)
   \end{center}
   \begin{description}
     \item - $0 \leqslant \varepsilon \leqslant 1$ - parametr interpolacji
-    \item - $\varepsilon = 0$ - metoda jawna 
+    \item - $\varepsilon = 0$ - metoda jawna
     \item - $\varepsilon \not= 0$ - metoda niejawna
-    \item - dokładność 2-go rzędu zachowana jedynie dla $\varepsilon=\frac{1}{2}$
+    \item - Dokładność 2-go rzędu zachowana jedynie dla $\varepsilon=\frac{1}{2}$
   \end{description}
-  
+
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{W praktyce c.d.}
+\begin{frame}{Całkowanie -- praktyka c.d.}
   po uporządkowaniu w (*) można zapisać:
-  $${\vec{u}}^{n+1} = (1-\varepsilon\cdot\Delta t\cdot L)^{-1}\cdot[1+(1-\varepsilon)\Delta t\cdot L]\cdot \vec{u}^n $$
-  czyli: \fbox{$\vec{u}^{n+1}=T(\Delta,\Delta t)\vec{u}^n$} \qquad por.: $\frac{d\vec{u}}{dt} = L\vec{u}$\newline\newline\newline
-  \textbf{T - operator różnicowy}, wiąże kolejne punkty na siatce czasowej $\equiv$ zagadnienie początkowe $\Rightarrow$ ciąg rozwiązań w izolowanych punktach czasowych (T).
+  $${u}^{n+1} = (1-\varepsilon\cdot\Delta t\cdot L)^{-1}\cdot[1+(1-\varepsilon)\Delta t\cdot L]\cdot u^n $$
+  czyli: \fbox{$\vec{u}^{n+1}=T(\Delta,\Delta t)\vec{u}^n$} \qquad por.: $\frac{du}{dt} = Lu$\newline\newline\newline
+  \textbf{T - operator różnicowy}, wiąże kolejne punkty na siatce czasowej, tożsame z zagadnienie, początkowym -- ciąg rozwiązań w izolowanych punktach czasowych (T).
 \end{frame}
