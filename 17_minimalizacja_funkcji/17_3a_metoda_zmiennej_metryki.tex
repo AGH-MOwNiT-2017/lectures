@@ -29,7 +29,7 @@
       \begin{equation*}
         Q(x) = (Ax - c)^T \cdot (Ax - c)
       \end{equation*}
-      $V(x_k) = G^{-1}(x_k)$ -- macierz kowariancji w $k-tym$ kroku
+      $V(x_k) = G^{-1}(x_k)$ -- macierz kowariancji w k-tym kroku
     \end{block}
 
     \begin{block}{}
@@ -75,7 +75,7 @@
         A -- macierz $(n \times n)$, symetryczna, dodatnio określona.\\
       \textbf{Twierdzenie: } Niezależnie od wyboru punktu początkowego $x_0$\\
        można zminimalizować formę kwadratową:
-       \begin{equation}
+       \begin{equation}\label{eq:tw_1}
          Q(x) = Q(x_0) + b^T \cdot x + \frac{1}{2} x^T \cdot A \cdot x
        \end{equation}
        \begin{enumerate}
@@ -88,4 +88,62 @@
   \end{frame}
 
   \begin{frame}{Minimalizacja w kierunkach sprzężonych -- dowód}
+    $V$ -- dowolny wektor; $d_i$ -- liniowo niezależne
+    \begin{equation}
+      \begin{gathered}
+        \begin{aligned}
+          &V = \sum_{i=0}^{n - 1} \gamma_i \cdot d_i, &\gamma_i = \frac{d_i A v}{d_i^T A d_i}
+        \end{aligned}
+      \end{gathered}
+    \end{equation}
+    W kroku iteracyjnym $p$:
+    \begin{equation*}
+        \begin{aligned}
+          &x_p = x_0 + \sum_{i = 0}^{p - 1} \alpha_i \cdot d_i, &p > 1
+        \end{aligned}
+    \end{equation*}
+    $x_p$ -- kolejny punkt uzyskany w trakcie minimalizacji\\
+    formy kw. $Q(x)$ wzdłuż kierunków $d_0, d_1, ..., d_{p - 1}$.
+  \end{frame}
+
+  \begin{frame}{Minimalizacja w kierunkach sprzężonych -- dowód cd.}
+    \begin{enumerate}
+      \item Z punktu $x_p$ do $x_{p + 1}$ przechodzimy wzdłuż $d_p$
+      \item Forma $Q$ ma mieć minimum wzdłuż $d_p$
+    \end{enumerate}
+    Otrzymujemy więc, że:
+    \begin{equation}\label{eq:d_n_q_zero}
+        \begin{aligned}
+          d_p^T \nabla Q(x_{p + 1}) = 0
+        \end{aligned}
+    \end{equation}
+    Po podstawieniu $(\ref{eq:tw_1})$ do $(\ref{eq:d_n_q_zero})$:
+    \begin{equation*}
+        \begin{aligned}
+          d_p^T \cdot A \cdot \bigg[(x_0 + \sum_{i = 0}^{p - 1} \alpha_i \cdot d_i) + \alpha_p \cdot d_p \bigg] + d_p^T \cdot b = 0
+        \end{aligned}
+    \end{equation*}
+    Z czego wyznaczamy stałą:
+    \begin{equation*}
+        \begin{aligned}
+          \alpha_p = - \frac{d_p^T (A \cdot x_0 + b)}{d_p^T \cdot A \cdot d_p}
+        \end{aligned}
+    \end{equation*}
+  \end{frame}
+
+  \begin{frame}{Minimalizacja w kierunkach sprzężonych -- dowód cd.}
+    W konsekwencji po co najwyżej $n$ krokach, (bo może być $\alpha_i = 0)$ zachodzi:
+    \begin{equation*}
+        \begin{aligned}
+          x_n = x_0 - \sum_{i = 0}^{n - 1} \frac{d_i^T (A \cdot x_0 + b) d_i}{d_i^T \cdot A \cdot d_i} =
+          x_0 - \underbrace{\sum_{i = 0}^{n - 1} \frac{d_i^T \cdot A (x_0 + A^{-1} b) d_i}{d_i^T \cdot A \cdot d_i}}_{x_0 + A^{-1} \cdot b}\\
+          x_n = x_0 - x_0 - A^{-1} \cdot b = - A^{-1} \cdot b
+        \end{aligned}
+    \end{equation*}
+    Osiągnęliśmy min. formy kwadratowej:
+    \begin{enumerate}
+      \item niezależnie od kolejności wystąpień $d_i$,
+      \item w co najwyżej $n$ krokach minimalizacyjnych
+    \end{enumerate}
+    Met. kier. sprzężonych prowadzi do \textbf{zbieżności kwadratowej}.
   \end{frame}
