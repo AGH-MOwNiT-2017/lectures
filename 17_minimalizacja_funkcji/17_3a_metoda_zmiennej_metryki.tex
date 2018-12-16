@@ -1,0 +1,91 @@
+\section{Metoda zmiennej metryki}
+
+\subsection{Metoda Newtona -- podsumowanie}
+  \begin{frame}
+    \begin{block}{Uogólniona met. Newtona -- znajdowanie minimum}
+      \textbf{Założenia: } Dana jest funkcja $F$, taka że $F(x) \in \mathbb{C}^2$.
+    \end{block}
+    \begin{block}{Procedura iteracyjna}
+      W k-tym kroku:
+      \begin{equation}
+        \left.
+          \begin{aligned}
+            x_{k + 1} &= x_{k} + \alpha_{k} \cdot d_{k}\\
+            d_{k}     &= - V(x_k) \cdot \nabla F(x_{k})\\
+            V(x_k)    &= H^{-1}(x_{k})
+          \end{aligned}
+       \right\}
+      \end{equation}
+    \end{block}
+  \end{frame}
+
+  \begin{frame}{}
+    \begin{block}{Oznaczenia}
+      $d_{k}$ -- wektor kierunku poszukiwań\\
+      $\alpha_{k}$ -- długość kroku; dobrana tak, aby\\
+      \hspace*{8mm} minimalizować funkcję $\alpha \mapsto F(x_{k} + \alpha \cdot d_{k}), \alpha \geq 0$\\
+      $H(x_k) = \bigg[ \frac{\partial^2 F(x_{k})}{\partial x_{i} x_{j}} \bigg]$ -- hesjan funkcji $F(x_{k})$\\
+      $G(x_k)$ -- hesjan formy kwadratowej $Q$ w punkcie $x_k$\\
+      \begin{equation*}
+        Q(x) = (Ax - c)^T \cdot (Ax - c)
+      \end{equation*}
+      $V(x_k) = G^{-1}(x_k)$ -- macierz kowariancji w $k-tym$ kroku
+    \end{block}
+
+    \begin{block}{}
+      \textbf{Istota: } $V(x_{k})$ -- obliczane w każdym kroku.\\
+      Duży narzut obliczeniowy.
+    \end{block}
+  \end{frame}
+
+  \begin{frame}{Optymalizacja metodami zmiennej metryki}
+    \begin{block}{}
+      \textbf{Cel: } Zmniejszenie narzutu obliczeniowego na wyznaczanie $V_k$.\\
+      \textbf{Pomysł: } Wykorzystanie informacji z poprzednich kroków iteracyjnych.
+    \end{block}
+
+    \begin{block}{}
+      \textbf{Szukamy: }
+        \begin{equation}
+          V_{k + 1} = V_k + C_k
+        \end{equation}
+      \textbf{Dysponujemy: } $x_k, x_{k + 1}, \nabla F(x_k), \nabla F(x_{k + 1})$
+    \end{block}
+  \end{frame}
+
+  \begin{frame}{Kierunki sprzężone}
+    \begin{block}{Kierunki wzajemnie sprzężone}
+      \textbf{Def: } Kierunki $d_0, d_1, ..., d_i, ..., d_r, d_i \neq 0, r \leq n - 1$\\
+      nazywamy wzajemnie sprzężonymi względem macierzy\\
+      $A$ (A-sprzężonymi), jeśli:
+      \begin{equation*}
+        d_i^T A d_j = 0, i \neq j
+      \end{equation*}
+      Jest to uogólnienie def. ortogonalności:
+      \begin{equation*}
+        V^T \cdot u = V^T \cdot I \cdot u = 0
+      \end{equation*}
+      Wektory własne $A$ symetrycznej są wektorami A-sprzężonymi.
+    \end{block}
+  \end{frame}
+
+  \begin{frame}{Minimalizacja w kierunkach sprzężonych}
+    \begin{block}{Twierdzenie o minimalizacji w kierunkach sprzężonych}
+      \textbf{Założenie: } $d_0, d_1, .., d_{n - 1}$ -- ciąg wektorów A-sprzężonych\\
+        A -- macierz $(n \times n)$, symetryczna, dodatnio określona.\\
+      \textbf{Twierdzenie: } Niezależnie od wyboru punktu początkowego $x_0$\\
+       można zminimalizować formę kwadratową:
+       \begin{equation}
+         Q(x) = Q(x_0) + b^T \cdot x + \frac{1}{2} x^T \cdot A \cdot x
+       \end{equation}
+       \begin{enumerate}
+         \item w najwyżej $n$ krokach iteracyjnych\\
+         \item kolejne minimalizacje -- wzdłuż $d_i$\\
+         \item każdy wektor $d_i$ -- używany tylko jeden raz\\
+         \item kolejność wprowadzenia $d_i$ do obliczeń -- obojętna
+       \end{enumerate}
+    \end{block}
+  \end{frame}
+
+  \begin{frame}{Minimalizacja w kierunkach sprzężonych -- dowód}
+  \end{frame}
