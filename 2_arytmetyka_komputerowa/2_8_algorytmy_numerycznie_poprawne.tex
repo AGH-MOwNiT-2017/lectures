@@ -1,4 +1,4 @@
-\section{Algorytmy numerycznie poprawne}
+$  $\section{Algorytmy numerycznie poprawne}
 %%%%%%%%%%%%%%%%
 \begin{frame}{Algorytmy numerycznie poprawne}
 	Ograniczenia:
@@ -19,18 +19,18 @@
 %%%%%%%%%%%%%%%%
 \begin{frame}{Algorytmy numerycznie poprawne - definicje}
 	\begin{block}{Definicja}
-    	Algorytm A jest {\bf numerycznie poprawny} w klasie zadań $K_d$, $K_w$, jeżeli istnieją stałe $K_d, K_w$ takie, że:
+    	Algorytm A jest {\bf numerycznie poprawny} w klasie zadań $\left\{ \varphi, D \right\}$, jeżeli istnieją stałe $K_d, K_w$ takie, że:
         \begin{itemize}
-        	\item $\forall d \in D$,
+        	\item $\forall \vec{d} \in D$,
             \item dla każdej dostatecznie silnej arytmetyki $\left( \beta^{1-t} \right)$
         \end{itemize}
         $\exists \tilde{d} \in D_0$ taki, że:
         
         {\centering
         	$|| \vec{d} - \tilde{d} || \le \varrho_d \cdot K_d \cdot || \vec{d} ||$ \\ \vspace{.1cm}
-            $|| \varphi(\vec{d}) - fl(A(\vec{d})) || \le \varrho_w \cdot K_w \cdot || \varphi(\vec{d}) ||$ \\}
+            $|| \varphi(\tilde{d}) - fl(A(\vec{d})) || \le \varrho_w \cdot K_w \cdot || \varphi(\tilde{d}) ||$ \\}
 
-        $\varphi(\vec{d})$ - dokładnie rozwiązanie zadania o zaburzonych danych $d$ \\
+        $\varphi(\tilde{d})$ - dokładne rozwiązanie zadania o zaburzonych danych $\tilde{d}$ \\
         $K_w, K_d$ - wskaźniki kumulacji algorytmu A w klasie zadań $\left\{\varphi, D\right\}$
         $K_w, K_d$:
         \begin{itemize}
@@ -84,7 +84,7 @@
                 \begin{addmargin}[1em]{0em}
                 $
                 	fl(A(\vec{a}, \vec{b})) =
-                	\sum_{i=1}^{n} a_i \cdot (1+a_i) \cdot 
+                	\sum_{i=1}^{n} a_i \cdot (1+\alpha_i) \cdot 
                     b_i \cdot (1 + \beta_i) \cdot (1 + \varepsilon_i)
                     \cdot \prod_{j=i}^{n} (1 + \delta_j)
                 $                
