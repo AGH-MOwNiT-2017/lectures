@@ -13,6 +13,9 @@
                 e^x = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + ...
             \]\[
                 \beta = 10, t = 5, x = -5.5
+            \]\newline
+            \[
+            	e^{x}=\sum_{n=0}^{\infty}\frac{x^{n}}{n!}
             \]
 		\column{.65\linewidth}
           \begin{columns}
@@ -129,7 +132,7 @@
         \right|_0^1 = \frac{1}{n+1} \\
         \lim_{n \to \infty} E_n = 0 \\
         E_{20} \approx 0.0 \hspace{.3cm} \text{- błąd } \hspace{.1cm} \frac{1}{20} \\
-        E_{19} \rightarrow \frac{1}{2} \cdot \frac{1}{21} \approx 0.0024 \\
+        E_{19} \rightarrow \frac{1}{20} \cdot \frac{1}{21} \approx 0.0024 \\
         \\[-22pt]
         ... \\
         E_{15} \approx 0.0590176 \rightarrow \text{wartość dokładna na 6 miejscach znaczących.}
@@ -146,6 +149,8 @@
             \left| \varepsilon^{n+1} \right| \le \left| \varepsilon^n \right|, \hspace{.2cm} g \text{ - wsp. wzmocnienia}
         \]
 	\end{block}
+	\textbf{Uwaga:} $\newline$
+	Jakość wyniku poprawia się wraz z każdym kolejnym etapem obliczeń.
 \end{frame}
 %%%%%%%%%%%%%%%%
 \subsection{Definicja}
@@ -160,7 +165,7 @@
         \hat{d}: ||\vec{d} - \hat{d}|| \le \varrho_d ||\vec{d} || &,&& 
         	\hat{d} - \text{dane zaburzone na poz. repr.} \\
         \hat{w} = \varphi(\hat{d}) &,&&
-        	\hat{d} - \text{dokł. rozw. dla danych zab.} \\
+        	\hat{w} - \text{dokł. rozw. dla danych zab.} \\
 		\tilde{w}: ||\hat{w} - \tilde{w} || \le \varrho_w ||\tilde{w}|| &,&&
         	\tilde{w} - \text{wynik dla $\hat{d}$,} \\
             &&&\text{zab. na poz. reprezentacji} \\
@@ -173,7 +178,7 @@
 %%%%%%%%%%%%%%%%
 \begin{frame}{Optymalny poziom błędu rozwiązania $\varphi(\vec{d})$ w arytmetyce $fl$}
 	\begin{block}{Definicja}
-		Algorytm A nazywamy {\bf numerycznie stabilnym} w klasie $\{\varphi, D\}$, jeżeli istnieje stała $K$ taka, że dla
+		Algorytm A nazywamy {\bf numerycznie stabilnym} w klasie $\{\varphi, D\}$, jeżeli istnieje stała $K$ taka, że 
         \begin{itemize}
         	\item $\forall \vec{d} \in D$,
             \item dla każdej dostatecznie silnej arytmetyki

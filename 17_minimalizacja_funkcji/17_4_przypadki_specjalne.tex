@@ -4,14 +4,15 @@
   \begin{frame}{Liniowy model}
     \begin{block}{Minimalizacja $\chi^{2}$ (chisquare minimization, least squares fitting)}
       \begin{displaymath}
-        min!F(\vec{x}) = \sum_{k=1}^{k} \left[ \frac{Y_{k} - T_{k}(\vec{x})}{\sigma_{k}} \right]^{2} = \sum_{k=1}^{k} f_{k}^{2}(\vec{x})
+        min!F(\vec{x}) = \sum_{i=1}^{k} \left[ \frac{Y_{i} - T_{i}(\vec{x})}{\sigma_{i}} \right]^{2} = \sum_{i=1}^{k} f_{i}^{2}(\vec{x})
       \end{displaymath}
-      gdzie: $Y_{k}$ -- wartości zamierzone, $\sigma_{k}$ -- błąd,\\
-      $T_{k}$ -- wartości teoretyczne; $k \geq n$, zwykle $k \gg n$ \\
+      gdzie: $Y_{i}$ -- wartości zamierzone, $\sigma_{i}$ -- błąd,\\
+      $T_{i}$ -- wartości teoretyczne; $k \geq n$, zwykle $k \gg n$ \\
+      $k$ -- liczba obserwacji, $n$ -- liczba klas wyniku\\
       \begin{tabular}{|c|} \hline
         min$F(\vec{x})$ \\ \hline
       \end{tabular}
-      $\Rightarrow$ najlepsze estymaty parametrów $\vec{x}$
+      -- najlepsze estymaty parametrów $\vec{x}$\\
       (modelu teoretycznego)
     \end{block}
 
@@ -35,24 +36,21 @@
       \nonumber
     \end{equation}
     $(**)$ - zwykle uznajemy ten człon za mały w porównaniu
-    z poprzednim
-    $\Rightarrow$ \emph{linearyzacja} (modelu! $T_{k}(x)$ -- liniowe)
+    z poprzednim -- \emph{linearyzacja} modelu ($T_{k}(x)$ -- liniowe)
   \end{frame}
 
   \begin{frame}{Liniowy model}
-    \emph{gdy drugi człon w} $(*)$ = 0 $\Rightarrow$
-    linear least squares $\to$ $F(x)$~--~quadratic
-    i cały problem minimalizacji $\Rightarrow$ znalezienie
-    macierzy $\left[ \frac{\partial^2 F}{\partial x_{i} \partial x_{j}} \right]^{-1}$
-    a znalezienie min!$F(x)$ w pojedynczym kroku newtonowskim\\
-    \emph{gdy drugi człon w} $(*) \approx 0 \Rightarrow$
-    non-linear least squares\\
+    \emph{Gdy drugi człon w} $(*) = 0$ --
+    linear least squares\\
+    $F(x)$~--~quadratic i cały problem minimalizacji $\Rightarrow$ znalezienie macierzy odwortnej $\left[ \frac{\partial^2 F}{\partial x_{i} \partial x_{j}} \right]^{-1}$,
+    a następnie min!$F(x)$ w pojedynczym kroku newtonowskim.\\
+    \emph{Gdy drugi człon w} $(*) \approx 0$ -- non-linear least squares\\
     \begin{itemize}
       \item $\frac{\partial^2 F}{\partial x_{i} \partial x_{j}}$
-      łatwe do policzenia (positive defined) % was positiv
+      -- łatwe do policzenia (positive defined) % was positiv
       \item kilka kroków $\to$ iteracyjnie
       \item macierz $\left[ \frac{\partial^2 F}{\partial x_{i} \partial x_{j}} \right]^{-1}$
-      nie zbiega się do macierzy kowariancji
+      nie zbiega się do macierzy kowariancji.
     \end{itemize}
   \end{frame}
 
@@ -73,18 +71,18 @@
       \underbrace{\sum_{k} \frac{1}{f_{k}} \frac{\partial^{2} f_{k}}{\partial x_{i} \partial x_{j}}}_{(*)}
       \nonumber
     \end{equation}
-    $(*)$ -- jeżeli można pominąć \dots
+    $(*)$ -- pomijamy, jeżeli można.
   \end{frame}
 
 \subsection{Model with separable computing}
 
   \begin{frame}{Model with separable computing}
     \begin{itemize}
-      \item znaczna część obliczeń zależy tylko od kilku
-      składowych $x \Rightarrow$ nie ulega zmianie, gdy
-      one również bez zmiany
-      \item podział na $n$-części $\to$ a każda zależy tylko
-      od jednego parametru
+      \item Znaczna część obliczeń zależy tylko od kilku
+      składowych $x$, więc nie ulega on zmianie, gdy
+      one również bez zmiany.
+      \item podział na $n$-części, a każda zależy tylko
+      od jednego parametru.
     \end{itemize}
     \textbf{Z tego wynika} -- efektywne niektóre proste
     metody (np. single parameter variation).
@@ -95,15 +93,15 @@
   \begin{frame}{Podobne zagadnienia}
     \begin{exampleblock}{Na przykład}
       \begin{itemize}
-        \item znajdowanie krzywej $p(y)=min_{x}!F(x,y)$,
-        np. przy określaniu przedziału ufności
-        \item podobny eksperyment, seria eksperymentów
+        \item Znajdowanie krzywej $p(y)=min_{x}!F(x,y)$,
+        np. przy określaniu przedziału ufności.
+        \item Podobny eksperyment, seria eksperymentów.
       \end{itemize}
     \end{exampleblock}
-    \begin{block}{Z tego wynika}
+    \begin{block}{Wnioski}
       \begin{itemize}
-        \item użycie poprzedniego wyniku jako punktu startowego
-        \item macierz kowariancji nie powinna się istotnie zmienić
+        \item Użyć można poprzedniego wyniku jako punktu startowego.
+        \item Macierz kowariancji nie powinna się istotnie zmienić.
       \end{itemize}
     \end{block}
   \end{frame}

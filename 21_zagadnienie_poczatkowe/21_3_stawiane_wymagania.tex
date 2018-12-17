@@ -8,16 +8,16 @@
       \item stabilność
       \item efektywność
 	\end{itemize}
-    
+
 	\begin{flushleft}
-	Operator \textbf{T} - sprzęga poziomy czasowe, zależy od wyboru schematu 	całkowania i przestrzennego schematu różnicowego 
+	Operator \textbf{T} - sprzęga poziomy czasowe, zależy od wyboru schematu 	całkowania i przestrzennego schematu różnicowego
 	\end{flushleft}
 \end{frame}
 %%%%%%%%%%%%%%%%
 \begin{frame}{Wymagania dotyczące operatora T}
   Operator T powinien zapewniać:
   \begin{enumerate}
-    \item zgodność aproksymacji różnicowej 
+    \item zgodność aproksymacji różnicowej
     \item dokładność aproksymacji różnicowej
     \item stabilność schematu różnicowego
     \item efektywność schematu różnicowego
@@ -32,11 +32,13 @@
 %%%%%%%%%%%%%%%%
 \begin{frame}{Dokładność aproksymacji różnicowej}
   \begin{itemize}
-    \item błędy obcięcia\par 
+    \item Błędy obcięcia\par
     - ciągła zmienna niezależna \par
-    \quad $\Rightarrow$ zbiór punktów (wybór schematu różnicowego) \par
-    \quad $\Rightarrow$  od $\Delta$, $\Delta t$
-    \item błędy \par
+		\begin{itemize}
+			\item zbiór punktów (wybór schematu różnicowego)
+			\item od $\Delta$, $\Delta t$
+		\end{itemize}
+    \item Błędy \par
     \quad - ograniczona dokładność reprezentacji \textit{(fl. - arithmetic)}
   \end{itemize}
 \end{frame}
@@ -49,13 +51,7 @@
     \quad $\varepsilon$ - amplituda błędu \par
     \quad $g$ - współczynnik wzmocnienia $\sim$ (T)
   \end{block}
-  stabilność $\Rightarrow $ \[\abs{g} < 1\]
-  \textit{układ równań:} $\vec{\varepsilon}^{n}$, G  - macierz wzmocnienia
+  Stabilność: \[\abs{g} < 1\]
+  \textit{Układ równań:} $\varepsilon^{n}$, G  - macierz wzmocnienia
 \end{frame}
 %%%%%%%%%%%%%%%%
-\begin{frame}{Efektywność schematu różnicowego}
-$$\begin{array}{ll}
-czas \\
-\textit{pamięć}
-\end{array} \left.\right\} \Rightarrow y$$
-\end{frame}

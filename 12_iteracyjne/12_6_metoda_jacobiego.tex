@@ -2,25 +2,27 @@
 
 \begin{frame}{Metoda Jacobiego}
   $$
-  A=D+(L+U)
+  A = D + (L+U)
   \begin{cases}
   M=I-D^{-1}A\\
   W=D^{-1}b
   \end{cases}
   $$
-  gdzie: L --poddiagonalna; P -- naddiagonalna;\\
-  D=B -- diagonalna, z diagonalnych elementów macierzy A. Korzystając z zależności
+  gdzie: L -- poddiagonalna; U -- naddiagonalna;\\
+  D = B -- diagonalna, z diagonalnych elementów macierzy A.
+  $$Ax = (D+(L+U))x = b \implies Dx = -(L+U)x + b$$
+  Korzystając z zależności
   $$\boxed{Dx^{(t+1)}= -(L+U)x^{(t)}+b}$$
   otrzymujemy wzór roboczy:
-  $$x_i^{(t+1)}=\frac{1}{a_{ii}}[b_i-\sum_{j=1,j\neq i}^{n} a_{ij}x_j^{(t)}]\  ;\  a_{ii} \neq 0,\wedge i,$$
+  $$x_i^{(t+1)}=\frac{1}{a_{ii}}[b_i-\sum_{j=1,j\neq i}^{n} a_{ij}x_j^{(t)}]\  ;\  a_{ii} \neq 0, \forall i \in {1,..,n} $$
 \end{frame}
 
 \begin{frame}
   \begin{block}{Procedura przestawiania wierszy}
     \begin{itemize}
-      \item[1.] spośród kolumn z $a_{ii} = 0$ wybieramy tą, która ma najwięcej zer,
-      \item[2.] w tej kolumnie wybieramy element o max $|a_{ii}|$ i przestawiamy wiersze tak, aby znalazł się on na diagonali,
-      \item[3.] Powtarzamy 1. i 2.
+      \item[1)] spośród kolumn z $a_{ii} = 0$ wybieramy tę, która ma najwięcej zer,
+      \item[2)] w tej kolumnie wybieramy element o max $|a_{ji}|$ i przestawiamy wiersze tak, aby znalazł się on na diagonali,
+      \item[3)] powtarzamy 1) i 2).
     \end{itemize}
   \end{block}
 \end{frame}
@@ -33,7 +35,7 @@
     \\siatka przestrzenna \emph{N x N}
   \end{block}
 
-  \begin{block}{Dla modelowego zadanie -- met. Jacobiego:}
+  \begin{block}{Dla modelowego zadania -- met. Jacobiego:}
     $$\rho - cos\frac{\pi}{N}\approx 1 0 \frac{\pi^2}{N^2}, \lambda _J = \rho$$
   \end{block}
 \end{frame}
@@ -42,13 +44,13 @@
   \begin{block}{Charakterystyka metody Jacobiego}
     \begin{itemize}
       \item prosta,
-      \item znaczenie dydaktyczne,
+      \item ma znaczenie dydaktyczne,
       \item wolnozbieżna,
       \item nie wykorzystuje całej, dostępnej w danym kroku informacji,
       \item pamiętane $x^{(t)}$ i $x^{(t+1)}$,
       \item zbieżna dla A silnie diagonalnie dominujących,
-      $$\text{wierszowo : }|a_{ii} > \sum_{j=1,j\neq i}^{n} |a_{ij},$$
-      $$\text{kolumnowo : }|a_{ii} > \sum_{j=1,j\neq i}^{n} |a_{ji},$$
+      $$\text{wierszowo : }|a_{ii}| > \sum_{j=1,j\neq i}^{n} |a_{ij}|,$$
+      $$\text{kolumnowo : }|a_{ii}| > \sum_{j=1,j\neq i}^{n} |a_{ji}|,$$
     \end{itemize}
   \end{block}
 \end{frame}

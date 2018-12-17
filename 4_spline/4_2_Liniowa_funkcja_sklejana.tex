@@ -10,11 +10,11 @@
         \[
         	\psi_{i}(x) = 
             \begin{cases}
-            	\frac{x-x_{i}}{x_{i}-x_{i-1}} &x \in [x_{i-1},x_{i}]
+            	\frac{x-x_{i-1}}{x_{i}-x_{i-1}} &x \in [x_{i-1},x_{i}]
             	\\
                 \frac{x_{i+1}-x}{x_{i+1}-x_{i}} &x \in [x_{i},x_{i+1}]
              	\\
-            	0 &x  \notin [x_{i-1},x_{x+1}]   
+            	0 &x  \notin [x_{i-1},x_{i+1}]   
             \end{cases}
         \]
         %%%%%%%%%%%%%%%%%%%%%%%%
@@ -39,9 +39,9 @@
    		\begin{exampleblock}{}
    			Interpolującą funkcję sklejaną stopnia 1-go można zapisać:
             \[
-            	s(x)=\sum_{n=0}^{n}y_{i}\psi_{i}(x)
+            	s(x)=\sum_{i=0}^{n}y_{i}\psi_{i}(x)
             \]
-            gdzie $\psi_{i}(x), i=0,...,m$ - baza przestrzeni liniowej funkcji sklejanych
+            gdzie $\psi_{i}(x), i=0,...,n$ - baza przestrzeni liniowej funkcji sklejanych
             1-go stopnia
    		\end{exampleblock}
         \begin{figure}[h]

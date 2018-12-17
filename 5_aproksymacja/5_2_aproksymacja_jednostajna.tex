@@ -2,16 +2,17 @@
 %%%%%%%%%%%%%%%%%%%
 \begin{frame}
 	Dla $F(x)$ określonej na $[a,b]$ szukamy $f(x)$:
-    $$min!\mathbf{F(x)-f(x)} = min!\underbrace{sup_{x \in [a,b]}|F(x)-f(x)|}_{\text{norma Czebyszewa}}$$
+    $$min! ||\mathbf{F(x)-f(x)}|| = min!\underbrace{sup_{x \in [a,b]}|F(x)-f(x)|}_{\text{norma Czebyszewa}}$$
 \end{frame}
 %%%%%%%%%%%%%%%%%%%
 \begin{frame}
 	\begin{block}{Twierdzenie Weierstrassa}
-	Jeżeli $F(x) \in C^0[a,b]$ to dla każdego $\varepsilon>0$ można dobrać $n(\varepsilon)$ takie, że istnieje $|F(x)-W_n(x)|<\varepsilon \Rightarrow F(x)$ można aproksymować jednostajnie wielomianami.
+	Jeżeli $F(x) \in C^0[a,b]$, to dla każdego $\varepsilon>0$ można dobrać $n(\varepsilon)$ takie, że istnieje $W_n(x): |F(x)-W_n(x)|<\varepsilon$ \newline
+    \newline Wniosek: $F(x)$ można aproksymować jednostajnie wielomianami.
 	\end{block}
-    szukamy $a_i$:\newline
+    Szukamy $a_i$:\newline
     $W_n(x) = \sum_{i=0}^{n}a_ix^i$ aby $min!E_n$, \newline
-    $E_n = max_{x \in [a,b]}$a,b
+    $E_n = max_{x \in [a,b]} |F(x) - W_n(x)|$
 \end{frame}
 %%%%%%%%%%%%%%%%%%%
 \begin{frame}
@@ -26,16 +27,18 @@
 \begin{frame}{Metoda szeregów potęgowych - szereg Taylora}
 	$$W_n(x) = \sum_{k=0}^{n}\frac{F^{(k)}(x_0)}{k!}(x-x_0)^k$$
     oszacowanie błędu aproksymacji $\rightarrow$ reszta Lagrange'a:
-    $$F_n(x)-W_n(x) = \frac{F^{n+1}(\eta)}{(n-1)!}(x-x_0)^{n+1},\eta \in [a,b]$$
+    $$F(x)-W_n(x) = \frac{F^{n+1}(\eta)}{(n+1)!}(x-x_0)^{n+1},\eta \in [a,b]$$
 \end{frame}
 %%%%%%%%%%%%%%%%%%%
 \begin{frame}{Przybliżenia Padé}
 	\textbf{ang.} Padé approximation, rational function approximation \newline
     \newline
-    Funkcja wymierna $r(x)$ stopnia $N$ ma postać:
-    $$r(x) = \frac{p(x)}{q(x)} = \frac{p_0+p_1(x)+\ldots+p_nx^n}{q_0+q_1(x)+\ldots+q_mx^m}$$
+    Aproksymujemy funkcję $F(x)$ za pomocą funkcji wymiernej $r(x)$.
+    \newline
+    Funkcja wymierna $r(x)$ stopnia $N = n+m$ ma postać:
+    $$r(x) = \frac{p(x)}{q(x)} = \frac{p_0+p_1x+\ldots+p_nx^n}{q_0+q_1x+\ldots+q_mx^m}$$
     \begin{itemize}
-    \item nieredukowalna (p, q - są względnie pierwsze - nie mają wspólnych podzielników)
+    \item nieredukowalna (p, q - są względnie pierwsze - nie mają wspólnych dzielników)
     \item określona w $x=0\Rightarrow q_0 \not = 0, \Rightarrow q_0=1$ (zwykle)
     \item do określenia $N+1 = n+m+1$ współczynników
     \end{itemize}
@@ -61,8 +64,8 @@
     \begin{center}
     	$p_{n+1} = p_{n+2}=..=p_N=0$ i $q_{m+1} = q_{m+2} = .. =q_N = 0$
     \end{center}
-    Wtedy współczynniki: $\sum_{i=0}^{k}a_iq_{k-1}-p_k$, a znalezienie $p(x)$ i $q(x)$ polega na rozwiązaniu układu równań liniowych:
-    $$\sum_{i=0}^{k}a_iq_{k-1}-p_k = 0;k=0,1,...,N$$
+    Wtedy współczynniki: $\sum_{i=0}^{k}a_iq_{k-i}-p_k$ powinny być równe $0$, a znalezienie $p(x)$ i $q(x)$ polega na rozwiązaniu układu równań liniowych:
+    $$\sum_{i=0}^{k}a_iq_{k-i}-p_k = 0; k=0,1,...,N$$
 \end{frame}
 %%%%%%%%%%%%%%%%%%%
 \begin{frame}{Typowy przykład}
@@ -78,3 +81,8 @@
     \end{block}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%
+\begin{frame}
+    \begin{figure}
+        \includegraphics[height=0.8\textheight]{img/5/pade.png}
+    \end{figure}
+\end{frame}

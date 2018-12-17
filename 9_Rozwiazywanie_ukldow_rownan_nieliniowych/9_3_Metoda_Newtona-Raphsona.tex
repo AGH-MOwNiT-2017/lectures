@@ -1,6 +1,21 @@
-\section{9.3 Metoda Newtona-Raphsona dla układów równań nieliniowych}
+\section{Metoda Newtona-Raphsona dla układów równań nieliniowych}
+\begin{frame}{Metoda Newtona-Raphsona dla układów równań nieliniowych}
+\textbf{Wprowadzenie:}$\newline$
+W przypadku równania skalarnego, $ f: I\!R \rightarrow I\!R$, metoda Newtona-Raphsona rozwiązania równania $f(x)=0$ jest dana jako: 
+$$
+	x_{k+1} = x_{k} - \frac{f(x_{k})}{f'(x_k)}
+$$
+Przez analogię uogólniamy wzór, aby wygenerować wielowymiarową metodę:
+$\newline$
+$F: I\!R^{N} \supset D \rightarrow I\!R^{N} $
+$$
+	x_{k+1} = x_{k} - F'(x_{k})^{-1}\cdot F(x_{k})
+$$
+gdzie $F'(x_{k})$ byłoby macierzą pochodnej F w punkcie $x_{k}$
+\end{frame}
 
 \begin{frame}{}
+  \textbf{Idea metody:}
   \begin{itemize}
     \item $\{x_j^{(n-1)}\}$ - przybliżenie pierwiastków $\{\alpha_j\}$
     \item $\alpha_j=x_j^{(n-1)}+h_j$\\
@@ -13,21 +28,22 @@
 \begin{frame}{}
   Jako kolejne przybliżenie $\alpha$ bierzemy $\overrightarrow{x}^{(n)}=\overrightarrow{x}^{(n-1)}+\overrightarrow{h}$\\
   przy czym $\overrightarrow{h}$ - wyznaczamy z $(\star\star)$\\
+  $\newline$
   Można to zapisać:
  $$
  \left.
  \begin{array}{lr}
- J^{(n1)} \cdot \overrightarrow{h}^{(n-1)} = -\overrightarrow{f}^{(n-1)}\\
+ J^{(n-1)} \cdot \overrightarrow{h}^{(n-1)} = -\overrightarrow{f}^{(n-1)}\\
  \overrightarrow{x}^{(n)} = \overrightarrow{x}^{(n-1)}+\overrightarrow{h}^{(n-1)}
  \end{array}\right\}
  \text{- układ równań liniowych}
  $$
-  jakobian:
+  Stosujemy jakobian:
   $$J^{(n-1)}_{i,j}=(\frac{\partial f_i}{\partial x_i})_{(n-1)}$$
 \end{frame}
 
 \begin{frame}{}
-  \begin{block}{trudności}
+  \begin{block}{Trudności}
     \begin{itemize}
       \item wybór $\overrightarrow{x}^{(0)}$,
       \item sprawa zbieżności - trudna w przypadku ogólnym,

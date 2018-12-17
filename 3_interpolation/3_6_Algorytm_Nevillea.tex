@@ -15,18 +15,20 @@ Rysunek 3.3: Ilustracja metody Neville'a
 \begin{frame}
 $P_{1}, P_{2}, P_{3}, P_{4}$ -- wiel. stopnia $0$, przechodzący przez $(x_{i},\ f_{i})$ ,
 
-$P_{12}, P_{23}, P_{34}$ -- wartość w $x$ wiel. st. 1 przech. przez pary punktów, \\
+$P_{12}, P_{23}, P_{34}$ -- wartość w $x$ dla wielomianów stopnia 1, przechodzącego przez pary punktów, \\
 \vspace{4mm}
 \textbf{Rekurencyjne zapełnianie tabeli:}
-
-$P_{i(i+1)\ldots(i+m)}=\displaystyle \frac{1}{x_{i}-x_{i+m}}(x-x_{i+m})P_{i(i+1)\ldots(i+m-1)}+(x_{i}-x)P_{(i+1)(i+2)\ldots(i+m)}$
+\begin{gather*}
+	P_{i(i+1)\ldots(i+m)}=\\
+	=\displaystyle \frac{(x-x_{i+m})P_{i(i+1)\ldots(i+m-1)}+(x_{i}-x)P_{(i+1)(i+2)\ldots(i+m)}}{x_{i}-x_{i+m}}
+\end{gather*}
 
 \begin{itemize}
-\item otrzymamy wielomian $\mathrm{s}\mathrm{t}\mathrm{p}. N-1$
+\item Otrzymamy wielomian stopnia $N-1$
 
-\item zgodny z $f(x)$ w węzłach, np.:
+\item Zgodny z $f(x)$ w węzłach, np.:
 $$
-P_{12}=\frac{(x-x_{2})P_{1}+(x_{1}-x)P_{2}}{x_{1}-x_{2}}\ ;\ P_{12}(x_{1})=P_{1};P_{12}(x_{2})=P_{2}
+P_{12}=\frac{(x-x_{2})P_{1}-(x-x_{1})P_{2}}{x_{1}-x_{2}}\ ;\ P_{12}(x_{1})=P_{1};P_{12}(x_{2})=P_{2}
 $$
 
 \end{itemize}
@@ -36,7 +38,7 @@ $$
 \begin{frame}
 
 
-Wygodniej $\rightarrow$ różnice między pokoleniami:
+Wygodniej-- różnice między pokoleniami:
 $$
 C_{m,i}=P_{i\cdots(i+m)}-P_{i\cdots(i+m-1)}\ ;\ D_{m,i}=P_{i\cdots(i+m)}-P_{i\cdots(i+m)}
 $$

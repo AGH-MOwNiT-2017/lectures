@@ -5,13 +5,15 @@
 		\item w dziedzinie czasu (time domain) $ \implies A(t) $ \\
 		$ t - \text{czas}, \quad A - \text{pewna wielkość} $
 		%%%%%%%%%%%%%%%%
-		\item w dziedzinie $
+		\item w dziedzinie: $
+		\begin{rcases*}
 		\begin{array}{l}
 		\text{częstości} (\omega) \\ \text{częstotliwości} (f)
-		\end{array}$
+		\end{array}
+		\end{rcases*}$
 		$\implies \widehat{A}(\omega) \quad \omega = 2 \pi f$
 	\end{enumerate}
-	$A(t), \quad \widehat{A}(\omega) \,\, - $ dwie różne reprezentacje tej samej funkcji związane równaniami transformat Fouriera:
+	$A(t), \quad \widehat{A}(\omega) \,\, - $ dwie różne reprezentacje tej samej funkcji (wielkości fizycznej) związane równaniami transformat Fouriera:
 	%%%%%%%%%%%%%%%%
 	\begin{block}
 	\centering
@@ -27,7 +29,7 @@
 	\end{rcases*}
 	\]
 	\end{block}
-	lub:
+	lub równoważnie:
 	\begin{block}
 	\centering
 	\renewcommand{\arraystretch}{1.5}
@@ -41,7 +43,7 @@
 		\widehat{A}(f) = \int\limits_{-\infty}^{\infty}dt \cdot A(t) \cdot e^{-2 \pi ift}
 	\end{rcases*}
 	\begin{array}{r}
-		- \,\, \text{nie trzeba pamiętać}\\ \text{o czynniku} \frac{1}{2 \pi}
+		\rightarrow \,\, \text{korzystamy z: } \omega = 2 \pi f\\ \text{nie trzeba pamiętać}\\ \text{o czynniku } \frac{1}{2 \pi}
 	\end{array}
 	\]
 	\end{block}
@@ -88,7 +90,7 @@
 \begin{frame}{Definicje transformat Fouriera II}
 	\begin{enumerate}[b)]
 		\item FS(i) - szereg Fouriera (Fourier Series) \\
-		$x$ - ciągła \\
+		$x$ - zmienna ciągła \\
 		$B(x)$ - f. okresowa ciągłej zmiennej x; okres: L
 		\begin{center}
 			(ciągła odcinkami wraz z pochodną: na tych odcinkach - szereg zbieżny do B(x), w punktach nieciągłości - do wartości średniej)
@@ -208,9 +210,9 @@
 	\end{itemize}
 	Wszystkie 4 transformaty Fouriera mają te same własności symetrii:
 	\begin{align*}
-		f(x) = E_r(x) + i \cdot E_i(x) + O_r(x) + i \cdot O_i(x) \widehat{f}(k) =
+		f(x) = E_r(x) + i \cdot E_i(x) + O_r(x) + i \cdot O_i(x) 
 		\tag{16.5} \\
-		E_r(k) + i \cdot E_i(k) + i \cdot O_i(k) + O_r(k)
+		\widehat{f}(k) = E_r(k) + i \cdot E_i(k) + i \cdot O_i(k) + O_r(k)
 		\tag{16.6}
 	\end{align*}
 \end{frame}
@@ -281,7 +283,7 @@
 %%%%%%%%%%%%%%%%
 \begin{frame}[allowframebreaks]{Splot (konwolucja)}
 	$f(x), g(x) -$ funkcje
-	\\ \quad ich splot:
+	$\newline$ \quad ich splot:
 	\begin{block}
 	\centering
 	\renewcommand{\arraystretch}{1.5}
@@ -307,6 +309,59 @@
 			\hline
 		\end{tabular}
 	\end{table}
+	%%%%%%%%%%%%%%%%
+	Przykład operacji splotu dla dwóch wektorów kolumnowych:
+	$a \in I\!R^{n\times 1} \ ;\ $ $b \in I\!R^{n\times 1} \ ;\ $
+	$a=\begin{bmatrix}
+    		\alpha_0 \\
+    		\alpha_1 \\
+    		\vdots \\
+   			 \alpha_{n-1}
+		\end{bmatrix}$ ; \quad 
+	$b=\begin{bmatrix}
+    		\beta_0 \\
+    		\beta_1 \\
+    		\vdots \\
+   			 \beta_{n-1}
+		\end{bmatrix}$	
+	$
+		[ a * b ]_{k} = \sum_{i=0}^{k}\alpha_i \cdot \beta_{k-i};
+	$\quad $a * b \in I\!R^{2n\times 1} $\quad
+	
+	\begin{table}[t]
+		\centering
+		\scalebox{0.85}{
+		\begin{tabular}{ccc}
+			 & $\begin{bmatrix} 
+    		\beta_{n-1} \\
+    		\vdots \\
+    		\beta_1 \\
+   			 \beta_{0}
+			\end{bmatrix}$ & $\bigg\downarrow$ \\
+			
+			$\begin{bmatrix}
+    		\alpha_0 \\
+    		\alpha_1 \\
+    		\vdots \\
+   			 \alpha_{n-1}
+			\end{bmatrix}$ &  &  \\ 
+			
+		\end{tabular}}
+		\quad
+		\scalebox{0.85}{
+		\begin{tabular}{ccc}
+		$\Rightarrow$&$ a * b  =$&$\begin{bmatrix} 
+    											\alpha_{0} \beta_{0} \\
+    											\alpha_{0} \beta_{1} + \alpha_{1} \beta_{0} \\
+    											\alpha_{0} \beta_{2} + \alpha_{1} \beta_{1} + \alpha_{2} \beta_{0} \\
+    											\vdots \\
+    											\alpha_{n-2} \beta_{n-1} + \alpha_{n-1} \beta_{n-2} \\
+    											\alpha_{n-1} \beta_{n-1} \\
+   			 									0 
+												\end{bmatrix}$ \\
+		\end{tabular}}
+	\end{table}
+	
 	%%%%%%%%%%%%%%%%
 	\begin{table}[t]
 	\centering
@@ -348,7 +403,7 @@
 				&
 				\begin{tabular}{@{}l}
 					$\widehat{f}(k) \cdot \widehat{g}(k)$ \\
-					$\int\limits_{kg} \frac{dk'}{2 \pi} \cdot  \widehat{f}(k') \cdot \widehat{g}(k - k')$
+					$\int\limits_{k_g} \frac{dk'}{2 \pi} \cdot  \widehat{f}(k') \cdot \widehat{g}(k - k')$
 				\end{tabular} \\
 			\hline
 				fFT

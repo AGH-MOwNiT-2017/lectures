@@ -17,7 +17,7 @@
     W większości komputerów: $x \oplus y = fl(x + y)$ dla $x + y$ z zakresu $F$
 
     $\oplus$ - dodawanie zmiennopozycyjne, \newline
-    $fl$ - reprezentacja
+    $fl(x)$ - reprezentacja zmiennoprzecinkowa 
 
     \[
     a + b = 2^{c_a} \cdot \left( m_a + m_b \cdot 2^{-(c_a-c_b)} \right) \Rightarrow
@@ -31,7 +31,7 @@
 \end{frame}
 %%%%%%%%%%%%%%%%
 \begin{frame}{Operacje zmiennopozycyjne}
-    $x + y$ rzadko $\in F$, bo:
+    $x \cdot y$ rzadko $\in F$, bo:
     \begin{itemize}
     \item $x \cdot y$ ma $2 \cdot t$ lub $2 \cdot t - 1$ cyfr znaczących,
     \item {\it overflow} - bardziej prawdopodobny
@@ -58,7 +58,9 @@
         {\bf Maszynowe $\varepsilon$} - najmniejsza liczba zmiennoprzecinkowa, dla której jeszcze: \[
         1 \oplus \varepsilon > 1
         \]
+        Wartość maszynowego $\epsilon$ określa precyzję obliczeń numerycznych wykonywanych na liczbach zmiennoprzecinkowych.
     \end{block}
 
     Zwykle wystarcza znajomość $\varepsilon' = 2^k \cdot \varepsilon, k \approx 1, 2, 3, ...$ $\rightarrow$ fragment progr. $\varepsilon$
 \end{frame}
+%%%%%%%%%%%%%%%%

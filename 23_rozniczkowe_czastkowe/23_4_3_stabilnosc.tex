@@ -4,7 +4,7 @@
 $\to$ initial boundary problem
 
   \begin{block}{}
-$0 \ge x \ge a \text{ podział na } n \to \Delta x = \frac{a}{h} = h$
+$0 \le x \le a \text{ podział na } n \to \Delta x = \frac{a}{h} = h$
 $R: \{ (x,y): 0 < x< a, t > 0\}$
   \end{block}
 $S$ - brzeg $R$
@@ -18,7 +18,7 @@ $\Rightarrow \text{tworzymy } R_h, S_h$
 $$u_{xx} = \frac{u(x-h,t)-2u(x,t)+u(x+h,t)}{h^2},$$
 $$u_{tt} = \frac{u(x,t+k)-2u(x,t)+u(x,t-k)}{k^2},$$
 czyli przybliżeniem (\ref{etykieta}) jest: \\
-\begin{equation} \label{21} u(x,t+k) = 2\cdot u(x,t) - u(x,t-k) + \frac{k^2}{h^2}[u(x-k,t)-2u(x,t)+u(x+h,t)] \end{equation}
+\begin{equation} \label{21} u(x,t+k) = 2\cdot u(x,t) - u(x,t-k) + \frac{k^2}{h^2}[u(x-h,t)-2u(x,t)+u(x+h,t)] \end{equation}
 Dla wyznaczenia $u$ w pierwszym wierszu $\Rightarrow$ przybliżenie (\ref{second}):
 $$u_t(x,0) \approx \frac{u(x,k) - u(x,0)}{k} = f_2(x)$$
 czyli:
@@ -28,7 +28,7 @@ czyli:
 \begin{frame}
   \begin{exampleblock}{Przykład}
       \begin{enumerate}[I.]
-       \item $u(x,0) = x \quad 0 \ge x \ge 1$ \\
+       \item $u(x,0) = x \quad 0 \le x \le 1$ \\
 	\item $u_t(x,0) = 1\quad 0 < x < 1$ \\
       \item $u(0,t) = 0 \quad t \le 0$ \\
 	\item $u(1,t) = 1 \quad t \le 0$

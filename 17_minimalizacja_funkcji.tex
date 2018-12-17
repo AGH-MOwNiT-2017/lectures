@@ -1,13 +1,32 @@
 \input{include/header}
 
-\subtitle{17 - Minimalizacja funkcji}
-\setcontributors{Anna Bukowska\\Yurii Vyzhha}
+%%%%%%%%%%%%%%%%
+\usepackage{amsmath}
+\usepackage{amssymb}
+%%%%%%%%%%%%%%%%
 
+\subtitle{17 - Minimalizacja funkcji}
+\setcontributors{Anna Bukowska\\Yurii Vyzhha\\Arkadiusz Placha}
+
+\AtBeginSection[]{
+  \begin{frame}
+  \vfill
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+    \usebeamerfont{title}\insertsectionhead\par%
+  \end{beamercolorbox}
+  \vfill
+  \end{frame}
+}
+
+\newenvironment{rcases}
+  {\left.\begin{aligned}}
+  {\end{aligned}\right\rbrace}
 
 \begin{document}
   	\maketitle
 	%%%%%%%%%%%%%%%%
-	\begin{frame}[allowframebreaks]{Outline}
+	\begin{frame}[allowframebreaks]{Plan wykładu}
 		\tableofcontents
 	\end{frame}
 	%%%%%%%%%%%%%%%%
@@ -16,6 +35,8 @@
 	\input{17_minimalizacja_funkcji/17_2_minimalizacja_w_1-d}
 	%%%%%%%%%%%%%%%%%%%%%%%
 	\input{17_minimalizacja_funkcji/17_3_metody_krokowe_dla_n-d}
+	%%%%%%%%%%%%%%%%%%%%%%%
+	\input{17_minimalizacja_funkcji/17_3a_metoda_zmiennej_metryki}
 	%%%%%%%%%%%%%%%%%%%%%%%
 	\input{17_minimalizacja_funkcji/17_4_przypadki_specjalne}
 	%%%%%%%%%%%%%%%%%%%%%%%

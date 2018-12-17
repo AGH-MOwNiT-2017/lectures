@@ -2,37 +2,45 @@
 \begin{frame}
 {3.9 Efekt Rungego}
 
+\begin{block}{}
+	\textbf{Intuicja: } Zwiększenie liczby węzłów $\Rightarrow$ lepsza dokładność. \\
+	\textbf{Rzeczywistość: } Efekt Rungego -- zmniejszenie dokładności.
+\end{block}
+
 (C. Runge, 1901)
 $$
 y(x)=\frac{1}{1+25x^{2}},\ x\in[-1,\ 1]
 $$
 Występuje, gdy:
 \begin{itemize}
-\item wielomiany
+\item interpolujemy wielomianami
 
-\item równoodległe węzły
+\item węzły interpolacyjne są równoodległe
 \end{itemize}
+\end{frame}
 
-Rada praktyczna:
+\begin{frame}
+	\begin{figure}[h]
+		\includegraphics[scale=0.35]{img/3/interpol_3_9}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+Efekt Rungego -- rada praktyczna:
 
 \begin{itemize}
 \item zaczynać od interpolacji liniowej,
 
-\item zwiększać liczbę węzłów i stopień wielomianu aż do ustabilizowania istotnych miejsc.
+\item zwiększać liczbę węzłów i stopień wielomianu, aż do ustabilizowania istotnych miejsc.
 \end{itemize}
 
 
-Sposób $\rightarrow$ \textbf{interpolacja przedziałowa}.
+Sposób -- \textbf{interpolacja przedziałowa}.
 \begin{itemize}
-\item katastrofalna rozbiezność dla $0.726\leq|x|<1$
+\item Katastrofalna rozbiezność dla $0.726\leq|x|<1$.
 
-\item b. dobra zbieżność w strefie centralnej
+\item Lecz bardzo dobra zbieżność w strefie centralnej.
 \end{itemize}
 
-(konsekwencja tego, że zadanie to jest {\itźle uwarunkowane})
-\end{frame}
-\begin{frame}
-\begin{figure}[h]
-			\includegraphics[scale=0.35]{img/3/interpol_3_9}
-	\end{figure}
+(Konsekwencja tego, że zadanie to jest {\itźle uwarunkowane}.)
 \end{frame}

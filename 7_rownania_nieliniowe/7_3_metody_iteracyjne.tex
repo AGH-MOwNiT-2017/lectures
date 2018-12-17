@@ -15,7 +15,7 @@
 		x_{i} = \phi(x_{i-1}),\quad i = 1, 2, \ldots \quad lub
 		\begin{cases}
 			y = \phi(x_{i-1})\\
-			x_{i} = y
+			y = x_{i}
 		\end{cases}
 	\]
 \end{frame}
@@ -27,18 +27,20 @@
 %%%%%%%%%%%%%%%%
 \subsection{Twierdzenie o zbieżności procesu iteracyjnego}
 \begin{frame}{Twierdzenie o zbieżności procesu iteracyjnego $x_{i+1} = \phi(x_{i})$}
-	\textbf{Niech:}
-	\begin{enumerate}
-		\item $x = \phi(x)$ ma pierwiastek $\alpha$
-		\item na przedziale $I = \left[\alpha - a, \alpha + a\right]$ zachodzi $\lvert \phi'(x) \rvert \leq L < 1$
-	\end{enumerate}
-	\vspace{1cm}
-	\textbf{Wtedy: } dla dowolnego $x_{0} \in I$ :
-	\begin{enumerate}
-		\item $x_{i} \in I$, $i = 1, 2, \ldots$
-		\item $\lim_{i \rightarrow \infty} x_{i} = \alpha$
-		\item $\alpha$ jest jedynym pierwiastkiem $x = \phi(x)$ w $I$
-	\end{enumerate}
+	\begin{block}{Twierdzenie}
+		\textbf{Niech:}
+		\begin{enumerate}
+			\item $x = \phi(x)$ ma pierwiastek $\alpha$
+			\item na przedziale $I = \left[\alpha - a, \alpha + a\right]$ zachodzi $\lvert \phi'(x) \rvert \leq L < 1$, gdzie L jest stałą
+		\end{enumerate}
+		\vspace{0.5cm}
+		\textbf{Wtedy: } dla dowolnego $x_{0} \in I$ :
+		\begin{enumerate}
+			\item $x_{i} \in I$, $i = 1, 2, \ldots$
+			\item $\lim_{i \rightarrow \infty} x_{i} = \alpha$
+			\item $\alpha$ jest jedynym pierwiastkiem $x = \phi(x)$ w $I$
+		\end{enumerate}
+	\end{block}
 \end{frame}
 
 \begin{frame}{Twierdzenie o zbieżności procesu iteracyjnego $x_{i+1} = \phi(x_{i})$}
@@ -50,7 +52,7 @@
 		\]
 		z Tw. o wartości średniej; $\eta_{i-1} \in I$
 		\[
-			\lvert x_{1} - \alpha \rvert = \lvert x_{i-1} - \alpha \rvert \cdot \lvert \phi'(\eta_{i-1}) \rvert \leq \lvert x_{i-1} - \alpha \rvert \cdot L \qquad \Rightarrow x_{i} \in I \quad(*)
+			\lvert x_{i} - \alpha \rvert = \lvert x_{i-1} - \alpha \rvert \cdot \lvert \phi'(\eta_{i-1}) \rvert \leq \lvert x_{i-1} - \alpha \rvert \cdot L \qquad \Rightarrow x_{i} \in I \quad(*)
 		\]
 		
 		\item $(*)$ używamy wielokrotnie
@@ -96,7 +98,7 @@
 	
 	rozwinięcie względem $\alpha$
 	\[
-		\phi(x_{i-1}) = \sum_{j=0}^{p-1} \frac{1}{j!} \underbrace{(x_{i-1} - \alpha)^{j}}_{\epsilon_{i-1}} \cdot \phi^{(j)}(\alpha) + \frac{1}{p!}(x_{i-1} - \alpha)^{p} \lvert \phi'(\eta) \rvert\cdot \phi^{(p)}(\eta_{i-1})
+		\phi(x_{i-1}) = \sum_{j=0}^{p-1} \frac{1}{j!} \underbrace{(x_{i-1} - \alpha)^{j}}_{\epsilon_{i-1}} \cdot \phi^{(j)}(\alpha) + \frac{1}{p!}(x_{i-1}-\alpha)^{p} \cdot \phi^{(p)}(\eta_{i-1})
 	\]
 	
 	$\eta_{i-1} \in (x_{i-1}, \alpha)$

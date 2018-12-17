@@ -166,7 +166,7 @@
         \[
         \begin{bmatrix}
     -h_{1} & h_{1} & 0 & 0  & 0 \\
-    h_{1} & 2(h_{i}+h_{2}) & h_{2} & 0  & 0 \\
+    h_{1} & 2(h_{1}+h_{2}) & h_{2} & 0  & 0 \\
     0 & h_{2} & 2(h_{2}+h_{3}) & h_{3} & 0 \\
     \vdots & \vdots & \vdots & \vdots & \vdots \\
     0 & 0 & h_{n-2} & 2(h_{n-2}+h_{n-1}) & h_{n-1} \\
@@ -184,12 +184,12 @@
         \]
         \[	=
         	\begin{bmatrix}
-        		h_{1}^{2}\Delta^{(3)}_{i} \\
+        		h_{1}^{2}\Delta^{(3)}_{1} \\
                 \Delta_{2} - \Delta_{1} \\
                 \Delta_{3} - \Delta_{2} \\
                 \vdots \\ 
                 \Delta_{n-1} - \Delta_{n-2} \\
-                \Delta_{n} - \Delta_{n-1}
+                -h_{n-1}^{2}\Delta^{(3)}_{n-3}
         	\end{bmatrix}
         \]
     \end{frame}
@@ -201,7 +201,7 @@
             \item complete spline: $s'(x_{1})=y'_{1}, \ \ s'(x_{n})=y'_{n}$
             (clamped boundary)
             \item $s''(x_{1})=y''_{1}; \ \ s^{n}(x_{n})=y''_{n}$
-            \item $s'''(x)$ ciągła od $x_{2}$ do $x_{n-1}$ (not-a-knot condition)
+            \item $s'''(x)$ ciągła w $x_{2}$ oraz $x_{n-1}$ (not-a-knot condition)
             \item interpolowanie spline'ami funkcji periodycznych
     	\end{enumerate}
     \end{frame}

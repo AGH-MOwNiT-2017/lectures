@@ -19,14 +19,14 @@
     x = \pm \underbrace{\left(\frac{d_1}{\beta} + \frac{d_2}{\beta^2} + ... + \frac{d_t}{\beta^t}\right)}_\text{mantysa} \cdot \beta^{\overbrace{e}^\text{cecha}}
     = \pm \sum_{i=1}^{t} \frac{d_i}{\beta^i} \cdot \beta^e
     \]        
-    System $F$ jest {\it unormowany}, gdy $\forall_{x \ne 0} d_i \ne 0$.
+    System $F$ jest {\it unormowany}, gdy $\forall_{x \ne 0}\ d_i \ne 0$.
     \end{block}
 
 \end{frame}
 %%%%%%%%%%%%%%%%
 \begin{frame}{Reprezentacja zmiennoprzecinkowa (float)}
-    W komputerze jest przechowywana liczba całkowita $\beta^t \cdot m$ (zgodnie z wybranym systemem kodowania).
-
+    W komputerze jest przechowywana liczba całkowita $\pm\beta^t \cdot m$ (zgodnie z wybranym systemem kodowania).
+	$\newline$$\newline$
     $\beta^{1-t}$ - oszacowanie względnej dokładności arytmetyki
 
     \hspace{0.5cm}
@@ -50,9 +50,17 @@
     2 \cdot \left(\beta - 1 \right) \cdot \beta^{t-1} \cdot \left( U - L + 1 \right) + 1
     \]
     \begin{flushright}
-        {\it Zadanie:} sprawdzić
     \end{flushright}
     \end{block}
+    \textcolor{blue}{Wyjaśnienie:}
+    \begin{itemize}
+    	\item 2 $\rightarrow$ znak liczby $\pm$
+    	\item  $(\beta - 1)$ $\rightarrow$ podstawa, na pierwszym bicie nie ma zera
+    	\item $\beta^{t-1}$ $\rightarrow$ pozostałe t-1 bitów z przedziału ${0,\dots,\beta-1}$
+    	\item $(U - L + 1)$ $\rightarrow$ zakres wykładnika
+    	\item 1 $\rightarrow$ zero
+    \end{itemize}
+    
 \end{frame}
 %%%%%%%%%%%%%%%%
 \begin{frame}{Reprezentacja zmiennoprzecinkowa (float)}
@@ -78,13 +86,17 @@
 \begin{frame}{Reprezentacja zmiennoprzecinkowa (float)}
     \begin{alertblock}{Uwaga}
         $0.1$ - często krok w algorytmach\newline
-        Czy 10 kroków o długości $0.1$ to to samo co 1 krok = $1.0$?\newline
-        W systemie o $\beta = 2^n$ - {\bf nie!}
+        Czy 10 kroków o długości $0.1$ to to samo co 1 krok = $1.0$?\newline\newline
+        W systemie o podstawie $\beta = 2$ - {\bf nie!}
         \[
         0.1_{10} = 0.0(0011)_2 = 0.0(12)_4 = 0.0(6314)_8 = 0.199999..._{16}
         \]
 
-        Reprezentacja $0.1$ urywa się o $t$ cyfrach. Dodanie 10 tak uzyskanych liczb nie da dokładnie $1.0$.
+        Reprezentacja $0.1$ urywa się po $t$ cyfrach. Dodanie 10 tak uzyskanych liczb nie da dokładnie $1.0$.
+    \end{alertblock}
+    
+    \begin{alertblock}{Porównania w arytmetyce float}
+    Zamiast przyrównywać wartości należy sprawdzać, czy otrzymany błąd pomiędzy wartością obliczoną, a oczekiwaną jest mniejszy od zadanego $\epsilon$.
     \end{alertblock}
 \end{frame}
 %%%%%%%%%%%%%%%%
@@ -92,7 +104,11 @@
 \begin{frame}{Reprezentacja zmiennoprzecinkowa (float)}
     \[
     x = s \cdot 2^c \cdot m
-    \]\[
+    \]
+    \begin{center}
+    s $\leftarrow$ sign,\ c$\leftarrow$ cecha,\ m $\leftarrow$ mantysa
+    \end{center}
+    \[
     m = \sum_{i=1}^{\infty} e_i \cdot 2^{-i}
     \]\[
     e_i = \left\{ 
@@ -104,16 +120,17 @@
     \]
 
     \begin{block}{Reprezentacja mantysy}
-        Mantysa jest reprezentowana jako:
-        \[
-        m_t = \sum_{i=1}^{t}e_i \cdot 2^{-i} + \underbrace{e_{t+1} \cdot 2^{-t}}_\text{zaokrąglenie}
-        \]
+        $$
+        m_t = \underbrace{\sum_{i=1}^{t}e_i \cdot 2^{-i}}_\text{t-bitowa mantysa} \ + \underbrace{e_{t+1} \cdot 2^{-t}}_\text{zaokrąglenie}
+        $$
     \end{block}
 \end{frame}
 %%%%%%%%%%%%%%%%
 \begin{frame}{Reprezentacja zmiennoprzecinkowa (float)}
-    a)\newline
-
+    a)Błąd reprezentacji zmiennoprzecinkowej - zaokrąglenie w dół\newline
+	$$
+		fl(x)^{-} = \pm \sum_{i=1}^{t}{\frac{d_{i}}{\beta_{i}}}\ \cdot \  \beta^e
+	$$
     \centering
     \begin{tabular}{|*{5}{p{.75cm}|}}
         \hline
@@ -131,8 +148,10 @@
 \end{frame}
 %%%%%%%%%%%%%%%%
 \begin{frame}{Reprezentacja zmiennoprzecinkowa (float)}
-    b)\newline
-
+    b)Błąd reprezentacji zmiennoprzecinkowej - zaokrąglenie w górę\newline
+	$$
+		fl(x)^{+} = \pm \sum_{i=1}^{t}{\frac{d_{i}}{\beta_{i}}}\ \cdot \  \beta^e \ \pm \frac{d_{t+1}}{\beta_{t+1}}
+	$$	
     \centering
     \begin{tabular}{|*{5}{p{.75cm}|}}
         \hline
@@ -144,8 +163,19 @@
     \]\[
     m_t = \sum_{i=1}^{t} e_i \cdot 2^{-i} + 2^{-t}
     \] \[
-    m_t - m = 2^{-(t+1)} \left| \frac{m - m_t}{m} \right| \le \frac{2^{-(t+1)}}{1/2} = 2^{-t}
+    m_t - m = 2^{-(t+1)}  \ \ \left| \frac{m - m_t}{m} \right| \le \frac{2^{-(t+1)}}{1/2} = 2^{-t}
     \]
 \end{frame}
-
+%%%%%%%%%%%%%%%%
+\begin{frame}
+	\textbf{Standaryzacja:}
+	\begin{itemize}
+		\item Reprezentacja zmiennoprzecinkowa została ustandaryzowana w celu ujednolicenia obliczeń
+		\item IEEE754 - 1985; IEEE754 - 2008 
+		\item treść standardu IEEE754-2008:$\newline$ \url{www.dsc.ufcg.edu.br/~cnum/modulos/Modulo2/IEEE754_2008.pdf}
+		\item wywiad z jednym z twórców standardu IEEE754-1985 (William Kahan):\ \url{www.goo.gl/AeNLrd}
+	\end{itemize}
+	\textbf{Istotne pojęcia:}$\newline$
+	\textit{ukryta jedynka, normalizacja mantysy, liczby zdenormalizowane}
+\end{frame}
 %%%%%%%%%%%%%%%%

@@ -1,5 +1,9 @@
 \section{Wyznaczanie całek wielokrotnych - kubatury}
-\begin{frame}{Obszar prostokątny}
+\begin{frame}{Wyznaczanie całek wielokrotnych - kubatury}
+	\textcolor{blue}{Problem:}$\newline$
+	Całkowanie po obszarze prostokątnym$\newline$
+	\textcolor{blue}{Rozwiązanie:}$\newline$
+	Obliczenie całki iterowanej po jednej zmiennej, następnie po drugiej zmiennej.
 	  \begin{exampleblock}{}
         	\[
             	\iint_{R}f(x,\ y)dxdy \ \ 
@@ -13,8 +17,8 @@
 %%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 		\[
-        	\iint_{R}f(x,\ y)dxdy= \int_{a}^{b}(\int_{c}^{d}f(x,\
-            y)dx)dy=
+        	\iint_{R}f(x,\ y)dx\ dy= \int_{a}^{b}(\int_{c}^{d}f(x,\
+            y)dy)dx=
         \]
         \[
         	\frac{k}{3}[\int_{a}^{b}f(x,\ 
@@ -31,7 +35,7 @@
             {\partial y^{4}}dx; \ \ \mu\in(c,\ d)
         \]
         $\newline$
-      	i dla $\forall$ z całek: zł. wzór Simpsona z 
+      	Dla każdej z całek stosujemy złożony wzór Simpsona z 
         $x_{i}=a+ih, \ \ i=0, 1, 2, . . . , 2n$
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%
@@ -45,7 +49,7 @@
    \end{block}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Obszar normalny względem OX}
+\begin{frame}{Całkowanie po obszarze normalnym względem OX}
 	    \begin{figure}[h]
 			\includegraphics[width=.55\linewidth]{img/6/6_01}
 		\end{figure}
@@ -69,8 +73,9 @@
    \end{block}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Obszar regularny}
+\begin{frame}{Całkowanie po obszarze regularnym}
 	\begin{block}{}
+	  \textbf{Podejścia:}
       \begin{itemize}
       \item całkowanie zewnętrzne - wewnętrzne
       \item dla ustalonego y - właściwy dobór x
@@ -78,7 +83,7 @@
       \end{itemize}
 	\end{block}
 	\begin{figure}[h]
-			\includegraphics[width=.75\linewidth]{img/6/6_02}
+	\includegraphics[scale=0.16]{img/6/6_02}
 		\end{figure}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -103,7 +108,7 @@
 		\textbf{Podejście:}
 	\end{large}
 	\begin{itemize}
-	\item analityczme (co się da!)
+	\item analityczne (co się da!)
     \item wykorzystać symetrie
     \item metoda całkowania zależna od przebiegu funkcji w poszczególnych obszarach
     \item stosowanie metod Monte-Carlo
