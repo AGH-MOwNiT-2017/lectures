@@ -20,7 +20,7 @@
     \]
     $Y = f(X)$, przy czym $X$ - zmienna losowa o rozkładzie równomiernym $(0, 1)$
     
-    Oszacowanie $E\{X\}$ - średnia z $N$ niezależnych obserwacji: \[
+    Oszacowanie $E\{Y\}$ - średnia z $N$ niezależnych obserwacji: \[
     	\boxed{
         \hat{I} = \frac{1}{N} \sum_{i=1}^n f(x_i) \hspace{.5cm} (**)
         }
@@ -29,7 +29,7 @@
 %%%%%%%%%%%%%%%%
 \begin{frame}{Metoda podstawowa - procedura}
     \begin{block}{Procedura}
-        \begin{enumerate}[1)]
+        \begin{enumerate}
             \item wylosować $x_1, x_2, ..., x_N$ wg rozkładu równomiernego na $(0, 1)$
             \item obliczyć $f(x_1), f(x_2), ..., f(x_N)$
             \item średnia $(**)$
@@ -56,12 +56,12 @@
     
     \begin{block}{Estymator wariancji}
     	\[
-        	\sigma^2(\hat{I}) = \frac{1}{N} \S_f^2; 
-            \S_f^2 = \frac{1}{N-1} \sum_{i=1}^N [f(x_i) - \hat{I}]^2
+        	\sigma^2(\hat{I}) = \frac{1}{N} \sigma_f^2; 
+            \sigma_f^2 = \frac{1}{N-1} \sum_{i=1}^N [f(x_i) - \hat{I}]^2
         \]
     \end{block}
     
-    $\sigma^2(\hat{I}_2) - \sigma^2(\hat{I}_2) > 0$ \hspace{.5cm}
+    $\sigma^2(\hat{I}_1) - \sigma^2(\hat{I}_2) > 0$ \hspace{.5cm}
     1 - orzeł/reszka; \hspace{.5cm}
     2 - podstawowa
 \end{frame}

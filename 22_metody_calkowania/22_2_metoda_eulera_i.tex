@@ -1,6 +1,6 @@
 \section{Metoda Eulera pierwszego rzędu}
 %%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
+\begin{frame}{Metoda Eulera pierwszego rzędu}
   \underline{$f(u,t)$= ?} \quad dla  \quad $t \in [t^n,t^{n+1}] \approx f(u^n,t^n)$
   \begin{figure}
 	\includegraphics[height=0.65\textheight]{img/22/img1.jpg}
@@ -33,7 +33,7 @@
   warunek stabilności: $|g|<1$ warunek stabilności dla $\frac{\partial f}{\partial u}>0$
   $$\frac{\partial f}{\partial u}\arrowvert_n \cdot \Delta t \leqslant 2 \quad 
   \rightarrow \quad \Delta t \leqslant \frac{2}{\frac{\partial f}{\partial u}\arrowvert_n} \Rightarrow krok$$
-  (gdy $\frac{\partial f}{\partial u}\arrowvert_n 0$ - metoda niestabilna)
+  (gdy $\frac{\partial f}{\partial u}\arrowvert_n < 0$ - metoda niestabilna)
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 
