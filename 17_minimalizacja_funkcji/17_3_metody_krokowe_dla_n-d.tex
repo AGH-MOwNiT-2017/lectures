@@ -178,15 +178,15 @@
  	Działają w oparciu o informacje o funkcji w małych obszarach
  	\\(używany gradient i ew. wyższe pochodne).
     \begin{block}{Wyznaczanie pochodnych}
- 	   analitycznie -- kłopotliwe, więc numerycznie:
+ 	   Analitycznie -- kłopotliwe, więc numerycznie:
  	   \begin{displaymath}
  	   	  \frac{\partial (F)}{\partial (x)} \bigg\vert_{x_0} \approx \frac{F(x_0+d) - F(x_0)}{d},
- 	   	  \quad \delta \approx \frac{d}{2} \cdot \frac{\partial^2F}{\partial x^3}
+ 	   	  \quad \delta \approx \frac{d}{2} \cdot \frac{\partial^2 F}{\partial x^2} \bigg\vert_{x_0}
  	   \end{displaymath}
  	   Lepiej:
  	   \begin{displaymath}
  	   	  \frac{\partial (F)}{\partial (x)} \bigg\vert_{x_0} \approx \frac{F(x_0+d) - F(x_0-d)}{2\cdot d},
- 	   	  \quad \delta \approx \frac{d}{2} \cdot \frac{\partial^2F}{\partial x^3}
+ 	   	  \quad \delta \approx ... \cdot \frac{\partial^3 F}{\partial x^3} \bigg\vert_{x_0}
  	   \end{displaymath}
   	\end{block}
 
@@ -340,7 +340,7 @@
 	  \emph{Dla ogólnej funkcji nieliniowej:}
 	  \smallskip
 	  \begin{itemize}
-	  	    \item krok do $x = \frac{g}{G}$ gdy $G > 0$
+	  	    \item krok do $x = - \frac{g}{G}$ gdy $G > 0$
 	  	    \\(w przeciwnym przypadku: $\infty$ lub maximum)
 	  \end{itemize}
 	\end{block}

@@ -7,7 +7,7 @@
     \end{block}
     \begin{block}{Procedura iteracyjna}
       W k-tym kroku:
-      \begin{equation}
+      \begin{equation}\label{eq:def_0}
         \left.
           \begin{aligned}
             x_{k + 1} &= x_{k} + \alpha_{k} \cdot d_{k}\\
@@ -29,7 +29,7 @@
       \begin{equation*}
         Q(x) = (Ax - c)^T \cdot (Ax - c)
       \end{equation*}
-      $V(x_k) = G^{-1}(x_k)$ -- macierz kowariancji w $k-tym$ kroku
+      $V(x_k) = G^{-1}(x_k)$ -- macierz kowariancji w k-tym kroku
     \end{block}
 
     \begin{block}{}
@@ -46,7 +46,7 @@
 
     \begin{block}{}
       \textbf{Szukamy: }
-        \begin{equation}
+        \begin{equation}\label{eq:v_k_c}
           V_{k + 1} = V_k + C_k
         \end{equation}
       \textbf{Dysponujemy: } $x_k, x_{k + 1}, \nabla F(x_k), \nabla F(x_{k + 1})$
@@ -75,7 +75,7 @@
         A -- macierz $(n \times n)$, symetryczna, dodatnio określona.\\
       \textbf{Twierdzenie: } Niezależnie od wyboru punktu początkowego $x_0$\\
        można zminimalizować formę kwadratową:
-       \begin{equation}
+       \begin{equation}\label{eq:tw_1}
          Q(x) = Q(x_0) + b^T \cdot x + \frac{1}{2} x^T \cdot A \cdot x
        \end{equation}
        \begin{enumerate}
@@ -88,4 +88,249 @@
   \end{frame}
 
   \begin{frame}{Minimalizacja w kierunkach sprzężonych -- dowód}
+    $V$ -- dowolny wektor; $d_i$ -- liniowo niezależne
+    \begin{equation}
+      \begin{gathered}
+        \begin{aligned}
+          &V = \sum_{i=0}^{n - 1} \gamma_i \cdot d_i, &\gamma_i = \frac{d_i A v}{d_i^T A d_i}
+        \end{aligned}
+      \end{gathered}
+    \end{equation}
+    W kroku iteracyjnym $p$:
+    \begin{equation*}
+        \begin{aligned}
+          &x_p = x_0 + \sum_{i = 0}^{p - 1} \alpha_i \cdot d_i, &p > 1
+        \end{aligned}
+    \end{equation*}
+    $x_p$ -- kolejny punkt uzyskany w trakcie minimalizacji\\
+    formy kw. $Q(x)$ wzdłuż kierunków $d_0, d_1, ..., d_{p - 1}$.
+  \end{frame}
+
+  \begin{frame}{Minimalizacja w kierunkach sprzężonych -- dowód cd.}
+    \begin{enumerate}
+      \item Z punktu $x_p$ do $x_{p + 1}$ przechodzimy wzdłuż $d_p$
+      \item Forma $Q$ ma mieć minimum wzdłuż $d_p$
+    \end{enumerate}
+    Otrzymujemy więc, że:
+    \begin{equation}\label{eq:d_n_q_zero}
+        \begin{aligned}
+          d_p^T \nabla Q(x_{p + 1}) = 0
+        \end{aligned}
+    \end{equation}
+    Po podstawieniu $(\ref{eq:tw_1})$ do $(\ref{eq:d_n_q_zero})$:
+    \begin{equation*}
+        \begin{aligned}
+          d_p^T \cdot A \cdot \bigg[(x_0 + \sum_{i = 0}^{p - 1} \alpha_i \cdot d_i) + \alpha_p \cdot d_p \bigg] + d_p^T \cdot b = 0
+        \end{aligned}
+    \end{equation*}
+    Z czego wyznaczamy stałą:
+    \begin{equation*}
+        \begin{aligned}
+          \alpha_p = - \frac{d_p^T (A \cdot x_0 + b)}{d_p^T \cdot A \cdot d_p}
+        \end{aligned}
+    \end{equation*}
+  \end{frame}
+
+  \begin{frame}{Minimalizacja w kierunkach sprzężonych -- dowód cd.}
+    W konsekwencji po co najwyżej $n$ krokach, (bo może być $\alpha_i = 0)$ zachodzi:
+    \begin{equation*}
+        \begin{aligned}
+          x_n = x_0 - \sum_{i = 0}^{n - 1} \frac{d_i^T (A \cdot x_0 + b) d_i}{d_i^T \cdot A \cdot d_i} =
+          x_0 - \underbrace{\sum_{i = 0}^{n - 1} \frac{d_i^T \cdot A (x_0 + A^{-1} b) d_i}{d_i^T \cdot A \cdot d_i}}_{x_0 + A^{-1} \cdot b}\\
+          x_n = x_0 - x_0 - A^{-1} \cdot b = - A^{-1} \cdot b
+        \end{aligned}
+    \end{equation*}
+    Osiągnęliśmy min. formy kwadratowej:
+    \begin{enumerate}
+      \item niezależnie od kolejności wystąpień $d_i$,
+      \item w co najwyżej $n$ krokach minimalizacyjnych
+    \end{enumerate}
+    Met. kier. sprzężonych prowadzi do \textbf{zbieżności kwadratowej}.
+  \end{frame}
+
+  \begin{frame}{Minimalizacja w kierunkach sprzężonych 2}
+    \begin{block}{Twierdzenie 2}
+      \textbf{Założenie: } $x_{k + 1}$ -- kolejny punkt uzyskany w minimalizacji\\
+      formy $(\ref{eq:tw_1})$ wzdłuż A-sprzężonych kierunków $d_0, d_1, ..., d_k$.\\
+      \textbf{Twierdzenie: } Zachodzi równanie:
+      \begin{equation}\label{eq:tw_2}
+          \begin{aligned}
+            &d_l^T \nabla Q(x_{k + 1}) = 0, &l = 0, 1, ..., k
+          \end{aligned}
+      \end{equation}
+    \end{block}
+
+    \begin{block}{}
+        \textbf{Obserwacja: } Gradient formy kwadratowej w punkcie $x_p$ "pamięta"
+        wszystkie poprzednie kierunki sprzężone\\ prowadzące do $x_p$ z $x_0$.
+    \end{block}
+  \end{frame}
+
+  \begin{frame}{Minimalizacja w kierunkach sprzężonych 2 -- dowód}
+    \begin{equation*}
+      \begin{aligned}
+        \nabla Q_{k + 1}  &= A \cdot x_{k + 1} + b = A \cdot \bigg(x_s + \sum_{j = s + 1}^k \alpha_j d_j \bigg) + b =\\
+                          &= \nabla Q_{s + 1} + \sum_{j = s + 1}^{k} \alpha_j A d_j
+      \end{aligned}
+    \end{equation*}
+    W konsekwencji:
+    \begin{equation*}
+      \begin{aligned}
+        d_s^T \nabla Q_{s + 1} = \underbrace{d_s^T \nabla Q_{s + 1}}_{= 0 \text{ (wzór \ref{eq:d_n_q_zero})}}
+        + \underbrace{\sum_{j = s + 1}^k \alpha_j d_s^T A d_j}_{= 0}
+      \end{aligned}
+    \end{equation*}
+    Słuszne jest więc równanie $(\ref{eq:tw_2})$.
+  \end{frame}
+
+  \begin{frame}{Formuła Davidona-Fletchera-Powella}
+      Dla macierzy $V = G^{-1}$:\\
+      \begin{enumerate}
+        \item $(n \times n)$\\
+        \item symetrycznej\\
+        \item dodatnio określonej
+      \end{enumerate}
+      wektorów $d_0, d_1, ..., d_{n - 1}$ wyznaczającej kierunki sprzężone wzgl. $G$\\
+      zachodzi:
+      \begin{equation}
+        \begin{aligned}
+          V = \sum_{i = 0}^{n - 1} \frac{d_i d_i^T}{d_i^T G d_i}
+        \end{aligned}
+      \end{equation}
+  \end{frame}
+
+  \begin{frame}{Formuła Davidona-Fletchera-Powella 2}
+    Bierzemy element tej sumy jako pierwsze przybliżenie do szukanej
+    poprawki $C_k$ (wzór $\ref{eq:v_k_c}$):
+    \begin{equation}\label{eq:v_k1_k}
+      \begin{aligned}
+        &V_{k + 1} = V_k + \frac{d_k d_k^T}{d_k^T G d_k} + B_k, &B_k = B_k^T
+      \end{aligned}
+    \end{equation}
+    $B_k$ -- z warunku: $d_0, d_1, ..., d_k$ -- kierunki G-sprzężone.
+  \end{frame}
+
+
+  \begin{frame}{Formuła Davidona-Fletchera-Powella 3}
+    Przymując:
+    \begin{equation*}
+      \begin{aligned}
+        V_k G d_i = d_i, i = 0, 1, ..., k
+      \end{aligned}
+    \end{equation*}
+    dla $d_0, d_1, ..., d_k$ będących G-sprzężonymi.\\
+    Mamy (wzór \ref{eq:def_0}):
+    \begin{equation*}
+      \begin{aligned}
+        -d_i^T G d_{k + 1} &= d_i^T G V_{k + 1} \nabla Q(x_{k + 1}) =\\
+        = \bigg[ \nabla^T Q_{k + 1} V_{k + 1} G d_i \bigg]^T
+        &= d_i^T \nabla Q_{k + 1} = 0 \text{, } i = 0, 1, ..., k
+      \end{aligned}
+    \end{equation*}
+    Jest to wzór $(\ref{eq:tw_2})$.\\
+    Wniosek: $d_{k + 1}$ -- również sprzężony do poprzednich.
+  \end{frame}
+
+  \begin{frame}{Formuła Davidona-Fletchera-Powella 4}
+    Żądamy, aby:
+    \begin{equation*}
+      \begin{aligned}
+        &V_{k + 1} G d_i = d_i, &i = 0, 1, ..., k+1
+      \end{aligned}
+    \end{equation*}
+
+    Podstawiamy $V_{k + 1}$ z równania $(\ref{eq:v_k1_k})$ dla $i = k$.
+    Otrzymujemy:\\
+    \begin{equation*}
+      \begin{aligned}
+        \bigg(V_k + \frac{d_k d_k^T}{d_k^T G d_k} + B_k \bigg) G d_k = d_k
+      \end{aligned}
+    \end{equation*}
+
+    Po przekształceniu:\\
+    \begin{equation*}
+      \begin{aligned}
+        (V_k + B_k) G d_k = 0
+      \end{aligned}
+    \end{equation*}
+
+    Co po uwzgl. wzorów $(\ref{eq:d_n_q_zero})$ i $(\ref{eq:def_0})$ daje:\\
+    \begin{equation}
+      \begin{aligned}
+        \big[ \nabla Q_{k + 1} - \nabla Q_k \big]^T (V_k + B_k) = 0
+      \end{aligned}
+    \end{equation}
+  \end{frame}
+
+  \begin{frame}{Formuła Davidona-Fletchera-Powella 5}
+    $B_k$ powinna mieć postać:
+    \begin{equation*}
+      \begin{aligned}
+        B_k = - \frac{V_k \gamma_k \gamma_k^T V_k}{\gamma_k^T V_k \gamma_k}
+      \end{aligned}
+    \end{equation*}
+    \begin{equation}
+      \begin{aligned}
+        \gamma_k = \nabla Q(x_{k + 1}) - \nabla Q(x_k)
+      \end{aligned}
+    \end{equation}
+    \begin{equation}
+      \begin{aligned}
+        \delta_k \equiv x_{k + 1} - x_k \stackrel{(\text{wzór } \ref{eq:def_0})}{=} -\alpha_k G^{-1} \nabla Q_k = \alpha_k d_k
+      \end{aligned}
+    \end{equation}
+    Otrzymujemy:
+    \begin{equation*}
+      \begin{aligned}
+        d_k^T G d_k = \frac{(\alpha_{k + 1} - x_k)^T}{\alpha_k} G d_k = \frac{\gamma_k^T d_k}{\alpha_k}
+      \end{aligned}
+    \end{equation*}
+    Gdyż dla formy kwadratowej:
+    \begin{equation}
+      \begin{aligned}
+        \delta_k = G^{-1} \gamma_k
+      \end{aligned}
+    \end{equation}
+  \end{frame}
+
+  \begin{frame}{Metoda zmiennej metryki}
+    \begin{block}{Wzór korekcyjny}
+        Wzór korekcyjny ma postać:
+        \begin{equation*}
+          \begin{aligned}
+            V_{k + 1} = V_k + \frac{\delta_k \delta_k^T}{\gamma_k^T \delta_k} - \frac{V_k \gamma_k \gamma_k^T  V_k}{\gamma_k^T  V_k \gamma_k}
+          \end{aligned}
+        \end{equation*}
+    \end{block}
+  \end{frame}
+
+  \begin{frame}{Metoda zmiennej metryki -- przykład}
+    \begin{equation*}
+      \begin{rcases}
+        \text{Geometria różniczkowa} \\
+        \text{Ogólna teoria wzgl.}
+      \end{rcases}
+      \text{ Własności F}
+    \end{equation*}
+    F -- nieeuklidesowa przestrzeni zmiennych $x=(x_1, x_2, ..., x_n)$.\\
+
+    Podst. niezmiennik:
+    \begin{equation*}
+      \begin{aligned}
+        &ds^2 = dx^T A dx &\text{(kwadrat elem. długości)}
+      \end{aligned}
+    \end{equation*}
+
+    \begin{equation*}
+      \begin{aligned}
+        dx - \text{przesunięcie, } x &\rightarrow x + dx \\
+        A &\rightarrow \text{kowariantny tensor metryczny}
+      \end{aligned}
+    \end{equation*}
+    \begin{equation*}
+      \begin{aligned}
+        \text{Dla } Q &\rightarrow A - \text{wszędzie stałe}\\
+                    F &\rightarrow \text{przestrzeń o zmiennej metryce}
+      \end{aligned}
+    \end{equation*}
   \end{frame}
