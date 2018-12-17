@@ -1,11 +1,15 @@
 # lectures
-Brave quest of 16 students to make MOWNiT even better again!
+Brave quest of 16 + 4 students to make MOWNiT even better again!
 
 ## Workflow
 
 Current division of chapters between teams is here:
 
 https://docs.google.com/spreadsheets/d/1gpITiKJO90yhQHCTuNMIKmU7El9n4iUcvN-XkUxMhiY/edit#gid=0
+
+and there:
+
+https://docs.google.com/spreadsheets/d/1G25GAC-rty6mqDCgkwITBiDnk4OHBwQz8igq7TpAGQY/edit#gid=0
 
 ## Getting LaTeX and Beamer
 
@@ -22,13 +26,15 @@ http://www.texstudio.org/
 
 1. Make a copy of template.tex
 2. Place it in the main directory (for the love of Garek please don't change it)
-3. All the stuff you shouldn't change is in the header file in the include directory. Don't change it.
+3. All the stuff you should not change is in the header file in the include directory. Don't change it.
 4. At the top of the file, in \subtitle brackets, write the number and name of your presentation, i.e:
 
 ```tex
 \subtitle{4 - Spline functions}
 ```
 ...and that's basically all
+
+Type 'make' in main directory to compile and generate presentations.
 
 ## Images policy
 
